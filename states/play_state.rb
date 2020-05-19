@@ -44,6 +44,11 @@ class PlayState < GameState
     if id == Gosu::KbEscape
       GameState.switch(MenuState.instance)
     end
+    if id == Gosu::KbSpace
+      pause = PauseState.instance
+      pause.play_state = self
+      GameState.switch(pause)
+    end
   end
 
 end
