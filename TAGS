@@ -36,21 +36,21 @@ class CameraCamera1,0
   def can_view?(x, y, obj)can_view?10,143
   def mouse_coordsmouse_coords16,287
   def updateupdate25,580
-  def to_sto_s33,851
-  def target_delta_on_screentarget_delta_on_screen39,980
-  def draw_crosshairdraw_crosshair43,1073
-  def viewportviewport56,1356
+  def to_sto_s33,855
+  def target_delta_on_screentarget_delta_on_screen39,984
+  def draw_crosshairdraw_crosshair43,1077
+  def viewportviewport56,1360
 
 entities/explosion.rb,286
 class ExplosionExplosion1,0
   def animationanimation4,41
-  def soundsound10,178
-  def initialize(x, y)initialize15,280
-  def updateupdate21,366
-  def drawdraw25,428
-  def done?done?34,584
-  def current_framecurrent_frame40,661
-  def frame_expired?frame_expired?44,735
+  def soundsound10,179
+  def initialize(x, y)initialize15,282
+  def updateupdate21,368
+  def drawdraw25,430
+  def done?done?34,586
+  def current_framecurrent_frame40,663
+  def frame_expired?frame_expired?44,737
 
 entities/map.rb,329
 class MapMap4,54
@@ -73,20 +73,20 @@ class BulletBullet1,0
   def exploaded?exploaded?43,979
   def fire(speed)fire47,1038
   def soundsound55,1136
-  def trajectory_lengthtrajectory_length60,1233
-  def point_at_distance(distance)point_at_distance66,1351
+  def trajectory_lengthtrajectory_length60,1234
+  def point_at_distance(distance)point_at_distance66,1352
 
 entities/tank.rb,380
 class TankTank1,0
   def initialize(map)initialize5,80
-  def soundsound19,483
-  def shoot(target_x, target_y)shoot24,587
-  def update(camera)update31,778
-  def moving?moving?60,1624
-  def drawdraw64,1710
-  def speedspeed70,1865
-  def any_button_down?(*buttons)any_button_down?82,2011
-  def change_angle(previous_angle, up, down, right, left)change_angle89,2138
+  def soundsound20,506
+  def shoot(target_x, target_y)shoot25,610
+  def update(camera)update32,811
+  def moving?moving?61,1657
+  def drawdraw65,1743
+  def speedspeed71,1898
+  def any_button_down?(*buttons)any_button_down?83,2044
+  def change_angle(previous_angle, up, down, right, left)change_angle90,2171
 
 main.rb,0
 

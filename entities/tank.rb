@@ -13,6 +13,7 @@ class Tank
     @body_angle = 0.0
     @gun_angle = 0.0
     @last_shot = 0
+    @bullet_speed = 30
     sound.volume = 0.3
   end
 
@@ -24,7 +25,7 @@ class Tank
   def shoot(target_x, target_y)
     if Gosu.milliseconds - @last_shot > SHOOT_DELAY
       @last_shot = Gosu.milliseconds
-      Bullet.new(@x, @y, target_x, target_y).fire(100)
+      Bullet.new(@x, @y, target_x, target_y).fire(@bullet_speed)
     end
   end
 
