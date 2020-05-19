@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'singleton'
 class MenuState < GameState
   include Singleton
@@ -5,7 +6,7 @@ class MenuState < GameState
 
   def initialize
     @message = Gosu::Image.from_text(
-      $window, "Tanks Prototype",
+      $window, "ばんばんどーん",
       Gosu.default_font_name, 100)
   end
 

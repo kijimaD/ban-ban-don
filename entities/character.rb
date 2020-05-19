@@ -71,7 +71,7 @@ class Character
   def speed
     @speed ||= 1.0
     if moving?
-      @speed += 0.03 if @speed < 5
+      @speed += 0.2 if @speed < 5
     else
       @speed = 1.0
     end
