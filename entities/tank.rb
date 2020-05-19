@@ -5,7 +5,7 @@ class Tank
   def initialize(map)
     @map = map
     @units = Gosu::TexturePacker.load_json(
-      Game.media_path('ground_units.json'), :precise)
+      Utils.media_path('ground_units.json'), :precise)
     @body = @units.frame('tank1_body.png')
     @shadow = @units.frame('tank1_body_shadow.png')
     @gun = @units.frame('tank1_dualgun.png')
@@ -18,7 +18,7 @@ class Tank
 
   def sound
     @@sound ||= Gosu::Song.new(
-      $window, Game.media_path('tank_driving.mp3'))
+      $window, Utils.media_path('tank_driving.mp3'))
   end
 
   def shoot(target_x, target_y)

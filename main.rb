@@ -1,14 +1,23 @@
 require 'gosu'
-require_relative 'states/game_state'
-require_relative 'states/menu_state'
-require_relative 'states/play_state'
-require_relative 'game_window'
 
-module Game
-  def self.media_path(file)
-    File.join(File.dirname(File.dirname(
-      __FILE__)), 'media', file)
+root_dir = File.dirname(__FILE__)
+require_pattern = File.join(root_dir, '**/*.rb')
+@failed = []
+
+# Dynamically require everything
+Dir.glob(require_pattern).each do |f|
+  next if f.end_with?('/main.rb')
+  begin
+    require_relative f.gsub("#{root_dir}/", '')
+  rescue
+    # May fail if parent class not required yet
+    @failed << f
   end
+end
+
+# Retry unresolved requires
+@failed.each do |f|
+  require_relative f.gsub("#{root_dir}/", '')
 end
 
 $window = GameWindow.new
