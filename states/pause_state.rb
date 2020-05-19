@@ -1,11 +1,12 @@
+# coding: utf-8
 require 'singleton'
 class PauseState < GameState
   include Singleton
   attr_accessor :play_state
 
   def initialize
-    @max_player_character = 2
-    @max_difficulty = 2
+    @player_characters = ["Pawapuro", "Ishinaka", "Shirase", "Haibara"]
+    @difficulties = ["easy", "normal", "hard", "powerful"]
     @pointer_x = 0
     @pointer_y = 0
     @buttons = [@pointer_x, @pointer_y]
@@ -16,13 +17,38 @@ class PauseState < GameState
   end
 
   def update
+    @player_characters.each_with_index do |chara, i|
+      if i == @pointer_x
+        @print_character = "#{@print_character}<#{chara}>"
+      else
+        @print_character = "#{@print_character} #{chara}"
+      end
+    end
+
+    @difficulties.each do |difficult|
+      @print_difficulty = "#{@print_difficulty} #{difficult}"
+    end
+
+    @pointer_location = Gosu::Image.from_text(
+      $window, "x, y = #{@pointer_x}, #{@pointer_y}",
+      Gosu.default_font_name, 30)
+
+    @player_character_row = Gosu::Image.from_text(
+      $window, "#{@print_character}",
+      Gosu.default_font_name, 30)
+
+    @difficulty_row = Gosu::Image.from_text(
+      $window, "#{@print_difficulty}",
+      Gosu.default_font_name, 30)
+
+    @print_character = ""
+    @print_difficulty = ""
   end
 
   def draw
-    @test = Gosu::Image.from_text(
-      $window, "x,y = #{@pointer_x}, #{@pointer_y}",
-      Gosu.default_font_name, 30)
-    @test.draw(100, 100, 100)
+    @pointer_location.draw(0, 0, 0)
+    @player_character_row.draw(0, 50, 0)
+    @difficulty_row.draw(0, 100, 0)
   end
 
   def button_down(id)
