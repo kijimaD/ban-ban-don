@@ -1,4 +1,4 @@
-class Tank
+class Character
   attr_accessor :x, :y, :body_angle, :gun_angle
   SHOOT_DELAY = 500
 

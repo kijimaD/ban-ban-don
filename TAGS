@@ -13,12 +13,12 @@ class GameStateGameState1,0
   def needs_redraw?needs_redraw?21,220
   def button_down(id)button_down25,256
 
-states/play_state.rb,170
-class PlayState < GameStatePlayState6,188
-  def initializeinitialize8,217
-  def updateupdate16,358
-  def drawdraw26,636
-  def button_down(id)button_down42,1011
+states/play_state.rb,166
+class PlayState < GameStatePlayState1,0
+  def initializeinitialize3,29
+  def updateupdate11,185
+  def drawdraw21,483
+  def button_down(id)button_down37,863
 
 states/menu_state.rb,242
 class MenuState < GameStateMenuState2,20
@@ -63,6 +63,18 @@ class MapMap4,54
   def generate_mapgenerate_map63,1224
   def choose_tile(val)choose_tile79,1569
 
+entities/character.rb,390
+class CharacterCharacter1,0
+  def initialize(map)initialize5,85
+  def soundsound20,511
+  def shoot(target_x, target_y)shoot25,615
+  def update(camera)update32,816
+  def moving?moving?61,1662
+  def drawdraw65,1748
+  def speedspeed71,1903
+  def any_button_down?(*buttons)any_button_down?83,2049
+  def change_angle(previous_angle, up, down, right, left)change_angle90,2176
+
 entities/bullet.rb,405
 class BulletBullet1,0
   def initialize(source_x, source_y, target_x, target_y)initialize6,78
@@ -75,18 +87,6 @@ class BulletBullet1,0
   def soundsound55,1136
   def trajectory_lengthtrajectory_length60,1234
   def point_at_distance(distance)point_at_distance66,1352
-
-entities/tank.rb,380
-class TankTank1,0
-  def initialize(map)initialize5,80
-  def soundsound20,506
-  def shoot(target_x, target_y)shoot25,610
-  def update(camera)update32,811
-  def moving?moving?61,1657
-  def drawdraw65,1743
-  def speedspeed71,1898
-  def any_button_down?(*buttons)any_button_down?83,2044
-  def change_angle(previous_angle, up, down, right, left)change_angle90,2171
 
 main.rb,0
 

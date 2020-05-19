@@ -1,26 +1,22 @@
-require_relative '../entities/map'
-require_relative '../entities/tank'
-require_relative '../entities/camera'
-require_relative '../entities/bullet'
-require_relative '../entities/explosion'
+# coding: utf-8
 class PlayState < GameState
 
   def initialize
     @map = Map.new
-    @tank = Tank.new(@map)
-    @camera = Camera.new(@tank)
+    @character = Character.new(@map)
+    @camera = Camera.new(@character)
     @bullets = []
     @explosions = []
   end
 
   def update
-    bullet = @tank.update(@camera)
+    bullet = @character.update(@camera)
     @bullets << bullet if bullet
     @bullets.map(&:update)
     @bullets.reject!(&:done?)
     @camera.update
-    $window.caption = 'Tanks Prototype. ' <<
-      "[FPS: #{Gosu.fps}. Tank @ #{@tank.x.round}:#{@tank.y.round}]"
+    $window.caption = 'ばんばんどーん！ ' <<
+      "[FPS: #{Gosu.fps}. Character @ #{@character.x.round}:#{@character.y.round}]"
   end
 
   def draw
@@ -32,7 +28,7 @@ class PlayState < GameState
       zoom = @camera.zoom
       $window.scale(zoom, zoom, cam_x, cam_y) do
         @map.draw(@camera)
-        @tank.draw
+        @character.draw
         @bullets.map(&:draw)
       end
     end
@@ -41,7 +37,7 @@ class PlayState < GameState
 
   def button_down(id)
     if id == Gosu::MsLeft
-      bullet = @tank.shoot(*@camera.mouse_coords)
+      bullet = @character.shoot(*@camera.mouse_coords)
       @bullets << bullet if bullet
     end
     $window.close if id == Gosu::KbQ
