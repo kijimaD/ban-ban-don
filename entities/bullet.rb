@@ -54,7 +54,7 @@ class Bullet
 
   def sound
     @@sound ||= Gosu::Sample.new(
-      $window, Game.media_path('fire.mp3'))
+      $window, Utils.media_path('fire.mp3'))
   end
 
   def trajectory_length

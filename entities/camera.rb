@@ -23,24 +23,11 @@ class Camera
   end
 
   def update
-    @x += @target.speed if @x < @target.x - $window.width / 4
-    @x -= @target.speed if @x > @target.x + $window.width / 4
-    @y += @target.speed if @y < @target.y - $window.height / 4
-    @y -= @target.speed if @y > @target.y + $window.height / 4
+    @x += @target.speed if @x < @target.x - $window.width / 16
+    @x -= @target.speed if @x > @target.x + $window.width / 16
+    @y += @target.speed if @y < @target.y - $window.height / 16
+    @y -= @target.speed if @y > @target.y + $window.height / 16
 
-    zoom_delta = @zoom > 0 ? 0.01 : 1.0
-    if $window.button_down?(Gosu::KbUp)
-      @zoom -= zoom_delta unless @zoom < 0.7
-    elsif $window.button_down?(Gosu::KbDown)
-      @zoom += zoom_delta unless @zoom > 10
-    else
-      target_zoom = @target.speed > 1.1 ? 0.85 : 1.0
-      if @zoom <= (target_zoom - 0.01)
-        @zoom += zoom_delta / 3
-      elsif @zoom > (target_zoom + 0.01)
-        @zoom -= zoom_delta / 3
-      end
-    end
   end
 
   def to_s

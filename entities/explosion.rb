@@ -4,12 +4,12 @@ class Explosion
   def animation
     @@animation ||=
     Gosu::Image.load_tiles(
-      $window, Game.media_path('explosion.png'), 128, 128, false)
+      $window, Utils.media_path('explosion.png'), 128, 128, false)
   end
 
   def sound
     @@sound ||= Gosu::Sample.new(
-      $window, Game.media_path('explosion.mp3'))
+      $window, Utils.media_path('explosion.mp3'))
   end
 
   def initialize(x, y)

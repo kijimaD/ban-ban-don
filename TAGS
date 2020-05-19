@@ -30,16 +30,16 @@ class MenuState < GameStateMenuState2,20
   def drawdraw34,648
   def button_down(id)button_down45,909
 
-entities/camera.rb,335
+entities/camera.rb,333
 class CameraCamera1,0
   def initialize(target)initialize4,44
   def can_view?(x, y, obj)can_view?10,143
   def mouse_coordsmouse_coords16,287
   def updateupdate25,580
-  def to_sto_s46,1289
-  def target_delta_on_screentarget_delta_on_screen52,1418
-  def draw_crosshairdraw_crosshair56,1511
-  def viewportviewport69,1794
+  def to_sto_s33,851
+  def target_delta_on_screentarget_delta_on_screen39,980
+  def draw_crosshairdraw_crosshair43,1073
+  def viewportviewport56,1356
 
 entities/explosion.rb,286
 class ExplosionExplosion1,0
@@ -60,8 +60,8 @@ class MapMap4,54
   def draw(camera)draw31,520
   def tile_at(x, y)tile_at46,811
   def load_tilesload_tiles53,970
-  def generate_mapgenerate_map63,1222
-  def choose_tile(val)choose_tile79,1567
+  def generate_mapgenerate_map63,1224
+  def choose_tile(val)choose_tile79,1569
 
 entities/bullet.rb,405
 class BulletBullet1,0
@@ -79,14 +79,14 @@ class BulletBullet1,0
 entities/tank.rb,380
 class TankTank1,0
   def initialize(map)initialize5,80
-  def soundsound19,482
-  def shoot(target_x, target_y)shoot24,585
-  def update(camera)update31,776
-  def moving?moving?60,1622
-  def drawdraw64,1708
-  def speedspeed70,1863
-  def any_button_down?(*buttons)any_button_down?82,2009
-  def change_angle(previous_angle, up, down, right, left)change_angle89,2136
+  def soundsound19,483
+  def shoot(target_x, target_y)shoot24,587
+  def update(camera)update31,778
+  def moving?moving?60,1624
+  def drawdraw64,1710
+  def speedspeed70,1865
+  def any_button_down?(*buttons)any_button_down?82,2011
+  def change_angle(previous_angle, up, down, right, left)change_angle89,2138
 
 main.rb,0
 
