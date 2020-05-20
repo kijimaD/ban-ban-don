@@ -10,16 +10,16 @@ class PauseState < GameStatePauseState3,36
   def enterenter15,342
   def continuecontinue19,362
   def updateupdate23,385
-  def drawdraw40,898
-  def button_down(id)button_down45,989
-  def any_button_down?(*buttons)any_button_down?64,1326
-  def cursor_upcursor_up71,1451
-  def cursor_downcursor_down79,1612
-  def cursor_rightcursor_right87,1775
-  def cursor_leftcursor_left93,1851
-  def gen_choises(input_array, goal_y)gen_choises99,1926
-  def gen_decision(goal_y)gen_decision111,2208
-  def gen_button(goal_y, button)gen_button120,2372
+  def drawdraw38,843
+  def button_down(id)button_down42,899
+  def any_button_down?(*buttons)any_button_down?61,1236
+  def cursor_upcursor_up68,1361
+  def cursor_downcursor_down76,1522
+  def cursor_rightcursor_right84,1685
+  def cursor_leftcursor_left90,1761
+  def gen_choises(input_array, goal_y)gen_choises96,1836
+  def gen_decision(goal_y)gen_decision110,2228
+  def gen_button(goal_y, button)gen_button119,2392
 
 states/game_state.rb,252
 class GameStateGameState1,0

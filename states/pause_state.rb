@@ -23,14 +23,11 @@ class PauseState < GameState
   def update
     $window.caption = 'ばんばんどーん！PAUSE' <<
       "[FPS: #{Gosu.fps}]"
-    @cursor_location = Gosu::Image.from_text(
-      $window,
-      "currnet x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}",
-      Gosu.default_font_name, 30)
 
     @settings_sentence = Gosu::Image.from_text(
       $window,
-      "      Character: #{gen_choises(@player_characters, 0)}
+      "      currnet x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}\n
+      Character: #{gen_choises(@player_characters, 0)}
       Difficulty: #{gen_choises(@difficulties, 1)}
       #{gen_button(2, "決定")}
       #{gen_button(3, "戻る")}",
@@ -39,7 +36,6 @@ class PauseState < GameState
   end
 
   def draw
-    @cursor_location.draw(0, 0, 0)
     @settings_sentence.draw(0, 50, 0)
   end
 
@@ -101,6 +97,8 @@ class PauseState < GameState
     content = ""
     input_array.each_with_index do |column, i|
       if i == @cursor_x && @cursor_y == goal_y
+        content = "#{content} ▼[#{column}]"
+      elsif i == @cursor_x_save[goal_y]  && @cursor_y != goal_y
         content = "#{content} [#{column}]"
       else
         content = "#{content} #{column}"
@@ -109,18 +107,9 @@ class PauseState < GameState
     content
   end
 
-  def gen_decision(goal_y)
-    if @cursor_y == goal_y
-      print_decision = '[決定\]'
-    else
-      print_decision = "決定"
-    end
-    print_decision
-  end
-
   def gen_button(goal_y, button)
     if @cursor_y == goal_y
-      print_decision = "[#{button}\\]"
+      print_decision = "▼#{button}"
     else
       print_decision = "#{button}"
     end
