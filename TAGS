@@ -6,14 +6,14 @@ module UtilsUtils1,0
 states/pause_state.rb,347
 class PauseState < GameStatePauseState3,36
   def initializeinitialize7,114
-  def enterenter15,347
-  def updateupdate19,367
-  def drawdraw48,1158
-  def button_down(id)button_down54,1289
-  def cursor_upcursor_up70,1561
-  def cursor_downcursor_down74,1604
-  def cursor_rightcursor_right78,1649
-  def cursor_leftcursor_left82,1695
+  def enterenter16,380
+  def updateupdate20,400
+  def drawdraw53,1368
+  def button_down(id)button_down59,1498
+  def cursor_upcursor_up75,1770
+  def cursor_downcursor_down81,1902
+  def cursor_rightcursor_right87,2036
+  def cursor_leftcursor_left91,2081
 
 states/game_state.rb,252
 class GameStateGameState1,0

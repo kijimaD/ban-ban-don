@@ -7,9 +7,10 @@ class PauseState < GameState
   def initialize
     @player_characters = ["Pawapuro", "Ishinaka", "Shirase", "Haibara"]
     @difficulties = ["easy", "normal", "hard", "powerful"]
-    @pointer_x = 0
-    @pointer_y = 0
-    @buttons = [@pointer_x, @pointer_y]
+    @cursor_x = 0
+    @cursor_y = 0
+    @buttons = [@cursor_x, @cursor_y]
+    @cursor_x_save = Array.new(2, 0)
   end
 
   def enter
@@ -18,19 +19,23 @@ class PauseState < GameState
 
   def update
     @player_characters.each_with_index do |chara, i|
-      if i == @pointer_x
+      if i == @cursor_x && @cursor_y == 0
         @print_character = "#{@print_character}<#{chara}>"
       else
         @print_character = "#{@print_character} #{chara}"
       end
     end
 
-    @difficulties.each do |difficult|
-      @print_difficulty = "#{@print_difficulty} #{difficult}"
+    @difficulties.each_with_index do |difficult, i|
+      if i == @cursor_x && @cursor_y == 1
+        @print_difficulty = "#{@print_difficulty}<#{difficult}>"
+      else
+        @print_difficulty = "#{@print_difficulty} #{difficult}"
+      end
     end
 
-    @pointer_location = Gosu::Image.from_text(
-      $window, "x, y = #{@pointer_x}, #{@pointer_y}",
+    @cursor_location = Gosu::Image.from_text(
+      $window, "x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}",
       Gosu.default_font_name, 30)
 
     @player_character_row = Gosu::Image.from_text(
@@ -46,7 +51,7 @@ class PauseState < GameState
   end
 
   def draw
-    @pointer_location.draw(0, 0, 0)
+    @cursor_location.draw(0, 0, 0)
     @player_character_row.draw(0, 50, 0)
     @difficulty_row.draw(0, 100, 0)
   end
@@ -68,19 +73,23 @@ class PauseState < GameState
   end
 
   def cursor_up
-    @pointer_y += 1
+    @cursor_x_save[@cursor_y] = @cursor_x
+    @cursor_y -= 1
+    @cursor_x = @cursor_x_save[@cursor_y]
   end
 
   def cursor_down
-    @pointer_y -= 1
+    @cursor_x_save[@cursor_y] = @cursor_x
+    @cursor_y += 1
+    @cursor_x = @cursor_x_save[@cursor_y]
   end
 
   def cursor_right
-    @pointer_x += 1
+    @cursor_x += 1
   end
 
   def cursor_left
-    @pointer_x -= 1
+    @cursor_x -= 1
   end
 
   # def decision
