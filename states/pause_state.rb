@@ -9,11 +9,14 @@ class PauseState < GameState
     @difficulties = ["easy", "normal", "hard", "powerful"]
     @cursor_x = 0
     @cursor_y = 0
-    @buttons = [@cursor_x, @cursor_y]
-    @cursor_x_save = Array.new(2, 0)
+    @cursor_x_save = Array.new(3, 0)
   end
 
   def enter
+
+  end
+
+  def continue
 
   end
 
@@ -34,16 +37,20 @@ class PauseState < GameState
       end
     end
 
+    if @cursor_y == 2
+      @print_decision = '<決定\>'
+    else
+      @print_decision = "決定"
+    end
+
     @cursor_location = Gosu::Image.from_text(
-      $window, "x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}",
+      $window, "currnet x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}",
       Gosu.default_font_name, 30)
 
-    @player_character_row = Gosu::Image.from_text(
-      $window, "#{@print_character}",
-      Gosu.default_font_name, 30)
-
-    @difficulty_row = Gosu::Image.from_text(
-      $window, "#{@print_difficulty}",
+    @settings_sentence = Gosu::Image.from_text(
+      $window, "character: #{@print_character}\n
+                difficulty: #{@print_difficulty}\n
+                #{@print_decision}",
       Gosu.default_font_name, 30)
 
     @print_character = ""
@@ -52,17 +59,16 @@ class PauseState < GameState
 
   def draw
     @cursor_location.draw(0, 0, 0)
-    @player_character_row.draw(0, 50, 0)
-    @difficulty_row.draw(0, 100, 0)
+    @settings_sentence.draw(0, 50, 0)
   end
 
   def button_down(id)
     $window.close if id == Gosu::KbQ
     if id == Gosu::KbUp
-      cursor_up
+        cursor_up
     end
     if id == Gosu::KbDown
-      cursor_down
+        cursor_down
     end
     if id == Gosu::KbRight
       cursor_right
@@ -73,23 +79,31 @@ class PauseState < GameState
   end
 
   def cursor_up
-    @cursor_x_save[@cursor_y] = @cursor_x
-    @cursor_y -= 1
-    @cursor_x = @cursor_x_save[@cursor_y]
+    if @cursor_y > 0
+      @cursor_x_save[@cursor_y] = @cursor_x
+      @cursor_y -= 1
+      @cursor_x = @cursor_x_save[@cursor_y]
+    end
   end
 
   def cursor_down
-    @cursor_x_save[@cursor_y] = @cursor_x
-    @cursor_y += 1
-    @cursor_x = @cursor_x_save[@cursor_y]
+    if @cursor_y < 2
+      @cursor_x_save[@cursor_y] = @cursor_x
+      @cursor_y += 1
+      @cursor_x = @cursor_x_save[@cursor_y]
+    end
   end
 
   def cursor_right
-    @cursor_x += 1
+    if @cursor_x < 3
+      @cursor_x += 1
+    end
   end
 
   def cursor_left
-    @cursor_x -= 1
+    if @cursor_x > 0
+      @cursor_x -= 1
+    end
   end
 
   # def decision
