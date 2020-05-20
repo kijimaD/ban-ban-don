@@ -21,40 +21,15 @@ class PauseState < GameState
   end
 
   def update
-    @player_characters.each_with_index do |chara, i|
-      if i == @cursor_x && @cursor_y == 0
-        @print_character = "#{@print_character}<#{chara}>"
-      else
-        @print_character = "#{@print_character} #{chara}"
-      end
-    end
-
-    @difficulties.each_with_index do |difficult, i|
-      if i == @cursor_x && @cursor_y == 1
-        @print_difficulty = "#{@print_difficulty}<#{difficult}>"
-      else
-        @print_difficulty = "#{@print_difficulty} #{difficult}"
-      end
-    end
-
-    if @cursor_y == 2
-      @print_decision = '<決定\>'
-    else
-      @print_decision = "決定"
-    end
-
     @cursor_location = Gosu::Image.from_text(
-      $window, "currnet x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}",
+      $window,
+      "currnet x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}",
       Gosu.default_font_name, 30)
 
     @settings_sentence = Gosu::Image.from_text(
-      $window, "character: #{@print_character}\n
-                difficulty: #{@print_difficulty}\n
-                #{@print_decision}",
+      $window,
+      "Character: #{gen_choises(@player_characters, 0)}\nDifficulty: #{gen_choises(@difficulties, 1)}\n#{gen_decision(2)}",
       Gosu.default_font_name, 30)
-
-    @print_character = ""
-    @print_difficulty = ""
   end
 
   def draw
@@ -106,7 +81,25 @@ class PauseState < GameState
     end
   end
 
-  # def decision
-  # end
+  def gen_choises(input_array, goal_y)
+    content = ""
+    input_array.each_with_index do |column, i|
+      if i == @cursor_x && @cursor_y == goal_y
+        content = "#{content} [#{column}]"
+      else
+        content = "#{content} #{column}"
+      end
+    end
+    content
+  end
+
+  def gen_decision(goal_y)
+    if @cursor_y == goal_y
+      print_decision = '[決定\]'
+    else
+      print_decision = "決定"
+    end
+    print_decision
+  end
 
 end
