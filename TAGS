@@ -3,21 +3,20 @@ utils.rb,67
 module UtilsUtils1,0
   def self.media_path(file)media_path3,14
 
-states/pause_state.rb,523
+states/pause_state.rb,484
 class PauseState < GameStatePauseState3,36
   def initializeinitialize7,114
   def enterenter15,342
   def continuecontinue19,362
   def updateupdate23,385
-  def gen_choises(input_array, goal_y)gen_choises33,790
-  def gen_decision(goal_y)gen_decision45,1072
-  def drawdraw54,1236
-  def button_down(id)button_down59,1327
-  def cursor_upcursor_up75,1603
-  def cursor_downcursor_down83,1764
-  def cursor_rightcursor_right91,1927
-  def cursor_leftcursor_left97,2003
-  def make_choicemake_choice103,2078
+  def drawdraw37,813
+  def button_down(id)button_down42,904
+  def cursor_upcursor_up60,1178
+  def cursor_downcursor_down68,1339
+  def cursor_rightcursor_right76,1502
+  def cursor_leftcursor_left82,1578
+  def gen_choises(input_array, goal_y)gen_choises88,1653
+  def gen_decision(goal_y)gen_decision100,1935
 
 states/game_state.rb,252
 class GameStateGameState1,0

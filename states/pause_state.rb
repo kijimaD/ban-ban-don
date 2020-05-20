@@ -5,8 +5,8 @@ class PauseState < GameState
   attr_accessor :play_state
 
   def initialize
-    @player_characters = ["Pawapuro", "Ishinaka", "Shirase", "Haibara"]
-    @difficulties = ["easy", "normal", "hard", "powerful"]
+    @player_characters = ['Pawapuro', 'Ishinaka', 'Shirase', 'Haibara']
+    @difficulties = ['easy', 'normal', 'hard', 'powerful']
     @cursor_x = 0
     @cursor_y = 0
     @cursor_x_save = Array.new(3, 0)
@@ -28,7 +28,9 @@ class PauseState < GameState
 
     @settings_sentence = Gosu::Image.from_text(
       $window,
-      "Character: #{gen_choises(@player_characters, 0)}\nDifficulty: #{gen_choises(@difficulties, 1)}\n#{gen_decision(2)}",
+      "      Character: #{gen_choises(@player_characters, 0)}
+      Difficulty: #{gen_choises(@difficulties, 1)}
+      #{gen_decision(2)}",
       Gosu.default_font_name, 30)
   end
 
@@ -40,10 +42,10 @@ class PauseState < GameState
   def button_down(id)
     $window.close if id == Gosu::KbQ
     if id == Gosu::KbUp
-        cursor_up
+      cursor_up
     end
     if id == Gosu::KbDown
-        cursor_down
+      cursor_down
     end
     if id == Gosu::KbRight
       cursor_right
