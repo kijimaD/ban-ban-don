@@ -10,6 +10,18 @@ class PauseState < GameState
     @cursor_x = 0
     @cursor_y = 0
     @cursor_x_save = Array.new(3, 0)
+
+      @cursor_location = Gosu::Image.from_text(
+        $window,
+        "currnet x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}",
+        Gosu.default_font_name, 30)
+
+      @settings_sentence = Gosu::Image.from_text(
+        $window,
+        "      Character: #{gen_choises(@player_characters, 0)}
+      Difficulty: #{gen_choises(@difficulties, 1)}
+        #{gen_decision(2)}",
+        Gosu.default_font_name, 30)
   end
 
   def enter
@@ -21,17 +33,22 @@ class PauseState < GameState
   end
 
   def update
-    @cursor_location = Gosu::Image.from_text(
-      $window,
-      "currnet x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}",
-      Gosu.default_font_name, 30)
+    $window.caption = 'ばんばんどーん！PAUSE' <<
+      "[FPS: #{Gosu.fps}]"
+    motion_buttons = [Gosu::KbUp, Gosu::KbDown, Gosu::KbRight, Gosu::KbLeft]
+    if any_button_down?(*motion_buttons)
+      @cursor_location = Gosu::Image.from_text(
+        $window,
+        "currnet x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}",
+        Gosu.default_font_name, 30)
 
-    @settings_sentence = Gosu::Image.from_text(
-      $window,
-      "      Character: #{gen_choises(@player_characters, 0)}
+      @settings_sentence = Gosu::Image.from_text(
+        $window,
+        "      Character: #{gen_choises(@player_characters, 0)}
       Difficulty: #{gen_choises(@difficulties, 1)}
-      #{gen_decision(2)}",
-      Gosu.default_font_name, 30)
+        #{gen_decision(2)}",
+        Gosu.default_font_name, 30)
+    end
   end
 
   def draw
@@ -53,6 +70,13 @@ class PauseState < GameState
     if id == Gosu::KbLeft
       cursor_left
     end
+  end
+
+  def any_button_down?(*buttons)
+    buttons.each do |b|
+      return true if Utils.button_down?(b)
+    end
+    false
   end
 
   def cursor_up
