@@ -13,11 +13,9 @@ class PauseState < GameState
   end
 
   def enter
-
   end
 
   def continue
-
   end
 
   def update
@@ -29,8 +27,8 @@ class PauseState < GameState
       "      currnet x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}\n
       Character: #{gen_choises(@player_characters, 0)}
       Difficulty: #{gen_choises(@difficulties, 1)}
-      #{gen_button(2, "決定")}
-      #{gen_button(3, "戻る")}",
+      #{gen_button(2, "戻る")}
+      #{gen_button(3, "決定")}",
       Gosu.default_font_name, 30)
 
   end
@@ -53,8 +51,11 @@ class PauseState < GameState
     if id == Gosu::KbLeft
       cursor_left
     end
-    if id == Gosu::KbEnter && @cursor_y == 2
-      enter
+    if id == Gosu::KbReturn && @cursor_y == 2 # continue
+      GameState.switch(@play_state)
+    end
+    if id == Gosu::KbReturn && @cursor_y == 3 # save
+      GameState.switch(@play_state)
     end
   end
 
