@@ -19,18 +19,14 @@ class PauseState < GameState
   end
 
   def update
-    $window.caption = 'ばんばんどーん！PAUSE' <<
-      "[FPS: #{Gosu.fps}]"
-
-    @settings_sentence = Gosu::Image.from_text(
-      $window,
+    $window.caption = 'ばんばんどーん！PAUSE' << "[FPS: #{Gosu.fps}]"
+    @settings_sentence = Gosu::Image.from_text($window,
       "      currnet x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}\n
       Character: #{gen_choises(@player_characters, 0)}
       Difficulty: #{gen_choises(@difficulties, 1)}
       #{gen_button(2, "戻る")}
       #{gen_button(3, "決定")}",
       Gosu.default_font_name, 30)
-
   end
 
   def draw

@@ -16,14 +16,14 @@ class PlayState < GameState
     @bullets.reject!(&:done?)
     @camera.update
     $window.caption = 'ばんばんどーん！ ' <<
-      "[FPS: #{Gosu.fps}. Character @ #{@character.x.round}:#{@character.y.round}]"
+      "残:#{@character.number_ammo}[FPS: #{Gosu.fps}. Character @ #{@character.x.round}:#{@character.y.round}]"
   end
 
   def draw
     cam_x = @camera.x
     cam_y = @camera.y
-    off_x =  $window.width / 2 - cam_x
-    off_y =  $window.height / 2 - cam_y
+    off_x = $window.width / 2 - cam_x
+    off_y = $window.height / 2 - cam_y
     $window.translate(off_x, off_y) do
       zoom = @camera.zoom
       $window.scale(zoom, zoom, cam_x, cam_y) do

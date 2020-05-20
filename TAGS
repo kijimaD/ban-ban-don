@@ -4,21 +4,21 @@ module UtilsUtils1,0
   def self.media_path(file)media_path3,14
   def self.button_down?(button)button_down7,102
 
-states/pause_state.rb,547
+states/pause_state.rb,546
 class PauseState < GameStatePauseState3,36
   def initializeinitialize7,114
   def enterenter15,342
-  def continuecontinue20,407
-  def updateupdate25,469
-  def drawdraw40,927
-  def button_down(id)button_down44,983
-  def any_button_down?(*buttons)any_button_down?67,1459
-  def cursor_upcursor_up74,1584
-  def cursor_downcursor_down82,1745
-  def cursor_rightcursor_right90,1908
-  def cursor_leftcursor_left96,1984
-  def gen_choises(input_array, goal_y)gen_choises102,2059
-  def gen_button(goal_y, button)gen_button116,2451
+  def continuecontinue18,361
+  def updateupdate21,383
+  def drawdraw32,826
+  def button_down(id)button_down36,882
+  def any_button_down?(*buttons)any_button_down?58,1352
+  def cursor_upcursor_up65,1477
+  def cursor_downcursor_down73,1638
+  def cursor_rightcursor_right81,1801
+  def cursor_leftcursor_left87,1877
+  def gen_choises(input_array, goal_y)gen_choises93,1952
+  def gen_button(goal_y, button)gen_button107,2344
 
 states/game_state.rb,252
 class GameStateGameState1,0
@@ -34,8 +34,8 @@ states/play_state.rb,167
 class PlayState < GameStatePlayState2,16
   def initializeinitialize4,45
   def updateupdate12,201
-  def drawdraw22,507
-  def button_down(id)button_down38,887
+  def drawdraw22,532
+  def button_down(id)button_down38,912
 
 states/menu_state.rb,243
 class MenuState < GameStateMenuState3,36
@@ -83,14 +83,14 @@ class MapMap4,54
 entities/character.rb,390
 class CharacterCharacter1,0
   def initialize(map)initialize5,85
-  def soundsound20,511
-  def shoot(target_x, target_y)shoot25,615
-  def update(camera)update32,816
-  def moving?moving?61,1662
-  def drawdraw65,1748
-  def speedspeed71,1903
-  def any_button_down?(*buttons)any_button_down?83,2048
-  def change_angle(previous_angle, up, down, right, left)change_angle90,2175
+  def soundsound22,553
+  def shoot(target_x, target_y)shoot27,657
+  def update(camera)update35,902
+  def moving?moving?64,1748
+  def drawdraw68,1834
+  def speedspeed74,1989
+  def any_button_down?(*buttons)any_button_down?86,2134
+  def change_angle(previous_angle, up, down, right, left)change_angle93,2261
 
 entities/bullet.rb,405
 class BulletBullet1,0

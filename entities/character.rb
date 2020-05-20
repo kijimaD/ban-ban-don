@@ -1,5 +1,5 @@
 class Character
-  attr_accessor :x, :y, :body_angle, :gun_angle
+  attr_accessor :x, :y, :body_angle, :gun_angle, :number_ammo
   SHOOT_DELAY = 500
 
   def initialize(map)
@@ -14,6 +14,8 @@ class Character
     @gun_angle = 0.0
     @last_shot = 0
     @bullet_speed = 30
+    @number_ammo = 20
+    @stack_ammo = 2
     sound.volume = 0.3
   end
 
@@ -23,7 +25,8 @@ class Character
   end
 
   def shoot(target_x, target_y)
-    if Gosu.milliseconds - @last_shot > SHOOT_DELAY
+    if Gosu.milliseconds - @last_shot > SHOOT_DELAY && @number_ammo > 0
+      @number_ammo -= 1
       @last_shot = Gosu.milliseconds
       Bullet.new(@x, @y, target_x, target_y).fire(@bullet_speed)
     end
