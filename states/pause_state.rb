@@ -9,19 +9,7 @@ class PauseState < GameState
     @difficulties = ['easy', 'normal', 'hard', 'powerful']
     @cursor_x = 0
     @cursor_y = 0
-    @cursor_x_save = Array.new(3, 0)
-
-      @cursor_location = Gosu::Image.from_text(
-        $window,
-        "currnet x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}",
-        Gosu.default_font_name, 30)
-
-      @settings_sentence = Gosu::Image.from_text(
-        $window,
-        "      Character: #{gen_choises(@player_characters, 0)}
-      Difficulty: #{gen_choises(@difficulties, 1)}
-        #{gen_decision(2)}",
-        Gosu.default_font_name, 30)
+    @cursor_x_save = Array.new(4, 0)
   end
 
   def enter
@@ -35,20 +23,19 @@ class PauseState < GameState
   def update
     $window.caption = 'ばんばんどーん！PAUSE' <<
       "[FPS: #{Gosu.fps}]"
-    motion_buttons = [Gosu::KbUp, Gosu::KbDown, Gosu::KbRight, Gosu::KbLeft]
-    if any_button_down?(*motion_buttons)
-      @cursor_location = Gosu::Image.from_text(
-        $window,
-        "currnet x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}",
-        Gosu.default_font_name, 30)
+    @cursor_location = Gosu::Image.from_text(
+      $window,
+      "currnet x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}",
+      Gosu.default_font_name, 30)
 
-      @settings_sentence = Gosu::Image.from_text(
-        $window,
-        "      Character: #{gen_choises(@player_characters, 0)}
+    @settings_sentence = Gosu::Image.from_text(
+      $window,
+      "      Character: #{gen_choises(@player_characters, 0)}
       Difficulty: #{gen_choises(@difficulties, 1)}
-        #{gen_decision(2)}",
-        Gosu.default_font_name, 30)
-    end
+      #{gen_button(2, "決定")}
+      #{gen_button(3, "戻る")}",
+      Gosu.default_font_name, 30)
+
   end
 
   def draw
@@ -70,6 +57,9 @@ class PauseState < GameState
     if id == Gosu::KbLeft
       cursor_left
     end
+    if id == Gosu::KbEnter && @cursor_y == 2
+      enter
+    end
   end
 
   def any_button_down?(*buttons)
@@ -88,7 +78,7 @@ class PauseState < GameState
   end
 
   def cursor_down
-    if @cursor_y < 2
+    if @cursor_y < 3
       @cursor_x_save[@cursor_y] = @cursor_x
       @cursor_y += 1
       @cursor_x = @cursor_x_save[@cursor_y]
@@ -124,6 +114,15 @@ class PauseState < GameState
       print_decision = '[決定\]'
     else
       print_decision = "決定"
+    end
+    print_decision
+  end
+
+  def gen_button(goal_y, button)
+    if @cursor_y == goal_y
+      print_decision = "[#{button}\\]"
+    else
+      print_decision = "#{button}"
     end
     print_decision
   end
