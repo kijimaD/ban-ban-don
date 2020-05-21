@@ -34,8 +34,8 @@ states/play_state.rb,167
 class PlayState < GameStatePlayState2,16
   def initializeinitialize4,45
   def updateupdate12,201
-  def drawdraw22,532
-  def button_down(id)button_down38,912
+  def drawdraw22,536
+  def button_down(id)button_down38,914
 
 states/menu_state.rb,243
 class MenuState < GameStateMenuState3,36
@@ -80,17 +80,19 @@ class MapMap4,54
   def generate_mapgenerate_map63,1224
   def choose_tile(val)choose_tile79,1569
 
+entities/components/component.rb,0
+
 entities/character.rb,390
 class CharacterCharacter1,0
-  def initialize(map)initialize5,85
-  def soundsound22,553
-  def shoot(target_x, target_y)shoot27,657
-  def update(camera)update35,902
-  def moving?moving?64,1748
-  def drawdraw68,1834
-  def speedspeed74,1989
-  def any_button_down?(*buttons)any_button_down?86,2134
-  def change_angle(previous_angle, up, down, right, left)change_angle93,2261
+  def initialize(map)initialize5,99
+  def soundsound22,567
+  def shoot(target_x, target_y)shoot27,671
+  def update(camera)update35,916
+  def moving?moving?64,1762
+  def drawdraw68,1848
+  def speedspeed74,2003
+  def any_button_down?(*buttons)any_button_down?86,2148
+  def change_angle(previous_angle, up, down, right, left)change_angle93,2275
 
 entities/bullet.rb,405
 class BulletBullet1,0
