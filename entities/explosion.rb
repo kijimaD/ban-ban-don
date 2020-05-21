@@ -1,20 +1,13 @@
-class Explosion
-  FRAME_DELAY = 10 # ms
+class Explosion < GameObject
+  attr_accessor :x, :y
+  FRAME_DELAY  = 10
 
-  def animation
-    @@animation ||=
-    Gosu::Image.load_tiles(
-      $window, Utils.media_path('explosion.png'), 128, 128, false)
-  end
-
-  def sound
-    @@sound ||= Gosu::Sample.new(
-      $window, Utils.media_path('explosion.mp3'))
-  end
-
-  def initialize(x, y)
-    sound.play
+  def initialize(object_pool, x, y)
+    super(object_pool)
     @x, @y = x, y
+    ExplosionGraphics.new(self)
+    ExplosionSounds.play
+
     @current_frame = 0
   end
 
@@ -29,6 +22,12 @@ class Explosion
       @x - image.width / 2 + 3,
       @y - image.height / 2 - 35,
       20)
+  end
+
+  def animation
+    @@animation ||=
+    Gosu::Image.load_tiles(
+      $window, Utils.media_path('explosion.png'), 128, 128, false)
   end
 
   def done?
@@ -48,4 +47,5 @@ class Explosion
       @last_frame = now
     end
   end
+
 end

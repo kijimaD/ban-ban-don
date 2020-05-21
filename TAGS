@@ -33,9 +33,9 @@ class GameStateGameState1,0
 states/play_state.rb,167
 class PlayState < GameStatePlayState2,16
   def initializeinitialize4,45
-  def updateupdate12,201
-  def drawdraw22,536
-  def button_down(id)button_down38,914
+  def updateupdate13,255
+  def drawdraw23,590
+  def button_down(id)button_down39,968
 
 states/menu_state.rb,243
 class MenuState < GameStateMenuState3,36
@@ -58,16 +58,14 @@ class CameraCamera1,0
   def draw_crosshairdraw_crosshair43,1077
   def viewportviewport56,1360
 
-entities/explosion.rb,286
-class ExplosionExplosion1,0
-  def animationanimation4,41
-  def soundsound10,179
-  def initialize(x, y)initialize15,282
-  def updateupdate21,368
-  def drawdraw25,430
-  def done?done?34,586
-  def current_framecurrent_frame40,663
-  def frame_expired?frame_expired?44,737
+entities/explosion.rb,254
+class Explosion < GameObjectExplosion1,0
+  def initialize(object_pool, x, y)initialize4,53
+  def updateupdate11,194
+  def drawdraw15,256
+  def done?done?24,412
+  def current_framecurrent_frame30,489
+  def frame_expired?frame_expired?34,563
 
 entities/map.rb,329
 class MapMap4,54
@@ -80,14 +78,29 @@ class MapMap4,54
   def generate_mapgenerate_map63,1224
   def choose_tile(val)choose_tile79,1569
 
-entities/components/component.rb,209
+entities/components/component.rb,235
 class ComponentComponent1,0
-  def initialize(game_object = nil)initialize4,39
-  def updateupdate8,112
-  def draw(viewport)draw12,147
-  def object=(obj)object=18,203
-  def xx25,297
-  def yy29,326
+  def initialize(game_object = nil)initialize2,16
+  def updateupdate6,89
+  def draw(viewport)draw10,124
+  def object=(obj)object=16,180
+  def xx23,274
+  def yy27,303
+  def objectobject31,332
+
+entities/components/explosion_graphics.rb,252
+class ExplosionGraphics < ComponentExplosionGraphics1,0
+  def initialize(game_object)initialize4,59
+  def drawdraw9,129
+  def updateupdate18,285
+  def current_framecurrent_frame30,530
+  def done?done?34,604
+  def animationanimation38,670
+
+entities/components/explosion_sounds.rb,90
+class ExplosionSoundsExplosionSounds1,0
+    def playplay3,38
+    def soundsound9,90
 
 entities/components/character_graphics.rb,179
 class CharacterGraphics < ComponentCharacterGraphics1,0
@@ -96,43 +109,44 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def drawdraw14,265
   def unitsunits22,447
 
-entities/character.rb,390
-class CharacterCharacter1,0
-  def initialize(map)initialize5,99
-  def soundsound22,567
-  def shoot(target_x, target_y)shoot27,671
-  def update(camera)update35,916
-  def moving?moving?64,1762
-  def drawdraw68,1848
-  def speedspeed74,2003
-  def any_button_down?(*buttons)any_button_down?86,2148
-  def change_angle(previous_angle, up, down, right, left)change_angle93,2275
+entities/character.rb,417
+class Character < GameObjectCharacter1,0
+  def initialize(object_pool, map)initialize5,112
+  def soundsound23,616
+  def shoot(target_x, target_y)shoot28,720
+  def update(camera)update36,978
+  def moving?moving?65,1824
+  def drawdraw69,1910
+  def speedspeed75,2065
+  def any_button_down?(*buttons)any_button_down?87,2210
+  def change_angle(previous_angle, up, down, right, left)change_angle94,2337
 
-entities/bullet.rb,405
-class BulletBullet1,0
-  def initialize(source_x, source_y, target_x, target_y)initialize6,78
-  def drawdraw16,379
-  def updateupdate29,714
-  def arrived?arrived?35,883
-  def done?done?39,944
-  def exploaded?exploaded?43,979
-  def fire(speed)fire47,1038
-  def soundsound55,1136
-  def trajectory_lengthtrajectory_length60,1234
-  def point_at_distance(distance)point_at_distance66,1352
+entities/bullet.rb,433
+class Bullet < GameObjectBullet1,0
+  def initialize(object_pool, source_x, source_y, target_x, target_y)initialize6,91
+  def drawdraw17,428
+  def updateupdate30,776
+  def arrived?arrived?36,945
+  def done?done?40,1006
+  def exploaded?exploaded?44,1041
+  def fire(speed)fire48,1100
+  def soundsound56,1198
+  def trajectory_lengthtrajectory_length61,1296
+  def point_at_distance(distance)point_at_distance67,1414
 
 entities/object_pool.rb,70
 class ObjectPoolObjectPool1,0
   def initialize(map)initialize4,49
 
-entities/game_object.rb,224
+entities/game_object.rb,291
 class GameObjectGameObject1,0
   def initialize(object_pool)initialize2,17
-  def updateupdate8,139
-  def draw(viewport)draw12,189
-  def boxbox16,263
-  def collidecollide19,280
-  def object_poolobject_pool24,314
+  def componentscomponents8,139
+  def updateupdate12,179
+  def draw(viewport)draw16,229
+  def removable?removable?20,303
+  def mark_for_removalmark_for_removal24,342
+  def object_poolobject_pool30,407
 
 main.rb,0
 

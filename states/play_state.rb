@@ -3,7 +3,8 @@ class PlayState < GameState
 
   def initialize
     @map = Map.new
-    @character = Character.new(@map)
+    @object_pool = ObjectPool.new(@map)
+    @character = Character.new(@object_pool, @map)
     @camera = Camera.new(@character)
     @bullets = []
     @explosions = []

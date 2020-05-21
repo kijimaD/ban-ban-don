@@ -1,8 +1,9 @@
-class Character
+class Character < GameObject
   attr_accessor :x, :y, :body_angle, :gun_angle, :number_ammo
   SHOOT_DELAY = 500
 
-  def initialize(map)
+  def initialize(object_pool, map)
+    super(object_pool)
     @map = map
     @units = Gosu::TexturePacker.load_json(
       Utils.media_path('ground_units.json'), :precise)
@@ -28,7 +29,7 @@ class Character
     if Gosu.milliseconds - @last_shot > SHOOT_DELAY && @number_ammo > 0
       @number_ammo -= 1
       @last_shot = Gosu.milliseconds
-      Bullet.new(@x, @y, target_x, target_y).fire(@bullet_speed)
+      Bullet.new(object_pool, @x, @y, target_x, target_y).fire(@bullet_speed)
     end
   end
 

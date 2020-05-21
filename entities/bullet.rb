@@ -1,9 +1,10 @@
-class Bullet
+class Bullet < GameObject
   COLOR = Gosu::Color::BLACK
   MAX_DIST = 300
   START_DIST = 20
 
-  def initialize(source_x, source_y, target_x, target_y)
+  def initialize(object_pool, source_x, source_y, target_x, target_y)
+    super(object_pool)
     @x, @y = source_x, source_y
     @target_x, @target_y = target_x, target_y
     @x, @y = point_at_distance(START_DIST)
@@ -21,7 +22,7 @@ class Bullet
                         @x + 2, @y + 2, COLOR,
                         1)
     else
-      @explosion ||= Explosion.new(@x, @y)
+      @explosion ||= Explosion.new(object_pool, @x, @y)
       @explosion.draw
     end
   end
