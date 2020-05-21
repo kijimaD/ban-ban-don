@@ -1,10 +1,12 @@
 class GameObject
-  attr_reader :x, :y, :location, :components
-
   def initialize(object_pool)
     @components = []
     @object_pool = object_pool
     @object_pool.objects << self
+  end
+
+  def components
+    @components
   end
 
   def update
@@ -15,10 +17,12 @@ class GameObject
     @components.each { |c| c.draw(viewport) }
   end
 
-  def box
+  def removable?
+    @removable
   end
 
-  def collide
+  def mark_for_removal
+    @removable = true
   end
 
   protected

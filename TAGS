@@ -80,7 +80,21 @@ class MapMap4,54
   def generate_mapgenerate_map63,1224
   def choose_tile(val)choose_tile79,1569
 
-entities/components/component.rb,0
+entities/components/component.rb,209
+class ComponentComponent1,0
+  def initialize(game_object = nil)initialize4,39
+  def updateupdate8,112
+  def draw(viewport)draw12,147
+  def object=(obj)object=18,203
+  def xx25,297
+  def yy29,326
+
+entities/components/character_graphics.rb,179
+class CharacterGraphics < ComponentCharacterGraphics1,0
+  def initialize(game_object)initialize2,36
+  def updateupdate10,244
+  def drawdraw14,265
+  def unitsunits22,447
 
 entities/character.rb,390
 class CharacterCharacter1,0
@@ -106,6 +120,19 @@ class BulletBullet1,0
   def soundsound55,1136
   def trajectory_lengthtrajectory_length60,1234
   def point_at_distance(distance)point_at_distance66,1352
+
+entities/object_pool.rb,70
+class ObjectPoolObjectPool1,0
+  def initialize(map)initialize4,49
+
+entities/game_object.rb,224
+class GameObjectGameObject1,0
+  def initialize(object_pool)initialize2,17
+  def updateupdate8,139
+  def draw(viewport)draw12,189
+  def boxbox16,263
+  def collidecollide19,280
+  def object_poolobject_pool24,314
 
 main.rb,0
 
