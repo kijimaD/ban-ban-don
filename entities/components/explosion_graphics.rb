@@ -1,17 +1,16 @@
 class ExplosionGraphics < Component
-  FRAME_DELAY = 10.00
+  FRAME_DELAY = 16.66
 
   def initialize(game_object)
     super
     @current_frame = 0
   end
 
-  def draw
-    return if done?
+  def draw(viewport)
     image = current_frame
     image.draw(
-      @x - image.width / 2 + 3,
-      @y - image.height / 2 - 35,
+      x - image.width / 2 + 3,
+      y - image.height / 2 - 35,
       20)
   end
 
@@ -32,13 +31,14 @@ class ExplosionGraphics < Component
   end
 
   def done?
-    @done ||= @current_frame == animation.size
+    @done ||= @current_frame >= animation.size
   end
 
   def animation
     @@animation ||=
       Gosu::Image.load_tiles(
-        $window, Utils.media_path('explosion.png'), 128, 128, false)
+        $window, Utils.media_path('explosion.png'),
+        128, 128, false)
   end
 
 end
