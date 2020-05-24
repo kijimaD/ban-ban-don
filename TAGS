@@ -167,13 +167,13 @@ class ObjectPoolObjectPool1,0
 
 entities/ammo_display.rb,286
 class AmmoDisplayAmmoDisplay1,0
-  def initialize(object_pool, character)initialize7,120
-  def updateupdate13,247
-  def drawdraw19,366
-  def draw_ammodraw_ammo24,415
-  def draw_ammo_bgdraw_ammo_bg31,553
-  def ammo_coordsammo_coords41,750
-  def ammo_imageammo_image49,923
+  def initialize(object_pool, character)initialize8,154
+  def updateupdate14,281
+  def drawdraw20,400
+  def draw_ammodraw_ammo25,449
+  def draw_ammo_bgdraw_ammo_bg32,584
+  def ammo_coordsammo_coords42,781
+  def ammo_imageammo_image50,954
 
 entities/game_object.rb,291
 class GameObjectGameObject1,0

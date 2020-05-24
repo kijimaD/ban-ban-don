@@ -2,7 +2,8 @@ class AmmoDisplay
   WIDTH = 150
   HEIGHT = 60
   PADDING = 10
-  BACKGROUND = Gosu::Color.new(255 * 0.33, 255, 255, 255)
+  BACKGROUND = Gosu::Color.new(255 * 0.33, 0, 0, 0)
+  FONT_COLOR = Gosu::Color::GREEN
 
   def initialize(object_pool, character)
     @object_pool = object_pool
@@ -24,7 +25,7 @@ class AmmoDisplay
   def draw_ammo
     x1, x2, y1, y2 = ammo_coords
     if @message
-      @message.draw(x1, y1, 300)
+      @message.draw(x1, y1, 300, 1.0, 1.0, FONT_COLOR)
     end
   end
 
