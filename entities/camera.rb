@@ -1,7 +1,7 @@
 class Camera
   attr_accessor :x, :y, :zoom
 
-  def initialize(target)
+  def target=(target)
     @target = target
     @x, @y = target.x, target.y
     @zoom = 1
@@ -23,11 +23,10 @@ class Camera
   end
 
   def update
-    @x += @target.speed if @x < @target.x - $window.width / 16
-    @x -= @target.speed if @x > @target.x + $window.width / 16
-    @y += @target.speed if @y < @target.y - $window.height / 16
-    @y -= @target.speed if @y > @target.y + $window.height / 16
-
+    # @x += @target.speed if @x < @target.x - $window.width / 16
+    # @x -= @target.speed if @x > @target.x + $window.width / 16
+    # @y += @target.speed if @y < @target.y - $window.height / 16
+    # @y -= @target.speed if @y > @target.y + $window.height / 16
   end
 
   def to_s
@@ -50,8 +49,6 @@ class Camera
       x, y - 10, Gosu::Color::RED,
       x, y + 10, Gosu::Color::RED, 100)
   end
-
-  private
 
   def viewport
     x0 = @x - ($window.width / 2)  / @zoom

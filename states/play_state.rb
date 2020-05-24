@@ -3,21 +3,29 @@ class PlayState < GameState
 
   def initialize
     @map = Map.new
+    @camera = Camera.new
     @object_pool = ObjectPool.new(@map)
-    @character = Character.new(@object_pool, @map)
-    @camera = Camera.new(@character)
-    @bullets = []
-    @explosions = []
+    @character = Character.new(@object_pool, PlayerInput.new(@camera))
+    @camera.target = @character
+  end
+
+  def enter
+    RubyProf.start if ENV['ENABLE_PROFILING']
+  end
+
+  def leave
+    if ENV['ENABLE_PROFILING']
+      result = RubyProf.stop
+      printer = RubyProf::FlatPrinter.new(result)
+      printer.print(STDOUT)
+    end
   end
 
   def update
-    bullet = @character.update(@camera)
-    @bullets << bullet if bullet
-    @bullets.map(&:update)
-    @bullets.reject!(&:done?)
+    @object_pool.objects.map(&:update)
+    @object_pool.objects.reject!(&:removable?)
     @camera.update
-    $window.caption = 'ばんばんどーん！ ' <<
-      "残:#{@character.number_ammo}[FPS: #{Gosu.fps}. Character @ #{@character.x.round}:#{@character.y.round}]"
+    update_caption
   end
 
   def draw
@@ -25,30 +33,36 @@ class PlayState < GameState
     cam_y = @camera.y
     off_x = $window.width / 2 - cam_x
     off_y = $window.height / 2 - cam_y
+    viewport = @camera.viewport
     $window.translate(off_x, off_y) do
       zoom = @camera.zoom
       $window.scale(zoom, zoom, cam_x, cam_y) do
-        @map.draw(@camera)
-        @character.draw
-        @bullets.map(&:draw)
+        @map.draw(viewport)
+        @object_pool.objects.map { |o| o.draw(viewport) }
       end
     end
     @camera.draw_crosshair
   end
 
   def button_down(id)
-    if id == Gosu::MsLeft
-      bullet = @character.shoot(*@camera.mouse_coords)
-      @bullets << bullet if bullet
+    if id == Gosu::KbQ
+      leave
+      $window.close
     end
-    $window.close if id == Gosu::KbQ
     if id == Gosu::KbEscape
       GameState.switch(MenuState.instance)
     end
-    if id == Gosu::KbSpace
-      pause = PauseState.instance
-      pause.play_state = self
-      GameState.switch(pause)
+  end
+
+  private
+
+  def update_caption
+    now = Gosu.milliseconds
+    if now - (@caption_updated_at || 0) > 1000
+      $window.caption = 'ばんばんどーん！' <<
+                        "[FPS: #{Gosu.fps}. "<<
+                        "Character @ #{@character.x.round}:#{@character.y.round}]"
+      @caption_updated_at = now
     end
   end
 

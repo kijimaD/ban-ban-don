@@ -11,7 +11,7 @@ class Bullet < GameObject
   end
 
   def explode
-    Explode.new(object_pool, @x, @y)
+    Explosion.new(object_pool, @x, @y)
     mark_for_removal
   end
 
