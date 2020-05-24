@@ -79,6 +79,10 @@ class MapMap4,54
   def generate_mapgenerate_map63,1228
   def choose_tile(val)choose_tile79,1573
 
+entities/components/ai_input.rb,70
+class AiInput < ComponentAiInput1,0
+  def control(obj)control2,26
+
 entities/components/bullet_graphics.rb,83
 class BulletGraphics < ComponentBulletGraphics1,0
   def draw(viewport)draw4,63
@@ -167,13 +171,13 @@ class ObjectPoolObjectPool1,0
 
 entities/ammo_display.rb,286
 class AmmoDisplayAmmoDisplay1,0
-  def initialize(object_pool, character)initialize8,154
-  def updateupdate14,281
-  def drawdraw20,400
-  def draw_ammodraw_ammo25,449
-  def draw_ammo_bgdraw_ammo_bg32,584
-  def ammo_coordsammo_coords42,781
-  def ammo_imageammo_image50,954
+  def initialize(object_pool, character)initialize8,148
+  def updateupdate14,275
+  def drawdraw20,394
+  def draw_ammodraw_ammo25,443
+  def draw_ammo_bgdraw_ammo_bg32,578
+  def ammo_coordsammo_coords42,775
+  def ammo_imageammo_image50,948
 
 entities/game_object.rb,291
 class GameObjectGameObject1,0
