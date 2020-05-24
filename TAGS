@@ -53,16 +53,16 @@ class MenuState < GameStateMenuState3,36
   def drawdraw35,670
   def button_down(id)button_down46,931
 
-entities/camera.rb,327
+entities/camera.rb,328
 class CameraCamera1,0
   def target=(target)target=4,44
   def can_view?(x, y, obj)can_view?10,140
   def mouse_coordsmouse_coords16,284
   def updateupdate25,577
-  def to_sto_s32,859
-  def target_delta_on_screentarget_delta_on_screen38,988
-  def draw_crosshairdraw_crosshair42,1081
-  def viewportviewport53,1353
+  def to_sto_s32,883
+  def target_delta_on_screentarget_delta_on_screen38,1012
+  def draw_crosshairdraw_crosshair42,1105
+  def viewportviewport53,1377
 
 entities/explosion.rb,95
 class Explosion < GameObjectExplosion1,0
@@ -152,14 +152,14 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
 
 entities/character.rb,142
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize7,163
-  def shoot(target_x, target_y)shoot22,559
+  def initialize(object_pool, input)initialize6,162
+  def shoot(target_x, target_y)shoot17,468
 
 entities/bullet.rb,182
 class Bullet < GameObjectBullet1,0
   def initialize(object_pool, source_x, source_y, target_x, target_y)initialize4,91
   def explodeexplode13,348
-  def fire(speed)fire18,427
+  def fire(speed)fire18,429
 
 entities/object_pool.rb,70
 class ObjectPoolObjectPool1,0

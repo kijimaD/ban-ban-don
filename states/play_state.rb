@@ -60,7 +60,8 @@ class PlayState < GameState
     now = Gosu.milliseconds
     if now - (@caption_updated_at || 0) > 1000
       $window.caption = 'ばんばんどーん！' <<
-                        "[FPS: #{Gosu.fps}. "<<
+                        "残: #{@character.number_ammo}" <<
+                        "[FPS: #{Gosu.fps}. " <<
                         "Character @ #{@character.x.round}:#{@character.y.round}]"
       @caption_updated_at = now
     end
