@@ -39,9 +39,9 @@ class PlayState < GameStatePlayState2,16
   def enterenter13,318
   def leaveleave17,383
   def updateupdate25,548
-  def drawdraw32,692
-  def button_down(id)button_down49,1131
-  def update_captionupdate_caption61,1313
+  def drawdraw33,717
+  def button_down(id)button_down50,1156
+  def update_captionupdate_caption62,1338
 
 states/menu_state.rb,243
 class MenuState < GameStateMenuState3,36
@@ -165,13 +165,15 @@ entities/object_pool.rb,70
 class ObjectPoolObjectPool1,0
   def initialize(map)initialize4,49
 
-entities/ammo_display.rb,212
+entities/ammo_display.rb,286
 class AmmoDisplayAmmoDisplay1,0
-  def initialize(object_pool, character)initialize7,106
-  def updateupdate13,233
-  def drawdraw16,253
-  def draw_ammodraw_ammo27,456
-  def ammo_coordsammo_coords39,752
+  def initialize(object_pool, character)initialize7,120
+  def updateupdate13,247
+  def drawdraw19,366
+  def draw_ammodraw_ammo24,415
+  def draw_ammo_bgdraw_ammo_bg31,553
+  def ammo_coordsammo_coords41,750
+  def ammo_imageammo_image49,923
 
 entities/game_object.rb,291
 class GameObjectGameObject1,0
