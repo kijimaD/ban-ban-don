@@ -58,4 +58,5 @@ class Camera
     y1 = @y + ($window.height / 2) / @zoom
     [x0, x1, y0, y1]
   end
+
 end
