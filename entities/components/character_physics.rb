@@ -23,6 +23,13 @@ class CharacterPhysics < Component
     else
       decelerate
     end
+
+    if object.turbo
+      turbo
+    elsif object.reset
+      reset
+    end
+
     if @speed > 0
       new_x, new_y = x, y
       shift = Utils.adjust_speed(@speed)
@@ -93,12 +100,20 @@ class CharacterPhysics < Component
   private
 
   def accelerate
-    @speed += 0.2 if @speed < 10
+    @speed += 0.4 if @speed < 10
   end
 
   def decelerate
     @speed -= 0.5 if @speed > 0
     @speed = 0.0 if @speed < 0.01
+  end
+
+  def turbo
+    @speed = 100
+  end
+
+  def reset
+    @speed = 2
   end
 
 end

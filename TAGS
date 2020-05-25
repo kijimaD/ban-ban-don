@@ -113,17 +113,19 @@ class ExplosionGraphics < ComponentExplosionGraphics1,0
   def done?done?33,592
   def animationanimation37,658
 
-entities/components/character_physics.rb,380
+entities/components/character_physics.rb,436
 class CharacterPhysics < ComponentCharacterPhysics1,0
   def initialize(game_object, object_pool)initialize4,59
   def can_move_to?(x, y)can_move_to?12,264
   def moving?moving?16,324
   def updateupdate20,360
-  def box_widthbox_width60,1152
-  def box_heightbox_height64,1216
-  def boxbox68,1283
-  def accelerateaccelerate95,2015
-  def deceleratedecelerate99,2072
+  def box_widthbox_width67,1229
+  def box_heightbox_height71,1293
+  def boxbox75,1360
+  def accelerateaccelerate102,2092
+  def deceleratedecelerate106,2149
+  def turboturbo111,2239
+  def resetreset115,2275
 
 entities/components/explosion_sounds.rb,90
 class ExplosionSoundsExplosionSounds1,0
@@ -145,13 +147,13 @@ class BulletPhysics < ComponentBulletPhysics1,0
   def point_at_distance(distance)point_at_distance26,645
   def arrived?arrived?38,968
 
-entities/components/player_input.rb,281
+entities/components/player_input.rb,282
 class PlayerInput < ComponentPlayerInput1,0
   def initialize(camera)initialize2,30
   def control(obj)control7,98
   def updateupdate11,146
-  def any_button_down?(*buttons)any_button_down?32,762
-  def change_angle(previous_angle, up, down, right, left)change_angle39,887
+  def any_button_down?(*buttons)any_button_down?41,977
+  def change_angle(previous_angle, up, down, right, left)change_angle48,1102
 
 entities/components/character_graphics.rb,264
 class CharacterGraphics < ComponentCharacterGraphics1,0
@@ -164,8 +166,8 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
 
 entities/character.rb,142
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize6,173
-  def shoot(target_x, target_y)shoot17,479
+  def initialize(object_pool, input)initialize7,205
+  def shoot(target_x, target_y)shoot18,511
 
 entities/bullet.rb,182
 class Bullet < GameObjectBullet1,0

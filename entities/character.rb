@@ -1,6 +1,7 @@
 class Character < GameObject
   SHOOT_DELAY = 500
-  attr_accessor :x, :y, :throttle_down, :direction, :gun_angle,
+  attr_accessor :x, :y, :throttle_down, :turbo, :reset,
+                :direction, :gun_angle,
                 :sounds, :physics, :graphics, :number_ammo
 
   def initialize(object_pool, input)

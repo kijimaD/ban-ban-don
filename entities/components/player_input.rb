@@ -22,6 +22,16 @@ class PlayerInput < Component
       object.throttle_down = false
     end
 
+    if Utils.button_down?(Gosu::KbLeftShift)
+      object.turbo = true
+      object.reset = false
+    else
+      if object.turbo == true   # First 1 time, toggle reset
+        object.reset = true
+      end
+      object.turbo = false
+    end
+
     if Utils.button_down?(Gosu::MsLeft)
       object.shoot(*@camera.mouse_coords)
     end
