@@ -118,16 +118,16 @@ entities/components/character_physics.rb,497
 class CharacterPhysics < ComponentCharacterPhysics1,0
   def initialize(game_object, object_pool)initialize4,59
   def can_move_to?(x, y)can_move_to?12,264
-  def moving?moving?32,797
-  def updateupdate36,833
-  def box_widthbox_width83,1702
-  def box_heightbox_height87,1766
-  def boxbox91,1833
-  def collides_with_poly?(poly)collides_with_poly?118,2565
-  def accelerateaccelerate130,2834
-  def deceleratedecelerate134,2891
-  def turboturbo139,2978
-  def resetreset143,3014
+  def moving?moving?32,796
+  def updateupdate36,832
+  def box_widthbox_width83,1711
+  def box_heightbox_height87,1775
+  def boxbox91,1842
+  def collides_with_poly?(poly)collides_with_poly?118,2574
+  def accelerateaccelerate130,2843
+  def deceleratedecelerate134,2900
+  def turboturbo139,2987
+  def resetreset143,3023
 
 entities/components/explosion_sounds.rb,90
 class ExplosionSoundsExplosionSounds1,0
