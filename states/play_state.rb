@@ -8,9 +8,9 @@ class PlayState < GameState
     @character = Character.new(@object_pool, PlayerInput.new(@camera))
     @camera.target = @character
     @ammo_display = AmmoDisplay.new(@object_pool, @character)
-    50.times do
-      Character.new(@object_pool, AiInput.new)
-    end
+    # 50.times do
+    #   Character.new(@object_pool, AiInput.new)
+    # end
   end
 
   def enter

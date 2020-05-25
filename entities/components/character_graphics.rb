@@ -20,16 +20,24 @@ class CharacterGraphics < Component
   end
 
   def draw_bounding_box
-    $window.rotate(object.direction, x, y) do
-      w = @body.width
-      h = @body.height
-      $window.draw_quad(
-        x - w / 2, y - h / 2, Gosu::Color::RED,
-        x + w / 2, y - h / 2, Gosu::Color::RED,
-        x + w / 2, y + h / 2, Gosu::Color::RED,
-        x - w / 2, y + h / 2, Gosu::Color::RED,
+    i = 0
+    object.physics.box.each_slice(2) do |x, y|
+      color = DEBUG_COLORS[i]
+      $window.draw_triangle(
+        x - 3, y - 3, color,
+        x    , y    , color,
+        x + 3, y - 3, color,
         100)
+      i = (i + 1) % 4
     end
+  end
+
+  def width
+    @body.width
+  end
+
+  def height
+    @body.height
   end
 
   private
