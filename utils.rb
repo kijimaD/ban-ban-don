@@ -37,6 +37,7 @@ module Utils
 
   def self.rotate(angle, around_x, around_y, *points)
     result = []
+    angle = angle * Math::PI / 180.0
     points.each_slice(2) do |x, y|
       r_x = Math.cos(angle) * (x - around_x) -
             Math.sin(angle) * (y - around_y) + around_x

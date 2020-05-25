@@ -68,25 +68,25 @@ class CharacterPhysics < Component
   def box
     w = box_width / 2 - 1
     h = box_height / 2 - 1
-    tw = 8
-    fd = 8
-    rd = 6
+    tw = 8                      # track width
+    fd = 8                      # track depth
+    rd = 6                      # rear depth
     Utils.rotate(object.direction, x, y,
-                 x + w, y + h,
+                 x + w,      y + h,
                  x + w - tw, y + h,
                  x + w - tw, y + h - fd,
 
                  x - w + tw, y + h - fd,
                  x - w + tw, y + h,
-                 x - w, y + h,
+                 x - w,      y + h,
 
-                 x - w, y - h,
+                 x - w,      y - h,
                  x - w + tw, y - h,
                  x - w + tw, y - h + rd,
 
                  x + w - tw, y - h + rd,
-                 w + w - tw, y - h,
-                 x + w, y - h,
+                 x + w - tw, y - h,
+                 x + w,      y - h,
                 )
   end
 

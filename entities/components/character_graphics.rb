@@ -25,7 +25,7 @@ class CharacterGraphics < Component
       color = DEBUG_COLORS[i]
       $window.draw_triangle(
         x - 3, y - 3, color,
-        x    , y    , color,
+        x,     y,     color,
         x + 3, y - 3, color,
         100)
       i = (i + 1) % 4
