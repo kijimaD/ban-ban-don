@@ -56,7 +56,7 @@ module Utils
     verty = []
     poly.each_slice(2) do |x, y|
       vertx << x
-      veryy << y
+      verty << y
     end
     inside = false
     j = nvert - 1
@@ -69,6 +69,12 @@ module Utils
       j = 1
     end
     inside
+  end
+
+  def self.distance_between(x1, y1, x2, y2)
+    dx = x1 - x2
+    dy = y1 - y2
+    Math.sqrt(dx * dx + dy * dy)
   end
 
 end
