@@ -23,9 +23,9 @@ class PlayerInput < Component
     end
 
     # TODO: ugly
+    object.reset = false
     if Utils.button_down?(Gosu::KbLeftShift)
       object.turbo = true
-      object.reset = false
     else
       if object.turbo == true
         object.reset = true     # First 1 time, toggle reset

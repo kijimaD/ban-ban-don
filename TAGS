@@ -114,19 +114,20 @@ class ExplosionGraphics < ComponentExplosionGraphics1,0
   def done?done?33,592
   def animationanimation37,658
 
-entities/components/character_physics.rb,436
+entities/components/character_physics.rb,497
 class CharacterPhysics < ComponentCharacterPhysics1,0
   def initialize(game_object, object_pool)initialize4,59
   def can_move_to?(x, y)can_move_to?12,264
-  def moving?moving?16,324
-  def updateupdate20,360
-  def box_widthbox_width67,1229
-  def box_heightbox_height71,1293
-  def boxbox75,1360
-  def accelerateaccelerate102,2092
-  def deceleratedecelerate106,2149
-  def turboturbo111,2239
-  def resetreset115,2275
+  def moving?moving?32,797
+  def updateupdate36,833
+  def box_widthbox_width83,1702
+  def box_heightbox_height87,1766
+  def boxbox91,1833
+  def collides_with_poly?(poly)collides_with_poly?118,2565
+  def accelerateaccelerate130,2834
+  def deceleratedecelerate134,2891
+  def turboturbo139,2978
+  def resetreset143,3014
 
 entities/components/explosion_sounds.rb,90
 class ExplosionSoundsExplosionSounds1,0
@@ -154,22 +155,23 @@ class PlayerInput < ComponentPlayerInput1,0
   def initialize(camera)initialize2,30
   def control(obj)control7,98
   def updateupdate11,146
-  def any_button_down?(*buttons)any_button_down?43,1023
-  def change_angle(previous_angle, up, down, right, left)change_angle50,1148
+  def any_button_down?(*buttons)any_button_down?43,1021
+  def change_angle(previous_angle, up, down, right, left)change_angle50,1146
 
 entities/components/character_graphics.rb,264
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize8,152
   def draw(viewport)draw15,349
   def draw_bounding_boxdraw_bounding_box22,556
-  def widthwidth35,833
-  def heightheight39,868
-  def unitsunits45,916
+  def widthwidth35,825
+  def heightheight39,860
+  def unitsunits45,908
 
-entities/character.rb,142
+entities/character.rb,163
 class Character < GameObjectCharacter1,0
   def initialize(object_pool, input)initialize7,205
-  def shoot(target_x, target_y)shoot18,511
+  def boxbox18,511
+  def shoot(target_x, target_y)shoot22,545
 
 entities/bullet.rb,212
 class Bullet < GameObjectBullet1,0

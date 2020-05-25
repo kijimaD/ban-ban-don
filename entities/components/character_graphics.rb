@@ -21,7 +21,7 @@ class CharacterGraphics < Component
 
   def draw_bounding_box
     i = 0
-    object.physics.box.each_slice(2) do |x, y|
+    object.box.each_slice(2) do |x, y|
       color = DEBUG_COLORS[i]
       $window.draw_triangle(
         x - 3, y - 3, color,

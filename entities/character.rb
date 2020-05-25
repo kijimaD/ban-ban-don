@@ -15,6 +15,10 @@ class Character < GameObject
     @number_ammo = 10
   end
 
+  def box
+    @physics.box
+  end
+
   def shoot(target_x, target_y)
     if Gosu.milliseconds - (@last_shot || 0) > SHOOT_DELAY
       if @number_ammo > 0
