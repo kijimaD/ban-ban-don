@@ -57,10 +57,43 @@ class CharacterPhysics < Component
     end
   end
 
+  def box_width
+    @box_width ||= object.graphics.width
+  end
+
+  def box_height
+    @box_height ||= object.graphics.height
+  end
+
+  def box
+    w = box_width / 2 - 1
+    h = box_height / 2 - 1
+    tw = 8                      # track width
+    fd = 8                      # track depth
+    rd = 6                      # rear depth
+    Utils.rotate(object.direction, x, y,
+                 x + w,      y + h,
+                 x + w - tw, y + h,
+                 x + w - tw, y + h - fd,
+
+                 x - w + tw, y + h - fd,
+                 x - w + tw, y + h,
+                 x - w,      y + h,
+
+                 x - w,      y - h,
+                 x - w + tw, y - h,
+                 x - w + tw, y - h + rd,
+
+                 x + w - tw, y - h + rd,
+                 x + w - tw, y - h,
+                 x + w,      y - h,
+                )
+  end
+
   private
 
   def accelerate
-    @speed += 0.08 if @speed < 5
+    @speed += 0.2 if @speed < 10
   end
 
   def decelerate
