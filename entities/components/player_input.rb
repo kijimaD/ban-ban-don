@@ -22,15 +22,17 @@ class PlayerInput < Component
       object.throttle_down = false
     end
 
-    # TODO: ugly
-    object.reset = false
     if Utils.button_down?(Gosu::KbLeftShift)
       object.turbo = true
     else
-      if object.turbo == true
-        object.reset = true     # First 1 time, toggle reset
-      end
       object.turbo = false
+    end
+
+    puts Utils.button_up?(Gosu::KbLeftShift)
+    if Utils.button_up?(Gosu::KbLeftShift)
+      object.reset = true
+    else
+      object.reset = false
     end
 
     if Utils.button_down?(Gosu::MsLeft)
