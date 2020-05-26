@@ -35,6 +35,24 @@ module Utils
     end
   end
 
+  def self.button_up?(button)
+    @buttons ||= {}
+    now = Gosu.milliseconds
+    now = now - (now % 150)
+    puts now
+    if $window.button_down?(button)
+      @buttons[button] = now
+      false
+    elsif @buttons[button]
+      if now == @buttons[button]
+        true
+      else
+        @buttons.delete(button)
+        false
+      end
+    end
+  end
+
   def self.rotate(angle, around_x, around_y, *points)
     result = []
     angle = angle * Math::PI / 180.0
