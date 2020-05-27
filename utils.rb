@@ -68,7 +68,7 @@ module Utils
 
   # http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly
   def self.point_in_poly(testx, testy, *poly)
-    nvert = poly.size / 2
+    nvert = poly.size / 2 # Number of vertices in poly
     vertx = []
     verty = []
     poly.each_slice(2) do |x, y|
@@ -80,10 +80,10 @@ module Utils
     (0..nvert - 1).each do |i|
       if (((verty[i] > testy) != (verty[j] > testy)) &&
          (testx < (vertx[j] - vertx[i]) * (testy - verty[i]) /
-                  (verty[j] - verty[i]) + vertx[i]))
+         (verty[j] - verty[i]) + vertx[i]))
         inside = !inside
       end
-      j = 1
+      j = i
     end
     inside
   end

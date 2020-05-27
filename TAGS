@@ -1,5 +1,5 @@
 
-utils.rb,533
+utils.rb,602
 module UtilsUtils1,0
   def self.media_path(file)media_path3,14
   def self.track_update_intervaltrack_update_interval7,102
@@ -9,7 +9,8 @@ module UtilsUtils1,0
   def self.button_up?(button)button_up38,747
   def self.rotate(angle, around_x, around_y, *points)rotate55,1085
   def self.point_in_poly(testx, testy, *poly)point_in_poly70,1569
-  def self.distance_between(x1, y1, x2, y2)distance_between91,2059
+  def self.point_in_poly(testx, testy, *poly)point_in_poly91,2059
+  def self.distance_between(x1, y1, x2, y2)distance_between112,2569
 
 states/pause_state.rb,546
 class PauseState < GameStatePauseState3,36
@@ -115,20 +116,20 @@ class ExplosionGraphics < ComponentExplosionGraphics1,0
   def done?done?33,592
   def animationanimation37,658
 
-entities/components/character_physics.rb,499
+entities/components/character_physics.rb,497
 class CharacterPhysics < ComponentCharacterPhysics1,0
   def initialize(game_object, object_pool)initialize4,59
-  def updateupdate12,264
-  def can_move_to?(x, y)can_move_to?60,1138
-  def moving?moving?80,1671
-  def box_widthbox_width84,1707
-  def box_heightbox_height88,1771
-  def boxbox92,1838
-  def collides_with_poly?(poly)collides_with_poly?119,2570
-  def accelerateaccelerate133,2951
-  def deceleratedecelerate137,3008
-  def turboturbo142,3095
-  def resetreset146,3131
+  def can_move_to?(x, y)can_move_to?12,264
+  def moving?moving?32,796
+  def updateupdate36,832
+  def box_widthbox_width83,1701
+  def box_heightbox_height87,1765
+  def boxbox91,1832
+  def collides_with_poly?(poly)collides_with_poly?118,2564
+  def accelerateaccelerate130,2833
+  def deceleratedecelerate134,2890
+  def turboturbo139,2977
+  def resetreset143,3013
 
 entities/components/explosion_sounds.rb,90
 class ExplosionSoundsExplosionSounds1,0

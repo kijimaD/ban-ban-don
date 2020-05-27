@@ -42,7 +42,8 @@ class CharacterPhysics < Component
 
     if object.turbo
       turbo
-    elsif object.reset
+    end
+    if object.reset
       reset
     end
 
@@ -128,7 +129,7 @@ class CharacterPhysics < Component
   end
 
   def accelerate
-    @speed += 0.1 if @speed < 10
+    @speed += 0.2 if @speed < 10
   end
 
   def decelerate
