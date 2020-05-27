@@ -35,6 +35,23 @@ module Utils
     end
   end
 
+  def self.button_up?(button)
+    @buttons ||= {}
+    now = Gosu.milliseconds
+    now = now - (now % 150)
+    if $window.button_down?(button)
+      @buttons[button] = now
+      false
+    elsif @buttons[button]
+      if now == @buttons[button]
+        true
+      else
+        @buttons.delete(button)
+        false
+      end
+    end
+  end
+
   def self.rotate(angle, around_x, around_y, *points)
     result = []
     angle = angle * Math::PI / 180.0
@@ -51,24 +68,30 @@ module Utils
 
   # http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly
   def self.point_in_poly(testx, testy, *poly)
-    nvert = poly.size / 2
+    nvert = poly.size / 2 # Number of vertices in poly
     vertx = []
     verty = []
     poly.each_slice(2) do |x, y|
       vertx << x
-      veryy << y
+      verty << y
     end
     inside = false
     j = nvert - 1
     (0..nvert - 1).each do |i|
       if (((verty[i] > testy) != (verty[j] > testy)) &&
          (testx < (vertx[j] - vertx[i]) * (testy - verty[i]) /
-                  (verty[j] - verty[i]) + vertx[i]))
+         (verty[j] - verty[i]) + vertx[i]))
         inside = !inside
       end
-      j = 1
+      j = i
     end
     inside
+  end
+
+  def self.distance_between(x1, y1, x2, y2)
+    dx = x1 - x2
+    dy = y1 - y2
+    Math.sqrt(dx * dx + dy * dy)
   end
 
 end

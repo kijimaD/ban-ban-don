@@ -22,6 +22,18 @@ class PlayerInput < Component
       object.throttle_down = false
     end
 
+    if Utils.button_down?(Gosu::KbLeftShift)
+      object.turbo = true
+    else
+      object.turbo = false
+    end
+
+    if Utils.button_up?(Gosu::KbLeftShift)
+      object.reset = true
+    else
+      object.reset = false
+    end
+
     if Utils.button_down?(Gosu::MsLeft)
       object.shoot(*@camera.mouse_coords)
     end
@@ -55,7 +67,7 @@ class PlayerInput < Component
       angle += 45.0 if Utils.button_down?(down)
     end
     angle = (angle + 360) % 360 if angle && angle < 0
-    angle || previous_angle
+    (angle || previous_angle)
   end
 
 end

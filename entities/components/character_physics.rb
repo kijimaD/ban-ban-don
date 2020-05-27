@@ -10,7 +10,24 @@ class CharacterPhysics < Component
   end
 
   def can_move_to?(x, y)
-    @map.can_move_to?(x, y)
+    old_x, old_y = object.x, object.y
+    object.x = x
+    object.y = y
+    return false unless @map.can_move_to?(x, y)
+    @object_pool.nearby(object, 100).each do |obj|
+      next if obj.class == Bullet && obj.source == object
+      if collides_with_poly?(obj.box)
+        old_distance = Utils.distance_between(
+          obj.x, obj.y, old_x, old_y)
+        new_distance = Utils.distance_between(
+          obj.x, obj.y, x, y)
+        return false if new_distance < old_distance
+      end
+    end
+    true
+  ensure
+    object.x = old_x
+    object.y = old_y
   end
 
   def moving?
@@ -23,6 +40,14 @@ class CharacterPhysics < Component
     else
       decelerate
     end
+
+    if object.turbo
+      turbo
+    end
+    if object.reset
+      reset
+    end
+
     if @speed > 0
       new_x, new_y = x, y
       shift = Utils.adjust_speed(@speed)
@@ -92,13 +117,33 @@ class CharacterPhysics < Component
 
   private
 
+  def collides_with_poly?(poly)
+    if poly
+      poly.each_slice(2) do |x, y|
+        return true if Utils.point_in_poly(x, y, *box)
+      end
+      box.each_slice(2) do |x, y|
+        return true if Utils.point_in_poly(x, y, *poly)
+      end
+    end
+    false
+  end
+
   def accelerate
     @speed += 0.2 if @speed < 10
   end
 
   def decelerate
     @speed -= 0.5 if @speed > 0
-    @speed = 0.0 if @speed < 0.01
+    @speed = 0.0 if @speed < 0
+  end
+
+  def turbo
+    @speed = 100
+  end
+
+  def reset
+    @speed = 1
   end
 
 end
