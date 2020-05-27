@@ -11,8 +11,10 @@ class Character < GameObject
     @physics = CharacterPhysics.new(self, object_pool)
     @graphics = CharacterGraphics.new(self)
     @sounds = CharacterSounds.new(self)
-    @direction = @gun_angle = 0.0
+    @direction = rand(0..7) * 45
+    @gun_angle = rand(0..360)
     @number_ammo = 10
+
   end
 
   def box

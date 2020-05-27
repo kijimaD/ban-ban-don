@@ -39,7 +39,6 @@ module Utils
     @buttons ||= {}
     now = Gosu.milliseconds
     now = now - (now % 150)
-    puts now
     if $window.button_down?(button)
       @buttons[button] = now
       false

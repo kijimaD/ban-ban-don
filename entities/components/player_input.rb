@@ -28,7 +28,6 @@ class PlayerInput < Component
       object.turbo = false
     end
 
-    puts Utils.button_up?(Gosu::KbLeftShift)
     if Utils.button_up?(Gosu::KbLeftShift)
       object.reset = true
     else
@@ -68,7 +67,7 @@ class PlayerInput < Component
       angle += 45.0 if Utils.button_down?(down)
     end
     angle = (angle + 360) % 360 if angle && angle < 0
-    angle || previous_angle
+    (angle || previous_angle)
   end
 
 end
