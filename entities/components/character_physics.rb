@@ -14,7 +14,8 @@ class CharacterPhysics < Component
     object.x = x
     object.y = y
     return false unless @map.can_move_to?(x, y)
-    @object_pool.nearby(object, 40).each do |obj|
+    @object_pool.nearby(object, 100).each do |obj|
+      next if obj.class == Bullet && obj.source == object
       if collides_with_poly?(obj.box)
         old_distance = Utils.distance_between(
           obj.x, obj.y, old_x, old_y)

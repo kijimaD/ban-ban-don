@@ -13,7 +13,7 @@ class Character < GameObject
     @sounds = CharacterSounds.new(self)
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
-    @number_ammo = 10
+    @number_ammo = 40
 
   end
 
