@@ -40,12 +40,12 @@ class GameStateGameState1,0
 states/play_state.rb,262
 class PlayState < GameStatePlayState2,16
   def initializeinitialize4,45
-  def enterenter16,391
-  def leaveleave20,456
-  def updateupdate28,621
-  def drawdraw36,792
-  def button_down(id)button_down53,1233
-  def update_captionupdate_caption65,1415
+  def enterenter16,389
+  def leaveleave20,454
+  def updateupdate28,619
+  def drawdraw36,788
+  def button_down(id)button_down53,1227
+  def update_captionupdate_caption65,1409
 
 states/menu_state.rb,243
 class MenuState < GameStateMenuState3,36
@@ -115,20 +115,21 @@ class ExplosionGraphics < ComponentExplosionGraphics1,0
   def done?done?33,592
   def animationanimation37,658
 
-entities/components/character_physics.rb,497
+entities/components/character_physics.rb,561
 class CharacterPhysics < ComponentCharacterPhysics1,0
   def initialize(game_object, object_pool)initialize4,59
   def can_move_to?(x, y)can_move_to?12,264
-  def moving?moving?33,857
-  def updateupdate37,893
-  def box_widthbox_width85,1767
-  def box_heightbox_height89,1831
-  def boxbox93,1898
-  def collides_with_poly?(poly)collides_with_poly?120,2630
-  def accelerateaccelerate132,2899
-  def deceleratedecelerate136,2956
-  def turboturbo141,3043
-  def resetreset145,3079
+  def moving?moving?33,855
+  def updateupdate37,891
+  def box_widthbox_width85,1765
+  def box_heightbox_height89,1829
+  def boxbox93,1896
+  def change_direction(new_direction)change_direction118,2617
+  def collides_with_poly?(poly)collides_with_poly?133,2941
+  def accelerateaccelerate145,3210
+  def deceleratedecelerate149,3267
+  def turboturbo154,3354
+  def resetreset158,3390
 
 entities/components/explosion_sounds.rb,90
 class ExplosionSoundsExplosionSounds1,0
@@ -151,13 +152,13 @@ class BulletPhysics < ComponentBulletPhysics1,0
   def arrived?arrived?38,1009
   def check_hitcheck_hit42,1080
 
-entities/components/player_input.rb,282
+entities/components/player_input.rb,283
 class PlayerInput < ComponentPlayerInput1,0
   def initialize(camera)initialize2,30
   def control(obj)control7,98
   def updateupdate11,146
-  def any_button_down?(*buttons)any_button_down?44,992
-  def change_angle(previous_angle, up, down, right, left)change_angle51,1117
+  def any_button_down?(*buttons)any_button_down?45,1079
+  def change_angle(previous_angle, up, down, right, left)change_angle52,1204
 
 entities/components/character_graphics.rb,264
 class CharacterGraphics < ComponentCharacterGraphics1,0
