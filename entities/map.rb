@@ -11,6 +11,19 @@ class Map
     @map = generate_map
   end
 
+  def draw(camera)
+    @map.each do |x, row|
+      row.each do |y, val|
+        tile = @map[x][y]
+        map_x = x * TILE_SIZE
+        map_y = y * TILE_SIZE
+        # if camera.can_view?(map_x, map_y, tile)
+          tile.draw(map_x, map_y, 0)
+        # end
+      end
+    end
+  end
+
   def find_spawn_point
     while true
       x = rand(0..MAP_WIDTH * TILE_SIZE)
@@ -28,16 +41,13 @@ class Map
     tile && tile != @water
   end
 
-  def draw(camera)
-    @map.each do |x, row|
-      row.each do |y, val|
-        tile = @map[x][y]
-        map_x = x * TILE_SIZE
-        map_y = y * TILE_SIZE
-        # if camera.can_view?(map_x, map_y, tile)
-          tile.draw(map_x, map_y, 0)
-        # end
-      end
+  def movement_penalty(x, y)
+    tile = tile_at(x, y)
+    case tile
+    when @sand
+      0.33
+    else
+      0
     end
   end
 

@@ -23,11 +23,10 @@ class Camera
   end
 
   def update
-    shift = Utils.adjust_speed(@target.physics.speed) # enable smooth movement
-    @x += shift if @x < @target.x - $window.width / 16
-    @x -= shift if @x > @target.x + $window.width / 16
-    @y += shift if @y < @target.y - $window.height / 16
-    @y -= shift if @y > @target.y + $window.height / 16
+    @x += @target.physics.shift if @x < @target.x - $window.width / 16
+    @x -= @target.physics.shift if @x > @target.x + $window.width / 16
+    @y += @target.physics.shift if @y < @target.y - $window.height / 16
+    @y -= @target.physics.shift if @y > @target.y + $window.height / 16
   end
 
   def to_s

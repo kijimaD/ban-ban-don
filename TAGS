@@ -72,16 +72,17 @@ entities/explosion.rb,95
 class Explosion < GameObjectExplosion1,0
   def initialize(object_pool, x, y)initialize4,53
 
-entities/map.rb,329
+entities/map.rb,383
 class MapMap4,54
   def initializeinitialize9,120
-  def find_spawn_pointfind_spawn_point14,183
-  def can_move_to?(x, y)can_move_to?26,436
-  def draw(camera)draw31,520
-  def tile_at(x, y)tile_at46,815
-  def load_tilesload_tiles53,974
-  def generate_mapgenerate_map63,1228
-  def choose_tile(val)choose_tile79,1573
+  def draw(camera)draw14,183
+  def find_spawn_pointfind_spawn_point27,467
+  def can_move_to?(x, y)can_move_to?39,720
+  def movement_penalty(x, y)movement_penalty44,804
+  def tile_at(x, y)tile_at56,941
+  def load_tilesload_tiles63,1100
+  def generate_mapgenerate_map73,1354
+  def choose_tile(val)choose_tile89,1699
 
 entities/components/ai_input.rb,70
 class AiInput < ComponentAiInput1,0
@@ -115,21 +116,22 @@ class ExplosionGraphics < ComponentExplosionGraphics1,0
   def done?done?33,592
   def animationanimation37,658
 
-entities/components/character_physics.rb,561
+entities/components/character_physics.rb,629
 class CharacterPhysics < ComponentCharacterPhysics1,0
-  def initialize(game_object, object_pool)initialize4,59
-  def can_move_to?(x, y)can_move_to?12,264
-  def moving?moving?33,855
-  def updateupdate37,891
-  def box_widthbox_width85,1765
-  def box_heightbox_height89,1829
-  def boxbox93,1896
-  def change_direction(new_direction)change_direction118,2617
-  def collides_with_poly?(poly)collides_with_poly?133,2941
-  def accelerateaccelerate145,3210
-  def deceleratedecelerate149,3267
-  def turboturbo154,3354
-  def resetreset158,3390
+  def initialize(game_object, object_pool)initialize4,67
+  def can_move_to?(x, y)can_move_to?12,272
+  def moving?moving?33,863
+  def updateupdate37,899
+  def box_widthbox_width89,1921
+  def box_heightbox_height93,1985
+  def boxbox97,2052
+  def change_direction(new_direction)change_direction122,2773
+  def collides_with_poly?(poly)collides_with_poly?137,3097
+  def apply_movement_penalty(speed)apply_movement_penalty149,3366
+  def accelerateaccelerate153,3456
+  def deceleratedecelerate157,3513
+  def turboturbo162,3600
+  def resetreset166,3636
 
 entities/components/explosion_sounds.rb,90
 class ExplosionSoundsExplosionSounds1,0
@@ -157,8 +159,8 @@ class PlayerInput < ComponentPlayerInput1,0
   def initialize(camera)initialize2,30
   def control(obj)control7,98
   def updateupdate11,146
-  def any_button_down?(*buttons)any_button_down?45,1079
-  def change_angle(previous_angle, up, down, right, left)change_angle52,1204
+  def any_button_down?(*buttons)any_button_down?45,1015
+  def change_angle(previous_angle, up, down, right, left)change_angle52,1140
 
 entities/components/character_graphics.rb,264
 class CharacterGraphics < ComponentCharacterGraphics1,0
