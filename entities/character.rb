@@ -8,13 +8,13 @@ class Character < GameObject
     super(object_pool)
     @input = input
     @input.control(self)
-    @physics = CharacterPhysics.new(self, object_pool)
     @graphics = CharacterGraphics.new(self)
     @sounds = CharacterSounds.new(self)
+    @physics = CharacterPhysics.new(self, object_pool)
+    @health = CharacterHealth.new(self, object_pool)
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
     @number_ammo = 40
-
   end
 
   def box

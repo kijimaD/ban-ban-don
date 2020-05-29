@@ -63,10 +63,10 @@ class CameraCamera1,0
   def can_view?(x, y, obj)can_view?10,140
   def mouse_coordsmouse_coords16,284
   def updateupdate25,577
-  def to_sto_s33,898
-  def target_delta_on_screentarget_delta_on_screen39,1027
-  def draw_crosshairdraw_crosshair43,1120
-  def viewportviewport54,1392
+  def to_sto_s32,883
+  def target_delta_on_screentarget_delta_on_screen38,1012
+  def draw_crosshairdraw_crosshair42,1105
+  def viewportviewport53,1377
 
 entities/explosion.rb,95
 class Explosion < GameObjectExplosion1,0
@@ -116,22 +116,31 @@ class ExplosionGraphics < ComponentExplosionGraphics1,0
   def done?done?33,592
   def animationanimation37,658
 
+entities/components/character_health.rb,283
+class CharacterHealth < ComponentCharacterHealth1,0
+  def initialize(object, object_pool)initialize4,59
+  def updateupdate12,235
+  def update_imageupdate_image16,272
+  def dead?dead?32,592
+  def inflict_damage(amount)inflict_damage36,627
+  def draw(viewport)draw46,839
+
 entities/components/character_physics.rb,629
 class CharacterPhysics < ComponentCharacterPhysics1,0
   def initialize(game_object, object_pool)initialize4,67
-  def can_move_to?(x, y)can_move_to?12,272
-  def moving?moving?33,863
-  def updateupdate37,899
-  def box_widthbox_width89,1921
-  def box_heightbox_height93,1985
-  def boxbox97,2052
-  def change_direction(new_direction)change_direction122,2773
-  def collides_with_poly?(poly)collides_with_poly?137,3097
-  def apply_movement_penalty(speed)apply_movement_penalty149,3366
-  def accelerateaccelerate153,3456
-  def deceleratedecelerate157,3513
-  def turboturbo162,3600
-  def resetreset166,3636
+  def can_move_to?(x, y)can_move_to?12,280
+  def moving?moving?33,871
+  def updateupdate37,907
+  def box_widthbox_width86,1838
+  def box_heightbox_height90,1902
+  def boxbox94,1969
+  def change_direction(new_direction)change_direction119,2690
+  def collides_with_poly?(poly)collides_with_poly?134,3014
+  def apply_movement_penalty(speed)apply_movement_penalty146,3283
+  def accelerateaccelerate150,3373
+  def deceleratedecelerate154,3430
+  def turboturbo159,3517
+  def resetreset163,3553
 
 entities/components/explosion_sounds.rb,90
 class ExplosionSoundsExplosionSounds1,0
@@ -174,8 +183,8 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
 entities/character.rb,163
 class Character < GameObjectCharacter1,0
   def initialize(object_pool, input)initialize7,205
-  def boxbox20,541
-  def shoot(target_x, target_y)shoot24,575
+  def boxbox21,581
+  def shoot(target_x, target_y)shoot25,615
 
 entities/bullet.rb,212
 class Bullet < GameObjectBullet1,0
