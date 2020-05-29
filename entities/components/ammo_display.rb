@@ -1,4 +1,4 @@
-class AmmoDisplay
+class AmmoDisplay < Component
   WIDTH = 150
   HEIGHT = 60
   PADDING = 10
