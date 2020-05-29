@@ -40,12 +40,12 @@ class GameStateGameState1,0
 states/play_state.rb,262
 class PlayState < GameStatePlayState2,16
   def initializeinitialize4,45
-  def enterenter16,389
-  def leaveleave20,454
-  def updateupdate28,619
-  def drawdraw36,788
-  def button_down(id)button_down53,1227
-  def update_captionupdate_caption65,1409
+  def enterenter16,372
+  def leaveleave20,437
+  def updateupdate28,602
+  def drawdraw36,762
+  def button_down(id)button_down53,1192
+  def update_captionupdate_caption65,1374
 
 states/menu_state.rb,243
 class MenuState < GameStateMenuState3,36
@@ -56,6 +56,12 @@ class MenuState < GameStateMenuState3,36
   def updateupdate28,468
   def drawdraw35,670
   def button_down(id)button_down46,931
+
+entities/hud.rb,124
+class HUDHUD1,0
+  def initialize(object_pool, character)initialize3,11
+  def updateupdate9,179
+  def drawdraw13,224
 
 entities/camera.rb,328
 class CameraCamera1,0
@@ -116,14 +122,15 @@ class ExplosionGraphics < ComponentExplosionGraphics1,0
   def done?done?33,592
   def animationanimation37,658
 
-entities/components/character_health.rb,283
-class CharacterHealth < ComponentCharacterHealth1,0
-  def initialize(object, object_pool)initialize4,59
-  def updateupdate12,235
-  def update_imageupdate_image16,272
-  def dead?dead?32,592
-  def inflict_damage(amount)inflict_damage36,627
-  def draw(viewport)draw48,841
+entities/components/character_health.rb,323
+class CharacterHealth < ComponentCharacterHealth2,16
+  def initialize(object, object_pool)initialize5,75
+  def updateupdate13,251
+  def draw(viewport)draw17,288
+  def update_imageupdate_image24,426
+  def dead?dead?40,751
+  def inflict_damage(amount)inflict_damage44,786
+  def hp_gauge(health)hp_gauge54,998
 
 entities/components/character_physics.rb,629
 class CharacterPhysics < ComponentCharacterPhysics1,0
@@ -146,6 +153,16 @@ entities/components/explosion_sounds.rb,90
 class ExplosionSoundsExplosionSounds1,0
     def playplay3,38
     def soundsound9,90
+
+entities/components/ammo_display.rb,298
+class AmmoDisplay < ComponentAmmoDisplay1,0
+  def initialize(object_pool, character)initialize8,160
+  def updateupdate14,287
+  def drawdraw20,406
+  def draw_ammodraw_ammo25,455
+  def draw_ammo_bgdraw_ammo_bg32,590
+  def ammo_coordsammo_coords42,787
+  def ammo_imageammo_image50,960
 
 entities/components/character_sounds.rb,186
 class CharacterSounds < ComponentCharacterSounds1,0
@@ -182,9 +199,9 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
 
 entities/character.rb,163
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize7,205
-  def boxbox20,593
-  def shoot(target_x, target_y)shoot24,627
+  def initialize(object_pool, input)initialize8,230
+  def boxbox21,618
+  def shoot(target_x, target_y)shoot25,652
 
 entities/bullet.rb,212
 class Bullet < GameObjectBullet1,0
@@ -197,16 +214,6 @@ entities/object_pool.rb,118
 class ObjectPoolObjectPool1,0
   def initialize(map)initialize4,49
   def nearby(object, max_distance)nearby9,111
-
-entities/ammo_display.rb,286
-class AmmoDisplayAmmoDisplay1,0
-  def initialize(object_pool, character)initialize8,148
-  def updateupdate14,275
-  def drawdraw20,394
-  def draw_ammodraw_ammo25,443
-  def draw_ammo_bgdraw_ammo_bg32,578
-  def ammo_coordsammo_coords42,775
-  def ammo_imageammo_image50,948
 
 entities/game_object.rb,341
 class GameObjectGameObject1,0

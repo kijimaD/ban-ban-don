@@ -7,10 +7,10 @@ class PlayState < GameState
     @object_pool = ObjectPool.new(@map)
     @character = Character.new(@object_pool, PlayerInput.new(@camera))
     @camera.target = @character
-    @ammo_display = AmmoDisplay.new(@object_pool, @character)
     50.times do
       Character.new(@object_pool, AiInput.new)
     end
+    @hud = HUD.new(@object_pool, @character)
   end
 
   def enter
@@ -29,7 +29,7 @@ class PlayState < GameState
     @object_pool.objects.map(&:update)
     @object_pool.objects.reject!(&:removable?)
     @camera.update
-    @ammo_display.update
+    @hud.update
     update_caption
   end
 
@@ -47,7 +47,7 @@ class PlayState < GameState
       end
     end
     @camera.draw_crosshair
-    @ammo_display.draw
+    @hud.draw
   end
 
   def button_down(id)

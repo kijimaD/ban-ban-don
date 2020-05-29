@@ -14,6 +14,13 @@ class CharacterHealth < Component
     update_image
   end
 
+  def draw(viewport)
+    @image.draw(
+      x - @image.width / 2,
+      y - object.graphics.height / 2 -
+      @image.height, 100)
+  end
+
   def update_image
     if @health_updated
       if dead?
@@ -48,10 +55,4 @@ class CharacterHealth < Component
     "■" * (health / 10)
   end
 
-  def draw(viewport)
-    @image.draw(
-      x - @image.width / 2,
-      y - object.graphics.height / 2 -
-      @image.height, 100)
-  end
 end
