@@ -1,3 +1,4 @@
+# coding: utf-8
 class CharacterHealth < Component
   attr_accessor :health
 
@@ -19,7 +20,7 @@ class CharacterHealth < Component
         text = '+'
         font_size = 25
       else
-        text = @health.to_s
+        text = hp_gauge(@health)
         font_size = 18
       end
       @image = Gosu::Image.from_text(
@@ -41,6 +42,10 @@ class CharacterHealth < Component
         Explosion.new(@object_pool, x, y)
       end
     end
+  end
+
+  def hp_gauge(health)
+    "■" * (health / 10)
   end
 
   def draw(viewport)

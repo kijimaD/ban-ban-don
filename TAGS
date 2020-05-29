@@ -123,7 +123,7 @@ class CharacterHealth < ComponentCharacterHealth1,0
   def update_imageupdate_image16,272
   def dead?dead?32,592
   def inflict_damage(amount)inflict_damage36,627
-  def draw(viewport)draw46,839
+  def draw(viewport)draw48,841
 
 entities/components/character_physics.rb,629
 class CharacterPhysics < ComponentCharacterPhysics1,0
@@ -183,8 +183,8 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
 entities/character.rb,163
 class Character < GameObjectCharacter1,0
   def initialize(object_pool, input)initialize7,205
-  def boxbox21,581
-  def shoot(target_x, target_y)shoot25,615
+  def boxbox20,593
+  def shoot(target_x, target_y)shoot24,627
 
 entities/bullet.rb,212
 class Bullet < GameObjectBullet1,0
