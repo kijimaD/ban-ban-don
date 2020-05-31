@@ -57,11 +57,11 @@ class MenuState < GameStateMenuState3,36
   def drawdraw35,670
   def button_down(id)button_down46,931
 
-entities/hud.rb,124
+entities/hud.rb,125
 class HUDHUD1,0
   def initialize(object_pool, character)initialize3,11
-  def updateupdate9,179
-  def drawdraw13,224
+  def updateupdate10,239
+  def drawdraw15,308
 
 entities/camera.rb,328
 class CameraCamera1,0
@@ -74,9 +74,10 @@ class CameraCamera1,0
   def draw_crosshairdraw_crosshair42,1105
   def viewportviewport53,1377
 
-entities/explosion.rb,95
+entities/explosion.rb,138
 class Explosion < GameObjectExplosion1,0
   def initialize(object_pool, x, y)initialize4,53
+  def inflict_damageinflict_damage14,224
 
 entities/map.rb,383
 class MapMap4,54
@@ -148,6 +149,16 @@ class CharacterPhysics < ComponentCharacterPhysics1,0
   def deceleratedecelerate154,3430
   def turboturbo159,3517
   def resetreset163,3553
+
+entities/components/speed_meter.rb,306
+class SpeedMeter < ComponentSpeedMeter1,0
+  def initialize(object_pool, character)initialize8,159
+  def updateupdate14,286
+  def drawdraw20,407
+  def draw_speeddraw_speed25,460
+  def draw_speed_bgdraw_speed_bg32,597
+  def speed_coordsspeed_coords43,801
+  def speed_formatspeed_format51,975
 
 entities/components/explosion_sounds.rb,90
 class ExplosionSoundsExplosionSounds1,0
