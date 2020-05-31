@@ -40,14 +40,15 @@ class BulletPhysics < Component
   end
 
   def check_hit
-    # @object_pool.nearby(object, 50).each do |obj|
-    #   next if obj == object.source
-    #   if Utils.point_in_poly(x, y, *obj.box)
-    #     object.target_x = x
-    #     object.target_y = y
-    #     return
-    #   end
-    # end
+    @object_pool.nearby(object, 50).each do |obj|
+      next if obj == object.source
+      if Utils.point_in_poly(x, y, *obj.box)
+        obj.health.inflict_damage(20)
+        object.target_x = x
+        object.target_y = y
+        return
+      end
+    end
   end
 
 end
