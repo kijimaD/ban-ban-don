@@ -139,26 +139,25 @@ class CharacterPhysics < ComponentCharacterPhysics1,0
   def can_move_to?(x, y)can_move_to?12,280
   def moving?moving?33,871
   def updateupdate37,907
-  def box_widthbox_width86,1838
-  def box_heightbox_height90,1902
-  def boxbox94,1969
-  def change_direction(new_direction)change_direction119,2690
-  def collides_with_poly?(poly)collides_with_poly?134,3014
-  def apply_movement_penalty(speed)apply_movement_penalty146,3283
-  def accelerateaccelerate150,3373
-  def deceleratedecelerate154,3430
-  def turboturbo159,3517
-  def resetreset163,3553
+  def box_widthbox_width86,1843
+  def box_heightbox_height90,1907
+  def boxbox94,1974
+  def change_direction(new_direction)change_direction119,2695
+  def collides_with_poly?(poly)collides_with_poly?134,3019
+  def apply_movement_penalty(speed)apply_movement_penalty146,3288
+  def accelerateaccelerate150,3378
+  def deceleratedecelerate154,3435
+  def turboturbo159,3522
+  def resetreset163,3558
 
-entities/components/speed_meter.rb,306
+entities/components/speed_meter.rb,267
 class SpeedMeter < ComponentSpeedMeter1,0
-  def initialize(object_pool, character)initialize8,159
-  def updateupdate14,286
-  def drawdraw20,407
-  def draw_speeddraw_speed25,460
-  def draw_speed_bgdraw_speed_bg32,597
-  def speed_coordsspeed_coords43,801
-  def speed_formatspeed_format51,975
+  def initialize(object_pool, character)initialize8,158
+  def updateupdate14,285
+  def drawdraw17,305
+  def draw_speeddraw_speed22,358
+  def draw_speed_bgdraw_speed_bg27,492
+  def speed_coordsspeed_coords38,696
 
 entities/components/explosion_sounds.rb,90
 class ExplosionSoundsExplosionSounds1,0
@@ -196,8 +195,8 @@ class PlayerInput < ComponentPlayerInput1,0
   def initialize(camera)initialize2,30
   def control(obj)control7,98
   def updateupdate11,146
-  def any_button_down?(*buttons)any_button_down?45,1015
-  def change_angle(previous_angle, up, down, right, left)change_angle52,1140
+  def any_button_down?(*buttons)any_button_down?46,1049
+  def change_angle(previous_angle, up, down, right, left)change_angle53,1174
 
 entities/components/character_graphics.rb,264
 class CharacterGraphics < ComponentCharacterGraphics1,0
