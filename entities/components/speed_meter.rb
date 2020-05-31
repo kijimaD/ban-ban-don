@@ -1,6 +1,6 @@
 class SpeedMeter < Component
   WIDTH = 30
-  HEIGHT = 120
+  HEIGHT = 80
   PADDING = 10
   BACKGROUND = Gosu::Color.new(255 * 0.33, 0, 0, 0)
   FONT_COLOR = Gosu::Color::WHITE
@@ -12,9 +12,6 @@ class SpeedMeter < Component
   end
 
   def update
-    @message = Gosu::Image.from_text(
-      $window, speed_format,
-      Gosu.default_font_name, 60)
   end
 
   def draw
@@ -24,9 +21,7 @@ class SpeedMeter < Component
 
   def draw_speed
     x1, x2, y1, y2 = speed_coords
-    if @message
-      @message.draw(x1, y1, 300, 1.0, 1.0, FONT_COLOR)
-    end
+    $window.draw_rect(x1, y1, @character.physics.speed * 10, 3, FONT_COLOR)
   end
 
   def draw_speed_bg
@@ -46,10 +41,6 @@ class SpeedMeter < Component
     y1 = $window.height - HEIGHT - PADDING
     y2 = $window.height - PADDING
     [x1, x2, y1, y2]
-  end
-
-  def speed_format
-    "i" * @character.physics.speed
   end
 
 end
