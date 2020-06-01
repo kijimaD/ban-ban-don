@@ -94,4 +94,16 @@ module Utils
     Math.sqrt(dx * dx + dy * dy)
   end
 
+  def self.angle_between(x, y, target_x, target_y)
+    dx = target_x - x
+    dy = target_y - y
+    (180 - Math.atan2(dx, dy) * 180 / Math::PI) + 360 % 360
+  end
+
+  def self.point_at_distance(source_x, source_y, angle, distance)
+    angle = (90 - angle) * Math::PI / 180
+    x = source_x + Math.cos(angle) * distance
+    y = source_y + Math.sin(angle) * distance
+    [x, y]
+  end
 end

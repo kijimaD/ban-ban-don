@@ -32,4 +32,8 @@ class Character < GameObject
     end
   end
 
+  def can_shoot?
+    Gosu.milliseconds - (@last_shot || 0) > SHOOT_DELAY
+  end
+
 end
