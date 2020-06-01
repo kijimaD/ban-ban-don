@@ -189,13 +189,13 @@ class CharacterSounds < ComponentCharacterSounds1,0
 
 entities/components/ai/character_fleeing_state.rb,331
 class CharacterFleeingState < CharacterMotionStateCharacterFleeingState1,0
-  def initialize(object, vision, gun)initialize3,79
-  def can_flee?can_flee?10,207
-  def enterenter15,327
-  def updateupdate19,389
-  def change_directionchange_direction24,468
-  def drive_timedrive_time39,890
-  def turn_timeturn_time43,924
+  def initialize(object, vision, gun)initialize3,92
+  def can_flee?can_flee?10,220
+  def enterenter15,340
+  def updateupdate19,402
+  def change_directionchange_direction24,481
+  def drive_timedrive_time33,709
+  def turn_timeturn_time37,743
 
 entities/components/ai/character_roaming_state.rb,300
 class CharacterRoamingState < CharacterMotionStateCharacterRoamingState1,0
@@ -211,9 +211,9 @@ class CharacterFightingState < CharacterMotionStateCharacterFightingState1,0
   def initialize(object, vision)initialize2,52
   def updateupdate8,144
   def change_directionchange_direction15,278
-  def wait_timewait_time36,777
-  def drive_timedrive_time40,820
-  def turn_timeturn_time44,865
+  def wait_timewait_time36,778
+  def drive_timedrive_time40,821
+  def turn_timeturn_time44,866
 
 entities/components/ai/character_chasing_state.rb,272
 class CharacterChasingState < CharacterMotionStateCharacterChasingState1,0

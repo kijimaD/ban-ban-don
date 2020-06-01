@@ -29,7 +29,7 @@ class CharacterFightingState < CharacterMotionState
              end
     @object.physics.change_direction(
       @object.direction + change)
-    @change_direction_at = Gosu.milliseconds
+    @changed_direction_at = Gosu.milliseconds
     @will_keep_direction_for = turn_time
   end
 
