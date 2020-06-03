@@ -14,8 +14,8 @@ class Map
   def draw(viewport)
     viewport.map! {|p| p / TILE_SIZE}
     x0, x1, y0, y1 = viewport.map(&:to_i)
-    (x0..x1).each do |x|
-      (y0..y1).each do |y|
+    (x0-10..x1).each do |x|
+      (y0-10..y1).each do |y|
         row = @map[x]
         map_x = x * TILE_SIZE
         map_y = y * TILE_SIZE
