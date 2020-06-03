@@ -81,17 +81,17 @@ class Explosion < GameObjectExplosion1,0
   def initialize(object_pool, x, y)initialize4,53
   def inflict_damageinflict_damage14,224
 
-entities/map.rb,383
+entities/map.rb,387
 class MapMap4,54
   def initializeinitialize9,118
-  def draw(camera)draw14,181
-  def find_spawn_pointfind_spawn_point27,465
-  def can_move_to?(x, y)can_move_to?39,718
-  def movement_penalty(x, y)movement_penalty44,802
-  def tile_at(x, y)tile_at56,939
-  def load_tilesload_tiles63,1098
-  def generate_mapgenerate_map73,1352
-  def choose_tile(val)choose_tile89,1697
+  def draw(viewport)draw14,181
+  def find_spawn_pointfind_spawn_point36,681
+  def can_move_to?(x, y)can_move_to?48,934
+  def movement_penalty(x, y)movement_penalty53,1018
+  def tile_at(x, y)tile_at65,1155
+  def load_tilesload_tiles72,1322
+  def generate_mapgenerate_map82,1576
+  def choose_tile(val)choose_tile98,1921
 
 entities/components/ai_input.rb,231
 class AiInput < ComponentAiInput1,0
