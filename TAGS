@@ -47,7 +47,7 @@ class PlayState < GameStatePlayState2,16
   def updateupdate28,616
   def drawdraw36,776
   def button_down(id)button_down53,1206
-  def update_captionupdate_caption70,1536
+  def update_captionupdate_caption70,1541
 
 states/menu_state.rb,243
 class MenuState < GameStateMenuState3,36

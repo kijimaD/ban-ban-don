@@ -35,7 +35,7 @@ class AiGun
                       distance + 10 - rand(0..@accuracy))
           if can_make_new_decision? && @object.can_shoot? &&
              should_shoot?
-            @object.shoot(target.x, target_y)
+            @object.shoot(target_x, target_y)
           end
         end
       end

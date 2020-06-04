@@ -56,7 +56,7 @@ class PlayState < GameState
       $window.close
     end
     if id == Gosu::KbT
-      t = Tank.new(@object_pool,
+      t = Character.new(@object_pool,
                    AiInput.new(@object_pool))
       t.x, t.y = @camera.mouse_coords
     end
