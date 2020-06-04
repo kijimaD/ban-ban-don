@@ -70,11 +70,11 @@ class CameraCamera1,0
   def target=(target)target=4,44
   def can_view?(x, y, obj)can_view?10,140
   def mouse_coordsmouse_coords16,284
-  def updateupdate25,577
-  def to_sto_s32,883
-  def target_delta_on_screentarget_delta_on_screen38,1012
-  def draw_crosshairdraw_crosshair42,1105
-  def viewportviewport53,1377
+  def updateupdate25,587
+  def to_sto_s32,893
+  def target_delta_on_screentarget_delta_on_screen38,1022
+  def draw_crosshairdraw_crosshair42,1115
+  def viewportviewport53,1387
 
 entities/explosion.rb,138
 class Explosion < GameObjectExplosion1,0

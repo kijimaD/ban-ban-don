@@ -16,9 +16,9 @@ class Camera
   def mouse_coords
     x, y = target_delta_on_screen
     mouse_x_on_map = @target.x +
-      (x + $window.mouse_x - ($window.width / 2)) / @zoom
+      (x + $window.mouse_x - ($window.width / 2)) / @zoom * 20
     mouse_y_on_map = @target.y +
-      (y + $window.mouse_y - ($window.height / 2)) / @zoom
+      (y + $window.mouse_y - ($window.height / 2)) / @zoom * 20
     [mouse_x_on_map, mouse_y_on_map].map(&:round)
   end
 

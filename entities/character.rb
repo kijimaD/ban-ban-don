@@ -1,5 +1,5 @@
 class Character < GameObject
-  SHOOT_DELAY = 500
+  SHOOT_DELAY = 300
   attr_accessor :x, :y, :throttle_down, :turbo, :reset,
                 :direction, :gun_angle,
                 :sounds, :physics, :graphics,
