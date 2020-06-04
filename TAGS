@@ -70,11 +70,11 @@ class CameraCamera1,0
   def target=(target)target=4,44
   def can_view?(x, y, obj)can_view?10,140
   def mouse_coordsmouse_coords16,284
-  def updateupdate25,587
-  def to_sto_s32,893
-  def target_delta_on_screentarget_delta_on_screen38,1022
-  def draw_crosshairdraw_crosshair42,1115
-  def viewportviewport53,1387
+  def updateupdate25,577
+  def to_sto_s32,883
+  def target_delta_on_screentarget_delta_on_screen38,1012
+  def draw_crosshairdraw_crosshair42,1105
+  def viewportviewport53,1377
 
 entities/explosion.rb,138
 class Explosion < GameObjectExplosion1,0
@@ -93,13 +93,14 @@ class MapMap4,54
   def generate_mapgenerate_map82,1576
   def choose_tile(val)choose_tile98,1921
 
-entities/components/ai_input.rb,231
+entities/components/ai_input.rb,264
 class AiInput < ComponentAiInput1,0
   def initialize(object_pool)initialize4,47
   def control(obj)control10,167
   def on_collision(with)on_collision18,397
   def on_damage(amount)on_damage22,460
   def updateupdate26,521
+  def draw(viewport)draw37,749
 
 entities/components/bullet_graphics.rb,83
 class BulletGraphics < ComponentBulletGraphics1,0
@@ -238,17 +239,18 @@ class CharacterMotionStateCharacterMotionState1,0
   def substate_expired?substate_expired?45,712
   def on_collision(with)on_collision57,964
 
-entities/components/ai/gun.rb,449
+entities/components/ai/gun.rb,483
 class AiGunAiGun1,0
   def initialize(object, vision)initialize5,79
   def adjust_angleadjust_angle14,293
   def updateupdate19,365
-  def distance_to_targetdistance_to_target45,1128
-  def should_shoot?should_shoot?50,1238
-  def can_make_new_decision?can_make_new_decision?54,1298
-  def adjust_desired_angleadjust_desired_angle62,1461
-  def change_target(new_target)change_target71,1756
-  def adjust_gun_angleadjust_gun_angle76,1845
+  def draw(viewport)draw45,1128
+  def distance_to_targetdistance_to_target59,1660
+  def should_shoot?should_shoot?64,1770
+  def can_make_new_decision?can_make_new_decision?68,1830
+  def adjust_desired_angleadjust_desired_angle76,1993
+  def change_target(new_target)change_target85,2288
+  def adjust_gun_angleadjust_gun_angle90,2377
 
 entities/components/ai/character_motion_fsm.rb,294
 class CharacterMotionFSMCharacterMotionFSM1,0
