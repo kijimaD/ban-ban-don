@@ -1,19 +1,5 @@
 
-utils.rb,699
-module UtilsUtils1,0
-  def self.media_path(file)media_path3,14
-  def self.track_update_intervaltrack_update_interval7,102
-  def self.update_intervalupdate_interval13,250
-  def self.adjust_speed(speed)adjust_speed17,333
-  def self.button_down?(button)button_down21,407
-  def self.button_up?(button)button_up38,747
-  def self.rotate(angle, around_x, around_y, *points)rotate55,1085
-  def self.point_in_poly(testx, testy, *poly)point_in_poly70,1569
-  def self.distance_between(x1, y1, x2, y2)distance_between91,2079
-  def self.angle_between(x, y, target_x, target_y)angle_between97,2197
-  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance103,2359
-
-states/pause_state.rb,546
+game_states/pause_state.rb,546
 class PauseState < GameStatePauseState3,36
   def initializeinitialize7,114
   def enterenter15,342
@@ -29,7 +15,7 @@ class PauseState < GameStatePauseState3,36
   def gen_choises(input_array, goal_y)gen_choises93,1952
   def gen_button(goal_y, button)gen_button107,2344
 
-states/game_state.rb,252
+game_states/game_state.rb,252
 class GameStateGameState1,0
   def self.switch(new_state)switch3,17
   def enterenter9,144
@@ -39,7 +25,7 @@ class GameStateGameState1,0
   def needs_redraw?needs_redraw?21,220
   def button_down(id)button_down25,256
 
-states/play_state.rb,262
+game_states/play_state.rb,262
 class PlayState < GameStatePlayState2,16
   def initializeinitialize4,45
   def enterenter16,386
@@ -49,7 +35,7 @@ class PlayState < GameStatePlayState2,16
   def button_down(id)button_down53,1206
   def update_captionupdate_caption70,1541
 
-states/menu_state.rb,243
+game_states/menu_state.rb,243
 class MenuState < GameStateMenuState3,36
   def initializeinitialize7,113
   def enterenter13,250
@@ -58,6 +44,20 @@ class MenuState < GameStateMenuState3,36
   def updateupdate28,468
   def drawdraw35,670
   def button_down(id)button_down46,931
+
+utils.rb,699
+module UtilsUtils1,0
+  def self.media_path(file)media_path3,14
+  def self.track_update_intervaltrack_update_interval7,102
+  def self.update_intervalupdate_interval13,250
+  def self.adjust_speed(speed)adjust_speed17,333
+  def self.button_down?(button)button_down21,407
+  def self.button_up?(button)button_up38,747
+  def self.rotate(angle, around_x, around_y, *points)rotate55,1085
+  def self.point_in_poly(testx, testy, *poly)point_in_poly70,1569
+  def self.distance_between(x1, y1, x2, y2)distance_between91,2079
+  def self.angle_between(x, y, target_x, target_y)angle_between97,2197
+  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance103,2359
 
 entities/hud.rb,125
 class HUDHUD1,0
@@ -106,15 +106,14 @@ entities/components/bullet_graphics.rb,83
 class BulletGraphics < ComponentBulletGraphics1,0
   def draw(viewport)draw4,63
 
-entities/components/component.rb,235
+entities/components/component.rb,209
 class ComponentComponent1,0
-  def initialize(game_object = nil)initialize3,17
-  def updateupdate7,90
-  def draw(viewport)draw11,125
-  def object=(obj)object=17,181
-  def xx24,275
-  def yy28,304
-  def objectobject32,333
+  def initialize(game_object = nil)initialize4,39
+  def updateupdate8,112
+  def draw(viewport)draw12,147
+  def object=(obj)object=18,203
+  def xx25,297
+  def yy29,326
 
 entities/components/bullet_sounds.rb,85
 class BulletSoundsBulletSounds1,0
@@ -245,12 +244,12 @@ class AiGunAiGun1,0
   def adjust_angleadjust_angle14,293
   def updateupdate19,365
   def draw(viewport)draw45,1128
-  def distance_to_targetdistance_to_target59,1660
-  def should_shoot?should_shoot?64,1770
-  def can_make_new_decision?can_make_new_decision?68,1830
-  def adjust_desired_angleadjust_desired_angle76,1993
-  def change_target(new_target)change_target85,2288
-  def adjust_gun_angleadjust_gun_angle90,2377
+  def distance_to_targetdistance_to_target65,1832
+  def should_shoot?should_shoot?70,1942
+  def can_make_new_decision?can_make_new_decision?74,2002
+  def adjust_desired_angleadjust_desired_angle82,2165
+  def change_target(new_target)change_target91,2460
+  def adjust_gun_angleadjust_gun_angle96,2549
 
 entities/components/ai/character_motion_fsm.rb,294
 class CharacterMotionFSMCharacterMotionFSM1,0
@@ -282,8 +281,8 @@ class PlayerInput < ComponentPlayerInput1,0
   def initialize(camera)initialize2,30
   def control(obj)control7,98
   def updateupdate11,146
-  def any_button_down?(*buttons)any_button_down?46,1049
-  def change_angle(previous_angle, up, down, right, left)change_angle53,1174
+  def any_button_down?(*buttons)any_button_down?46,1048
+  def change_angle(previous_angle, up, down, right, left)change_angle53,1173
 
 entities/components/character_graphics.rb,264
 class CharacterGraphics < ComponentCharacterGraphics1,0

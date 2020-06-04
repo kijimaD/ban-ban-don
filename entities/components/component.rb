@@ -1,4 +1,5 @@
 class Component
+  attr_reader :object
 
   def initialize(game_object = nil)
     self.object = game_object
@@ -29,7 +30,4 @@ class Component
     @object.y
   end
 
-  def object
-    @object
-  end
 end
