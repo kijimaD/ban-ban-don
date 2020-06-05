@@ -12,20 +12,31 @@ class AmmoDisplay < Component
   end
 
   def update
-    @message = Gosu::Image.from_text(
+    @ammo_message = Gosu::Image.from_text(
       $window, ammo_image,
       Gosu.default_font_name, 60)
+    @weapon_message = Gosu::Image.from_text(
+      $window, @character.weapon.text,
+      Gosu.default_font_name, 20)
   end
 
   def draw
     draw_ammo_bg
     draw_ammo
+    draw_weapon_type
   end
 
   def draw_ammo
     x1, x2, y1, y2 = ammo_coords
-    if @message
-      @message.draw(x1, y1, 300, 1.0, 1.0, FONT_COLOR)
+    if @ammo_message
+      @ammo_message.draw(x1, y1, 300, 1.0, 1.0, FONT_COLOR)
+    end
+  end
+
+  def draw_weapon_type
+    x1, x2, y1, y2 = weapon_coords
+    if @weapon_message
+      @weapon_message.draw(x1, y1, 300, 1.0, 1.0, FONT_COLOR)
     end
   end
 
@@ -43,6 +54,14 @@ class AmmoDisplay < Component
     x1 = PADDING
     x2 = $window.width - PADDING
     y1 = $window.height - HEIGHT - PADDING
+    y2 = $window.height - PADDING
+    [x1, x2, y1, y2]
+  end
+
+  def weapon_coords
+    x1 = PADDING
+    x2 = $window.width - PADDING
+    y1 = PADDING
     y2 = $window.height - PADDING
     [x1, x2, y1, y2]
   end
