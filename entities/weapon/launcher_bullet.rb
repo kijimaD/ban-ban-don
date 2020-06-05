@@ -1,0 +1,3 @@
+class LauncherBullet < Bullet
+
+end

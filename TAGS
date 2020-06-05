@@ -54,10 +54,10 @@ module UtilsUtils1,0
   def self.button_down?(button)button_down21,407
   def self.button_up?(button)button_up38,747
   def self.rotate(angle, around_x, around_y, *points)rotate55,1085
-  def self.point_in_poly(testx, testy, *poly)point_in_poly70,1558
-  def self.distance_between(x1, y1, x2, y2)distance_between91,2068
-  def self.angle_between(x, y, target_x, target_y)angle_between97,2186
-  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance103,2348
+  def self.point_in_poly(testx, testy, *poly)point_in_poly70,1569
+  def self.distance_between(x1, y1, x2, y2)distance_between91,2079
+  def self.angle_between(x, y, target_x, target_y)angle_between97,2197
+  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance103,2359
 
 entities/hud.rb,125
 class HUDHUD1,0
@@ -293,12 +293,16 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def heightheight39,860
   def unitsunits45,908
 
-entities/character.rb,198
+entities/components/character_weapon.rb,108
+class CharacterWeapon < ComponentCharacterWeapon1,0
+  def initialize(object, object_pool)initialize4,59
+
+entities/character.rb,199
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize8,230
-  def boxbox21,618
-  def shoot(target_x, target_y)shoot25,652
-  def can_shoot?can_shoot?35,935
+  def initialize(object_pool, input)initialize8,244
+  def boxbox23,715
+  def shoot(target_x, target_y)shoot27,749
+  def can_shoot?can_shoot?42,1192
 
 entities/bullet.rb,212
 class Bullet < GameObjectBullet1,0
@@ -323,6 +327,13 @@ class GameObjectGameObject1,0
   def boxbox28,394
   def collidecollide31,411
   def object_poolobject_pool36,445
+
+entities/weapon/launcher_bullet.rb,49
+class LauncherBullet < BulletLauncherBullet1,0
+
+entities/weapon/handgun_bullet.rb,74
+class HandgunBullet < BulletHandgunBullet1,0
+  def explodeexplode3,30
 
 main.rb,0
 
