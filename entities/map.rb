@@ -11,15 +11,24 @@ class Map
     @map = generate_map
   end
 
-  def draw(camera)
-    @map.each do |x, row|
-      row.each do |y, val|
-        tile = @map[x][y]
+  def draw(viewport)
+    viewport.map! {|p| p / TILE_SIZE}
+    x0, x1, y0, y1 = viewport.map(&:to_i)
+    (x0-10..x1).each do |x|
+      (y0-10..y1).each do |y|
+        row = @map[x]
         map_x = x * TILE_SIZE
         map_y = y * TILE_SIZE
-        # if camera.can_view?(map_x, map_y, tile)
-          tile.draw(map_x, map_y, 0)
-        # end
+        if row
+          tile = @map[x][y]
+          if tile
+            tile.draw(map_x, map_y, 0)
+          else
+            @water.draw(map_x, map_y, 0)
+          end
+        else
+          @water.draw(map_x, map_y, 0)
+        end
       end
     end
   end
@@ -57,7 +66,7 @@ class Map
     t_x = ((x / TILE_SIZE) % TILE_SIZE).floor
     t_y = ((y / TILE_SIZE) % TILE_SIZE).floor
     row = @map[t_x]
-    row[t_y] if row
+    row ? row[t_y] : @water
   end
 
   def load_tiles

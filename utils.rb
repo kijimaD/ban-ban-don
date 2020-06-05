@@ -56,10 +56,10 @@ module Utils
     result = []
     angle = angle * Math::PI / 180.0
     points.each_slice(2) do |x, y|
-      r_x = Math.cos(angle) * (x - around_x) -
-            Math.sin(angle) * (y - around_y) + around_x
-      r_y = Math.sin(angle) * (x - around_x) +
-            Math.cos(angle) * (y - around_y) + around_y
+      r_x = Math.cos(angle) * (around_x - x) -
+            Math.sin(angle) * (around_y - y) + around_x
+      r_y = Math.sin(angle) * (around_x - x) +
+            Math.cos(angle) * (around_y - y) + around_y
       result << r_x
       result << r_y
     end
@@ -103,7 +103,7 @@ module Utils
   def self.point_at_distance(source_x, source_y, angle, distance)
     angle = (90 - angle) * Math::PI / 180
     x = source_x + Math.cos(angle) * distance
-    y = source_y + Math.sin(angle) * distance
+    y = source_y - Math.sin(angle) * distance
     [x, y]
   end
 end

@@ -35,10 +35,30 @@ class AiGun
                       distance + 10 - rand(0..@accuracy))
           if can_make_new_decision? && @object.can_shoot? &&
              should_shoot?
-            @object.shoot(target.x, target_y)
+            @object.shoot(target_x, target_y)
           end
         end
       end
+    end
+  end
+
+  def draw(viewport)
+    if $debug
+      x, y = @object.x, @object.y
+      # color = Gosu::Color::BLUE
+      # t_x, t_y = Utils.point_at_distance(x, y, @desired_gun_angle,
+      #                                    BulletPhysics::MAX_DIST)
+      # $window.draw_line(x, y, color, t_x, t_y, color, 1001)
+
+      color = Gosu::Color::RED
+      t_x, t_y = Utils.point_at_distance(x, y, @object.gun_angle,
+                                         BulletPhysics::MAX_DIST)
+      $window.draw_line(x, y, color, t_x, t_y, color, 1000)
+
+      @message = Gosu::Image.from_text(
+        $window, @object.gun_angle.round,
+        Gosu.default_font_name, 20)
+      @message.draw(x, y, 300, 1, 1, color)
     end
   end
 
@@ -77,23 +97,24 @@ class AiGun
     actual = @object.gun_angle
     desired = @desired_gun_angle
     if actual > desired
-      if actual - desired > 180
+      if actual - desired > 180 # 0 -> 360 fix
         @object.gun_angle = (actual + @retarget_speed) % 360
         if @object.gun_angle < desired
-          @object.gun_angle = desired
+          @object.gun_angle = desired # damp
         end
       else
         @object.gun_angle = [actual - @retarget_speed, desired].max
       end
     elsif actual < desired
-      if desired - actual > 180
+      if desired - actual > 180 # 360 -> 0 fix
         @object.gun_angle = (360 + actual - @retarget_speed) % 360
         if @object.gun_angle > desired
-          @object.gun_angle = desired
+          @object.gun_angle = desired # damp
         end
       else
         @object.gun_angle = [actual + @retarget_speed, desired].min
       end
     end
   end
+
 end

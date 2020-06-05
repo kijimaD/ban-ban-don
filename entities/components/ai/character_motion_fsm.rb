@@ -42,6 +42,8 @@ class CharacterMotionFSM
       if @object.health.health > 40
         if @gun.distance_to_target > BulletPhysics::MAX_DIST
           new_state = @chasing_state
+        else
+          new_state = @fighting_state
         end
       else
         if @fleeing_state.can_flee?
