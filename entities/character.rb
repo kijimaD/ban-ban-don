@@ -3,7 +3,7 @@ class Character < GameObject
   attr_accessor :x, :y, :throttle_down, :turbo, :reset,
                 :direction, :gun_angle,
                 :sounds, :physics, :graphics,
-                :number_ammo, :health, :weapon_type
+                :number_ammo, :health, :weapon_type, :weapon
 
   def initialize(object_pool, input)
     super(object_pool)
@@ -28,7 +28,7 @@ class Character < GameObject
     if Gosu.milliseconds - (@last_shot || 0) > SHOOT_DELAY
       if @number_ammo > 0
         @last_shot = Gosu.milliseconds
-        @weapon.bullet.new(object_pool, @x, @y, target_x, target_y).fire(self, 100)
+        Bullet.new(object_pool, self, @x, @y, target_x, target_y).fire(self, 100)
         @number_ammo -= 1
       end
     end
