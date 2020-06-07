@@ -170,15 +170,17 @@ class ExplosionSoundsExplosionSounds1,0
     def playplay3,38
     def soundsound9,90
 
-entities/components/ammo_display.rb,298
+entities/components/ammo_display.rb,389
 class AmmoDisplay < ComponentAmmoDisplay1,0
   def initialize(object_pool, character)initialize8,160
   def updateupdate14,287
-  def drawdraw20,406
-  def draw_ammodraw_ammo25,455
-  def draw_ammo_bgdraw_ammo_bg32,590
-  def ammo_coordsammo_coords42,787
-  def ammo_imageammo_image50,960
+  def drawdraw23,529
+  def draw_ammodraw_ammo29,599
+  def draw_weapon_typedraw_weapon_type36,744
+  def draw_ammo_bgdraw_ammo_bg43,902
+  def ammo_coordsammo_coords53,1099
+  def weapon_coordsweapon_coords61,1272
+  def ammo_imageammo_image69,1421
 
 entities/components/character_sounds.rb,186
 class CharacterSounds < ComponentCharacterSounds1,0
@@ -295,7 +297,7 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
 
 entities/components/character_weapon.rb,108
 class CharacterWeapon < ComponentCharacterWeapon1,0
-  def initialize(object, object_pool)initialize4,59
+  def initialize(object, object_pool)initialize4,66
 
 entities/character.rb,199
 class Character < GameObjectCharacter1,0

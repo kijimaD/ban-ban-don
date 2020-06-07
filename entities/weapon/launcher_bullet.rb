@@ -5,7 +5,7 @@ class LauncherBullet < BaseBullet
     @object_pool = object_pool
     @object = object
 
-    @fire_sound = "launcher"
+    @fire_sound = "Cannon01-1.mp3"
     @bullet_image = "launcher"
     @bullet_trajectory = "smoke"
     @damage = 1.2

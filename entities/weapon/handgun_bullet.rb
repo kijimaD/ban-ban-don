@@ -5,7 +5,7 @@ class HandgunBullet < BaseBullet
     @object_pool = object_pool
     @object = object
 
-    @fire_sound = "handgun"
+    @fire_sound = "handgun-firing1.mp3"
     @bullet_image = "handgun"
     @bullet_trajectory = ""
     @damage = 1.2
