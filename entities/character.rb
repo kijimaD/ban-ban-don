@@ -13,7 +13,7 @@ class Character < GameObject
     @sounds = CharacterSounds.new(self)
     @physics = CharacterPhysics.new(self, object_pool)
     @health = CharacterHealth.new(self, object_pool)
-    @weapon_type = rand(0..2)
+    @weapon_type = 2
     @weapon = CharacterWeapon.new(self, object_pool)
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
