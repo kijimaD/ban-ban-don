@@ -1,11 +1,11 @@
-# coding: utf-8
 class CharacterHealth < Component
   attr_accessor :health
+  MAX_HEALTH = 10000
 
   def initialize(object, object_pool)
     super(object)
     @object_pool = object_pool
-    @health = 100
+    @health = MAX_HEALTH
     @health_updated = true
     @last_damage = Gosu.milliseconds
   end
@@ -52,7 +52,8 @@ class CharacterHealth < Component
   end
 
   def hp_gauge(health)
-    "■" * (health / 10)
+    mark = "*"
+    mark * (health.to_f / MAX_HEALTH.to_f * 10).round
   end
 
 end
