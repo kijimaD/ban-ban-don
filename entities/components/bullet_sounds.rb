@@ -7,7 +7,7 @@ class BulletSounds
     private
 
     def sound(fire_sound)
-      @@sound ||= Gosu::Sample.new(
+      @@sound = Gosu::Sample.new(
         $window, Utils.media_path(fire_sound))
     end
   end

@@ -13,7 +13,7 @@ class Character < GameObject
     @sounds = CharacterSounds.new(self)
     @physics = CharacterPhysics.new(self, object_pool)
     @health = CharacterHealth.new(self, object_pool)
-    @weapon_type = 2
+    @weapon_type = rand(0..2)
     @weapon = CharacterWeapon.new(self, object_pool)
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
@@ -29,7 +29,9 @@ class Character < GameObject
       if @number_ammo > 0
         @last_shot = Gosu.milliseconds
         Bullet.new(object_pool, self, @x, @y, target_x, target_y).fire(self, 100)
-        @number_ammo -= 1
+        if $debug
+          @number_ammo -= 1
+        end
       end
     end
   end
