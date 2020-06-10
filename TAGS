@@ -102,10 +102,11 @@ class AiInput < ComponentAiInput1,0
   def updateupdate26,521
   def draw(viewport)draw37,749
 
-entities/components/bullet_graphics.rb,108
+entities/components/bullet_graphics.rb,157
 class BulletGraphics < ComponentBulletGraphics1,0
-  def draw(viewport)draw4,63
-  def imageimage15,385
+  def initialize(object)initialize4,63
+  def draw(viewport)draw9,134
+  def image(image)image15,234
 
 entities/components/component.rb,209
 class ComponentComponent1,0

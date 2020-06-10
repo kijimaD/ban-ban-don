@@ -1,5 +1,5 @@
 class Bullet < GameObject
-  attr_accessor :x, :y, :target_x, :target_y, :speed, :fired_at, :source
+  attr_accessor :x, :y, :target_x, :target_y, :speed, :fired_at, :source, :weapon
 
   def initialize(object_pool, object, source_x, source_y, target_x, target_y)
     super(object_pool)

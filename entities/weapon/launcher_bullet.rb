@@ -6,7 +6,7 @@ class LauncherBullet < BaseBullet
     @object = object
 
     @fire_sound = "largerifle-firing1.mp3"
-    @bullet_image = "launcher"
+    @bullet_image = "bullet_launcher.png"
     @bullet_trajectory = "smoke"
     @damage = 1.2
     @range = 3.0
