@@ -2,11 +2,14 @@ class BulletGraphics < Component
   COLOR = Gosu::Color::WHITE
 
   def draw(viewport)
-    $window.draw_quad(x - 3, y - 3, COLOR,
-                      x + 3, y - 3, COLOR,
-                      x - 3, y + 3, COLOR,
-                      x + 3, y + 3, COLOR,
-                      1)
+    image.draw(x - 8, y - 8, 1)
+  end
+
+  private
+
+  def image
+    @@bullet ||= Gosu::Image.new(
+      $window, Utils.media_path('bullet.png'), false)
   end
 
 end
