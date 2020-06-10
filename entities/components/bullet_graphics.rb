@@ -1,12 +1,20 @@
 class BulletGraphics < Component
   COLOR = Gosu::Color::WHITE
 
+  def initialize(object)
+    super(object)
+    @object = object
+  end
+
   def draw(viewport)
-    $window.draw_quad(x - 3, y - 3, COLOR,
-                      x + 3, y - 3, COLOR,
-                      x - 3, y + 3, COLOR,
-                      x + 3, y + 3, COLOR,
-                      1)
+    image(@object.weapon.bullet_image).draw_rot(x - 8, y - 8, 1, @object.gun_angle)
+  end
+
+  private
+
+  def image(image)
+    @@bullet = Gosu::Image.new(
+      $window, Utils.media_path(image), false)
   end
 
 end

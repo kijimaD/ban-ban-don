@@ -7,7 +7,7 @@ class KatanaBullet < BaseBullet
     @object = object
 
     @fire_sound = "katana-gesture1.mp3"
-    @bullet_image = "katana"
+    @bullet_image = "bullet_katana.png"
     @bullet_trajectory = ""
     @damage = 1.2
     @range = 2.0
