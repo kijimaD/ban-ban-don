@@ -1,5 +1,4 @@
 class Character < GameObject
-  SHOOT_DELAY = 300
   attr_accessor :x, :y, :throttle_down, :turbo, :reset,
                 :direction, :gun_angle,
                 :sounds, :physics, :graphics,
@@ -15,6 +14,7 @@ class Character < GameObject
     @health = CharacterHealth.new(self, object_pool)
     @weapon_type = rand(0..2)
     @weapon = CharacterWeapon.new(self, object_pool)
+    @shoot_delay = @weapon.shoot_delay
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
     @number_ammo = 40
@@ -25,19 +25,20 @@ class Character < GameObject
   end
 
   def shoot(target_x, target_y)
-    if Gosu.milliseconds - (@last_shot || 0) > SHOOT_DELAY
+    if Gosu.milliseconds - (@last_shot || 0) > @shoot_delay
       if @number_ammo > 0
         @last_shot = Gosu.milliseconds
         Bullet.new(object_pool, self, @x, @y, target_x, target_y).fire(self, 100)
-        if $debug
           @number_ammo -= 1
-        end
+          if $debug
+            @number_ammo += 1
+          end
       end
     end
   end
 
   def can_shoot?
-    Gosu.milliseconds - (@last_shot || 0) > SHOOT_DELAY
+    Gosu.milliseconds - (@last_shot || 0) > @shoot_delay
   end
 
 end

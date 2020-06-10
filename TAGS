@@ -102,11 +102,11 @@ class AiInput < ComponentAiInput1,0
   def updateupdate26,521
   def draw(viewport)draw37,749
 
-entities/components/bullet_graphics.rb,171
+entities/components/bullet_graphics.rb,157
 class BulletGraphics < ComponentBulletGraphics1,0
-  def initialize(object, object_pool)initialize4,63
-  def draw(viewport)draw10,178
-  def image(image)image16,316
+  def initialize(object)initialize4,63
+  def draw(viewport)draw9,134
+  def image(image)image15,257
 
 entities/components/component.rb,209
 class ComponentComponent1,0
@@ -310,10 +310,10 @@ class Character < GameObjectCharacter1,0
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
-  def initialize(object_pool, object, source_x, source_y, target_x, target_y)initialize5,125
-  def boxbox16,515
-  def explodeexplode20,543
-  def fire(source, speed)fire27,665
+  def initialize(object_pool, object, source_x, source_y, target_x, target_y)initialize5,137
+  def boxbox17,548
+  def explodeexplode21,576
+  def fire(source, speed)fire28,698
 
 entities/object_pool.rb,118
 class ObjectPoolObjectPool1,0
