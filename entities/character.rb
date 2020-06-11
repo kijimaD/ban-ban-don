@@ -32,7 +32,7 @@ class Character < GameObject
           @number_ammo -= 1
           if $debug
             @number_ammo += 1
-            end
+          end
       end
     end
   end

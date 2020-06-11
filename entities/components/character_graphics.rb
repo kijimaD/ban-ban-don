@@ -7,15 +7,15 @@ class CharacterGraphics < Component
   ]
   def initialize(game_object)
     super(game_object)
-    @body = image('sirase.png') # TODO: prepare direction image. This image is dummy.
-    # @shadow = units.frame('tank1_body_shadow.png')
+    @body = charas.frame('chara2.png')
+    @shadow = units.frame('tank1_body_shadow.png')
     @gun = units.frame('tank1_dualgun.png')
   end
 
   def draw(viewport)
     # @shadow.draw_rot(x - 1, y - 1, 0, object.direction)
-    @body.draw(x - 32, y - 32, 1)
-    @gun.draw_rot(x, y, 2, object.direction) # TODO: prepare 4? direction image(same with @body)
+    @body.draw(x - 16, y - 16, 1)
+    # @gun.draw_rot(x, y, 2, object.direction)
     # draw_bounding_box if $debug
   end
 
@@ -47,8 +47,8 @@ class CharacterGraphics < Component
       Utils.media_path('ground_units.json'), :precise)
   end
 
-  def image(image)
-    @@bullet = Gosu::Image.new(
-      $window, Utils.media_path(image), false)
+  def charas
+    @@charas = Gosu::TexturePacker.load_json(
+      Utils.media_path('charas.json'), :precise)
   end
 end
