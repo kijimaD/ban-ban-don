@@ -1,4 +1,5 @@
 class CharacterGraphics < Component
+  WALK_FRAME = 300
   DEBUG_COLORS = [
     Gosu::Color::RED,
     Gosu::Color::BLUE,
@@ -10,6 +11,10 @@ class CharacterGraphics < Component
     @body = charas.frame('chara2.png')
     @shadow = units.frame('tank1_body_shadow.png')
     @gun = units.frame('tank1_dualgun.png')
+  end
+
+  def update()
+    @body = direction_graphics
   end
 
   def draw(viewport)
@@ -38,6 +43,44 @@ class CharacterGraphics < Component
 
   def height
     @body.height
+  end
+
+  def direction_graphics
+    case object.direction
+    when 0 then
+      if object.throttle_down == true
+        num = @flip || 2
+        if Gosu.milliseconds - (@last_flip || 0) > WALK_FRAME
+          if @flip == 19
+            @flip = 21
+          else
+            @flip = 19
+          end
+          @last_flip = Gosu.milliseconds
+        end
+      else
+        num = 20
+      end
+    when 45 then
+      num = 23
+    when 90 then
+      num = 14
+    when 135 then
+      num = 11
+    when 180 then
+      num = 2
+    when 225 then
+      num = 5
+    when 270 then
+      num = 8
+    when 315 then
+      num = 17
+    else
+      num = 20
+    end
+    @prev_num = num
+    file = "chara" + num.to_s + ".png"
+    body = charas.frame(file)
   end
 
   private
