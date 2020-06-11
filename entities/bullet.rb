@@ -7,8 +7,8 @@ class Bullet < GameObject
     @object = object
     @x, @y = source_x, source_y
     @target_x, @target_y = target_x, target_y
-    @weapon = object.weapon.bullet.new(self, object_pool)
     @gun_angle = object.gun_angle
+    @weapon = @object.weapon
     BulletPhysics.new(self, object_pool)
     BulletGraphics.new(self)
     BulletSounds.play(@weapon.fire_sound)

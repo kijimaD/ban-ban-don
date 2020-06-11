@@ -13,7 +13,7 @@ class Character < GameObject
     @physics = CharacterPhysics.new(self, object_pool)
     @health = CharacterHealth.new(self, object_pool)
     @weapon_type = rand(0..2)
-    @weapon = CharacterWeapon.new(self, object_pool)
+    @weapon = CharacterWeapon.new(self, object_pool).bullet.new(self, object_pool)
     @shoot_delay = @weapon.shoot_delay
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
@@ -32,7 +32,7 @@ class Character < GameObject
           @number_ammo -= 1
           if $debug
             @number_ammo += 1
-          end
+            end
       end
     end
   end
