@@ -102,11 +102,11 @@ class AiInput < ComponentAiInput1,0
   def updateupdate26,521
   def draw(viewport)draw37,749
 
-entities/components/bullet_graphics.rb,171
+entities/components/bullet_graphics.rb,157
 class BulletGraphics < ComponentBulletGraphics1,0
-  def initialize(object, object_pool)initialize4,63
-  def draw(viewport)draw10,178
-  def image(image)image16,316
+  def initialize(object)initialize4,63
+  def draw(viewport)draw9,134
+  def image(image)image15,257
 
 entities/components/component.rb,209
 class ComponentComponent1,0
@@ -151,12 +151,12 @@ class CharacterPhysics < ComponentCharacterPhysics1,0
   def box_heightbox_height90,1926
   def boxbox94,1993
   def change_direction(new_direction)change_direction119,2714
-  def collides_with_poly?(poly)collides_with_poly?134,3038
-  def apply_movement_penalty(speed)apply_movement_penalty146,3307
-  def accelerateaccelerate150,3397
-  def deceleratedecelerate154,3454
-  def turboturbo159,3541
-  def resetreset163,3577
+  def collides_with_poly?(poly)collides_with_poly?134,3052
+  def apply_movement_penalty(speed)apply_movement_penalty146,3321
+  def accelerateaccelerate150,3411
+  def deceleratedecelerate154,3468
+  def turboturbo159,3555
+  def resetreset163,3591
 
 entities/components/speed_meter.rb,267
 class SpeedMeter < ComponentSpeedMeter1,0
@@ -288,32 +288,36 @@ class PlayerInput < ComponentPlayerInput1,0
   def any_button_down?(*buttons)any_button_down?46,1049
   def change_angle(previous_angle, up, down, right, left)change_angle53,1174
 
-entities/components/character_graphics.rb,264
+entities/components/character_graphics.rb,446
 class CharacterGraphics < ComponentCharacterGraphics1,0
-  def initialize(game_object)initialize8,152
-  def draw(viewport)draw15,349
-  def draw_bounding_boxdraw_bounding_box22,556
-  def widthwidth35,825
-  def heightheight39,860
-  def unitsunits45,908
+  def initialize(game_object)initialize9,171
+  def update()update16,365
+  def draw(viewport)draw20,418
+  def draw_bounding_boxdraw_bounding_box27,619
+  def widthwidth40,888
+  def heightheight44,923
+  def direction_graphicsdirection_graphics48,960
+  def each_image(stand_image, run_image0, run_image1)each_image70,1480
+  def unitsunits89,1932
+  def charascharas94,2051
 
 entities/components/character_weapon.rb,108
 class CharacterWeapon < ComponentCharacterWeapon1,0
-  def initialize(object, object_pool)initialize4,66
+  def initialize(object, object_pool)initialize4,80
 
 entities/character.rb,199
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize8,253
-  def boxbox23,724
-  def shoot(target_x, target_y)shoot27,758
-  def can_shoot?can_shoot?39,1079
+  def initialize(object_pool, input)initialize7,233
+  def boxbox23,773
+  def shoot(target_x, target_y)shoot27,807
+  def can_shoot?can_shoot?40,1163
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
-  def initialize(object_pool, object, source_x, source_y, target_x, target_y)initialize5,125
-  def boxbox16,515
-  def explodeexplode20,543
-  def fire(source, speed)fire27,665
+  def initialize(object_pool, object, source_x, source_y, target_x, target_y)initialize5,137
+  def boxbox17,519
+  def explodeexplode21,547
+  def fire(source, speed)fire28,669
 
 entities/object_pool.rb,118
 class ObjectPoolObjectPool1,0

@@ -1,4 +1,5 @@
 class CharacterGraphics < Component
+  WALK_FRAME = 300
   DEBUG_COLORS = [
     Gosu::Color::RED,
     Gosu::Color::BLUE,
@@ -7,16 +8,20 @@ class CharacterGraphics < Component
   ]
   def initialize(game_object)
     super(game_object)
-    @body = units.frame('tank1_body.png')
+    @body = charas.frame('chara2.png')
     @shadow = units.frame('tank1_body_shadow.png')
     @gun = units.frame('tank1_dualgun.png')
   end
 
+  def update()
+    @body = direction_graphics
+  end
+
   def draw(viewport)
-    @shadow.draw_rot(x - 1, y - 1, 0, object.direction)
-    @body.draw_rot(x, y, 1, object.direction)
-    @gun.draw_rot(x, y, 2, object.gun_angle)
-    draw_bounding_box if $debug
+    # @shadow.draw_rot(x - 1, y - 1, 0, object.direction)
+    @body.draw(x - 16, y - 16, 1)
+    # @gun.draw_rot(x, y, 2, object.direction)
+    # draw_bounding_box if $debug
   end
 
   def draw_bounding_box
@@ -40,10 +45,54 @@ class CharacterGraphics < Component
     @body.height
   end
 
+  def direction_graphics
+    # clockwise
+    graphs = [[20, 19, 21],
+               [23, 22, 24],
+               [14, 15, 13],
+               [11, 10, 12],
+               [2, 1, 3],
+               [5, 4, 6],
+               [8, 7, 9],
+               [17, 16, 18]]
+
+    graphs.each_with_index do |graph, i|
+      if object.direction == i * 45
+        each_image(graph[0], graph[1], graph[2])
+        break
+      end
+    end
+    @prev_num = @num
+    file = "chara" + @num.to_s + ".png"
+    charas.frame(file)
+  end
+
+  def each_image(stand_image, run_image0, run_image1)
+    if object.throttle_down == true
+      if Gosu.milliseconds - (@last_flip || 0 ) > WALK_FRAME ||
+         (@flip != run_image0 && @flip != run_image1)
+        if @flip == run_image0
+          @flip = run_image1
+        else
+          @flip = run_image0
+        end
+        @num = @flip
+        @last_flip = Gosu.milliseconds
+      end
+    else
+      @num = stand_image
+    end
+  end
+
   private
 
   def units
     @@units = Gosu::TexturePacker.load_json(
       Utils.media_path('ground_units.json'), :precise)
+  end
+
+  def charas
+    @@charas = Gosu::TexturePacker.load_json(
+      Utils.media_path('charas.json'), :precise)
   end
 end
