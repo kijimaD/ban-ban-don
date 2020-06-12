@@ -21,7 +21,7 @@ class CharacterSounds < Component
 
   def driving_sound
     @@driving_sound ||= Gosu::Sample.new(
-      $window, Utils.media_path('tank_driving.mp3'))
+      $window, Utils.media_path('dash-soil1.mp3'))
   end
 
   def crash_sound
