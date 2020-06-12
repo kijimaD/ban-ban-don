@@ -11,6 +11,9 @@ class CharacterGraphics < Component
     @body = charas.frame('chara2.png')
     @shadow = units.frame('tank1_body_shadow.png')
     @gun = units.frame('tank1_dualgun.png')
+    File.open(Utils.media_path("character_graphics.json")) do |j|
+      @json = JSON.load(j)
+    end
   end
 
   def update()
@@ -46,10 +49,6 @@ class CharacterGraphics < Component
   end
 
   def direction_graphics
-    File.open(Utils.media_path("character_graphics.json")) do |j|
-      @json = JSON.load(j)
-    end
-
     @json['sirase']['graphs'].each_with_index do |graph, i|
       if object.direction == i * 45
         each_image(graph[0], graph[1], graph[2])
