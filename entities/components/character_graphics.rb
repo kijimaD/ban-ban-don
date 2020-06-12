@@ -46,17 +46,11 @@ class CharacterGraphics < Component
   end
 
   def direction_graphics
-    # clockwise
-    graphs = [[20, 19, 21],
-               [23, 22, 24],
-               [14, 15, 13],
-               [11, 10, 12],
-               [2, 1, 3],
-               [5, 4, 6],
-               [8, 7, 9],
-               [17, 16, 18]]
+    File.open(Utils.media_path("character_graphics.json")) do |j|
+      @json = JSON.load(j)
+    end
 
-    graphs.each_with_index do |graph, i|
+    @json['sirase']['graphs'].each_with_index do |graph, i|
       if object.direction == i * 45
         each_image(graph[0], graph[1], graph[2])
         break

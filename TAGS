@@ -189,7 +189,7 @@ class CharacterSounds < ComponentCharacterSounds1,0
   def updateupdate2,34
   def collidecollide16,321
   def driving_sounddriving_sound22,390
-  def crash_soundcrash_sound27,512
+  def crash_soundcrash_sound27,510
 
 entities/components/ai/character_fleeing_state.rb,331
 class CharacterFleeingState < CharacterMotionStateCharacterFleeingState1,0
@@ -297,9 +297,9 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def widthwidth40,888
   def heightheight44,923
   def direction_graphicsdirection_graphics48,960
-  def each_image(stand_image, run_image0, run_image1)each_image70,1480
-  def unitsunits89,1932
-  def charascharas94,2051
+  def each_image(stand_image, run_image0, run_image1)each_image66,1388
+  def unitsunits85,1840
+  def charascharas90,1959
 
 entities/components/character_weapon.rb,108
 class CharacterWeapon < ComponentCharacterWeapon1,0
