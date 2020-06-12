@@ -151,12 +151,12 @@ class CharacterPhysics < ComponentCharacterPhysics1,0
   def box_heightbox_height90,1926
   def boxbox94,1993
   def change_direction(new_direction)change_direction119,2714
-  def collides_with_poly?(poly)collides_with_poly?134,3038
-  def apply_movement_penalty(speed)apply_movement_penalty146,3307
-  def accelerateaccelerate150,3397
-  def deceleratedecelerate154,3454
-  def turboturbo159,3541
-  def resetreset163,3577
+  def collides_with_poly?(poly)collides_with_poly?134,3052
+  def apply_movement_penalty(speed)apply_movement_penalty146,3321
+  def accelerateaccelerate150,3411
+  def deceleratedecelerate154,3468
+  def turboturbo159,3555
+  def resetreset163,3591
 
 entities/components/speed_meter.rb,267
 class SpeedMeter < ComponentSpeedMeter1,0
@@ -288,17 +288,18 @@ class PlayerInput < ComponentPlayerInput1,0
   def any_button_down?(*buttons)any_button_down?46,1049
   def change_angle(previous_angle, up, down, right, left)change_angle53,1174
 
-entities/components/character_graphics.rb,373
+entities/components/character_graphics.rb,446
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize9,171
-  def update()update17,380
-  def draw(viewport)draw21,433
-  def draw_bounding_boxdraw_bounding_box28,634
-  def widthwidth41,902
-  def heightheight45,937
-  def direction_graphicsdirection_graphics49,974
-  def unitsunits87,1710
-  def charascharas92,1829
+  def update()update16,365
+  def draw(viewport)draw20,418
+  def draw_bounding_boxdraw_bounding_box27,619
+  def widthwidth40,888
+  def heightheight44,923
+  def direction_graphicsdirection_graphics48,960
+  def each_image(stand_image, run_image0, run_image1)each_image74,1509
+  def unitsunits94,2014
+  def charascharas99,2133
 
 entities/components/character_weapon.rb,108
 class CharacterWeapon < ComponentCharacterWeapon1,0

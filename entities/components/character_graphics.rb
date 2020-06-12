@@ -48,39 +48,45 @@ class CharacterGraphics < Component
   def direction_graphics
     case object.direction
     when 0 then
-      if object.throttle_down == true
-        num = @flip || 2
-        if Gosu.milliseconds - (@last_flip || 0) > WALK_FRAME
-          if @flip == 19
-            @flip = 21
-          else
-            @flip = 19
-          end
-          @last_flip = Gosu.milliseconds
-        end
-      else
-        num = 20
-      end
+      each_image(20, 19, 21)
     when 45 then
-      num = 23
+      each_image(23, 22, 24)
     when 90 then
-      num = 14
+      each_image(14, 15, 13)
     when 135 then
-      num = 11
+      each_image(11, 10, 12)
     when 180 then
-      num = 2
+      each_image(2, 1, 3)
     when 225 then
-      num = 5
+      each_image(5, 4, 6)
     when 270 then
-      num = 8
+      each_image(8, 7, 9)
     when 315 then
-      num = 17
-    else
-      num = 20
+      each_image(17, 16, 18)
+    # else
+      # @num = 20
     end
-    @prev_num = num
-    file = "chara" + num.to_s + ".png"
+    @prev_num = @num
+    file = "chara" + @num.to_s + ".png"
     body = charas.frame(file)
+  end
+
+  def each_image(stand_image, run_image0, run_image1)
+    # degrees = [0, 45, 90, 135, 180, 225, 270, 315]
+    if object.throttle_down == true
+      if Gosu.milliseconds - (@last_flip || 0 ) > WALK_FRAME ||
+         (@flip != run_image0 && @flip != run_image1)
+        if @flip == run_image0
+          @flip = run_image1
+        else
+          @flip = run_image0
+        end
+        @num = @flip
+        @last_flip = Gosu.milliseconds
+      end
+    else
+      @num = stand_image
+    end
   end
 
   private
