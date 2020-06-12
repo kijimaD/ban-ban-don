@@ -297,9 +297,9 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def widthwidth40,888
   def heightheight44,923
   def direction_graphicsdirection_graphics48,960
-  def each_image(stand_image, run_image0, run_image1)each_image74,1509
-  def unitsunits94,2014
-  def charascharas99,2133
+  def each_image(stand_image, run_image0, run_image1)each_image70,1480
+  def unitsunits89,1932
+  def charascharas94,2051
 
 entities/components/character_weapon.rb,108
 class CharacterWeapon < ComponentCharacterWeapon1,0

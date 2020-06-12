@@ -46,33 +46,28 @@ class CharacterGraphics < Component
   end
 
   def direction_graphics
-    case object.direction
-    when 0 then
-      each_image(20, 19, 21)
-    when 45 then
-      each_image(23, 22, 24)
-    when 90 then
-      each_image(14, 15, 13)
-    when 135 then
-      each_image(11, 10, 12)
-    when 180 then
-      each_image(2, 1, 3)
-    when 225 then
-      each_image(5, 4, 6)
-    when 270 then
-      each_image(8, 7, 9)
-    when 315 then
-      each_image(17, 16, 18)
-    # else
-      # @num = 20
+    # clockwise
+    graphs = [[20, 19, 21],
+               [23, 22, 24],
+               [14, 15, 13],
+               [11, 10, 12],
+               [2, 1, 3],
+               [5, 4, 6],
+               [8, 7, 9],
+               [17, 16, 18]]
+
+    graphs.each_with_index do |graph, i|
+      if object.direction == i * 45
+        each_image(graph[0], graph[1], graph[2])
+        break
+      end
     end
     @prev_num = @num
     file = "chara" + @num.to_s + ".png"
-    body = charas.frame(file)
+    charas.frame(file)
   end
 
   def each_image(stand_image, run_image0, run_image1)
-    # degrees = [0, 45, 90, 135, 180, 225, 270, 315]
     if object.throttle_down == true
       if Gosu.milliseconds - (@last_flip || 0 ) > WALK_FRAME ||
          (@flip != run_image0 && @flip != run_image1)
