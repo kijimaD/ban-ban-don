@@ -106,7 +106,7 @@ entities/components/bullet_graphics.rb,157
 class BulletGraphics < ComponentBulletGraphics1,0
   def initialize(object)initialize4,63
   def draw(viewport)draw9,134
-  def image(image)image15,257
+  def image(image)image15,260
 
 entities/components/component.rb,209
 class ComponentComponent1,0
@@ -176,13 +176,13 @@ entities/components/ammo_display.rb,389
 class AmmoDisplay < ComponentAmmoDisplay1,0
   def initialize(object_pool, character)initialize8,160
   def updateupdate14,287
-  def drawdraw23,529
-  def draw_ammodraw_ammo29,599
-  def draw_weapon_typedraw_weapon_type36,744
-  def draw_ammo_bgdraw_ammo_bg43,902
-  def ammo_coordsammo_coords53,1099
-  def weapon_coordsweapon_coords61,1272
-  def ammo_imageammo_image69,1421
+  def drawdraw23,532
+  def draw_ammodraw_ammo29,602
+  def draw_weapon_typedraw_weapon_type36,747
+  def draw_ammo_bgdraw_ammo_bg43,905
+  def ammo_coordsammo_coords53,1102
+  def weapon_coordsweapon_coords61,1275
+  def ammo_imageammo_image69,1424
 
 entities/components/character_sounds.rb,186
 class CharacterSounds < ComponentCharacterSounds1,0
@@ -248,12 +248,12 @@ class AiGunAiGun1,0
   def adjust_angleadjust_angle14,293
   def updateupdate19,365
   def draw(viewport)draw45,1128
-  def distance_to_targetdistance_to_target65,1828
-  def should_shoot?should_shoot?70,1938
-  def can_make_new_decision?can_make_new_decision?74,1998
-  def adjust_desired_angleadjust_desired_angle82,2161
-  def change_target(new_target)change_target91,2456
-  def adjust_gun_angleadjust_gun_angle96,2545
+  def distance_to_targetdistance_to_target65,1831
+  def should_shoot?should_shoot?70,1941
+  def can_make_new_decision?can_make_new_decision?74,2001
+  def adjust_desired_angleadjust_desired_angle82,2164
+  def change_target(new_target)change_target91,2459
+  def adjust_gun_angleadjust_gun_angle96,2548
 
 entities/components/ai/character_motion_fsm.rb,294
 class CharacterMotionFSMCharacterMotionFSM1,0
@@ -291,33 +291,29 @@ class PlayerInput < ComponentPlayerInput1,0
 entities/components/character_graphics.rb,448
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize9,171
-  def update()update19,466
-  def draw(viewport)draw23,519
-  def draw_bounding_boxdraw_bounding_box30,720
-  def widthwidth43,989
-  def heightheight47,1024
-  def direction_graphicsdirection_graphics51,1061
-  def each_image(stand_image, run_image0, run_image1)each_image63,1354
-  def unitsunits82,1806
-  def charascharas87,1925
-
-entities/components/character_weapon.rb,108
-class CharacterWeapon < ComponentCharacterWeapon1,0
-  def initialize(object, object_pool)initialize4,80
+  def update()update19,472
+  def draw(viewport)draw23,525
+  def draw_bounding_boxdraw_bounding_box30,726
+  def widthwidth43,995
+  def heightheight47,1030
+  def direction_graphicsdirection_graphics51,1067
+  def each_image(stand_image, run_image0, run_image1)each_image63,1366
+  def unitsunits82,1818
+  def charascharas87,1937
 
 entities/character.rb,199
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize7,233
-  def boxbox23,773
-  def shoot(target_x, target_y)shoot27,807
-  def can_shoot?can_shoot?40,1163
+  def initialize(object_pool, input)initialize7,219
+  def boxbox26,822
+  def shoot(target_x, target_y)shoot30,856
+  def can_shoot?can_shoot?43,1212
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
   def initialize(object_pool, object, source_x, source_y, target_x, target_y)initialize5,137
-  def boxbox17,519
-  def explodeexplode21,547
-  def fire(source, speed)fire28,669
+  def boxbox17,522
+  def explodeexplode21,550
+  def fire(source, speed)fire28,680
 
 entities/object_pool.rb,118
 class ObjectPoolObjectPool1,0
@@ -335,21 +331,6 @@ class GameObjectGameObject1,0
   def boxbox28,394
   def collidecollide31,411
   def object_poolobject_pool36,445
-
-entities/weapon/katana_bullet.rb,103
-class KatanaBullet < BaseBulletKatanaBullet1,0
-  def initialize(object, object_pool)initialize4,61
-
-entities/weapon/launcher_bullet.rb,107
-class LauncherBullet < BaseBulletLauncherBullet1,0
-  def initialize(object, object_pool)initialize3,35
-
-entities/weapon/base_bullet.rb,44
-class BaseBullet < ComponentBaseBullet1,0
-
-entities/weapon/handgun_bullet.rb,105
-class HandgunBullet < BaseBulletHandgunBullet1,0
-  def initialize(object, object_pool)initialize3,34
 
 main.rb,0
 

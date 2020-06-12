@@ -7,7 +7,7 @@ class BulletGraphics < Component
   end
 
   def draw(viewport)
-    image(@object.weapon.bullet_image).draw_rot(x - 8, y - 8, 1, @object.gun_angle)
+    image(@object.weapon['bullet_image']).draw_rot(x - 8, y - 8, 1, @object.gun_angle)
   end
 
   private

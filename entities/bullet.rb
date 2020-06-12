@@ -11,7 +11,7 @@ class Bullet < GameObject
     @weapon = @object.weapon
     BulletPhysics.new(self, object_pool)
     BulletGraphics.new(self)
-    BulletSounds.play(@weapon.fire_sound)
+    BulletSounds.play(@weapon['fire_sound'])
   end
 
   def box
@@ -19,7 +19,7 @@ class Bullet < GameObject
   end
 
   def explode
-    if @weapon.explodable == 1
+    if @weapon['explodable'].to_i == 1
       Explosion.new(object_pool, @x, @y)
     end
     mark_for_removal
@@ -27,7 +27,7 @@ class Bullet < GameObject
 
   def fire(source, speed)
     @source = source
-    @speed = speed * @weapon.speed
+    @speed = speed * @weapon['speed'].to_f
     @fired_at = Gosu.milliseconds
   end
 

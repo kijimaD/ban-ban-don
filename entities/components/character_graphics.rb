@@ -12,7 +12,7 @@ class CharacterGraphics < Component
     @shadow = units.frame('tank1_body_shadow.png')
     @gun = units.frame('tank1_dualgun.png')
     File.open(Utils.media_path("character_graphics.json")) do |j|
-      @json = JSON.load(j)
+      @chara_json = JSON.load(j)
     end
   end
 
@@ -49,7 +49,7 @@ class CharacterGraphics < Component
   end
 
   def direction_graphics
-    @json['sirase']['graphs'].each_with_index do |graph, i|
+    @chara_json['sirase']['graphs'].each_with_index do |graph, i|
       if object.direction == i * 45
         each_image(graph[0], graph[1], graph[2])
         break

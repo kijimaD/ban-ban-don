@@ -16,7 +16,7 @@ class AmmoDisplay < Component
       $window, ammo_image,
       Gosu.default_font_name, 60)
     @weapon_message = Gosu::Image.from_text(
-      $window, @character.weapon.text,
+      $window, @character.weapon['name'],
       Gosu.default_font_name, 20)
   end
 
