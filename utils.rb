@@ -4,6 +4,12 @@ module Utils
     File.join(File.dirname(__FILE__), 'media', file)
   end
 
+  def self.load_json(file)
+    File.open(media_path(file)) do |j|
+      JSON.load(j)
+    end
+  end
+
   def self.track_update_interval
     now = Gosu.milliseconds
     @update_interval = (now - (@last_update ||= 0)).to_f

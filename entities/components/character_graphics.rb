@@ -11,9 +11,7 @@ class CharacterGraphics < Component
     @body = charas.frame('chara2.png')
     @shadow = units.frame('tank1_body_shadow.png')
     @gun = units.frame('tank1_dualgun.png')
-    File.open(Utils.media_path("character_graphics.json")) do |j|
-      @chara_json = JSON.load(j)
-    end
+    @chara_json = Utils.load_json("character_graphics.json")
   end
 
   def update()

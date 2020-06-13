@@ -13,7 +13,7 @@ class Character < GameObject
     @physics = CharacterPhysics.new(self, object_pool)
     @health = CharacterHealth.new(self, object_pool)
     @weapon_id = rand(0..2).to_s
-    @weapon = load_weapon("weapon.json")
+    @weapon = Utils.load_json("weapon.json")[@weapon_id]
     @shoot_delay = @weapon['shoot_delay'].to_i
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
@@ -39,15 +39,6 @@ class Character < GameObject
 
   def can_shoot?
     Gosu.milliseconds - (@last_shot || 0) > @shoot_delay
-  end
-
-  private
-
-  def load_weapon(file)
-    File.open(Utils.media_path(file)) do |j|
-      weapon_json = JSON.load(j)
-      weapon_json[@weapon_id]
-    end
   end
 
 end
