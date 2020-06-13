@@ -56,7 +56,7 @@ class AiGun
       $window.draw_line(x, y, color, t_x, t_y, color, 1000)
 
       @message = Gosu::Image.from_text(
-        $window, @object.weapon.text,
+        $window, @object.weapon['name'],
         Gosu.default_font_name, 20)
       @message.draw(x, y, 300, 1, 1, color)
     end

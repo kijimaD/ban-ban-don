@@ -2,7 +2,7 @@ class Character < GameObject
   attr_accessor :x, :y, :throttle_down, :turbo, :reset,
                 :direction, :gun_angle,
                 :sounds, :physics, :graphics,
-                :number_ammo, :health, :weapon_type, :weapon
+                :number_ammo, :health, :weapon
 
   def initialize(object_pool, input)
     super(object_pool)
@@ -12,9 +12,9 @@ class Character < GameObject
     @sounds = CharacterSounds.new(self)
     @physics = CharacterPhysics.new(self, object_pool)
     @health = CharacterHealth.new(self, object_pool)
-    @weapon_type = rand(0..2)
-    @weapon = CharacterWeapon.new(self, object_pool).bullet.new(self, object_pool)
-    @shoot_delay = @weapon.shoot_delay
+    @weapon_id = rand(0..2).to_s
+    @weapon = load_weapon("weapon.json")
+    @shoot_delay = @weapon['shoot_delay'].to_i
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
     @number_ammo = 40
@@ -39,6 +39,15 @@ class Character < GameObject
 
   def can_shoot?
     Gosu.milliseconds - (@last_shot || 0) > @shoot_delay
+  end
+
+  private
+
+  def load_weapon(file)
+    File.open(Utils.media_path(file)) do |j|
+      weapon_json = JSON.load(j)
+      weapon_json[@weapon_id]
+    end
   end
 
 end
