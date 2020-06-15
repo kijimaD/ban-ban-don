@@ -1,6 +1,6 @@
 class Character < GameObject
   attr_accessor :x, :y, :throttle_down, :turbo, :reset,
-                :direction, :gun_angle,
+                :direction, :gun_angle, :input,
                 :sounds, :physics, :graphics,
                 :number_ammo, :health, :weapon
 
@@ -9,7 +9,7 @@ class Character < GameObject
     @input = input
     @input.control(self)
     @graphics = CharacterGraphics.new(self)
-    @sounds = CharacterSounds.new(self)
+    @sounds = CharacterSounds.new(self, object_pool)
     @physics = CharacterPhysics.new(self, object_pool)
     @health = CharacterHealth.new(self, object_pool)
     @weapon_id = rand(0..2).to_s
@@ -48,9 +48,8 @@ class Character < GameObject
     else
       object.on_collision(self)
     end
-
     if object.class != Bullet
-      @sound.collide if @physics.speed > 1
+      @sounds.collide if @physics.speed > 1
     end
   end
 end

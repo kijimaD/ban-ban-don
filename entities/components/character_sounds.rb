@@ -1,4 +1,10 @@
 class CharacterSounds < Component
+
+  def initialize(object, object_pool)
+    super(object)
+    @object_pool = object_pool
+  end
+
   def update
     if object.physics.moving?
       if @driving && @driving.paused?

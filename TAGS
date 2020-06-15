@@ -45,21 +45,21 @@ class MenuState < GameStateMenuState3,36
   def drawdraw35,670
   def button_down(id)button_down46,931
 
-utils.rb,795
+utils.rb,799
 module UtilsUtils1,0
-  def self.media_path(file)media_path3,14
-  def self.load_json(file)load_json7,102
-  def self.track_update_intervaltrack_update_interval13,202
-  def self.update_intervalupdate_interval19,350
-  def self.adjust_speed(speed)adjust_speed23,433
-  def self.button_down?(button)button_down27,507
-  def self.button_up?(button)button_up44,847
-  def self.rotate(angle, around_x, around_y, *points)rotate61,1185
-  def self.point_in_poly(testx, testy, *poly)point_in_poly76,1669
-  def self.distance_between(x1, y1, x2, y2)distance_between97,2179
-  def self.angle_between(x, y, target_x, target_y)angle_between103,2297
-  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance109,2459
-  def self.mark_corners(box)mark_corners116,2677
+  def self.media_path(file)media_path10,158
+  def self.load_json(file)load_json14,246
+  def self.track_update_intervaltrack_update_interval20,346
+  def self.update_intervalupdate_interval26,494
+  def self.adjust_speed(speed)adjust_speed30,577
+  def self.button_down?(button)button_down34,651
+  def self.button_up?(button)button_up51,991
+  def self.rotate(angle, around_x, around_y, *points)rotate68,1329
+  def self.point_in_poly(testx, testy, *poly)point_in_poly83,1813
+  def self.distance_between(x1, y1, x2, y2)distance_between104,2323
+  def self.angle_between(x, y, target_x, target_y)angle_between110,2441
+  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance116,2603
+  def self.mark_corners(box)mark_corners123,2821
 
 entities/hud.rb,125
 class HUDHUD1,0
@@ -157,22 +157,22 @@ class CharacterHealth < ComponentCharacterHealth1,0
   def inflict_damage(amount)inflict_damage44,796
   def hp_gauge(health)hp_gauge54,1008
 
-entities/components/character_physics.rb,629
+entities/components/character_physics.rb,630
 class CharacterPhysics < ComponentCharacterPhysics1,0
-  def initialize(game_object, object_pool)initialize4,67
-  def can_move_to?(x, y)can_move_to?12,280
-  def moving?moving?33,871
-  def updateupdate37,907
-  def box_widthbox_width86,1862
-  def box_heightbox_height90,1926
-  def boxbox94,1993
-  def change_direction(new_direction)change_direction119,2714
-  def collides_with_poly?(poly)collides_with_poly?134,3052
-  def apply_movement_penalty(speed)apply_movement_penalty146,3321
-  def accelerateaccelerate150,3411
-  def deceleratedecelerate154,3468
-  def turboturbo159,3555
-  def resetreset163,3591
+  def initialize(game_object, object_pool)initialize4,98
+  def can_move_to?(x, y)can_move_to?12,311
+  def moving?moving?36,971
+  def updateupdate40,1007
+  def box_widthbox_width91,2021
+  def box_heightbox_height95,2085
+  def boxbox99,2152
+  def change_direction(new_direction)change_direction124,2873
+  def collides_with_poly?(poly)collides_with_poly?139,3211
+  def apply_movement_penalty(speed)apply_movement_penalty151,3480
+  def accelerateaccelerate155,3570
+  def deceleratedecelerate159,3627
+  def turboturbo164,3714
+  def resetreset168,3750
 
 entities/components/speed_meter.rb,267
 class SpeedMeter < ComponentSpeedMeter1,0
@@ -200,12 +200,13 @@ class AmmoDisplay < ComponentAmmoDisplay1,0
   def weapon_coordsweapon_coords61,1275
   def ammo_imageammo_image69,1424
 
-entities/components/character_sounds.rb,186
+entities/components/character_sounds.rb,241
 class CharacterSounds < ComponentCharacterSounds1,0
-  def updateupdate2,34
-  def collidecollide16,321
-  def driving_sounddriving_sound22,390
-  def crash_soundcrash_sound27,510
+  def initialize(object, object_pool)initialize3,35
+  def updateupdate8,129
+  def collidecollide22,416
+  def driving_sounddriving_sound28,485
+  def crash_soundcrash_sound33,605
 
 entities/components/ai/character_fleeing_state.rb,331
 class CharacterFleeingState < CharacterMotionStateCharacterFleeingState1,0
@@ -331,11 +332,11 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
 
 entities/character.rb,247
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize7,219
-  def boxbox23,744
-  def shoot(target_x, target_y)shoot27,778
-  def can_shoot?can_shoot?40,1126
-  def on_collision(object)on_collision44,1207
+  def initialize(object_pool, input)initialize7,227
+  def boxbox23,765
+  def shoot(target_x, target_y)shoot27,799
+  def can_shoot?can_shoot?40,1147
+  def on_collision(object)on_collision44,1228
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
@@ -355,7 +356,7 @@ class Tree < GameObjectTree1,0
   def on_collision(object)on_collision12,283
   def boxbox16,355
 
-entities/game_object.rb,341
+entities/game_object.rb,388
 class GameObjectGameObject1,0
   def initialize(object_pool)initialize2,17
   def componentscomponents8,139
@@ -363,9 +364,10 @@ class GameObjectGameObject1,0
   def draw(viewport)draw16,229
   def removable?removable?20,303
   def mark_for_removalmark_for_removal24,342
-  def boxbox28,394
-  def collidecollide31,411
-  def object_poolobject_pool36,445
+  def on_collision(object)on_collision28,394
+  def boxbox31,428
+  def collidecollide34,445
+  def object_poolobject_pool39,479
 
 main.rb,0
 
