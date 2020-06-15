@@ -28,12 +28,12 @@ class GameStateGameState1,0
 game_states/play_state.rb,262
 class PlayState < GameStatePlayState2,16
   def initializeinitialize4,45
-  def enterenter16,385
-  def leaveleave20,450
-  def updateupdate28,615
-  def drawdraw36,775
-  def button_down(id)button_down53,1205
-  def update_captionupdate_caption70,1540
+  def enterenter16,399
+  def leaveleave20,464
+  def updateupdate28,629
+  def drawdraw36,789
+  def button_down(id)button_down53,1219
+  def update_captionupdate_caption70,1554
 
 game_states/menu_state.rb,243
 class MenuState < GameStateMenuState3,36
@@ -45,19 +45,21 @@ class MenuState < GameStateMenuState3,36
   def drawdraw35,670
   def button_down(id)button_down46,931
 
-utils.rb,699
+utils.rb,795
 module UtilsUtils1,0
   def self.media_path(file)media_path3,14
-  def self.track_update_intervaltrack_update_interval7,102
-  def self.update_intervalupdate_interval13,250
-  def self.adjust_speed(speed)adjust_speed17,333
-  def self.button_down?(button)button_down21,407
-  def self.button_up?(button)button_up38,747
-  def self.rotate(angle, around_x, around_y, *points)rotate55,1085
-  def self.point_in_poly(testx, testy, *poly)point_in_poly70,1569
-  def self.distance_between(x1, y1, x2, y2)distance_between91,2079
-  def self.angle_between(x, y, target_x, target_y)angle_between97,2197
-  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance103,2359
+  def self.load_json(file)load_json7,102
+  def self.track_update_intervaltrack_update_interval13,202
+  def self.update_intervalupdate_interval19,350
+  def self.adjust_speed(speed)adjust_speed23,433
+  def self.button_down?(button)button_down27,507
+  def self.button_up?(button)button_up44,847
+  def self.rotate(angle, around_x, around_y, *points)rotate61,1185
+  def self.point_in_poly(testx, testy, *poly)point_in_poly76,1669
+  def self.distance_between(x1, y1, x2, y2)distance_between97,2179
+  def self.angle_between(x, y, target_x, target_y)angle_between103,2297
+  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance109,2459
+  def self.mark_corners(box)mark_corners116,2677
 
 entities/hud.rb,125
 class HUDHUD1,0
@@ -81,17 +83,18 @@ class Explosion < GameObjectExplosion1,0
   def initialize(object_pool, x, y)initialize4,53
   def inflict_damageinflict_damage14,224
 
-entities/map.rb,387
+entities/map.rb,447
 class MapMap4,54
-  def initializeinitialize9,118
-  def draw(viewport)draw14,181
-  def find_spawn_pointfind_spawn_point36,681
-  def can_move_to?(x, y)can_move_to?48,934
-  def movement_penalty(x, y)movement_penalty53,1018
-  def tile_at(x, y)tile_at65,1155
-  def load_tilesload_tiles72,1322
-  def generate_mapgenerate_map82,1576
-  def choose_tile(val)choose_tile98,1921
+  def initialize(object_pool)initialize9,118
+  def draw(viewport)draw17,271
+  def find_spawn_pointfind_spawn_point39,771
+  def can_move_to?(x, y)can_move_to?51,1024
+  def movement_penalty(x, y)movement_penalty56,1108
+  def generate_treesgenerate_trees66,1234
+  def tile_at(x, y)tile_at86,1737
+  def load_tilesload_tiles93,1904
+  def generate_mapgenerate_map103,2158
+  def choose_tile(val)choose_tile119,2503
 
 entities/components/ai_input.rb,264
 class AiInput < ComponentAiInput1,0
@@ -130,6 +133,19 @@ class ExplosionGraphics < ComponentExplosionGraphics1,0
   def current_framecurrent_frame29,518
   def done?done?33,592
   def animationanimation37,658
+
+entities/components/tree_graphics.rb,411
+class TreeGraphics < ComponentTreeGraphics1,0
+  def initialize(object, seed)initialize6,131
+  def shake(direction)shake11,209
+  def adjust_shake(x, y, shaking_for)adjust_shake20,436
+  def draw(viewport)draw27,700
+  def heightheight42,1106
+  def widthwidth46,1143
+  def load_sprite(seed)load_sprite52,1189
+  def center_xcenter_x58,1340
+  def center_ycenter_y62,1400
+  def treestrees66,1461
 
 entities/components/character_health.rb,323
 class CharacterHealth < ComponentCharacterHealth1,0
@@ -280,6 +296,18 @@ class BulletPhysics < ComponentBulletPhysics1,0
   def arrived?arrived?38,1009
   def check_hitcheck_hit42,1080
 
+entities/components/health.rb,375
+class Health < ComponentHealth1,0
+  def initialize(object, object_pool, health, explodes)initialize4,50
+  def restorerestore12,253
+  def dead?dead?17,331
+  def updateupdate21,366
+  def inflict_damage(amount)inflict_damage25,403
+  def draw(viewport)draw33,569
+  def draw?draw?43,754
+  def update_imageupdate_image47,784
+  def after_deathafter_death59,1046
+
 entities/components/player_input.rb,283
 class PlayerInput < ComponentPlayerInput1,0
   def initialize(camera)initialize2,30
@@ -288,25 +316,26 @@ class PlayerInput < ComponentPlayerInput1,0
   def any_button_down?(*buttons)any_button_down?46,1049
   def change_angle(previous_angle, up, down, right, left)change_angle53,1174
 
-entities/components/character_graphics.rb,448
+entities/components/character_graphics.rb,447
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize9,171
-  def update()update19,472
-  def draw(viewport)draw23,525
-  def draw_bounding_boxdraw_bounding_box30,726
-  def widthwidth43,995
-  def heightheight47,1030
-  def direction_graphicsdirection_graphics51,1067
-  def each_image(stand_image, run_image0, run_image1)each_image63,1366
-  def unitsunits82,1818
-  def charascharas87,1937
+  def update()update17,426
+  def draw(viewport)draw21,479
+  def draw_bounding_boxdraw_bounding_box28,680
+  def widthwidth41,949
+  def heightheight45,984
+  def direction_graphicsdirection_graphics49,1021
+  def each_image(stand_image, run_image0, run_image1)each_image61,1320
+  def unitsunits80,1772
+  def charascharas85,1891
 
-entities/character.rb,199
+entities/character.rb,247
 class Character < GameObjectCharacter1,0
   def initialize(object_pool, input)initialize7,219
-  def boxbox26,822
-  def shoot(target_x, target_y)shoot30,856
-  def can_shoot?can_shoot?43,1212
+  def boxbox23,744
+  def shoot(target_x, target_y)shoot27,778
+  def can_shoot?can_shoot?40,1126
+  def on_collision(object)on_collision44,1207
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
@@ -319,6 +348,12 @@ entities/object_pool.rb,118
 class ObjectPoolObjectPool1,0
   def initialize(map)initialize4,49
   def nearby(object, max_distance)nearby9,111
+
+entities/tree.rb,159
+class Tree < GameObjectTree1,0
+  def initialize(object_pool, x, y, seed)initialize4,66
+  def on_collision(object)on_collision12,283
+  def boxbox16,355
 
 entities/game_object.rb,341
 class GameObjectGameObject1,0

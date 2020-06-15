@@ -2,9 +2,9 @@
 class PlayState < GameState
 
   def initialize
-    @map = Map.new
     @camera = Camera.new
     @object_pool = ObjectPool.new(@map)
+    @map = Map.new(@object_pool)
     @character = Character.new(@object_pool, PlayerInput.new(@camera))
     @camera.target = @character
     3.times do

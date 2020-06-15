@@ -29,10 +29,10 @@ class Character < GameObject
       if @number_ammo > 0
         @last_shot = Gosu.milliseconds
         Bullet.new(object_pool, self, @x, @y, target_x, target_y).fire(self, 100)
-          @number_ammo -= 1
-          if $debug
-            @number_ammo += 1
-          end
+        @number_ammo -= 1
+        if $debug
+          @number_ammo += 1
+        end
       end
     end
   end
@@ -41,4 +41,16 @@ class Character < GameObject
     Gosu.milliseconds - (@last_shot || 0) > @shoot_delay
   end
 
+  def on_collision(object)
+    return unless object
+    if object.class == Character
+      object.input.on_collision(object)
+    else
+      object.on_collision(self)
+    end
+
+    if object.class != Bullet
+      @sound.collide if @physics.speed > 1
+    end
+  end
 end
