@@ -1,6 +1,6 @@
 class Character < GameObject
   attr_accessor :x, :y, :throttle_down, :turbo, :reset,
-                :direction, :gun_angle,
+                :direction, :gun_angle, :input,
                 :sounds, :physics, :graphics,
                 :number_ammo, :health, :weapon
 
@@ -9,11 +9,11 @@ class Character < GameObject
     @input = input
     @input.control(self)
     @graphics = CharacterGraphics.new(self)
-    @sounds = CharacterSounds.new(self)
+    @sounds = CharacterSounds.new(self, object_pool)
     @physics = CharacterPhysics.new(self, object_pool)
     @health = CharacterHealth.new(self, object_pool)
     @weapon_id = rand(0..2).to_s
-    @weapon = load_weapon("weapon.json")
+    @weapon = Utils.load_json("weapon.json")[@weapon_id]
     @shoot_delay = @weapon['shoot_delay'].to_i
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
@@ -29,10 +29,10 @@ class Character < GameObject
       if @number_ammo > 0
         @last_shot = Gosu.milliseconds
         Bullet.new(object_pool, self, @x, @y, target_x, target_y).fire(self, 100)
-          @number_ammo -= 1
-          if $debug
-            @number_ammo += 1
-          end
+        @number_ammo -= 1
+        if $debug
+          @number_ammo += 1
+        end
       end
     end
   end
@@ -41,13 +41,15 @@ class Character < GameObject
     Gosu.milliseconds - (@last_shot || 0) > @shoot_delay
   end
 
-  private
-
-  def load_weapon(file)
-    File.open(Utils.media_path(file)) do |j|
-      weapon_json = JSON.load(j)
-      weapon_json[@weapon_id]
+  def on_collision(object)
+    return unless object
+    if object.class == Character
+      object.input.on_collision(object)
+    else
+      object.on_collision(self)
+    end
+    if object.class != Bullet
+      @sounds.collide if @physics.speed > 1
     end
   end
-
 end
