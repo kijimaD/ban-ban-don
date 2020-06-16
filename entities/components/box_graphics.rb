@@ -1,4 +1,5 @@
 class BoxGraphics < Component
+
   def initialize(object)
     super(object)
     load_sprite

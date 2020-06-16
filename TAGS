@@ -144,9 +144,9 @@ class ExplosionGraphics < ComponentExplosionGraphics1,0
 entities/components/tree_graphics.rb,411
 class TreeGraphics < ComponentTreeGraphics1,0
   def initialize(object, seed)initialize6,131
-  def shake(direction)shake11,209
-  def adjust_shake(x, y, shaking_for)adjust_shake20,436
-  def draw(viewport)draw27,700
+  def draw(viewport)draw11,209
+  def shake(direction)shake26,615
+  def adjust_shake(x, y, shaking_for)adjust_shake35,842
   def heightheight42,1106
   def widthwidth46,1143
   def load_sprite(seed)load_sprite52,1189
@@ -295,14 +295,15 @@ class AiVisionAiVision1,0
   def closest_characterclosest_character15,270
   def find_closest_characterfind_closest_character27,543
 
-entities/components/bullet_physics.rb,310
+entities/components/bullet_physics.rb,343
 class BulletPhysics < ComponentBulletPhysics1,0
   def initialize(game_object, object_pool)initialize5,68
   def updateupdate14,340
-  def trajectory_lengthtrajectory_length22,588
-  def point_at_distance(distance)point_at_distance26,686
-  def arrived?arrived?38,1009
-  def check_hitcheck_hit42,1080
+  def trajectory_lengthtrajectory_length25,651
+  def point_at_distance(distance)point_at_distance29,749
+  def arrived?arrived?41,1072
+  def check_hitcheck_hit45,1143
+  def do_hit(obj)do_hit59,1531
 
 entities/components/health.rb,375
 class Health < ComponentHealth1,0
@@ -318,14 +319,14 @@ class Health < ComponentHealth1,0
 
 entities/components/box_graphics.rb,294
 class BoxGraphics < ComponentBoxGraphics1,0
-  def initialize(object)initialize2,30
-  def draw(viewport)draw7,96
-  def heightheight12,210
-  def widthwidth16,246
-  def load_spriteload_sprite22,291
-  def center_xcenter_x27,382
-  def center_ycenter_y31,436
-  def boxesboxes35,491
+  def initialize(object)initialize3,31
+  def draw(viewport)draw8,97
+  def heightheight13,211
+  def widthwidth17,247
+  def load_spriteload_sprite23,292
+  def center_xcenter_x28,383
+  def center_ycenter_y32,437
+  def boxesboxes36,492
 
 entities/components/player_input.rb,283
 class PlayerInput < ComponentPlayerInput1,0
