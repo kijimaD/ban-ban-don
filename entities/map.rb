@@ -12,6 +12,7 @@ class Map
     object_pool.map = self
     @map = generate_map
     generate_trees
+    generate_boxes
   end
 
   def draw(viewport)
@@ -77,6 +78,19 @@ class Map
       if tile_at(x, y) == @grass && n > 0.5
         Tree.new(@object_pool, x, y, n * 2 - 1)
         trees += 1
+      end
+    end
+  end
+
+  def generate_boxes
+    boxes = 0
+    target_boxes = rand(10..30)
+    while boxes < target_boxes do
+      x = rand(0..MAP_WIDTH * TILE_SIZE)
+      y = rand(0..MAP_HEIGHT * TILE_SIZE)
+      if tile_at(x, y) != @water
+        Box.new(@object_pool, x, y)
+        boxes += 1
       end
     end
   end

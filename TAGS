@@ -78,23 +78,30 @@ class CameraCamera1,0
   def draw_crosshairdraw_crosshair42,1105
   def viewportviewport53,1377
 
+entities/box.rb,151
+class Box < GameObjectBox1,0
+  def initialize(object_pool, x, y)initialize4,73
+  def on_collision(object)on_collision12,276
+  def boxbox18,436
+
 entities/explosion.rb,138
 class Explosion < GameObjectExplosion1,0
   def initialize(object_pool, x, y)initialize4,53
   def inflict_damageinflict_damage14,224
 
-entities/map.rb,447
+entities/map.rb,493
 class MapMap4,54
   def initialize(object_pool)initialize9,118
-  def draw(viewport)draw17,271
-  def find_spawn_pointfind_spawn_point39,771
-  def can_move_to?(x, y)can_move_to?51,1024
-  def movement_penalty(x, y)movement_penalty56,1108
-  def generate_treesgenerate_trees66,1234
-  def tile_at(x, y)tile_at86,1737
-  def load_tilesload_tiles93,1904
-  def generate_mapgenerate_map103,2158
-  def choose_tile(val)choose_tile119,2503
+  def draw(viewport)draw18,290
+  def find_spawn_pointfind_spawn_point40,790
+  def can_move_to?(x, y)can_move_to?52,1043
+  def movement_penalty(x, y)movement_penalty57,1127
+  def generate_treesgenerate_trees67,1253
+  def generate_boxesgenerate_boxes85,1745
+  def tile_at(x, y)tile_at100,2053
+  def load_tilesload_tiles107,2220
+  def generate_mapgenerate_map117,2474
+  def choose_tile(val)choose_tile133,2819
 
 entities/components/ai_input.rb,264
 class AiInput < ComponentAiInput1,0
@@ -308,6 +315,17 @@ class Health < ComponentHealth1,0
   def draw?draw?43,754
   def update_imageupdate_image47,784
   def after_deathafter_death59,1046
+
+entities/components/box_graphics.rb,294
+class BoxGraphics < ComponentBoxGraphics1,0
+  def initialize(object)initialize2,30
+  def draw(viewport)draw7,96
+  def heightheight12,210
+  def widthwidth16,246
+  def load_spriteload_sprite22,291
+  def center_xcenter_x27,382
+  def center_ycenter_y31,436
+  def boxesboxes35,491
 
 entities/components/player_input.rb,283
 class PlayerInput < ComponentPlayerInput1,0
