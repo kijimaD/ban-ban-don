@@ -49,17 +49,18 @@ class Radar
       return
     end
 
-    atan = Math.atan2(character.x - @target.x,
-                      character.y - @target.y)
+    atan = Math.atan2(@target.x - character.x,
+                      @target.y - character.y)
     if atan < 0
       atan = atan + 2 * Math::PI
     end
 
     angle = -atan * 180 / Math::PI
-    goal_x, goal_y = Utils.point_at_distance(tx, ty, angle, 100)
-    $window.draw_line(tx, ty, Gosu::Color::WHITE,
+    goal_x, goal_y = Utils.point_at_distance(x1 + WIDTH / 2, y1 + HEIGHT / 2, angle, 100)
+    $window.draw_line(x1 + WIDTH / 2, y1 + HEIGHT / 2, Gosu::Color::WHITE,
                       goal_x, goal_y, color,
                       1000)
+    puts angle
   end
 
   def radar_coords

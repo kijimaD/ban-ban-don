@@ -90,7 +90,7 @@ class RadarRadar1,0
   def updateupdate15,226
   def drawdraw24,452
   def draw_character(character, color)draw_character34,648
-  def radar_coordsradar_coords66,1502
+  def radar_coordsradar_coords66,1532
 
 entities/explosion.rb,138
 class Explosion < GameObjectExplosion1,0
