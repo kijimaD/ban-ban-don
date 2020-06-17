@@ -33,19 +33,8 @@ class Radar
 
   def draw_character(character, color)
     x1, x2, y1, y2 = radar_coords
-    tx = x1 + WIDTH / 2 + (character.x - @target.x) / 20
-    ty = y1 + HEIGHT / 2 + (character.y - @target.y) / 20
 
-    if (x1..x2).include?(tx) && (y1..y2).include?(ty)
-      $window.draw_quad(
-        tx - 2, ty - 2, color,
-        tx + 2, ty - 2, color,
-        tx + 2, ty + 2, color,
-        tx - 2, ty + 2, color,
-        300)
-    end
-
-    if color == Gosu::Color::GREEN
+    if character == @target
       return
     end
 
@@ -54,13 +43,16 @@ class Radar
     if atan < 0
       atan = atan + 2 * Math::PI
     end
-
     angle = -atan * 180 / Math::PI
-    goal_x, goal_y = Utils.point_at_distance(x1 + WIDTH / 2, y1 + HEIGHT / 2, angle, 100)
-    $window.draw_line(x1 + WIDTH / 2, y1 + HEIGHT / 2, Gosu::Color::WHITE,
-                      goal_x, goal_y, color,
-                      1000)
-    puts angle
+
+    center_x, center_y = center_coords
+    goal_x, goal_y = Utils.point_at_distance(center_x, center_y, angle, $window.height / 2)
+    $window.draw_quad(
+      goal_x - 4, goal_y - 4, color,
+      goal_x + 4, goal_y - 4, color,
+      goal_x + 4, goal_y + 4, color,
+      goal_x - 4, goal_y + 4, color,
+      300)
   end
 
   def radar_coords
@@ -70,4 +62,11 @@ class Radar
     y2 = $window.height
     [x1, x2, y1, y2]
   end
+
+  def center_coords
+    center_x = $window.width / 2
+    center_y = $window.height / 2
+    [center_x, center_y]
+  end
+
 end
