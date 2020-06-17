@@ -22,7 +22,6 @@ class Radar
   end
 
   def draw
-    x1, x2, y1, y2 = radar_coords
     draw_character(@target, Gosu::Color::GREEN)
     @nearby && @nearby.each do |t|
       draw_character(t, Gosu::Color::RED)
@@ -32,8 +31,6 @@ class Radar
   private
 
   def draw_character(character, color)
-    x1, x2, y1, y2 = radar_coords
-
     if character == @target
       return
     end
@@ -47,26 +44,18 @@ class Radar
 
     center_x, center_y = center_coords
     goal_x, goal_y = Utils.point_at_distance(center_x, center_y, angle, $window.height / 2)
-    $window.draw_quad(
-      goal_x - 4, goal_y - 4, color,
-      goal_x + 4, goal_y - 4, color,
-      goal_x + 4, goal_y + 4, color,
-      goal_x - 4, goal_y + 4, color,
-      300)
-  end
-
-  def radar_coords
-    x1 = PADDING
-    x2 = $window.width
-    y1 = PADDING
-    y2 = $window.height
-    [x1, x2, y1, y2]
+    image('sozai_cman_jp_arrow.png').draw_rot(goal_x, goal_y, 1, angle)
   end
 
   def center_coords
     center_x = $window.width / 2
     center_y = $window.height / 2
     [center_x, center_y]
+  end
+
+  def image(image)
+    @@image = Gosu::Image.new(
+      $window, Utils.media_path(image), false)
   end
 
 end

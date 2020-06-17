@@ -84,14 +84,15 @@ class Box < GameObjectBox1,0
   def on_collision(object)on_collision12,276
   def boxbox18,436
 
-entities/radar.rb,270
+entities/radar.rb,330
 class RadarRadar1,0
   def initialize(object_pool, target)initialize9,108
   def updateupdate15,226
   def drawdraw24,452
-  def draw_character(character, color)draw_character34,648
-  def radar_coordsradar_coords64,1414
-  def center_coordscenter_coords72,1542
+  def draw_character(character, color)    if character == @targetdraw_character34,648
+  def radar_coordsradar_coords50,1131
+  def center_coordscenter_coords58,1259
+  def image(image)image64,1378
 
 entities/explosion.rb,138
 class Explosion < GameObjectExplosion1,0
