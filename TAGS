@@ -84,15 +84,14 @@ class Box < GameObjectBox1,0
   def on_collision(object)on_collision12,276
   def boxbox18,436
 
-entities/radar.rb,330
+entities/radar.rb,263
 class RadarRadar1,0
   def initialize(object_pool, target)initialize9,108
   def updateupdate15,226
   def drawdraw24,452
-  def draw_character(character, color)    if character == @targetdraw_character34,648
-  def radar_coordsradar_coords50,1131
-  def center_coordscenter_coords58,1259
-  def image(image)image64,1378
+  def draw_character(character, color)draw_character33,614
+  def center_coordscenter_coords50,1100
+  def image(image)image56,1219
 
 entities/explosion.rb,138
 class Explosion < GameObjectExplosion1,0
@@ -376,10 +375,10 @@ class Bullet < GameObjectBullet1,0
   def explodeexplode21,550
   def fire(source, speed)fire28,680
 
-entities/object_pool.rb,118
+entities/object_pool.rb,136
 class ObjectPoolObjectPool1,0
   def initialize(map)initialize4,49
-  def nearby(object, max_distance)nearby9,111
+  def nearby(object, max_distance, min_distance = 0)nearby9,111
 
 entities/tree.rb,159
 class Tree < GameObjectTree1,0

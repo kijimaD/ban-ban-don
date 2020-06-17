@@ -16,7 +16,7 @@ class Radar
     if Gosu.milliseconds - @last_update > UPDATE_FREQUENCY
       @nearby = nil
     end
-    @nearby ||= @object_pool.nearby(@target, 2000).select do |o|
+    @nearby ||= @object_pool.nearby(@target, 2000, 360).select do |o|
       o.class == Character && !o.health.dead?
     end
   end
