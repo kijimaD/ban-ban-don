@@ -7,7 +7,7 @@ class PlayState < GameState
     @map = Map.new(@object_pool)
     @character = Character.new(@object_pool, PlayerInput.new(@camera))
     @camera.target = @character
-    3.times do
+    1.times do
       Character.new(@object_pool, AiInput.new(@object_pool))
     end
     @hud = HUD.new(@object_pool, @character)

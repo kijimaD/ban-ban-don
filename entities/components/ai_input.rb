@@ -9,6 +9,7 @@ class AiInput < Component
 
   def control(obj)
     self.object = obj
+    object.components << self
     @vision = AiVision.new(obj, @object_pool,
                            rand(700..1200))
     @gun = AiGun.new(obj, @vision)
@@ -16,6 +17,7 @@ class AiInput < Component
   end
 
   def on_collision(with)
+    return if object.health.dead?
     @motion.on_collision(with)
   end
 

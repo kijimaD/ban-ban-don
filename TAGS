@@ -65,7 +65,7 @@ entities/hud.rb,125
 class HUDHUD1,0
   def initialize(object_pool, character)initialize3,11
   def updateupdate11,288
-  def drawdraw17,368
+  def drawdraw17,375
 
 entities/camera.rb,328
 class CameraCamera1,0
@@ -86,11 +86,11 @@ class Box < GameObjectBox1,0
 
 entities/radar.rb,228
 class RadarRadar1,0
-  def initialize(object_pool, target)initialize9,159
-  def updateupdate15,277
-  def drawdraw24,503
-  def draw_character(character, color)draw_character40,832
-  def radar_coordsradar_coords54,1241
+  def initialize(object_pool, target)initialize9,108
+  def updateupdate15,226
+  def drawdraw24,452
+  def draw_character(character, color)draw_character34,650
+  def radar_coordsradar_coords60,1488
 
 entities/explosion.rb,138
 class Explosion < GameObjectExplosion1,0
@@ -115,10 +115,10 @@ entities/components/ai_input.rb,264
 class AiInput < ComponentAiInput1,0
   def initialize(object_pool)initialize4,47
   def control(obj)control10,167
-  def on_collision(with)on_collision18,397
-  def on_damage(amount)on_damage22,460
-  def updateupdate26,521
-  def draw(viewport)draw37,749
+  def on_collision(with)on_collision19,427
+  def on_damage(amount)on_damage24,524
+  def updateupdate28,585
+  def draw(viewport)draw39,813
 
 entities/components/bullet_graphics.rb,157
 class BulletGraphics < ComponentBulletGraphics1,0
@@ -164,15 +164,15 @@ class TreeGraphics < ComponentTreeGraphics1,0
 
 entities/components/character_health.rb,323
 class CharacterHealth < ComponentCharacterHealth1,0
-  def initialize(object, object_pool)initialize5,78
-  def updateupdate13,261
-  def draw(viewport)draw17,298
-  def update_imageupdate_image24,436
-  def dead?dead?40,761
-  def inflict_damage(amount)inflict_damage44,796
-  def hp_gauge(health)hp_gauge54,1008
+  def initialize(object, object_pool)initialize5,80
+  def updateupdate13,263
+  def draw(viewport)draw17,300
+  def update_imageupdate_image24,438
+  def dead?dead?40,763
+  def inflict_damage(amount)inflict_damage44,798
+  def hp_gauge(health)hp_gauge54,1010
 
-entities/components/character_physics.rb,630
+entities/components/character_physics.rb,693
 class CharacterPhysics < ComponentCharacterPhysics1,0
   def initialize(game_object, object_pool)initialize4,98
   def can_move_to?(x, y)can_move_to?12,311
@@ -183,11 +183,12 @@ class CharacterPhysics < ComponentCharacterPhysics1,0
   def boxbox99,2152
   def change_direction(new_direction)change_direction124,2873
   def collides_with_poly?(poly)collides_with_poly?139,3211
-  def apply_movement_penalty(speed)apply_movement_penalty151,3480
-  def accelerateaccelerate155,3570
-  def deceleratedecelerate159,3627
-  def turboturbo164,3714
-  def resetreset168,3750
+  def collides_with_point?(x, y)collides_with_point?155,3585
+  def apply_movement_penalty(speed)apply_movement_penalty159,3660
+  def accelerateaccelerate163,3750
+  def deceleratedecelerate167,3807
+  def turboturbo172,3894
+  def resetreset176,3930
 
 entities/components/speed_meter.rb,267
 class SpeedMeter < ComponentSpeedMeter1,0
@@ -336,13 +337,14 @@ class BoxGraphics < ComponentBoxGraphics1,0
   def center_ycenter_y32,437
   def boxesboxes36,492
 
-entities/components/player_input.rb,283
+entities/components/player_input.rb,328
 class PlayerInput < ComponentPlayerInput1,0
   def initialize(camera)initialize2,30
   def control(obj)control7,98
-  def updateupdate11,146
-  def any_button_down?(*buttons)any_button_down?46,1049
-  def change_angle(previous_angle, up, down, right, left)change_angle53,1174
+  def on_collision(with)on_collision11,146
+  def updateupdate14,178
+  def any_button_down?(*buttons)any_button_down?49,1081
+  def change_angle(previous_angle, up, down, right, left)change_angle56,1206
 
 entities/components/character_graphics.rb,447
 class CharacterGraphics < ComponentCharacterGraphics1,0
@@ -363,7 +365,7 @@ class Character < GameObjectCharacter1,0
   def boxbox23,765
   def shoot(target_x, target_y)shoot27,799
   def can_shoot?can_shoot?40,1147
-  def on_collision(object)on_collision44,1228
+  def on_collision(object)on_collision45,1250
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
