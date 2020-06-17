@@ -13,8 +13,11 @@ class BulletPhysics < Component
 
   def update
     fly_speed = Utils.adjust_speed(object.speed)
-    fly_distance = (Gosu.milliseconds - object.fired_at) * 0.001 * fly_speed
+    now = Gosu.milliseconds
+    @last_update ||= object.fired_at
+    fly_distance = (now - @last_update) * 0.01 * fly_speed
     object.x, object.y = point_at_distance(fly_distance)
+    @last_update = now
     check_hit
     object.explode if arrived?
   end
@@ -41,14 +44,22 @@ class BulletPhysics < Component
 
   def check_hit
     @object_pool.nearby(object, 50).each do |obj|
-      next if obj == object.source
-      if Utils.point_in_poly(x, y, *obj.box)
-        obj.health.inflict_damage(20)
-        object.target_x = x
-        object.target_y = y
-        return
+      next if obj == object.source # Don't hit source tank
+      if obj.class == Tree
+        if Utils.distance_between(x, y, obj.x, obj.y) < 10
+          return do_hit(obj)
+        end
+      elsif Utils.point_in_poly(x, y, *obj.box)
+        # Direct hit - extra damage
+        return do_hit(obj)
       end
     end
+  end
+
+  def do_hit(obj)
+    obj.health.inflict_damage(20)
+    object.target_x = x
+    object.target_y = y
   end
 
 end

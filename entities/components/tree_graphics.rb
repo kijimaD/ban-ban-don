@@ -8,6 +8,21 @@ class TreeGraphics < Component
     load_sprite(seed)
   end
 
+  def draw(viewport)
+    if @shaking
+      shaking_for = Gosu.milliseconds - @shake_start
+      shaking_x, shaking_y = adjust_shake(
+                   center_x, center_y, shaking_for)
+      @tree.draw(shaking_x, shaking_y, 5)
+      if shaking_for >= SHAKE_TIME
+        @shaking = false
+      end
+    else
+      @tree.draw(center_x, center_y, 5)
+    end
+    Utils.mark_corners(object.box) if $debug
+  end
+
   def shake(direction)
     now = Gosu.milliseconds
     return if @shake_start &&
@@ -22,21 +37,6 @@ class TreeGraphics < Component
     frame = ((SHAKE_DISTANCE.length - 1) * elapsed).floor
     distance = SHAKE_DISTANCE[frame]
     Utils.point_at_distance(x, y, @shake_direction, distance)
-  end
-
-  def draw(viewport)
-    if @shaking
-      shaking_for = Gosu.milliseconds - @shake_start
-      shaking_x, shaking_y = adjust_shake(
-                   center_x, center_y, shaking_for)
-      @tree.draw(shaking_x, shaking_y, 5)
-      if shaking_for >= SHAKE_TIME
-        @shaking = false
-      end
-    else
-      @tree.draw(center_x, center_y, 5)
-    end
-    Utils.mark_corners(object.box) if $debug
   end
 
   def height

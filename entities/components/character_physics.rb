@@ -138,6 +138,10 @@ class CharacterPhysics < Component
 
   def collides_with_poly?(poly)
     if poly
+      if poly.size == 2
+        px, py = poly
+        return Utils.point_in_poly(px, py, *box)
+      end
       poly.each_slice(2) do |x, y|
         return true if Utils.point_in_poly(x, y, *box)
       end
@@ -146,6 +150,10 @@ class CharacterPhysics < Component
       end
     end
     false
+  end
+
+  def collides_with_point?(x, y)
+    Utils.point_in_poly(x, y, box)
   end
 
   def apply_movement_penalty(speed)
