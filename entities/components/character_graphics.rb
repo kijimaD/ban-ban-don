@@ -22,7 +22,7 @@ class CharacterGraphics < Component
     # @shadow.draw_rot(x - 1, y - 1, 0, object.direction)
     @body.draw(x - 16, y - 16, 1)
     # @gun.draw_rot(x, y, 2, object.direction)
-    # draw_bounding_box if $debug
+    draw_bounding_box if $debug
   end
 
   def draw_bounding_box

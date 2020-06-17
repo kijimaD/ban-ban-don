@@ -89,8 +89,8 @@ class RadarRadar1,0
   def initialize(object_pool, target)initialize9,108
   def updateupdate15,226
   def drawdraw24,452
-  def draw_character(character, color)draw_character34,650
-  def radar_coordsradar_coords60,1488
+  def draw_character(character, color)draw_character34,648
+  def radar_coordsradar_coords66,1502
 
 entities/explosion.rb,138
 class Explosion < GameObjectExplosion1,0
@@ -351,13 +351,13 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize9,171
   def update()update17,426
   def draw(viewport)draw21,479
-  def draw_bounding_boxdraw_bounding_box28,680
-  def widthwidth41,949
-  def heightheight45,984
-  def direction_graphicsdirection_graphics49,1021
-  def each_image(stand_image, run_image0, run_image1)each_image61,1320
-  def unitsunits80,1772
-  def charascharas85,1891
+  def draw_bounding_boxdraw_bounding_box28,678
+  def widthwidth41,947
+  def heightheight45,982
+  def direction_graphicsdirection_graphics49,1019
+  def each_image(stand_image, run_image0, run_image1)each_image61,1318
+  def unitsunits80,1770
+  def charascharas85,1889
 
 entities/character.rb,247
 class Character < GameObjectCharacter1,0
@@ -365,7 +365,7 @@ class Character < GameObjectCharacter1,0
   def boxbox23,765
   def shoot(target_x, target_y)shoot27,799
   def can_shoot?can_shoot?40,1147
-  def on_collision(object)on_collision45,1250
+  def on_collision(object)on_collision44,1228
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
