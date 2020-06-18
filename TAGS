@@ -113,7 +113,7 @@ class RadarRadar1,0
 entities/explosion.rb,138
 class Explosion < GameObjectExplosion1,0
   def initialize(object_pool, x, y)initialize4,53
-  def inflict_damageinflict_damage15,281
+  def inflict_damageinflict_damage18,371
 
 entities/map.rb,493
 class MapMap4,54
@@ -128,6 +128,12 @@ class MapMap4,54
   def load_tilesload_tiles107,2218
   def generate_mapgenerate_map116,2478
   def choose_tile(val)choose_tile132,2823
+
+entities/components/damage_graphics.rb,157
+class DamageGraphics < ComponentDamageGraphics1,0
+  def initialize(object_pool)initialize2,33
+  def draw(viewport)draw8,133
+  def imagesimages14,209
 
 entities/components/ai_input.rb,264
 class AiInput < ComponentAiInput1,0
@@ -326,11 +332,11 @@ entities/components/bullet_physics.rb,343
 class BulletPhysics < ComponentBulletPhysics1,0
   def initialize(game_object, object_pool)initialize5,68
   def updateupdate14,340
-  def trajectory_lengthtrajectory_length25,658
-  def point_at_distance(distance)point_at_distance29,756
-  def arrived?arrived?41,1079
-  def check_hitcheck_hit45,1150
-  def do_hit(obj)do_hit59,1538
+  def trajectory_lengthtrajectory_length25,659
+  def point_at_distance(distance)point_at_distance29,757
+  def arrived?arrived?41,1080
+  def check_hitcheck_hit45,1151
+  def do_hit(obj)do_hit59,1539
 
 entities/components/health.rb,374
 class Health < ComponentHealth1,0
@@ -392,10 +398,11 @@ class Bullet < GameObjectBullet1,0
   def explodeexplode21,576
   def fire(source, speed)fire28,706
 
-entities/object_pool.rb,131
+entities/object_pool.rb,168
 class ObjectPoolObjectPool1,0
   def initializeinitialize4,58
   def nearby(object, max_distance, min_distance = 0)nearby8,100
+  def non_effectsnon_effects18,409
 
 entities/tree.rb,159
 class Tree < GameObjectTree1,0
@@ -416,9 +423,11 @@ class GameObjectGameObject1,0
   def collidecollide34,445
   def object_poolobject_pool39,479
 
-entities/damage.rb,89
+entities/damage.rb,153
 class Damage < GameObjectDamage1,0
   def initialize(object_pool, x, y)initialize6,91
+  def effect?effect?13,220
+  def track(instance)track19,261
 
 main.rb,0
 
