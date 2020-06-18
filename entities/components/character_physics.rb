@@ -5,14 +5,12 @@ class CharacterPhysics < Component
     super(game_object)
     @object_pool = object_pool
     @map = object_pool.map
-    game_object.x, game_object.y = @map.find_spawn_point
     @speed, @shift = 0.0
   end
 
   def can_move_to?(x, y)
     old_x, old_y = object.x, object.y
-    object.x = x
-    object.y = y
+    object.move(x, y)
     return false unless @map.can_move_to?(x, y)
     @object_pool.nearby(object, 100).each do |obj|
       next if obj.class == Bullet && obj.source == object
@@ -29,8 +27,7 @@ class CharacterPhysics < Component
     end
     true
   ensure
-    object.x = old_x
-    object.y = old_y
+    object.move(old_x, old_y)
   end
 
   def moving?
@@ -78,7 +75,7 @@ class CharacterPhysics < Component
         new_y -= @shift
       end
       if can_move_to?(new_x, new_y)
-        object.x, object.y = new_x, new_y
+        object.move(new_x, new_y)
         @in_collision = false
       else
         object.on_collision(@collides_with)

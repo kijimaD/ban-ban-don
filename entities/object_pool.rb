@@ -1,23 +1,54 @@
 class ObjectPool
   attr_accessor :objects, :map, :camera
 
-  def initialize
+  def initialize(box)
+    @tree = QuadTree.new(box)
     @objects = []
   end
 
-  def nearby(object, max_distance, min_distance = 0)
-    @objects.select do |obj|
-      obj != object &&
-        (obj.x - object.x).abs < max_distance &&
-        (obj.y - object.y).abs < max_distance &&
-        (obj.x - object.x).abs > min_distance &&
-        (obj.y - object.y).abs > min_distance &&
-        Utils.distance_between(
-          obj.x, obj.y, object.x, object.y) < max_distance
+  def size
+    @objects.size
+  end
+
+  def add(object)
+    @objects << object
+    @tree.insert(object)
+  end
+
+  def tree_remove(object)
+    @tree.remove(object)
+  end
+
+  def tree_insert(object)
+    @tree.insert(object)
+  end
+
+  def update_all
+    @objects.map(&:update)
+    @objects.reject! do |o|
+      if o.removable?
+        @tree.remove(o)
+        true
+      end
     end
   end
 
-  def non_effects
-    @object.reject(&:effect?)
+  def nearby(object, max_distance, min_distance = 0)
+    cx, cy = object.location
+    hx, hy = cx + max_distance, cy + max_distance
+    results = @tree.query_range(
+      AxisAlignedBoundingBox.new([cx, cy], [hx, hy]))
+    results.select do |o|
+      # dist = Utils.distance_between(o.x, o.y, object.x, object.y)
+      # o != object && dist <= max_distance && dist >= min_distance
+      o != object &&
+        Utils.distance_between(
+          o.x, o.y, object.x, object.y) <= max_distance
+    end
   end
+
+  def query_range(box)
+    @tree.query_range(box)
+  end
+
 end

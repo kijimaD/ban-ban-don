@@ -1,17 +1,18 @@
 class Character < GameObject
-  attr_accessor :x, :y, :throttle_down, :turbo, :reset,
+  attr_accessor :throttle_down, :turbo, :reset,
                 :direction, :gun_angle, :input,
                 :sounds, :physics, :graphics,
                 :number_ammo, :health, :weapon
 
   def initialize(object_pool, input)
-    super(object_pool)
+    x, y = object_pool.map.spawn_point
+    super(object_pool, x, y)
     @input = input
     @input.control(self)
-    @graphics = CharacterGraphics.new(self)
-    @sounds = CharacterSounds.new(self, object_pool)
     @physics = CharacterPhysics.new(self, object_pool)
+    @sounds = CharacterSounds.new(self, object_pool)
     @health = CharacterHealth.new(self, object_pool)
+    @graphics = CharacterGraphics.new(self)
     @weapon_id = rand(0..2).to_s
     @weapon = Utils.load_json("weapon.json")[@weapon_id]
     @shoot_delay = @weapon['shoot_delay'].to_i
