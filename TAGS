@@ -84,16 +84,17 @@ class HUDHUD1,0
   def updateupdate11,288
   def drawdraw17,375
 
-entities/camera.rb,328
+entities/camera.rb,369
 class CameraCamera1,0
   def target=(target)target=5,66
   def can_view?(x, y, obj)can_view?11,162
   def mouse_coordsmouse_coords17,306
   def updateupdate26,599
-  def to_sto_s33,905
-  def target_delta_on_screentarget_delta_on_screen39,1034
-  def draw_crosshairdraw_crosshair43,1127
-  def viewportviewport54,1399
+  def to_sto_s58,1168
+  def target_delta_on_screentarget_delta_on_screen64,1297
+  def draw_crosshairdraw_crosshair68,1390
+  def viewportviewport79,1662
+  def desired_spotdesired_spot87,1877
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -388,8 +389,8 @@ class Character < GameObjectCharacter1,0
   def initialize(object_pool, input)initialize7,227
   def boxbox23,765
   def shoot(target_x, target_y)shoot27,799
-  def can_shoot?can_shoot?40,1147
-  def on_collision(object)on_collision44,1228
+  def can_shoot?can_shoot?40,1148
+  def on_collision(object)on_collision44,1229
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
@@ -402,7 +403,7 @@ entities/object_pool.rb,168
 class ObjectPoolObjectPool1,0
   def initializeinitialize4,58
   def nearby(object, max_distance, min_distance = 0)nearby8,100
-  def non_effectsnon_effects18,409
+  def non_effectsnon_effects20,507
 
 entities/tree.rb,159
 class Tree < GameObjectTree1,0

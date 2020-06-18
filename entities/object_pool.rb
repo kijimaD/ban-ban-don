@@ -10,6 +10,8 @@ class ObjectPool
       obj != object &&
         (obj.x - object.x).abs < max_distance &&
         (obj.y - object.y).abs < max_distance &&
+        (obj.x - object.x).abs > min_distance &&
+        (obj.y - object.y).abs > min_distance &&
         Utils.distance_between(
           obj.x, obj.y, object.x, object.y) < max_distance
     end

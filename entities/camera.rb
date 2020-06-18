@@ -24,10 +24,35 @@ class Camera
   end
 
   def update
-    @x += @target.physics.shift if @x < @target.x - $window.width / 16
-    @x -= @target.physics.shift if @x > @target.x + $window.width / 16
-    @y += @target.physics.shift if @y < @target.y - $window.height / 16
-    @y -= @target.physics.shift if @y > @target.y + $window.height / 16
+    des_x, des_y = desired_spot
+    shift = Utils.adjust_speed(
+      @target.physics.speed).floor + 1
+    if @x < des_x
+      if des_x - @x < shift
+        @x = des_x
+      else
+        @x += shift
+      end
+    elsif @x > des_x
+      if @x - des_x < shift
+        @x = des_x
+      else
+        @x -= shift
+      end
+    end
+    if @y < des_y
+      if des_y - @y < shift
+        @y = des_y
+      else
+        @y += shift
+      end
+    elsif @y > des_y
+      if @y - des_y < shift
+        @y = des_y
+      else
+        @y -= shift
+      end
+    end
   end
 
   def to_s
@@ -57,6 +82,17 @@ class Camera
     y0 = @y - ($window.height / 2) / @zoom
     y1 = @y + ($window.height / 2) / @zoom
     [x0, x1, y0, y1]
+  end
+
+  def desired_spot
+    if @target.physics.moving?
+      Utils.point_at_distance(
+        @target.x, @target.y,
+        @target.direction,
+        @target.physics.speed.ceil * 25)
+    else
+      [@target.x, @target.y]
+    end
   end
 
 end
