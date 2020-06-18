@@ -15,7 +15,7 @@ class BulletPhysics < Component
     fly_speed = Utils.adjust_speed(object.speed)
     now = Gosu.milliseconds
     @last_update ||= object.fired_at
-    fly_distance = (now - @last_update) * 0.01 * fly_speed
+    fly_distance = (now - @last_update) * 0.001 * fly_speed
     object.x, object.y = point_at_distance(fly_distance)
     @last_update = now
     check_hit

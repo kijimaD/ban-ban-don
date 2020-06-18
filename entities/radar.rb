@@ -16,21 +16,21 @@ class Radar
     if Gosu.milliseconds - @last_update > UPDATE_FREQUENCY
       @nearby = nil
     end
-    @nearby ||= @object_pool.nearby(@target, 2000).select do |o|
+    @nearby ||= @object_pool.nearby(@target, 2000, 360).select do |o|
       o.class == Character && !o.health.dead?
     end
   end
 
   def draw
-    draw_character(@target, Gosu::Color::GREEN)
+    draw_character(@target)
     @nearby && @nearby.each do |t|
-      draw_character(t, Gosu::Color::RED)
+      draw_character(t)
     end
   end
 
   private
 
-  def draw_character(character, color)
+  def draw_character(character)
     if character == @target
       return
     end
@@ -54,8 +54,7 @@ class Radar
   end
 
   def image(image)
-    @@image = Gosu::Image.new(
-      $window, Utils.media_path(image), false)
+    @@image = Gosu::Image.new(Utils.media_path(image))
   end
 
 end

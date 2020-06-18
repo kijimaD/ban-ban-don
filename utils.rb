@@ -35,7 +35,7 @@ module Utils
     @buttons ||= {}
     now = Gosu.milliseconds
     now = now - (now % 150)
-    if  $window.button_down?(button)
+    if $window.button_down?(button)
       @buttons[button] = now
       true
     elsif @buttons[button]
@@ -131,6 +131,31 @@ module Utils
         100)
       i = (i + 1) % 4
     end
+  end
+
+  def self.volume(object, camera)
+    return 1 if object == camera.target
+    distance = Utils.distance_between(
+      camera.target.x, camera.target.y,
+      object.x, object.y)
+    distance = [(HEARING_DISTANCE - distance), 0].max
+    distance / HEARING_DISTANCE
+  end
+
+  def self.pan(object, camera)
+    return 0 if object == camera.target
+    pan = object.x - camera.target.x
+    sig = pan > 0 ? 1 : -1
+    pan = (pan % HEARING_DISTANCE) / HEARING_DISTANCE
+    if sig > 0
+      pan
+    else
+      -1 + pan
+    end
+  end
+
+  def self.volume_and_pan(object, camera)
+    [volume(object, camera), pan(object, camera)]
   end
 
 end

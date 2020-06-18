@@ -1,14 +1,14 @@
 class BulletSounds
-  class << self                 # this is what??
-    def play(fire_sound)
-      sound(fire_sound).play
+  class << self
+    def play(object, camera, fire_sound)
+      volume, pan = Utils.volume_and_pan(object, camera)
+      sound(fire_sound).play(object.object_id, pan, volume)
     end
 
     private
 
     def sound(fire_sound)
-      @@sound = Gosu::Sample.new(
-        $window, Utils.media_path(fire_sound))
+      @@sound = StereoSample.new(Utils.media_path(fire_sound))
     end
   end
 end

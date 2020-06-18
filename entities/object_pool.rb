@@ -1,17 +1,21 @@
 class ObjectPool
-  attr_accessor :objects, :map
+  attr_accessor :objects, :map, :camera
 
-  def initialize(map)
-    @map = map
+  def initialize
     @objects = []
   end
 
-  def nearby(object, max_distance)
+  def nearby(object, max_distance, min_distance = 0)
     @objects.select do |obj|
-      distance = Utils.distance_between(
-        obj.x, obj.y, object.x, object.y)
-      obj != object && distance < max_distance
+      obj != object &&
+        (obj.x - object.x).abs < max_distance &&
+        (obj.y - object.y).abs < max_distance &&
+        Utils.distance_between(
+          obj.x, obj.y, object.x, object.y) < max_distance
     end
   end
 
+  def non_effects
+    @object.reject(&:effect?)
+  end
 end
