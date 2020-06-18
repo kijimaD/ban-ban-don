@@ -45,6 +45,8 @@ class MenuState < GameStateMenuState3,36
   def drawdraw35,670
   def button_down(id)button_down46,931
 
+misc/stereo_sample.rb,0
+
 utils.rb,799
 module UtilsUtils1,0
   def self.media_path(file)media_path10,158
@@ -84,14 +86,14 @@ class Box < GameObjectBox1,0
   def on_collision(object)on_collision12,276
   def boxbox18,436
 
-entities/radar.rb,263
+entities/radar.rb,256
 class RadarRadar1,0
   def initialize(object_pool, target)initialize9,108
   def updateupdate15,226
-  def drawdraw24,452
-  def draw_character(character, color)draw_character33,614
-  def center_coordscenter_coords50,1100
-  def image(image)image56,1219
+  def drawdraw24,457
+  def draw_character(character)draw_character33,581
+  def center_coordscenter_coords50,1060
+  def image(image)image56,1179
 
 entities/explosion.rb,138
 class Explosion < GameObjectExplosion1,0

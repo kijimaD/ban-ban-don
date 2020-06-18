@@ -22,15 +22,15 @@ class Radar
   end
 
   def draw
-    draw_character(@target, Gosu::Color::GREEN)
+    draw_character(@target)
     @nearby && @nearby.each do |t|
-      draw_character(t, Gosu::Color::RED)
+      draw_character(t)
     end
   end
 
   private
 
-  def draw_character(character, color)
+  def draw_character(character)
     if character == @target
       return
     end
