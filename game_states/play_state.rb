@@ -2,11 +2,12 @@
 class PlayState < GameState
 
   def initialize
-    @camera = Camera.new
-    @object_pool = ObjectPool.new(@map)
+    @object_pool = ObjectPool.new
     @map = Map.new(@object_pool)
+    @camera = Camera.new
     @character = Character.new(@object_pool, PlayerInput.new(@camera))
     @camera.target = @character
+    @object_pool.camera = @camera
     3.times do
       Character.new(@object_pool, AiInput.new(@object_pool))
     end
@@ -26,6 +27,7 @@ class PlayState < GameState
   end
 
   def update
+    StereoSample.cleanup
     @object_pool.objects.map(&:update)
     @object_pool.objects.reject!(&:removable?)
     @camera.update

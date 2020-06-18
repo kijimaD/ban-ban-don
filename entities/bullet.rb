@@ -11,7 +11,7 @@ class Bullet < GameObject
     @weapon = @object.weapon
     BulletPhysics.new(self, object_pool)
     BulletGraphics.new(self)
-    BulletSounds.play(@weapon['fire_sound'])
+    BulletSounds.play(self, object_pool.camera, @weapon['fire_sound'])
   end
 
   def box
