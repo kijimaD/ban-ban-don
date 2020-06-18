@@ -28,7 +28,7 @@ class Character < GameObject
     if Gosu.milliseconds - (@last_shot || 0) > @shoot_delay
       if @number_ammo > 0
         @last_shot = Gosu.milliseconds
-        Bullet.new(object_pool, self, @x, @y, target_x, target_y).fire(self, 100)
+        Bullet.new(object_pool, self, @x, @y, target_x, target_y).fire(self, 1000)
         @number_ammo -= 1
         if $debug
           @number_ammo += 1
