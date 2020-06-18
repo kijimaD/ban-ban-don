@@ -12,12 +12,8 @@ class AmmoDisplay < Component
   end
 
   def update
-    @ammo_message = Gosu::Image.from_text(
-      $window, ammo_image,
-      Gosu.default_font_name, 60)
-    @weapon_message = Gosu::Image.from_text(
-      $window, @character.weapon['name'],
-      Gosu.default_font_name, 20)
+    @ammo_message = Gosu::Image.from_text(ammo_image, 60)
+    @weapon_message = Gosu::Image.from_text(@character.weapon['name'], 20)
   end
 
   def draw

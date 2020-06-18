@@ -45,19 +45,13 @@ class AiGun
   def draw(viewport)
     if $debug
       x, y = @object.x, @object.y
-      # color = Gosu::Color::BLUE
-      # t_x, t_y = Utils.point_at_distance(x, y, @desired_gun_angle,
-      #                                    BulletPhysics::MAX_DIST)
-      # $window.draw_line(x, y, color, t_x, t_y, color, 1001)
-
       color = Gosu::Color::RED
       t_x, t_y = Utils.point_at_distance(x, y, @object.gun_angle,
                                          BulletPhysics::MAX_DIST)
       $window.draw_line(x, y, color, t_x, t_y, color, 1000)
 
       @message = Gosu::Image.from_text(
-        $window, @object.weapon['name'],
-        Gosu.default_font_name, 20)
+        @object.weapon['name'], 20)
       @message.draw(x, y, 300, 1, 1, color)
     end
   end

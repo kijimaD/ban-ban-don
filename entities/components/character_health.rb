@@ -30,9 +30,7 @@ class CharacterHealth < Component
         text = hp_gauge(@health)
         font_size = 18
       end
-      @image = Gosu::Image.from_text(
-        $window, text,
-        Gosu.default_font_name, font_size)
+      @image = Gosu::Image.from_text(text, font_size)
       @health_updated = false
     end
   end

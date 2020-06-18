@@ -110,8 +110,7 @@ class Map
       128, 128, true)
     @sand = tiles[0]
     @grass = tiles[8]
-    @water = Gosu::Image.new(
-      $window, Utils.media_path('water.png'), true)
+    @water = Gosu::Image.new(Utils.media_path('water.png'), options = {tileable: true})
   end
 
   def generate_map

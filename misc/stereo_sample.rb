@@ -15,12 +15,12 @@ class StereoSample
     end
   end
 
-  def initialize(window, sound_l, sound_r = sound_l)
-    @sound_l = Gosu::Sample.new(window, sound_l)
+  def initialize(sound_l, sound_r = sound_l)
+    @sound_l = Gosu::Sample.new(sound_l)
     if sound_l == sound_r
       @sound_r = @sound_l
     else
-      @sound_r = Gosu::Sample.new(window, sound_r)
+      @sound_r = Gosu::Sample.new(sound_r)
     end
     @instances = {}
     self.class.register_instances(@instances)

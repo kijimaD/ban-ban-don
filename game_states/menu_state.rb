@@ -5,9 +5,7 @@ class MenuState < GameState
   attr_accessor :play_state
 
   def initialize
-    @message = Gosu::Image.from_text(
-      $window, "ばんばんどーん",
-      Gosu.default_font_name, 100)
+    @message = Gosu::Image.from_text("ばんばんどーん", 100)
   end
 
   def enter
@@ -21,15 +19,12 @@ class MenuState < GameState
   end
 
   def music
-    @@music ||= Gosu::Song.new(
-      $window, Utils.media_path('menu_music.mp3'))
+    @@music ||= Gosu::Song.new(Utils.media_path('menu_music.mp3'))
   end
 
   def update
     continue_text = @play_state ? "C = Continue, " : ""
-    @info = Gosu::Image.from_text(
-      $window, "Q = Quit, #{continue_text}N = New Game",
-      Gosu.default_font_name, 30)
+    @info = Gosu::Image.from_text("Q = Quit, #{continue_text}N = New Game",30)
   end
 
   def draw

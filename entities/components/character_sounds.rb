@@ -33,13 +33,11 @@ class CharacterSounds < Component
   private
 
   def driving_sound
-    @@driving_sound ||= StereoSample.new(
-      $window, Utils.media_path('dash-soil1.mp3'))
+    @@driving_sound ||= StereoSample.new(Utils.media_path('dash-soil1.mp3'))
   end
 
   def crash_sound
-    @@crash_sound ||= StereoSample.new(
-      $window, Utils.media_path('crash.ogg'))
+    @@crash_sound ||= StereoSample.new(Utils.media_path('crash.ogg'))
   end
 
 end

@@ -38,26 +38,26 @@ class PlayState < GameStatePlayState2,16
 game_states/menu_state.rb,243
 class MenuState < GameStateMenuState3,36
   def initializeinitialize7,113
-  def enterenter13,250
-  def leaveleave18,311
-  def musicmusic23,366
-  def updateupdate28,468
-  def drawdraw35,670
-  def button_down(id)button_down46,931
+  def enterenter11,204
+  def leaveleave16,265
+  def musicmusic21,320
+  def updateupdate25,406
+  def drawdraw30,561
+  def button_down(id)button_down41,822
 
-misc/stereo_sample.rb,557
+misc/stereo_sample.rb,549
 class StereoSampleStereoSample1,0
   def self.register_instances(instances)register_instances4,43
   def self.cleanupcleanup8,124
-  def initialize(window, sound_l, sound_r = sound_l)initialize18,345
-  def paused?(id = :default)paused?29,640
-  def playing?(id = :default)playing?34,725
-  def stopped?(id = :default)stopped?39,812
-  def play(id = :default, pan = 0,play43,880
-  def pause(id = :default)pause52,1164
-  def resume(id = :default)resume57,1262
-  def stopstop62,1363
-  def volume_and_pan(id, volume, pan)volume_and_pan67,1457
+  def initialize(sound_l, sound_r = sound_l)initialize18,345
+  def paused?(id = :default)paused?29,616
+  def playing?(id = :default)playing?34,701
+  def stopped?(id = :default)stopped?39,788
+  def play(id = :default, pan = 0,play43,856
+  def pause(id = :default)pause52,1140
+  def resume(id = :default)resume57,1238
+  def stopstop62,1339
+  def volume_and_pan(id, volume, pan)volume_and_pan67,1433
 
 utils.rb,959
 module UtilsUtils1,0
@@ -126,8 +126,8 @@ class MapMap4,54
   def generate_boxesgenerate_boxes85,1743
   def tile_at(x, y)tile_at100,2051
   def load_tilesload_tiles107,2218
-  def generate_mapgenerate_map117,2472
-  def choose_tile(val)choose_tile133,2817
+  def generate_mapgenerate_map116,2478
+  def choose_tile(val)choose_tile132,2823
 
 entities/components/ai_input.rb,264
 class AiInput < ComponentAiInput1,0
@@ -153,10 +153,10 @@ class ComponentComponent1,0
   def xx25,297
   def yy29,326
 
-entities/components/bullet_sounds.rb,109
+entities/components/bullet_sounds.rb,126
 class BulletSoundsBulletSounds1,0
-    def play(fire_sound)play3,68
-    def sound(fire_sound)sound9,144
+    def play(object, camera, fire_sound)play3,35
+    def sound(fire_sound)sound10,215
 
 entities/components/explosion_graphics.rb,262
 class ExplosionGraphics < ComponentExplosionGraphics1,0
@@ -180,15 +180,15 @@ class TreeGraphics < ComponentTreeGraphics1,0
   def center_ycenter_y62,1400
   def treestrees66,1461
 
-entities/components/character_health.rb,323
+entities/components/character_health.rb,322
 class CharacterHealth < ComponentCharacterHealth1,0
   def initialize(object, object_pool)initialize5,80
   def updateupdate13,263
   def draw(viewport)draw17,300
   def update_imageupdate_image24,438
-  def dead?dead?40,763
-  def inflict_damage(amount)inflict_damage44,798
-  def hp_gauge(health)hp_gauge54,1010
+  def dead?dead?38,713
+  def inflict_damage(amount)inflict_damage42,748
+  def hp_gauge(health)hp_gauge52,960
 
 entities/components/character_physics.rb,693
 class CharacterPhysics < ComponentCharacterPhysics1,0
@@ -217,22 +217,22 @@ class SpeedMeter < ComponentSpeedMeter1,0
   def draw_speed_bgdraw_speed_bg27,492
   def speed_coordsspeed_coords38,696
 
-entities/components/explosion_sounds.rb,92
+entities/components/explosion_sounds.rb,108
 class ExplosionSoundsExplosionSounds1,0
-    def playplay3,38
-    def soundsound10,178
+    def play(object, camera)play3,38
+    def soundsound10,194
 
 entities/components/ammo_display.rb,389
 class AmmoDisplay < ComponentAmmoDisplay1,0
   def initialize(object_pool, character)initialize8,160
   def updateupdate14,287
-  def drawdraw23,532
-  def draw_ammodraw_ammo29,602
-  def draw_weapon_typedraw_weapon_type36,747
-  def draw_ammo_bgdraw_ammo_bg43,905
-  def ammo_coordsammo_coords53,1102
-  def weapon_coordsweapon_coords61,1275
-  def ammo_imageammo_image69,1424
+  def drawdraw19,440
+  def draw_ammodraw_ammo25,510
+  def draw_weapon_typedraw_weapon_type32,655
+  def draw_ammo_bgdraw_ammo_bg39,813
+  def ammo_coordsammo_coords49,1010
+  def weapon_coordsweapon_coords57,1183
+  def ammo_imageammo_image65,1332
 
 entities/components/character_sounds.rb,241
 class CharacterSounds < ComponentCharacterSounds1,0
@@ -240,7 +240,7 @@ class CharacterSounds < ComponentCharacterSounds1,0
   def updateupdate8,129
   def collidecollide27,652
   def driving_sounddriving_sound35,818
-  def crash_soundcrash_sound40,938
+  def crash_soundcrash_sound39,922
 
 entities/components/ai/character_fleeing_state.rb,331
 class CharacterFleeingState < CharacterMotionStateCharacterFleeingState1,0
@@ -299,12 +299,12 @@ class AiGunAiGun1,0
   def adjust_angleadjust_angle14,293
   def updateupdate19,365
   def draw(viewport)draw45,1128
-  def distance_to_targetdistance_to_target65,1831
-  def should_shoot?should_shoot?70,1941
-  def can_make_new_decision?can_make_new_decision?74,2001
-  def adjust_desired_angleadjust_desired_angle82,2164
-  def change_target(new_target)change_target91,2459
-  def adjust_gun_angleadjust_gun_angle96,2548
+  def distance_to_targetdistance_to_target59,1556
+  def should_shoot?should_shoot?64,1666
+  def can_make_new_decision?can_make_new_decision?68,1726
+  def adjust_desired_angleadjust_desired_angle76,1889
+  def change_target(new_target)change_target85,2184
+  def adjust_gun_angleadjust_gun_angle90,2273
 
 entities/components/ai/character_motion_fsm.rb,294
 class CharacterMotionFSMCharacterMotionFSM1,0
@@ -332,7 +332,7 @@ class BulletPhysics < ComponentBulletPhysics1,0
   def check_hitcheck_hit45,1150
   def do_hit(obj)do_hit59,1538
 
-entities/components/health.rb,375
+entities/components/health.rb,374
 class Health < ComponentHealth1,0
   def initialize(object, object_pool, health, explodes)initialize4,50
   def restorerestore12,253
@@ -342,7 +342,7 @@ class Health < ComponentHealth1,0
   def draw(viewport)draw33,569
   def draw?draw?43,754
   def update_imageupdate_image47,784
-  def after_deathafter_death59,1046
+  def after_deathafter_death57,996
 
 entities/components/box_graphics.rb,294
 class BoxGraphics < ComponentBoxGraphics1,0
@@ -388,9 +388,9 @@ class Character < GameObjectCharacter1,0
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
   def initialize(object_pool, object, source_x, source_y, target_x, target_y)initialize5,137
-  def boxbox17,522
-  def explodeexplode21,550
-  def fire(source, speed)fire28,680
+  def boxbox17,548
+  def explodeexplode21,576
+  def fire(source, speed)fire28,706
 
 entities/object_pool.rb,131
 class ObjectPoolObjectPool1,0
@@ -415,6 +415,10 @@ class GameObjectGameObject1,0
   def boxbox31,428
   def collidecollide34,445
   def object_poolobject_pool39,479
+
+entities/damage.rb,89
+class Damage < GameObjectDamage1,0
+  def initialize(object_pool, x, y)initialize6,91
 
 main.rb,0
 

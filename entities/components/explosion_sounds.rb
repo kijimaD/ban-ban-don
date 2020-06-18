@@ -8,8 +8,7 @@ class ExplosionSounds
     private
 
     def sound
-      @@sound ||= StereoSample.new(
-        $window, Utils.media_path('explosion.mp3'))
+      @@sound ||= StereoSample.new(Utils.media_path('explosion.mp3'))
     end
   end
 end

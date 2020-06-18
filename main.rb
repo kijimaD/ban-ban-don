@@ -1,4 +1,5 @@
 require 'gosu'
+require 'rmagick'
 
 root_dir = File.dirname(__FILE__)
 require_pattern = File.join(root_dir, '**/*.rb')

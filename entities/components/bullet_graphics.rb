@@ -13,8 +13,7 @@ class BulletGraphics < Component
   private
 
   def image(image)
-    @@bullet = Gosu::Image.new(
-      $window, Utils.media_path(image), false)
+    @@bullet = Gosu::Image.new(Utils.media_path(image))
   end
 
 end
