@@ -3,7 +3,7 @@ class Radar
   WIDTH = 150
   HEIGHT = 100
   PADDING = 50
-  MIN_DISTANCE = 200
+  MIN_DISTANCE = 300
   MAX_DISTANCE = 2000
 
   attr_accessor :target

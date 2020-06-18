@@ -39,11 +39,8 @@ class ObjectPool
     results = @tree.query_range(
       AxisAlignedBoundingBox.new([cx, cy], [hx, hy]))
     results.select do |o|
-      # dist = Utils.distance_between(o.x, o.y, object.x, object.y)
-      # o != object && dist <= max_distance && dist >= min_distance
-      o != object &&
-        Utils.distance_between(
-          o.x, o.y, object.x, object.y) <= max_distance
+      dist = Utils.distance_between(o.x, o.y, object.x, object.y)
+      o != object && dist <= max_distance && dist >= min_distance
     end
   end
 
