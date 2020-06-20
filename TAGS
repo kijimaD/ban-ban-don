@@ -33,7 +33,7 @@ class PlayState < GameStatePlayState2,16
   def updateupdate31,758
   def drawdraw39,885
   def button_down(id)button_down62,1511
-  def update_captionupdate_caption79,1846
+  def update_captionupdate_caption80,1861
 
 game_states/menu_state.rb,243
 class MenuState < GameStateMenuState3,36
@@ -255,15 +255,15 @@ class TreeGraphics < ComponentTreeGraphics1,0
   def center_ycenter_y62,1400
   def treestrees66,1461
 
-entities/components/character_health.rb,322
+entities/components/character_health.rb,323
 class CharacterHealth < ComponentCharacterHealth1,0
   def initialize(object, object_pool)initialize5,80
-  def updateupdate13,263
-  def draw(viewport)draw17,300
-  def update_imageupdate_image24,438
-  def dead?dead?38,713
-  def inflict_damage(amount)inflict_damage42,748
-  def hp_gauge(health)hp_gauge52,960
+  def updateupdate14,284
+  def draw(viewport)draw18,321
+  def update_imageupdate_image25,459
+  def dead?dead?39,734
+  def inflict_damage(amount)inflict_damage43,769
+  def hp_gauge(health)hp_gauge61,1281
 
 entities/components/character_physics.rb,694
 class CharacterPhysics < ComponentCharacterPhysics1,0
@@ -454,11 +454,11 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
 entities/character.rb,293
 class Character < GameObjectCharacter1,0
   def initialize(object_pool, input)initialize8,273
-  def boxbox26,876
-  def shoot(target_x, target_y)shoot30,910
-  def can_shoot?can_shoot?43,1259
-  def on_collision(object)on_collision47,1364
-  def reset_modifiersreset_modifiers59,1627
+  def boxbox25,838
+  def shoot(target_x, target_y)shoot29,872
+  def can_shoot?can_shoot?42,1221
+  def on_collision(object)on_collision46,1326
+  def reset_modifiersreset_modifiers58,1589
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0

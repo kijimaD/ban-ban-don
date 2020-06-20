@@ -1,5 +1,5 @@
-{
-    "0":{
+[
+    {
 	"name": "Handgun",
 	"graphs": "",
 	"fire_sound": "9mm.mp3",
@@ -11,7 +11,7 @@
 	"speed": "2.0",
 	"explodable": "0"
     },
-    "1":{
+    {
 	"name": "Launcher",
 	"graphs": "",
 	"fire_sound": "largerifle-firing1.mp3",
@@ -23,7 +23,7 @@
 	"speed": "0.6",
 	"explodable": "1"
     },
-    "2":{
+    {
 	"name": "Katana",
 	"graphs": "",
 	"fire_sound": "katana-gesture1.mp3",
@@ -35,4 +35,4 @@
 	"speed": "2.0",
 	"explodable": "0"
     }
-}
+]
