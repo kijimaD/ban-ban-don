@@ -1,9 +1,9 @@
-class CharacterHealth < Component
+class CharacterHealth < Health
   attr_accessor :health
   MAX_HEALTH = 50000
 
   def initialize(object, object_pool)
-    super(object)
+    super(object, object_pool, MAX_HEALTH, true)
     @object = object
     @object_pool = object_pool
     @health = MAX_HEALTH

@@ -115,7 +115,7 @@ class Map
 
   def random_powerup
     [
-     # HealthPowerup,
+     HealthPowerup,
      RepairPowerup,
      FireRatePowerup,
      CharacterSpeedPowerup].sample
