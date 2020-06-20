@@ -283,15 +283,6 @@ class CharacterPhysics < ComponentCharacterPhysics1,0
   def turboturbo173,3930
   def resetreset177,3966
 
-entities/components/speed_meter.rb,257
-class SpeedMeterSpeedMeter1,0
-  def initialize(object_pool, character)initialize8,146
-  def updateupdate14,273
-  def drawdraw17,293
-  def speed_imagespeed_image22,347
-  def draw_speed_bgdraw_speed_bg27,482
-  def speed_coordsspeed_coords38,686
-
 entities/components/powerup_graphics.rb,185
 class PowerupGraphics < ComponentPowerupGraphics1,0
   def initialize(object, type)initialize3,35
@@ -412,7 +403,7 @@ class BulletPhysics < ComponentBulletPhysics1,0
   def point_at_distance(distance)point_at_distance30,758
   def arrived?arrived?42,1081
   def check_hitcheck_hit46,1152
-  def do_hit(obj)do_hit60,1540
+  def do_hit(obj)do_hit60,1596
 
 entities/components/health.rb,414
 class Health < ComponentHealth1,0
@@ -444,8 +435,8 @@ class PlayerInput < ComponentPlayerInput1,0
   def control(obj)control8,142
   def on_collision(with)on_collision12,190
   def updateupdate15,222
-  def any_button_down?(*buttons)any_button_down?50,1125
-  def change_angle(previous_angle, up, down, right, left)change_angle57,1250
+  def any_button_down?(*buttons)any_button_down?59,1318
+  def change_angle(previous_angle, up, down, right, left)change_angle66,1443
 
 entities/components/character_graphics.rb,447
 class CharacterGraphics < ComponentCharacterGraphics1,0
@@ -475,6 +466,15 @@ class Bullet < GameObjectBullet1,0
   def boxbox16,528
   def explodeexplode20,558
   def fire(source, speed)fire27,688
+
+entities/speed_meter.rb,257
+class SpeedMeterSpeedMeter1,0
+  def initialize(object_pool, character)initialize8,146
+  def updateupdate14,273
+  def drawdraw17,293
+  def speed_imagespeed_image22,347
+  def draw_speed_bgdraw_speed_bg27,482
+  def speed_coordsspeed_coords38,686
 
 entities/object_pool.rb,357
 class ObjectPoolObjectPool1,0

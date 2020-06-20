@@ -2,7 +2,7 @@
     "0":{
 	"name": "Handgun",
 	"graphs": "",
-	"fire_sound": "handgun-firing1.mp3",
+	"fire_sound": "9mm.mp3",
 	"bullet_image": "bullet_handgun.png",
 	"bullet_trajectory": "",
 	"shoot_delay": "200",

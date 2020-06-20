@@ -5,7 +5,7 @@ class Camera
   def target=(target)
     @target = target
     @x, @y = target.x, target.y
-    @zoom = 0.8
+    @zoom = 1.0
   end
 
   def can_view?(x, y, obj)
