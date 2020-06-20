@@ -5,7 +5,7 @@ class Camera
   def target=(target)
     @target = target
     @x, @y = target.x, target.y
-    @zoom = 1
+    @zoom = 0.8
   end
 
   def can_view?(x, y, obj)
@@ -26,7 +26,7 @@ class Camera
   def update
     des_x, des_y = desired_spot
     shift = Utils.adjust_speed(
-      @target.physics.speed).floor + 1
+      @target.physics.speed).floor * @target.speed_modifier + 2
     if @x < des_x
       if des_x - @x < shift
         @x = des_x

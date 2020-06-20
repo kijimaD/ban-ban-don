@@ -2,7 +2,8 @@ class Character < GameObject
   attr_accessor :throttle_down, :turbo, :reset,
                 :direction, :gun_angle, :input,
                 :sounds, :physics, :graphics,
-                :number_ammo, :health, :weapon
+                :number_ammo, :health, :weapon,
+                :fire_rate_modifier, :speed_modifier
 
   def initialize(object_pool, input)
     x, y = object_pool.map.spawn_point
@@ -19,6 +20,7 @@ class Character < GameObject
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
     @number_ammo = 40
+    reset_modifiers
   end
 
   def box
@@ -39,7 +41,7 @@ class Character < GameObject
   end
 
   def can_shoot?
-    Gosu.milliseconds - (@last_shot || 0) > @shoot_delay
+    Gosu.milliseconds - (@last_shot || 0) > (@shoot_delay / @fire_rate_modifier)
   end
 
   def on_collision(object)
@@ -52,5 +54,10 @@ class Character < GameObject
     if object.class != Bullet
       @sounds.collide if @physics.speed > 1
     end
+  end
+
+  def reset_modifiers
+    @fire_rate_modifier = 1
+    @speed_modifier = 1
   end
 end

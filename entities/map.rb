@@ -21,6 +21,7 @@ class Map
     @map = generate_map
     generate_trees
     generate_boxes
+    generate_powerups
   end
 
   def draw(viewport)
@@ -100,6 +101,26 @@ class Map
         boxes += 1
       end
     end
+  end
+
+  def generate_powerups
+    pups = 0
+    target_pups = rand(20..30)
+    while pups < target_pups do
+      x = rand(0..MAP_WIDTH * TILE_SIZE)
+      y = rand(0..MAP_HEIGHT * TILE_SIZE)
+      if tile_at(x, y) != @water
+        random_powerup.new(@object_pool, x, y)
+        pups += 1
+      end
+    end
+  end
+
+  def random_powerup
+    [
+     RepairPowerup,
+     FireRatePowerup,
+     CharacterSpeedPowerup].sample
   end
 
   private

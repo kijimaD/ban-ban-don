@@ -99,17 +99,49 @@ class HUDHUD1,0
   def updateupdate11,288
   def drawdraw17,375
 
+entities/powerups/powerup_respawn_queue.rb,180
+class PowerupRespawnQueuePowerupRespawnQueue1,0
+  def initializeinitialize3,49
+  def enqueue(delay_seconds, type, x, y)enqueue8,135
+  def respawn(object_pool)respawn13,292
+
+entities/powerups/health_powerup.rb,0
+
+entities/powerups/powerup.rb,261
+class Powerup < GameObjectPowerup1,0
+  def initialize(object_pool, x, y)initialize3,28
+  def boxbox8,121
+  def on_collision(object)on_collision15,214
+  def pickup(object)pickup22,344
+  def removeremove25,372
+  def respawn_delayrespawn_delay32,505
+
+entities/powerups/repair_powerup.rb,112
+class RepairPowerup < PowerupRepairPowerup1,0
+  def pickup(object)pickup3,31
+  def graphicsgraphics12,187
+
+entities/powerups/fire_rate_powerup.rb,116
+class FireRatePowerup < PowerupFireRatePowerup1,0
+  def pickup(object)pickup3,33
+  def graphicsgraphics12,204
+
+entities/powerups/character_speed_powerup.rb,128
+class CharacterSpeedPowerup < PowerupCharacterSpeedPowerup1,0
+  def pickup(object)pickup3,39
+  def graphicsgraphics12,204
+
 entities/camera.rb,369
 class CameraCamera1,0
   def target=(target)target=5,66
-  def can_view?(x, y, obj)can_view?11,162
-  def mouse_coordsmouse_coords17,306
-  def updateupdate26,599
-  def to_sto_s58,1168
-  def target_delta_on_screentarget_delta_on_screen64,1297
-  def draw_crosshairdraw_crosshair68,1390
-  def viewportviewport79,1662
-  def desired_spotdesired_spot87,1877
+  def can_view?(x, y, obj)can_view?11,164
+  def mouse_coordsmouse_coords17,308
+  def updateupdate26,601
+  def to_sto_s58,1195
+  def target_delta_on_screentarget_delta_on_screen64,1324
+  def draw_crosshairdraw_crosshair68,1417
+  def viewportviewport79,1689
+  def desired_spotdesired_spot87,1904
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -133,22 +165,24 @@ class Explosion < GameObjectExplosion1,0
   def mark_for_removalmark_for_removal18,334
   def inflict_damageinflict_damage24,385
 
-entities/map.rb,622
+entities/map.rb,718
 class MapMap4,54
   def self.bounding_boxbounding_box9,118
   def initialize(object_pool)initialize17,378
-  def draw(viewport)draw26,550
-  def spawn_points(max)spawn_points48,1050
-  def spawn_pointspawn_point55,1178
-  def can_move_to?(x, y)can_move_to?59,1272
-  def movement_penalty(x, y)movement_penalty64,1356
-  def generate_treesgenerate_trees74,1482
-  def generate_boxesgenerate_boxes92,1972
-  def find_spawn_pointfind_spawn_point107,2280
-  def tile_at(x, y)tile_at119,2533
-  def load_tilesload_tiles126,2700
-  def generate_mapgenerate_map135,2960
-  def choose_tile(val)choose_tile151,3305
+  def draw(viewport)draw27,572
+  def spawn_points(max)spawn_points49,1072
+  def spawn_pointspawn_point56,1200
+  def can_move_to?(x, y)can_move_to?60,1294
+  def movement_penalty(x, y)movement_penalty65,1378
+  def generate_treesgenerate_trees75,1504
+  def generate_boxesgenerate_boxes93,1994
+  def generate_powerupsgenerate_powerups106,2291
+  def random_poweruprandom_powerup119,2597
+  def find_spawn_pointfind_spawn_point128,2719
+  def tile_at(x, y)tile_at140,2972
+  def load_tilesload_tiles147,3139
+  def generate_mapgenerate_map156,3399
+  def choose_tile(val)choose_tile172,3744
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -164,6 +198,11 @@ class AiInput < ComponentAiInput1,0
   def on_damage(amount)on_damage24,524
   def updateupdate28,585
   def draw(viewport)draw39,813
+
+entities/components/powerup_sounds.rb,104
+class PowerupSoundsPowerupSounds1,0
+    def play(object, camera)play4,37
+    def soundsound11,193
 
 entities/components/bullet_graphics.rb,157
 class BulletGraphics < ComponentBulletGraphics1,0
@@ -223,17 +262,17 @@ class CharacterPhysics < ComponentCharacterPhysics1,0
   def can_move_to?(x, y)can_move_to?11,254
   def moving?moving?33,890
   def updateupdate37,926
-  def box_widthbox_width88,1932
-  def box_heightbox_height92,1996
-  def boxbox96,2063
-  def change_direction(new_direction)change_direction121,2784
-  def collides_with_poly?(poly)collides_with_poly?136,3122
-  def collides_with_point?(x, y)collides_with_point?152,3496
-  def apply_movement_penalty(speed)apply_movement_penalty156,3571
-  def accelerateaccelerate160,3661
-  def deceleratedecelerate164,3718
-  def turboturbo169,3805
-  def resetreset173,3841
+  def box_widthbox_width88,1956
+  def box_heightbox_height92,2020
+  def boxbox96,2087
+  def change_direction(new_direction)change_direction121,2808
+  def collides_with_poly?(poly)collides_with_poly?136,3146
+  def collides_with_point?(x, y)collides_with_point?152,3520
+  def apply_movement_penalty(speed)apply_movement_penalty156,3595
+  def accelerateaccelerate160,3685
+  def deceleratedecelerate164,3742
+  def turboturbo169,3829
+  def resetreset173,3865
 
 entities/components/speed_meter.rb,267
 class SpeedMeter < ComponentSpeedMeter1,0
@@ -243,6 +282,13 @@ class SpeedMeter < ComponentSpeedMeter1,0
   def draw_speeddraw_speed22,358
   def draw_speed_bgdraw_speed_bg27,492
   def speed_coordsspeed_coords38,696
+
+entities/components/powerup_graphics.rb,185
+class PowerupGraphics < ComponentPowerupGraphics1,0
+  def initialize(object, type)initialize3,35
+  def draw(viewport)draw8,108
+  def imageimage15,226
+  def imagesimages19,289
 
 entities/components/explosion_sounds.rb,108
 class ExplosionSoundsExplosionSounds1,0
@@ -359,7 +405,7 @@ class BulletPhysics < ComponentBulletPhysics1,0
   def check_hitcheck_hit46,1152
   def do_hit(obj)do_hit60,1540
 
-entities/components/health.rb,374
+entities/components/health.rb,414
 class Health < ComponentHealth1,0
   def initialize(object, object_pool, health, explodes)initialize4,50
   def restorerestore12,253
@@ -367,9 +413,10 @@ class Health < ComponentHealth1,0
   def updateupdate21,366
   def inflict_damage(amount)inflict_damage25,403
   def draw(viewport)draw33,569
-  def draw?draw?43,754
-  def update_imageupdate_image47,784
-  def after_deathafter_death57,996
+  def increase(amount)increase41,741
+  def draw?draw?48,865
+  def update_imageupdate_image52,895
+  def after_deathafter_death62,1107
 
 entities/components/box_graphics.rb,294
 class BoxGraphics < ComponentBoxGraphics1,0
@@ -404,13 +451,14 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def unitsunits80,1770
   def charascharas85,1889
 
-entities/character.rb,247
+entities/character.rb,293
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize7,219
-  def boxbox24,802
-  def shoot(target_x, target_y)shoot28,836
-  def can_shoot?can_shoot?41,1185
-  def on_collision(object)on_collision45,1266
+  def initialize(object_pool, input)initialize8,273
+  def boxbox26,876
+  def shoot(target_x, target_y)shoot30,910
+  def can_shoot?can_shoot?43,1259
+  def on_collision(object)on_collision47,1364
+  def reset_modifiersreset_modifiers59,1627
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
@@ -419,16 +467,16 @@ class Bullet < GameObjectBullet1,0
   def explodeexplode20,558
   def fire(source, speed)fire27,688
 
-entities/object_pool.rb,356
+entities/object_pool.rb,357
 class ObjectPoolObjectPool1,0
-  def initialize(box)initialize4,58
-  def sizesize9,135
-  def add(object)add13,171
-  def tree_remove(object)tree_remove18,244
-  def tree_insert(object)tree_insert22,302
-  def update_allupdate_all26,360
-  def nearby(object, max_distance, min_distance = 0)nearby36,516
-  def query_range(box)query_range50,1021
+  def initialize(box)initialize5,98
+  def sizesize11,228
+  def add(object)add15,264
+  def tree_remove(object)tree_remove20,337
+  def tree_insert(object)tree_insert24,395
+  def update_allupdate_all28,453
+  def nearby(object, max_distance, min_distance = 0)nearby39,650
+  def query_range(box)query_range50,1042
 
 entities/tree.rb,159
 class Tree < GameObjectTree1,0
