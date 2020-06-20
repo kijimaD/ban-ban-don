@@ -201,8 +201,8 @@ class AiInput < ComponentAiInput1,0
 
 entities/components/powerup_sounds.rb,104
 class PowerupSoundsPowerupSounds1,0
-    def play(object, camera)play4,37
-    def soundsound11,193
+    def play(object, camera)play3,36
+    def soundsound10,192
 
 entities/components/bullet_graphics.rb,157
 class BulletGraphics < ComponentBulletGraphics1,0
@@ -256,23 +256,23 @@ class CharacterHealth < ComponentCharacterHealth1,0
   def inflict_damage(amount)inflict_damage42,748
   def hp_gauge(health)hp_gauge52,960
 
-entities/components/character_physics.rb,692
+entities/components/character_physics.rb,694
 class CharacterPhysics < ComponentCharacterPhysics1,0
   def initialize(game_object, object_pool)initialize4,98
   def can_move_to?(x, y)can_move_to?11,254
-  def moving?moving?33,890
-  def updateupdate37,926
-  def box_widthbox_width88,1956
-  def box_heightbox_height92,2020
-  def boxbox96,2087
-  def change_direction(new_direction)change_direction121,2808
-  def collides_with_poly?(poly)collides_with_poly?136,3146
-  def collides_with_point?(x, y)collides_with_point?152,3520
-  def apply_movement_penalty(speed)apply_movement_penalty156,3595
-  def accelerateaccelerate160,3685
-  def deceleratedecelerate164,3742
-  def turboturbo169,3829
-  def resetreset173,3865
+  def moving?moving?37,991
+  def updateupdate41,1027
+  def box_widthbox_width92,2057
+  def box_heightbox_height96,2121
+  def boxbox100,2188
+  def change_direction(new_direction)change_direction125,2909
+  def collides_with_poly?(poly)collides_with_poly?140,3247
+  def collides_with_point?(x, y)collides_with_point?156,3621
+  def apply_movement_penalty(speed)apply_movement_penalty160,3696
+  def accelerateaccelerate164,3786
+  def deceleratedecelerate168,3843
+  def turboturbo173,3930
+  def resetreset177,3966
 
 entities/components/speed_meter.rb,267
 class SpeedMeter < ComponentSpeedMeter1,0
