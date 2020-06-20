@@ -1,6 +1,6 @@
 class PowerupGraphics < Component
   AMPLITUDE = 2
-  DELAY = 100
+  DELAY = 300
   FRAME = 4
 
   def initialize(object, type)
