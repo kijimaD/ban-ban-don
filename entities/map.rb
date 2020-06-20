@@ -1,6 +1,3 @@
-require 'perlin_noise'
-require 'gosu_texture_packer'
-
 class Map
   MAP_WIDTH = 30
   MAP_HEIGHT = 30
@@ -105,7 +102,7 @@ class Map
 
   def generate_powerups
     pups = 0
-    target_pups = rand(20..30)
+    target_pups = rand(200..300)
     while pups < target_pups do
       x = rand(0..MAP_WIDTH * TILE_SIZE)
       y = rand(0..MAP_HEIGHT * TILE_SIZE)
@@ -118,6 +115,7 @@ class Map
 
   def random_powerup
     [
+     # HealthPowerup,
      RepairPowerup,
      FireRatePowerup,
      CharacterSpeedPowerup].sample
