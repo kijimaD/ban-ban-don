@@ -125,13 +125,6 @@ class CharacterPhysics < Component
   def change_direction(new_direction)
     change = (new_direction - object.direction + 360) % 360
     change = 360 - change if change > 180
-    # if change > 90
-    #   @speed = 0
-    # elsif change > 45
-    #   @speed *= 0.33
-    # elsif change > 0
-    #   @speed *= 0.66
-    # end
     object.direction = new_direction
   end
 
@@ -162,7 +155,7 @@ class CharacterPhysics < Component
   end
 
   def accelerate
-    @speed += 1.0 if @speed < 10
+    @speed += 1.0 if @speed < 8
   end
 
   def decelerate
