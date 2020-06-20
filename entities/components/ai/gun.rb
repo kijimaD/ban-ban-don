@@ -44,8 +44,8 @@ class AiGun
 
   def draw(viewport)
     if $debug
-      x, y = @object.x, @object.y
       color = Gosu::Color::RED
+      x, y = @object.x, @object.y
       t_x, t_y = Utils.point_at_distance(x, y, @object.gun_angle,
                                          BulletPhysics::MAX_DIST)
       $window.draw_line(x, y, color, t_x, t_y, color, 1000)

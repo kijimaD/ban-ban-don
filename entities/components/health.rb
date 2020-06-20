@@ -38,6 +38,11 @@ class Health < Component
       @image.height, 100)
   end
 
+  def increase(amount)
+    @health = [@health + 25, @initial_health * 2].min
+    @health_updated = true
+  end
+
   protected
 
   def draw?

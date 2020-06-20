@@ -2,8 +2,7 @@ class Tree < GameObject
   attr_reader :x, :y, :health, :graphics
 
   def initialize(object_pool, x, y, seed)
-    super(object_pool)
-    @x, @y = x, y
+    super(object_pool, x, y)
     @graphics = TreeGraphics.new(self, seed)
     @health = Health.new(self, object_pool, 30, false)
     @angle = rand(-15..15)
@@ -14,7 +13,7 @@ class Tree < GameObject
   end
 
   def box
-    [x, y]
+    [@x, @y]
   end
 
 end

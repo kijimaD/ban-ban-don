@@ -5,32 +5,33 @@ class CharacterPhysics < Component
     super(game_object)
     @object_pool = object_pool
     @map = object_pool.map
-    game_object.x, game_object.y = @map.find_spawn_point
     @speed, @shift = 0.0
   end
 
   def can_move_to?(x, y)
     old_x, old_y = object.x, object.y
-    object.x = x
-    object.y = y
+    object.move(x, y)
     return false unless @map.can_move_to?(x, y)
     @object_pool.nearby(object, 100).each do |obj|
       next if obj.class == Bullet && obj.source == object
       if collides_with_poly?(obj.box)
-        @collides_with = obj
-        old_distance = Utils.distance_between(
-          obj.x, obj.y, old_x, old_y)
-        new_distance = Utils.distance_between(
-          obj.x, obj.y, x, y)
-        return false if new_distance < old_distance
+        if obj.is_a? Powerup
+          obj.on_collision(object)
+        else
+          @collides_with = obj
+          old_distance = Utils.distance_between(
+            obj.x, obj.y, old_x, old_y)
+          new_distance = Utils.distance_between(
+            obj.x, obj.y, x, y)
+          return false if new_distance < old_distance
+        end
       else
         @collides_with = nil
       end
     end
     true
   ensure
-    object.x = old_x
-    object.y = old_y
+    object.move(old_x, old_y)
   end
 
   def moving?
@@ -54,7 +55,7 @@ class CharacterPhysics < Component
     if @speed > 0
       new_x, new_y = x, y
       speed = apply_movement_penalty(@speed)
-      @shift = Utils.adjust_speed(speed)
+      @shift = Utils.adjust_speed(speed) * object.speed_modifier
       case @object.direction.to_i
       when 0
         new_y -= @shift
@@ -78,7 +79,7 @@ class CharacterPhysics < Component
         new_y -= @shift
       end
       if can_move_to?(new_x, new_y)
-        object.x, object.y = new_x, new_y
+        object.move(new_x, new_y)
         @in_collision = false
       else
         object.on_collision(@collides_with)

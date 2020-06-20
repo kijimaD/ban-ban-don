@@ -3,6 +3,8 @@ class Radar
   WIDTH = 150
   HEIGHT = 100
   PADDING = 50
+  MIN_DISTANCE = 300
+  MAX_DISTANCE = 2000
 
   attr_accessor :target
 
@@ -16,7 +18,7 @@ class Radar
     if Gosu.milliseconds - @last_update > UPDATE_FREQUENCY
       @nearby = nil
     end
-    @nearby ||= @object_pool.nearby(@target, 2000, 360).select do |o|
+    @nearby ||= @object_pool.nearby(@target, MAX_DISTANCE, MIN_DISTANCE).select do |o|
       o.class == Character && !o.health.dead?
     end
   end

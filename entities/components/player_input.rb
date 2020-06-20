@@ -1,7 +1,8 @@
 class PlayerInput < Component
-  def initialize(camera)
+  def initialize(camera, object_pool)
     super(nil)
     @camera = camera
+    @object_pool = object_pool
   end
 
   def control(obj)

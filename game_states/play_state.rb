@@ -2,16 +2,18 @@
 class PlayState < GameState
 
   def initialize
-    @object_pool = ObjectPool.new
+    @object_pool = ObjectPool.new(Map.bounding_box)
     @map = Map.new(@object_pool)
+    @map.spawn_points(10)
     @camera = Camera.new
-    @character = Character.new(@object_pool, PlayerInput.new(@camera))
+    @character = Character.new(@object_pool, PlayerInput.new(@camera, @object_pool))
     @camera.target = @character
     @object_pool.camera = @camera
+    @hud = HUD.new(@object_pool, @character)
     3.times do
       Character.new(@object_pool, AiInput.new(@object_pool))
     end
-    @hud = HUD.new(@object_pool, @character)
+    puts "Pool size: #{@object_pool.size}"
   end
 
   def enter
@@ -28,8 +30,7 @@ class PlayState < GameState
 
   def update
     StereoSample.cleanup
-    @object_pool.objects.map(&:update)
-    @object_pool.objects.reject!(&:removable?)
+    @object_pool.update_all
     @camera.update
     @hud.update
     update_caption
@@ -41,11 +42,17 @@ class PlayState < GameState
     off_x = $window.width / 2 - cam_x
     off_y = $window.height / 2 - cam_y
     viewport = @camera.viewport
+    x1, x2, y1, y2 = viewport
+    box = AxisAlignedBoundingBox.new(
+      [x1 + (x2 - x1) / 2, y1 + (y2 - y1) / 2],
+      [x1 - Map::TILE_SIZE, y1 - Map::TILE_SIZE])
     $window.translate(off_x, off_y) do
       zoom = @camera.zoom
       $window.scale(zoom, zoom, cam_x, cam_y) do
         @map.draw(viewport)
-        @object_pool.objects.map { |o| o.draw(viewport) }
+        @object_pool.query_range(box).map do |o|
+          o.draw(viewport)
+        end
       end
     end
     @camera.draw_crosshair

@@ -2,8 +2,8 @@ class AiInput < Component
   UPDATE_RATE = 200
 
   def initialize(object_pool)
-    @object_pool = object_pool
     super(nil)
+    @object_pool = object_pool
     @last_update = Gosu.milliseconds
   end
 
