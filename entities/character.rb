@@ -14,8 +14,7 @@ class Character < GameObject
     @sounds = CharacterSounds.new(self, object_pool)
     @health = CharacterHealth.new(self, object_pool)
     @graphics = CharacterGraphics.new(self)
-    @weapon_id = rand(0..2).to_s
-    @weapon = Utils.load_json("weapon.json")[@weapon_id]
+    @weapon = Utils.load_json("weapon.json").sample
     @shoot_delay = @weapon['shoot_delay'].to_i
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)

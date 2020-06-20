@@ -4,6 +4,7 @@ class CharacterHealth < Component
 
   def initialize(object, object_pool)
     super(object)
+    @object = object
     @object_pool = object_pool
     @health = MAX_HEALTH
     @health_updated = true
@@ -43,6 +44,14 @@ class CharacterHealth < Component
     if @health > 0
       @health_updated = true
       @health = [@health - amount.to_i, 0].max
+
+      # TMP!
+      hit_sound = Gosu::Sample.new($window, Utils.media_path('crash-mirror.mp3'))
+      hit_sound.play
+      # volume, pan = Utils.volume_and_pan(self, @object_pool.camera)
+      # sound = StereoSample.new(Utils.media_path('crash-mirror.mp3'))
+      # sound.play(@object, pan, volume)
+
       if @health < 1
         Explosion.new(@object_pool, x, y)
       end

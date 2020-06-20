@@ -67,7 +67,8 @@ class PlayState < GameState
     if id == Gosu::KbT
       t = Character.new(@object_pool,
                    AiInput.new(@object_pool))
-      t.x, t.y = @camera.mouse_coords
+      x, y = @camera.mouse_coords
+      t.move(x, y)
     end
     if id == Gosu::KbEscape
       GameState.switch(MenuState.instance)

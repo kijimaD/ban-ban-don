@@ -1,4 +1,4 @@
-class SpeedMeter < Component
+class SpeedMeter
   WIDTH = 30
   HEIGHT = 80
   PADDING = 10
@@ -15,11 +15,11 @@ class SpeedMeter < Component
   end
 
   def draw
-    draw_speed
+    speed_image
     # draw_speed_bg
   end
 
-  def draw_speed
+  def speed_image
     x1, x2, y1, y2 = speed_coords
     $window.draw_rect(x1, y1, @character.physics.speed * 10, 3, FONT_COLOR)
   end

@@ -33,7 +33,7 @@ class PlayState < GameStatePlayState2,16
   def updateupdate31,758
   def drawdraw39,885
   def button_down(id)button_down62,1511
-  def update_captionupdate_caption79,1846
+  def update_captionupdate_caption80,1861
 
 game_states/menu_state.rb,243
 class MenuState < GameStateMenuState3,36
@@ -93,11 +93,20 @@ module UtilsUtils1,0
   def self.pan(object, camera)pan145,3359
   def self.volume_and_pan(object, camera)volume_and_pan157,3612
 
+entities/powerup_display.rb,257
+class PowerupDisplayPowerupDisplay1,0
+  def initialize(object_pool, character)initialize6,64
+  def updateupdate12,191
+  def drawdraw15,211
+  def fire_rate_imagefire_rate_image25,391
+  def speed_imagespeed_image38,744
+  def coordscoords51,1053
+
 entities/hud.rb,125
 class HUDHUD1,0
   def initialize(object_pool, character)initialize3,11
-  def updateupdate11,288
-  def drawdraw17,375
+  def updateupdate12,348
+  def drawdraw18,435
 
 entities/powerups/powerup_respawn_queue.rb,180
 class PowerupRespawnQueuePowerupRespawnQueue1,0
@@ -165,24 +174,24 @@ class Explosion < GameObjectExplosion1,0
   def mark_for_removalmark_for_removal18,334
   def inflict_damageinflict_damage24,385
 
-entities/map.rb,718
-class MapMap4,54
-  def self.bounding_boxbounding_box9,118
-  def initialize(object_pool)initialize17,378
-  def draw(viewport)draw27,572
-  def spawn_points(max)spawn_points49,1072
-  def spawn_pointspawn_point56,1200
-  def can_move_to?(x, y)can_move_to?60,1294
-  def movement_penalty(x, y)movement_penalty65,1378
-  def generate_treesgenerate_trees75,1504
-  def generate_boxesgenerate_boxes93,1994
-  def generate_powerupsgenerate_powerups106,2291
-  def random_poweruprandom_powerup119,2597
-  def find_spawn_pointfind_spawn_point128,2719
-  def tile_at(x, y)tile_at140,2972
-  def load_tilesload_tiles147,3139
-  def generate_mapgenerate_map156,3399
-  def choose_tile(val)choose_tile172,3744
+entities/map.rb,716
+class MapMap1,0
+  def self.bounding_boxbounding_box6,64
+  def initialize(object_pool)initialize14,324
+  def draw(viewport)draw24,518
+  def spawn_points(max)spawn_points46,1018
+  def spawn_pointspawn_point53,1146
+  def can_move_to?(x, y)can_move_to?57,1240
+  def movement_penalty(x, y)movement_penalty62,1324
+  def generate_treesgenerate_trees72,1450
+  def generate_boxesgenerate_boxes90,1940
+  def generate_powerupsgenerate_powerups103,2237
+  def random_poweruprandom_powerup116,2545
+  def find_spawn_pointfind_spawn_point126,2689
+  def tile_at(x, y)tile_at138,2942
+  def load_tilesload_tiles145,3109
+  def generate_mapgenerate_map154,3369
+  def choose_tile(val)choose_tile170,3714
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -246,15 +255,15 @@ class TreeGraphics < ComponentTreeGraphics1,0
   def center_ycenter_y62,1400
   def treestrees66,1461
 
-entities/components/character_health.rb,322
+entities/components/character_health.rb,323
 class CharacterHealth < ComponentCharacterHealth1,0
   def initialize(object, object_pool)initialize5,80
-  def updateupdate13,263
-  def draw(viewport)draw17,300
-  def update_imageupdate_image24,438
-  def dead?dead?38,713
-  def inflict_damage(amount)inflict_damage42,748
-  def hp_gauge(health)hp_gauge52,960
+  def updateupdate14,284
+  def draw(viewport)draw18,321
+  def update_imageupdate_image25,459
+  def dead?dead?39,734
+  def inflict_damage(amount)inflict_damage43,769
+  def hp_gauge(health)hp_gauge61,1281
 
 entities/components/character_physics.rb,694
 class CharacterPhysics < ComponentCharacterPhysics1,0
@@ -273,15 +282,6 @@ class CharacterPhysics < ComponentCharacterPhysics1,0
   def deceleratedecelerate168,3843
   def turboturbo173,3930
   def resetreset177,3966
-
-entities/components/speed_meter.rb,267
-class SpeedMeter < ComponentSpeedMeter1,0
-  def initialize(object_pool, character)initialize8,158
-  def updateupdate14,285
-  def drawdraw17,305
-  def draw_speeddraw_speed22,358
-  def draw_speed_bgdraw_speed_bg27,492
-  def speed_coordsspeed_coords38,696
 
 entities/components/powerup_graphics.rb,185
 class PowerupGraphics < ComponentPowerupGraphics1,0
@@ -403,7 +403,7 @@ class BulletPhysics < ComponentBulletPhysics1,0
   def point_at_distance(distance)point_at_distance30,758
   def arrived?arrived?42,1081
   def check_hitcheck_hit46,1152
-  def do_hit(obj)do_hit60,1540
+  def do_hit(obj)do_hit60,1596
 
 entities/components/health.rb,414
 class Health < ComponentHealth1,0
@@ -435,8 +435,8 @@ class PlayerInput < ComponentPlayerInput1,0
   def control(obj)control8,142
   def on_collision(with)on_collision12,190
   def updateupdate15,222
-  def any_button_down?(*buttons)any_button_down?50,1125
-  def change_angle(previous_angle, up, down, right, left)change_angle57,1250
+  def any_button_down?(*buttons)any_button_down?59,1318
+  def change_angle(previous_angle, up, down, right, left)change_angle66,1443
 
 entities/components/character_graphics.rb,447
 class CharacterGraphics < ComponentCharacterGraphics1,0
@@ -454,11 +454,11 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
 entities/character.rb,293
 class Character < GameObjectCharacter1,0
   def initialize(object_pool, input)initialize8,273
-  def boxbox26,876
-  def shoot(target_x, target_y)shoot30,910
-  def can_shoot?can_shoot?43,1259
-  def on_collision(object)on_collision47,1364
-  def reset_modifiersreset_modifiers59,1627
+  def boxbox25,838
+  def shoot(target_x, target_y)shoot29,872
+  def can_shoot?can_shoot?42,1221
+  def on_collision(object)on_collision46,1326
+  def reset_modifiersreset_modifiers58,1589
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
@@ -466,6 +466,15 @@ class Bullet < GameObjectBullet1,0
   def boxbox16,528
   def explodeexplode20,558
   def fire(source, speed)fire27,688
+
+entities/speed_meter.rb,257
+class SpeedMeterSpeedMeter1,0
+  def initialize(object_pool, character)initialize8,146
+  def updateupdate14,273
+  def drawdraw17,293
+  def speed_imagespeed_image22,347
+  def draw_speed_bgdraw_speed_bg27,482
+  def speed_coordsspeed_coords38,686
 
 entities/object_pool.rb,357
 class ObjectPoolObjectPool1,0

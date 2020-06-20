@@ -8,7 +8,7 @@ class BulletSounds
     private
 
     def sound(fire_sound)
-      sound = StereoSample.new(Utils.media_path(fire_sound))
+      @sound = StereoSample.new(Utils.media_path(fire_sound))
     end
   end
 end
