@@ -82,24 +82,25 @@ class StereoSampleStereoSample1,0
   def stopstop62,1339
   def volume_and_pan(id, volume, pan)volume_and_pan67,1433
 
-utils.rb,959
+utils.rb,1018
 module UtilsUtils1,0
   def self.media_path(file)media_path10,158
-  def self.load_json(file)load_json14,246
-  def self.track_update_intervaltrack_update_interval20,346
-  def self.update_intervalupdate_interval26,494
-  def self.adjust_speed(speed)adjust_speed30,577
-  def self.button_down?(button)button_down34,651
-  def self.button_up?(button)button_up51,990
-  def self.rotate(angle, around_x, around_y, *points)rotate68,1328
-  def self.point_in_poly(testx, testy, *poly)point_in_poly83,1812
-  def self.distance_between(x1, y1, x2, y2)distance_between104,2322
-  def self.angle_between(x, y, target_x, target_y)angle_between110,2440
-  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance116,2602
-  def self.mark_corners(box)mark_corners123,2820
-  def self.volume(object, camera)volume136,3087
-  def self.pan(object, camera)pan145,3359
-  def self.volume_and_pan(object, camera)volume_and_pan157,3612
+  def self.media_path_sound(file)media_path_sound14,246
+  def self.load_json(file)load_json18,315
+  def self.track_update_intervaltrack_update_interval24,415
+  def self.update_intervalupdate_interval30,563
+  def self.adjust_speed(speed)adjust_speed34,646
+  def self.button_down?(button)button_down38,720
+  def self.button_up?(button)button_up55,1059
+  def self.rotate(angle, around_x, around_y, *points)rotate72,1397
+  def self.point_in_poly(testx, testy, *poly)point_in_poly87,1881
+  def self.distance_between(x1, y1, x2, y2)distance_between108,2391
+  def self.angle_between(x, y, target_x, target_y)angle_between114,2509
+  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance120,2671
+  def self.mark_corners(box)mark_corners127,2889
+  def self.volume(object, camera)volume140,3156
+  def self.pan(object, camera)pan149,3428
+  def self.volume_and_pan(object, camera)volume_and_pan161,3681
 
 entities/powerup_display.rb,257
 class PowerupDisplayPowerupDisplay1,0
@@ -192,14 +193,14 @@ class MapMap1,0
   def can_move_to?(x, y)can_move_to?57,1240
   def movement_penalty(x, y)movement_penalty62,1324
   def generate_treesgenerate_trees72,1450
-  def generate_boxesgenerate_boxes90,1942
-  def generate_powerupsgenerate_powerups103,2239
-  def random_poweruprandom_powerup116,2545
-  def find_spawn_pointfind_spawn_point126,2689
-  def tile_at(x, y)tile_at138,2942
-  def load_tilesload_tiles145,3109
-  def generate_mapgenerate_map154,3369
-  def choose_tile(val)choose_tile170,3714
+  def generate_boxesgenerate_boxes90,1940
+  def generate_powerupsgenerate_powerups103,2237
+  def random_poweruprandom_powerup116,2543
+  def find_spawn_pointfind_spawn_point126,2687
+  def tile_at(x, y)tile_at138,2940
+  def load_tilesload_tiles145,3107
+  def generate_mapgenerate_map154,3367
+  def choose_tile(val)choose_tile170,3712
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0

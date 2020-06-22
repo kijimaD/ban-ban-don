@@ -30,14 +30,19 @@ class CharacterSounds < Component
     crash_sound.play(self.object_id, pan, vol, 1, false)
   end
 
+
   private
 
   def driving_sound
-    @@driving_sound ||= StereoSample.new(Utils.media_path('dash-soil1.mp3'))
+    @@driving_sound ||= StereoSample.new(Utils.media_path_sound('dash-soil1.mp3'))
   end
 
   def crash_sound
-    @@crash_sound ||= StereoSample.new(Utils.media_path('crash.ogg'))
+    @@crash_sound ||= StereoSample.new(Utils.media_path_sound('crash.ogg'))
+  end
+
+  def hit_bullet_sound
+    @@hit_bullet_sound ||= StereoSample.new(Utils.media_path_sound('bullet_hit.mp3'))
   end
 
 end
