@@ -11,6 +11,10 @@ module Utils
     File.join(File.dirname(__FILE__), 'media', file)
   end
 
+  def self.media_path_sound(file)
+    media_path("sounds/#{file}")
+  end
+
   def self.load_json(file)
     File.open(media_path(file)) do |j|
       JSON.load(j)
