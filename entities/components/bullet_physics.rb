@@ -6,6 +6,7 @@ class BulletPhysics < Component
     super(game_object)
     x, y = point_at_distance(START_DIST)
     object.move(x, y)
+    @game_object = game_object
     @object_pool = object_pool
     if trajectory_length > MAX_DIST
       object.target_x, object.target_y = point_at_distance(MAX_DIST)
@@ -58,9 +59,10 @@ class BulletPhysics < Component
   end
 
   def do_hit(obj)
-    obj.health.inflict_damage(20)
+    obj.health.inflict_damage(20, object.source)
     object.target_x = x
     object.target_y = y
+    @game_object.sounds.hit(@game_object, @object_pool.camera)
   end
 
 end

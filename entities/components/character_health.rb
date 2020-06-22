@@ -1,9 +1,9 @@
-class CharacterHealth < Component
+class CharacterHealth < Health
   attr_accessor :health
-  MAX_HEALTH = 50000
+  MAX_HEALTH = 500
 
   def initialize(object, object_pool)
-    super(object)
+    super(object, object_pool, MAX_HEALTH, true)
     @object = object
     @object_pool = object_pool
     @health = MAX_HEALTH
@@ -33,28 +33,6 @@ class CharacterHealth < Component
       end
       @image = Gosu::Image.from_text(text, font_size)
       @health_updated = false
-    end
-  end
-
-  def dead?
-    @health < 1
-  end
-
-  def inflict_damage(amount)
-    if @health > 0
-      @health_updated = true
-      @health = [@health - amount.to_i, 0].max
-
-      # TMP!
-      hit_sound = Gosu::Sample.new($window, Utils.media_path('crash-mirror.mp3'))
-      hit_sound.play
-      # volume, pan = Utils.volume_and_pan(self, @object_pool.camera)
-      # sound = StereoSample.new(Utils.media_path('crash-mirror.mp3'))
-      # sound.play(@object, pan, volume)
-
-      if @health < 1
-        Explosion.new(@object_pool, x, y)
-      end
     end
   end
 

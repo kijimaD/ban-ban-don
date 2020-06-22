@@ -1,8 +1,11 @@
 class PlayerInput < Component
+  attr_reader :stats
+
   def initialize(camera, object_pool)
     super(nil)
     @camera = camera
     @object_pool = object_pool
+    @stats = Stats.new
   end
 
   def control(obj)

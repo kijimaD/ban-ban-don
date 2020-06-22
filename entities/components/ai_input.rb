@@ -1,10 +1,12 @@
 class AiInput < Component
+  attr_reader :stats
   UPDATE_RATE = 200
 
   def initialize(object_pool)
     super(nil)
     @object_pool = object_pool
     @last_update = Gosu.milliseconds
+    @stats = Stats.new
   end
 
   def control(obj)
