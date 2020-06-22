@@ -48,10 +48,10 @@ class MenuState < GameStateMenuState3,36
 misc/stats.rb,192
 class StatsStats1,0
   def initialize()initialize3,55
-  def add_score(amount)add_score8,108
-  def add_damage(amount)add_damage13,172
-  def to_sto_s18,238
-  def changedchanged24,292
+  def add_score(amount)add_score9,124
+  def add_damage(amount)add_damage14,188
+  def to_sto_s19,254
+  def changedchanged25,308
 
 misc/quad_tree.rb,229
 class QuadTreeQuadTree1,0
@@ -136,7 +136,7 @@ class Powerup < GameObjectPowerup1,0
 entities/powerups/repair_powerup.rb,112
 class RepairPowerup < PowerupRepairPowerup1,0
   def pickup(object)pickup3,31
-  def graphicsgraphics12,187
+  def graphicsgraphics10,141
 
 entities/powerups/fire_rate_powerup.rb,116
 class FireRatePowerup < PowerupFireRatePowerup1,0
@@ -504,7 +504,7 @@ class ScoreDisplayScoreDisplay1,0
   def updateupdate13,206
   def drawdraw16,226
   def score_imagescore_image23,309
-  def coordscoords27,423
+  def coordscoords27,463
 
 entities/tree.rb,159
 class Tree < GameObjectTree1,0
