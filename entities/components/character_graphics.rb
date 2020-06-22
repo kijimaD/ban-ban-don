@@ -9,8 +9,6 @@ class CharacterGraphics < Component
   def initialize(game_object)
     super(game_object)
     @body = charas.frame('chara2.png')
-    @shadow = units.frame('tank1_body_shadow.png')
-    @gun = units.frame('tank1_dualgun.png')
     @chara_json = Utils.load_json("character_graphics.json")
   end
 
@@ -19,9 +17,7 @@ class CharacterGraphics < Component
   end
 
   def draw(viewport)
-    # @shadow.draw_rot(x - 1, y - 1, 0, object.direction)
     @body.draw(x - 16, y - 16, 1)
-    # @gun.draw_rot(x, y, 2, object.direction)
     draw_bounding_box if $debug
   end
 
@@ -77,13 +73,8 @@ class CharacterGraphics < Component
 
   private
 
-  def units
-    @@units = Gosu::TexturePacker.load_json(
-      Utils.media_path('ground_units.json'), :precise)
-  end
-
   def charas
-    @@charas = Gosu::TexturePacker.load_json(
+    @@charas ||= Gosu::TexturePacker.load_json(
       Utils.media_path('charas.json'), :precise)
   end
 end

@@ -463,7 +463,7 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def direction_graphicsdirection_graphics49,1019
   def each_image(stand_image, run_image0, run_image1)each_image61,1318
   def unitsunits80,1770
-  def charascharas85,1889
+  def charascharas85,1891
 
 entities/character.rb,293
 class Character < GameObjectCharacter1,0
