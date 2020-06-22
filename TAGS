@@ -41,9 +41,9 @@ class MenuState < GameStateMenuState3,36
   def enterenter11,204
   def leaveleave16,265
   def musicmusic21,320
-  def updateupdate25,406
-  def drawdraw30,561
-  def button_down(id)button_down41,822
+  def updateupdate25,412
+  def drawdraw30,567
+  def button_down(id)button_down41,828
 
 misc/stats.rb,192
 class StatsStats1,0
@@ -86,21 +86,21 @@ utils.rb,1018
 module UtilsUtils1,0
   def self.media_path(file)media_path10,158
   def self.media_path_sound(file)media_path_sound14,246
-  def self.load_json(file)load_json18,315
-  def self.track_update_intervaltrack_update_interval24,415
-  def self.update_intervalupdate_interval30,563
-  def self.adjust_speed(speed)adjust_speed34,646
-  def self.button_down?(button)button_down38,720
-  def self.button_up?(button)button_up55,1059
-  def self.rotate(angle, around_x, around_y, *points)rotate72,1397
-  def self.point_in_poly(testx, testy, *poly)point_in_poly87,1881
-  def self.distance_between(x1, y1, x2, y2)distance_between108,2391
-  def self.angle_between(x, y, target_x, target_y)angle_between114,2509
-  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance120,2671
-  def self.mark_corners(box)mark_corners127,2889
-  def self.volume(object, camera)volume140,3156
-  def self.pan(object, camera)pan149,3428
-  def self.volume_and_pan(object, camera)volume_and_pan161,3681
+  def self.load_json(file)load_json18,320
+  def self.track_update_intervaltrack_update_interval24,420
+  def self.update_intervalupdate_interval30,568
+  def self.adjust_speed(speed)adjust_speed34,651
+  def self.button_down?(button)button_down38,725
+  def self.button_up?(button)button_up55,1064
+  def self.rotate(angle, around_x, around_y, *points)rotate72,1402
+  def self.point_in_poly(testx, testy, *poly)point_in_poly87,1886
+  def self.distance_between(x1, y1, x2, y2)distance_between108,2396
+  def self.angle_between(x, y, target_x, target_y)angle_between114,2514
+  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance120,2676
+  def self.mark_corners(box)mark_corners127,2894
+  def self.volume(object, camera)volume140,3161
+  def self.pan(object, camera)pan149,3433
+  def self.volume_and_pan(object, camera)volume_and_pan161,3686
 
 entities/powerup_display.rb,257
 class PowerupDisplayPowerupDisplay1,0
@@ -193,14 +193,14 @@ class MapMap1,0
   def can_move_to?(x, y)can_move_to?57,1240
   def movement_penalty(x, y)movement_penalty62,1324
   def generate_treesgenerate_trees72,1450
-  def generate_boxesgenerate_boxes90,1940
-  def generate_powerupsgenerate_powerups103,2237
-  def random_poweruprandom_powerup116,2543
-  def find_spawn_pointfind_spawn_point126,2687
-  def tile_at(x, y)tile_at138,2940
-  def load_tilesload_tiles145,3107
-  def generate_mapgenerate_map154,3367
-  def choose_tile(val)choose_tile170,3712
+  def generate_boxesgenerate_boxes90,1942
+  def generate_powerupsgenerate_powerups103,2239
+  def random_poweruprandom_powerup116,2545
+  def find_spawn_pointfind_spawn_point126,2689
+  def tile_at(x, y)tile_at138,2942
+  def load_tilesload_tiles145,3109
+  def generate_mapgenerate_map154,3369
+  def choose_tile(val)choose_tile170,3714
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -222,11 +222,12 @@ class PowerupSoundsPowerupSounds1,0
     def play(object, camera)play3,36
     def soundsound10,192
 
-entities/components/bullet_graphics.rb,157
+entities/components/bullet_graphics.rb,188
 class BulletGraphics < ComponentBulletGraphics1,0
   def initialize(object)initialize4,63
   def draw(viewport)draw9,134
-  def image(image)image15,260
+  def bullet(image)bullet15,261
+  def bulletsbullets19,323
 
 entities/components/component.rb,209
 class ComponentComponent1,0
@@ -237,12 +238,12 @@ class ComponentComponent1,0
   def xx25,297
   def yy29,326
 
-entities/components/bullet_sounds.rb,199
+entities/components/bullet_sounds.rb,191
 class BulletSoundsBulletSounds1,0
-    def play(object, camera, fire_sound)play3,20
-    def hit(object, camera)hit8,187
-    def sound(fire_sound)sound15,346
-    def sound_hitsound_hit19,443
+  def play(object, camera, fire_sound)play3,20
+  def hit(object, camera)hit8,179
+  def sound(fire_sound)sound15,328
+  def sound_hitsound_hit19,425
 
 entities/components/explosion_graphics.rb,262
 class ExplosionGraphics < ComponentExplosionGraphics1,0
@@ -319,13 +320,14 @@ class AmmoDisplay < ComponentAmmoDisplay1,0
   def weapon_coordsweapon_coords57,1183
   def ammo_imageammo_image65,1332
 
-entities/components/character_sounds.rb,241
+entities/components/character_sounds.rb,289
 class CharacterSounds < ComponentCharacterSounds1,0
   def initialize(object, object_pool)initialize3,35
   def updateupdate8,129
   def collidecollide27,652
-  def driving_sounddriving_sound35,818
-  def crash_soundcrash_sound39,922
+  def driving_sounddriving_sound36,819
+  def crash_soundcrash_sound40,929
+  def hit_bullet_soundhit_bullet_sound44,1030
 
 entities/components/ai/character_fleeing_state.rb,331
 class CharacterFleeingState < CharacterMotionStateCharacterFleeingState1,0

@@ -7,13 +7,18 @@ class BulletGraphics < Component
   end
 
   def draw(viewport)
-    image(@object.weapon['bullet_image']).draw_rot(x - 4, y - 4, 1, @object.gun_angle)
+    bullet(@object.weapon['bullet_image']).draw_rot(x - 4, y - 4, 1, @object.gun_angle)
   end
 
   private
 
-  def image(image)
-    @@bullet = Gosu::Image.new(Utils.media_path(image))
+  def bullet(image)
+    @bullet = bullets.frame(image)
+  end
+
+  def bullets
+    @@bullets ||= Gosu::TexturePacker.load_json(
+      Utils.media_path('bullets.json'))
   end
 
 end
