@@ -56,7 +56,7 @@ class Radar
   end
 
   def image(image)
-    @@image = Gosu::Image.new(Utils.media_path(image))
+    @@image ||= Gosu::Image.new(Utils.media_path(image))
   end
 
 end
