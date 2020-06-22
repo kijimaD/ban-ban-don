@@ -59,7 +59,7 @@ class BulletPhysics < Component
   end
 
   def do_hit(obj)
-    obj.health.inflict_damage(20)
+    obj.health.inflict_damage(20, object.source)
     object.target_x = x
     object.target_y = y
     @game_object.sounds.hit(@game_object, @object_pool.camera)

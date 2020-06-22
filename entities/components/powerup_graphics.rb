@@ -1,5 +1,5 @@
 class PowerupGraphics < Component
-  AMPLITUDE = 2
+  AMPLITUDE = 3
   DELAY = 300
   FRAME = 4
 

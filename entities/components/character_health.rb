@@ -1,6 +1,6 @@
 class CharacterHealth < Health
   attr_accessor :health
-  MAX_HEALTH = 50000
+  MAX_HEALTH = 500
 
   def initialize(object, object_pool)
     super(object, object_pool, MAX_HEALTH, true)
@@ -33,20 +33,6 @@ class CharacterHealth < Health
       end
       @image = Gosu::Image.from_text(text, font_size)
       @health_updated = false
-    end
-  end
-
-  def dead?
-    @health < 1
-  end
-
-  def inflict_damage(amount)
-    if @health > 0
-      @health_updated = true
-      @health = [@health - amount.to_i, 0].max
-      if @health < 1
-        Explosion.new(@object_pool, x, y)
-      end
     end
   end
 

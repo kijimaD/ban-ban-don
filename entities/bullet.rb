@@ -4,10 +4,9 @@ class Bullet < GameObject
 
   def initialize(object_pool, object, source_x, source_y, target_x, target_y)
     super(object_pool, source_x, source_y)
-    @object = object
     @target_x, @target_y = target_x, target_y
     @gun_angle = object.gun_angle
-    @weapon = @object.weapon
+    @weapon = object.weapon
     @sounds = BulletSounds.new
     BulletPhysics.new(self, object_pool)
     BulletGraphics.new(self)
@@ -20,7 +19,7 @@ class Bullet < GameObject
 
   def explode
     if @weapon['explodable'].to_i == 1
-      Explosion.new(object_pool, @x, @y)
+      Explosion.new(object_pool, @x, @y, @source)
     end
     mark_for_removal
   end
