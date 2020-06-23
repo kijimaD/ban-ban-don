@@ -164,8 +164,8 @@ class CameraCamera1,0
 entities/box.rb,151
 class Box < GameObjectBox1,0
   def initialize(object_pool, x, y)initialize4,65
-  def on_collision(object)on_collision11,238
-  def boxbox17,396
+  def on_collision(object)on_collision11,237
+  def boxbox17,395
 
 entities/radar.rb,257
 class RadarRadar1,0
@@ -179,9 +179,9 @@ class RadarRadar1,0
 entities/explosion.rb,222
 class Explosion < GameObjectExplosion1,0
   def initialize(object_pool, x, y, source)initialize3,30
-  def effect?effect?15,352
-  def mark_for_removalmark_for_removal19,382
-  def inflict_damageinflict_damage25,433
+  def effect?effect?20,421
+  def mark_for_removalmark_for_removal24,451
+  def inflict_damageinflict_damage30,502
 
 entities/map.rb,716
 class MapMap1,0
