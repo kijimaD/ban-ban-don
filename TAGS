@@ -193,14 +193,14 @@ class MapMap1,0
   def can_move_to?(x, y)can_move_to?57,1240
   def movement_penalty(x, y)movement_penalty62,1324
   def generate_treesgenerate_trees72,1450
-  def generate_boxesgenerate_boxes90,1942
-  def generate_powerupsgenerate_powerups103,2239
-  def random_poweruprandom_powerup116,2545
-  def find_spawn_pointfind_spawn_point126,2689
-  def tile_at(x, y)tile_at138,2942
-  def load_tilesload_tiles145,3109
-  def generate_mapgenerate_map154,3369
-  def choose_tile(val)choose_tile170,3714
+  def generate_boxesgenerate_boxes90,1940
+  def generate_powerupsgenerate_powerups103,2237
+  def random_poweruprandom_powerup116,2543
+  def find_spawn_pointfind_spawn_point126,2687
+  def tile_at(x, y)tile_at138,2940
+  def load_tilesload_tiles145,3107
+  def generate_mapgenerate_map154,3367
+  def choose_tile(val)choose_tile170,3712
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
