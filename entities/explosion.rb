@@ -8,7 +8,12 @@ class Explosion < GameObject
     ExplosionSounds.play(self, object_pool.camera)
     inflict_damage
     if @object_pool.map.can_move_to?(x, y)
-      Damage.new(@object_pool, x, y)
+      Thread.new do
+        sleep rand(0.2..0.4)
+        Damage.new(@object_pool, x, y)
+        sleep 0.5
+      end
+
     end
   end
 

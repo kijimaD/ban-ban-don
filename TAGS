@@ -179,9 +179,9 @@ class RadarRadar1,0
 entities/explosion.rb,222
 class Explosion < GameObjectExplosion1,0
   def initialize(object_pool, x, y, source)initialize3,30
-  def effect?effect?20,421
-  def mark_for_removalmark_for_removal24,451
-  def inflict_damageinflict_damage30,502
+  def effect?effect?20,432
+  def mark_for_removalmark_for_removal24,462
+  def inflict_damageinflict_damage30,513
 
 entities/map.rb,716
 class MapMap1,0
@@ -205,8 +205,8 @@ class MapMap1,0
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
   def initialize(object_pool)initialize2,33
-  def draw(viewport)draw8,133
-  def imagesimages14,209
+  def draw(viewport)draw9,151
+  def imagesimages13,216
 
 entities/components/ai_input.rb,264
 class AiInput < ComponentAiInput1,0
