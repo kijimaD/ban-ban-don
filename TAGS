@@ -200,8 +200,8 @@ class MapMap1,0
   def find_spawn_pointfind_spawn_point126,2687
   def tile_at(x, y)tile_at138,2940
   def load_tilesload_tiles145,3107
-  def generate_mapgenerate_map154,3367
-  def choose_tile(val)choose_tile170,3712
+  def generate_mapgenerate_map155,3456
+  def choose_tile(val)choose_tile171,3801
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -280,23 +280,22 @@ class CharacterHealth < HealthCharacterHealth1,0
   def update_imageupdate_image25,485
   def hp_gauge(health)hp_gauge39,760
 
-entities/components/character_physics.rb,695
+entities/components/character_physics.rb,634
 class CharacterPhysics < ComponentCharacterPhysics1,0
   def initialize(game_object, object_pool)initialize4,98
   def can_move_to?(x, y)can_move_to?11,254
-  def moving?moving?37,1004
-  def updateupdate41,1040
-  def box_widthbox_width92,2070
-  def box_heightbox_height96,2134
-  def boxbox100,2201
-  def change_direction(new_direction)change_direction125,2922
-  def collides_with_poly?(poly)collides_with_poly?133,3117
-  def collides_with_point?(x, y)collides_with_point?149,3491
-  def apply_movement_penalty(speed)apply_movement_penalty153,3566
-  def accelerateaccelerate157,3656
-  def deceleratedecelerate161,3712
-  def turboturbo166,3799
-  def resetreset170,3835
+  def moving?moving?37,1010
+  def updateupdate41,1046
+  def box_widthbox_width92,2076
+  def box_heightbox_height96,2140
+  def boxbox100,2207
+  def change_direction(new_direction)change_direction125,2928
+  def collides_with_point?(x, y)collides_with_point?133,3123
+  def apply_movement_penalty(speed)apply_movement_penalty137,3198
+  def accelerateaccelerate141,3288
+  def deceleratedecelerate145,3344
+  def turboturbo150,3431
+  def resetreset154,3467
 
 entities/components/powerup_graphics.rb,284
 class PowerupGraphics < ComponentPowerupGraphics1,0
