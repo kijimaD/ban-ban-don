@@ -28,12 +28,12 @@ class GameStateGameState1,0
 game_states/play_state.rb,262
 class PlayState < GameStatePlayState2,16
   def initializeinitialize4,45
-  def enterenter21,594
-  def leaveleave25,659
-  def updateupdate33,824
-  def drawdraw41,951
-  def button_down(id)button_down64,1577
-  def update_captionupdate_caption82,1927
+  def enterenter20,580
+  def leaveleave24,645
+  def updateupdate32,810
+  def drawdraw40,937
+  def button_down(id)button_down63,1563
+  def update_captionupdate_caption81,1913
 
 game_states/menu_state.rb,263
 class MenuState < GameStateMenuState2,16
@@ -151,7 +151,7 @@ class CharacterSpeedPowerup < PowerupCharacterSpeedPowerup1,0
   def pickup(object)pickup3,39
   def graphicsgraphics12,204
 
-entities/camera.rb,369
+entities/camera.rb,403
 class CameraCamera1,0
   def target=(target)target=5,66
   def can_view?(x, y, obj)can_view?11,164
@@ -160,8 +160,9 @@ class CameraCamera1,0
   def to_sto_s58,1197
   def target_delta_on_screentarget_delta_on_screen64,1326
   def draw_crosshairdraw_crosshair68,1419
-  def viewportviewport79,1691
-  def desired_spotdesired_spot87,1906
+  def viewportviewport76,1552
+  def desired_spotdesired_spot84,1767
+  def crosshaircrosshair96,2009
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
