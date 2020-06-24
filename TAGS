@@ -38,13 +38,13 @@ class PlayState < GameStatePlayState2,16
 game_states/menu_state.rb,263
 class MenuState < GameStateMenuState2,16
   def initializeinitialize9,187
-  def enterenter13,277
-  def leaveleave18,338
-  def musicmusic23,393
-  def updateupdate27,485
-  def drawdraw32,675
-  def button_down(id)button_down44,924
-  def bgbg55,1173
+  def enterenter13,313
+  def leaveleave18,374
+  def musicmusic23,429
+  def updateupdate27,521
+  def drawdraw32,711
+  def button_down(id)button_down44,975
+  def bgbg55,1224
 
 misc/stats.rb,192
 class StatsStats1,0
@@ -83,26 +83,28 @@ class StereoSampleStereoSample1,0
   def stopstop62,1339
   def volume_and_pan(id, volume, pan)volume_and_pan67,1433
 
-utils.rb,1089
+utils.rb,1169
 module UtilsUtils1,0
   def self.media_path(file)media_path10,158
   def self.media_path_sound(file)media_path_sound14,246
   def self.load_json(file)load_json18,320
-  def self.track_update_intervaltrack_update_interval24,420
-  def self.update_intervalupdate_interval30,568
-  def self.adjust_speed(speed)adjust_speed34,651
-  def self.button_down?(button)button_down38,725
-  def self.button_up?(button)button_up55,1064
-  def self.rotate(angle, around_x, around_y, *points)rotate72,1402
-  def self.point_in_poly(testx, testy, *poly)point_in_poly87,1886
-  def self.distance_between(x1, y1, x2, y2)distance_between108,2396
-  def self.angle_between(x, y, target_x, target_y)angle_between114,2514
-  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance120,2676
-  def self.mark_corners(box)mark_corners127,2894
-  def self.volume(object, camera)volume140,3161
-  def self.pan(object, camera)pan149,3433
-  def self.volume_and_pan(object, camera)volume_and_pan161,3686
-  def self.collides_with_poly?(poly, *box)collides_with_poly165,3785
+  def self.title_fonttitle_font24,420
+  def self.main_font()main_font28,494
+  def self.track_update_intervaltrack_update_interval32,555
+  def self.update_intervalupdate_interval38,703
+  def self.adjust_speed(speed)adjust_speed42,786
+  def self.button_down?(button)button_down46,860
+  def self.button_up?(button)button_up63,1199
+  def self.rotate(angle, around_x, around_y, *points)rotate80,1537
+  def self.point_in_poly(testx, testy, *poly)point_in_poly95,2021
+  def self.distance_between(x1, y1, x2, y2)distance_between116,2531
+  def self.angle_between(x, y, target_x, target_y)angle_between122,2649
+  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance128,2811
+  def self.mark_corners(box)mark_corners135,3029
+  def self.volume(object, camera)volume148,3296
+  def self.pan(object, camera)pan157,3568
+  def self.volume_and_pan(object, camera)volume_and_pan169,3821
+  def self.collides_with_poly?(poly, *box)collides_with_poly173,3920
 
 entities/powerup_display.rb,257
 class PowerupDisplayPowerupDisplay1,0
@@ -160,9 +162,9 @@ class CameraCamera1,0
   def to_sto_s58,1197
   def target_delta_on_screentarget_delta_on_screen64,1326
   def draw_crosshairdraw_crosshair68,1419
-  def viewportviewport76,1552
-  def desired_spotdesired_spot84,1767
-  def crosshaircrosshair96,2009
+  def viewportviewport78,1638
+  def desired_spotdesired_spot86,1853
+  def crosshaircrosshair98,2095
 
 entities/box.rb,151
 class Box < GameObjectBox1,0

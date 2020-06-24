@@ -7,7 +7,7 @@ class MenuState < GameState
   PADDING = 10
 
   def initialize
-    @message = Gosu::Image.from_text("ばんばんどーん", 40)
+    @message = Gosu::Image.from_text("ばんばんどーん", 80, options = {font: Utils.title_font})
   end
 
   def enter
@@ -26,7 +26,7 @@ class MenuState < GameState
 
   def update
     continue_text = @play_state ? "[C]= Continue, " : ""
-    @info = Gosu::Image.from_text("[Q]= Quit, #{continue_text}[N]= New Game\n[WASD]= Move, [LClick]= Attack",16)
+    @info = Gosu::Image.from_text("[Q]= Quit, #{continue_text}[N]= New Game\n[WASD]= Move, [LClick]= Attack", 26, options = {font: Utils.main_font})
   end
 
   def draw
@@ -37,7 +37,7 @@ class MenuState < GameState
       10, 1.0, 1.0, TITLE_FONT_COLOR)
     @info.draw(
       PADDING,
-      PADDING + @message.height * 3,
+      PADDING + @message.height + @info.height * 2,
       10, 1.0, 1.0, BODY_FONT_COLOR)
   end
 
