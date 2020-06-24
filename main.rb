@@ -2,6 +2,7 @@ require 'gosu'
 require 'rmagick'
 require 'perlin_noise'
 require 'gosu_texture_packer'
+require 'singleton'
 
 root_dir = File.dirname(__FILE__)
 require_pattern = File.join(root_dir, '**/*.rb')

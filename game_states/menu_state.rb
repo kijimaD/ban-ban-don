@@ -1,11 +1,13 @@
 # coding: utf-8
-require 'singleton'
 class MenuState < GameState
   include Singleton
   attr_accessor :play_state
+  TITLE_FONT_COLOR = Gosu::Color::WHITE
+  BODY_FONT_COLOR = Gosu::Color::GREEN
+  PADDING = 10
 
   def initialize
-    @message = Gosu::Image.from_text("ばんばんどーん", 100)
+    @message = Gosu::Image.from_text("ばんばんどーん", 40)
   end
 
   def enter
@@ -23,19 +25,20 @@ class MenuState < GameState
   end
 
   def update
-    continue_text = @play_state ? "C = Continue, " : ""
-    @info = Gosu::Image.from_text("Q = Quit, #{continue_text}N = New Game",30)
+    continue_text = @play_state ? "[C]= Continue, " : ""
+    @info = Gosu::Image.from_text("[Q]= Quit, #{continue_text}[N]= New Game, [WASD]= Move, [LClick]= Attack",20)
   end
 
   def draw
+    bg.draw(0, 0, 1)
     @message.draw(
-      $window.width / 2 - @message.width / 2,
-      $window.height / 2 - @message.height / 2,
-      10)
+      PADDING,
+      PADDING + @message.height,
+      10, 1.0, 1.0, TITLE_FONT_COLOR)
     @info.draw(
-      $window.width / 2 - @info.width / 2,
-      $window.height / 2 - @info.height / 2 + 200,
-      10)
+      PADDING,
+      PADDING + @message.height * 3,
+      10, 1.0, 1.0, BODY_FONT_COLOR)
   end
 
   def button_down(id)
@@ -47,5 +50,9 @@ class MenuState < GameState
       @play_state = PlayState.new
       GameState.switch(@play_state)
     end
+  end
+
+  def bg
+    @bg ||= Gosu::Image.new(Utils.media_path('city.png'))
   end
 end
