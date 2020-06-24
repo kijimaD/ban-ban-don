@@ -206,7 +206,7 @@ entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
   def initialize(object_pool)initialize2,33
   def draw(viewport)draw8,133
-  def imagesimages12,198
+  def imagesimages14,209
 
 entities/components/ai_input.rb,264
 class AiInput < ComponentAiInput1,0
@@ -478,7 +478,7 @@ class Bullet < GameObjectBullet1,0
   def initialize(object_pool, object, source_x, source_y, target_x, target_y)initialize5,138
   def boxbox16,541
   def explodeexplode20,571
-  def fire(source, speed)fire27,710
+  def fire(source, speed)fire28,711
 
 entities/speed_meter.rb,257
 class SpeedMeterSpeedMeter1,0
