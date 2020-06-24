@@ -21,7 +21,7 @@ class MenuState < GameState
   end
 
   def music
-    @@music ||= Gosu::Song.new(Utils.media_path_sound('menu_music.mp3'))
+    @@music ||= Gosu::Song.new(Utils.media_path_sound('menu_music.wav'))
   end
 
   def update

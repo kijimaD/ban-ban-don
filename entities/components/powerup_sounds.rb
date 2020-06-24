@@ -8,7 +8,7 @@ class PowerupSounds
     private
 
     def sound
-      @@sound ||= StereoSample.new(Utils.media_path('respawn.wav'))
+      @@sound ||= StereoSample.new(Utils.media_path_sound('pickup.wav'))
     end
   end
 end

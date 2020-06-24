@@ -35,16 +35,16 @@ class PlayState < GameStatePlayState2,16
   def button_down(id)button_down63,1563
   def update_captionupdate_caption81,1913
 
-game_states/menu_state.rb,263
+game_states/menu_state.rb,264
 class MenuState < GameStateMenuState2,16
   def initializeinitialize9,187
   def enterenter13,313
   def leaveleave18,374
   def musicmusic23,429
   def updateupdate27,521
-  def drawdraw32,711
-  def button_down(id)button_down44,975
-  def bgbg55,1224
+  def drawdraw32,747
+  def button_down(id)button_down44,1011
+  def bgbg55,1260
 
 misc/stats.rb,192
 class StatsStats1,0
@@ -90,21 +90,21 @@ module UtilsUtils1,0
   def self.load_json(file)load_json18,320
   def self.title_fonttitle_font24,420
   def self.main_font()main_font28,494
-  def self.track_update_intervaltrack_update_interval32,555
-  def self.update_intervalupdate_interval38,703
-  def self.adjust_speed(speed)adjust_speed42,786
-  def self.button_down?(button)button_down46,860
-  def self.button_up?(button)button_up63,1199
-  def self.rotate(angle, around_x, around_y, *points)rotate80,1537
-  def self.point_in_poly(testx, testy, *poly)point_in_poly95,2021
-  def self.distance_between(x1, y1, x2, y2)distance_between116,2531
-  def self.angle_between(x, y, target_x, target_y)angle_between122,2649
-  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance128,2811
-  def self.mark_corners(box)mark_corners135,3029
-  def self.volume(object, camera)volume148,3296
-  def self.pan(object, camera)pan157,3568
-  def self.volume_and_pan(object, camera)volume_and_pan169,3821
-  def self.collides_with_poly?(poly, *box)collides_with_poly173,3920
+  def self.track_update_intervaltrack_update_interval32,559
+  def self.update_intervalupdate_interval38,707
+  def self.adjust_speed(speed)adjust_speed42,790
+  def self.button_down?(button)button_down46,864
+  def self.button_up?(button)button_up63,1203
+  def self.rotate(angle, around_x, around_y, *points)rotate80,1541
+  def self.point_in_poly(testx, testy, *poly)point_in_poly95,2025
+  def self.distance_between(x1, y1, x2, y2)distance_between116,2535
+  def self.angle_between(x, y, target_x, target_y)angle_between122,2653
+  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance128,2815
+  def self.mark_corners(box)mark_corners135,3033
+  def self.volume(object, camera)volume148,3300
+  def self.pan(object, camera)pan157,3572
+  def self.volume_and_pan(object, camera)volume_and_pan169,3825
+  def self.collides_with_poly?(poly, *box)collides_with_poly173,3924
 
 entities/powerup_display.rb,257
 class PowerupDisplayPowerupDisplay1,0
