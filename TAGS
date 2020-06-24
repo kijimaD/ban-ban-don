@@ -222,12 +222,16 @@ class PowerupSoundsPowerupSounds1,0
     def play(object, camera)play3,36
     def soundsound10,192
 
-entities/components/bullet_graphics.rb,188
+entities/components/bullet_graphics.rb,295
 class BulletGraphics < ComponentBulletGraphics1,0
   def initialize(object)initialize4,63
   def draw(viewport)draw9,134
-  def bullet(image)bullet15,261
-  def bulletsbullets19,323
+  def heightheight14,263
+  def widthwidth18,306
+  def center_xcenter_x24,358
+  def center_ycenter_y28,412
+  def bulletbullet32,467
+  def bulletsbullets36,549
 
 entities/components/component.rb,209
 class ComponentComponent1,0
@@ -409,15 +413,17 @@ class AiVisionAiVision1,0
   def closest_characterclosest_character15,270
   def find_closest_characterfind_closest_character27,543
 
-entities/components/bullet_physics.rb,343
+entities/components/bullet_physics.rb,425
 class BulletPhysics < ComponentBulletPhysics1,0
   def initialize(game_object, object_pool)initialize5,68
-  def updateupdate16,379
-  def trajectory_lengthtrajectory_length27,691
-  def point_at_distance(distance)point_at_distance31,789
-  def arrived?arrived?43,1112
-  def check_hitcheck_hit47,1183
-  def do_hit(obj)do_hit61,1627
+  def updateupdate16,383
+  def trajectory_lengthtrajectory_length29,742
+  def point_at_distance(distance)point_at_distance33,840
+  def boxbox43,1152
+  def arrived?arrived?57,1471
+  def check_hitcheck_hit61,1542
+  def do_hit(obj)do_hit75,2005
+  def collides_with_poly?(poly)collides_with_poly?82,2190
 
 entities/components/health.rb,430
 class Health < ComponentHealth1,0
@@ -475,10 +481,10 @@ class Character < GameObjectCharacter1,0
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
-  def initialize(object_pool, object, source_x, source_y, target_x, target_y)initialize5,138
-  def boxbox16,541
-  def explodeexplode20,571
-  def fire(source, speed)fire28,711
+  def initialize(object_pool, object, source_x, source_y, target_x, target_y)initialize6,165
+  def boxbox18,622
+  def explodeexplode23,680
+  def fire(source, speed)fire33,908
 
 entities/speed_meter.rb,257
 class SpeedMeterSpeedMeter1,0

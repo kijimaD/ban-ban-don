@@ -4,8 +4,8 @@ class BulletPhysics < Component
 
   def initialize(game_object, object_pool)
     super(game_object)
-    x, y = point_at_distance(START_DIST)
-    object.move(x, y)
+    @x, @y = point_at_distance(START_DIST)
+    object.move(@x, @y)
     @game_object = game_object
     @object_pool = object_pool
     if trajectory_length > MAX_DIST
@@ -18,7 +18,8 @@ class BulletPhysics < Component
     now = Gosu.milliseconds
     @last_update ||= object.fired_at
     fly_distance = (now - @last_update) * 0.001 * fly_speed
-    object.move(*point_at_distance(fly_distance))
+    @x, @y = *point_at_distance(fly_distance)
+    object.move(@x, @y)
     @last_update = now
     check_hit
     object.explode if arrived?
@@ -38,6 +39,17 @@ class BulletPhysics < Component
     [p_x, p_y]
   end
 
+  def box
+    w = object.graphics.width / 2
+    h = object.graphics.height / 2
+    Utils.rotate(object.gun_angle, @x, @y,
+                 @x - w, @y - h,
+                 @x + w, @y - h,
+                 @x + w, @y + h,
+                 @x - w, @y + h,
+                )
+  end
+
   private
 
   def arrived?
@@ -48,10 +60,10 @@ class BulletPhysics < Component
     @object_pool.nearby(object, 50).each do |obj|
       next if obj == object.source # Don't hit source tank
       if obj.class == Tree
-        if Utils.distance_between(x, y, obj.x, obj.y) < 10
+        if Utils.distance_between(x, y, obj.x, obj.y) < @game_object.graphics.width.to_i
           return do_hit(obj) if obj.respond_to?(:health)
         end
-      elsif Utils.point_in_poly(x, y, *obj.box)
+      elsif collides_with_poly?(obj.box)
         # Direct hit - extra damage
         return do_hit(obj) if obj.respond_to?(:health)
       end
@@ -63,6 +75,22 @@ class BulletPhysics < Component
     object.target_x = x
     object.target_y = y
     @game_object.sounds.hit(@game_object, @object_pool.camera)
+  end
+
+  def collides_with_poly?(poly)
+    if poly
+      if poly.size == 2
+        px, py = poly
+        return Utils.point_in_poly(px, py, *box)
+      end
+      poly.each_slice(2) do |x, y|
+        return true if Utils.point_in_poly(x, y, *box)
+      end
+      box.each_slice(2) do |x, y|
+        return true if Utils.point_in_poly(x, y, *poly)
+      end
+    end
+    false
   end
 
 end

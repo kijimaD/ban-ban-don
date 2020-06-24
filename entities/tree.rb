@@ -4,7 +4,7 @@ class Tree < GameObject
   def initialize(object_pool, x, y, seed)
     super(object_pool, x, y)
     @graphics = TreeGraphics.new(self, seed)
-    @health = Health.new(self, object_pool, 30, false)
+    @health = Health.new(self, object_pool, 20, false)
     @angle = rand(-15..15)
   end
 
