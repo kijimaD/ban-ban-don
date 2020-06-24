@@ -3,7 +3,7 @@ class MenuState < GameState
   include Singleton
   attr_accessor :play_state
   TITLE_FONT_COLOR = Gosu::Color::WHITE
-  BODY_FONT_COLOR = Gosu::Color::GREEN
+  BODY_FONT_COLOR = Gosu::Color::WHITE
   PADDING = 10
 
   def initialize
@@ -26,7 +26,7 @@ class MenuState < GameState
 
   def update
     continue_text = @play_state ? "[C]= Continue, " : ""
-    @info = Gosu::Image.from_text("[Q]= Quit, #{continue_text}[N]= New Game, [WASD]= Move, [LClick]= Attack",20)
+    @info = Gosu::Image.from_text("[Q]= Quit, #{continue_text}[N]= New Game\n[WASD]= Move, [LClick]= Attack",16)
   end
 
   def draw
