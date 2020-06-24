@@ -28,12 +28,12 @@ class GameStateGameState1,0
 game_states/play_state.rb,262
 class PlayState < GameStatePlayState2,16
   def initializeinitialize4,45
-  def enterenter19,528
-  def leaveleave23,593
-  def updateupdate31,758
-  def drawdraw39,885
-  def button_down(id)button_down62,1511
-  def update_captionupdate_caption80,1861
+  def enterenter20,580
+  def leaveleave24,645
+  def updateupdate32,810
+  def drawdraw40,937
+  def button_down(id)button_down63,1563
+  def update_captionupdate_caption81,1913
 
 game_states/menu_state.rb,243
 class MenuState < GameStateMenuState3,36
@@ -205,8 +205,8 @@ class MapMap1,0
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
   def initialize(object_pool)initialize2,33
-  def draw(viewport)draw9,151
-  def imagesimages13,216
+  def draw(viewport)draw8,133
+  def imagesimages12,198
 
 entities/components/ai_input.rb,264
 class AiInput < ComponentAiInput1,0

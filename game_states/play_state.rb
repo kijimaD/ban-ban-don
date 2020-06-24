@@ -10,7 +10,7 @@ class PlayState < GameState
     @camera.target = @character
     @object_pool.camera = @camera
     @hud = HUD.new(@object_pool, @character)
-    Damage.new(@object_pool, 0, 0) # FIXME: If not load first DamageGraphics, occur thread error.
+    Damage.new(@object_pool, 0, 0).mark_for_removal
     3.times do
       Character.new(@object_pool, AiInput.new(@object_pool))
     end
