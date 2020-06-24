@@ -82,7 +82,7 @@ class StereoSampleStereoSample1,0
   def stopstop62,1339
   def volume_and_pan(id, volume, pan)volume_and_pan67,1433
 
-utils.rb,1018
+utils.rb,1089
 module UtilsUtils1,0
   def self.media_path(file)media_path10,158
   def self.media_path_sound(file)media_path_sound14,246
@@ -101,6 +101,7 @@ module UtilsUtils1,0
   def self.volume(object, camera)volume140,3161
   def self.pan(object, camera)pan149,3433
   def self.volume_and_pan(object, camera)volume_and_pan161,3686
+  def self.collides_with_poly?(poly, *box)collides_with_poly165,3785
 
 entities/powerup_display.rb,257
 class PowerupDisplayPowerupDisplay1,0
@@ -227,11 +228,11 @@ class BulletGraphics < ComponentBulletGraphics1,0
   def initialize(object)initialize4,63
   def draw(viewport)draw9,134
   def heightheight14,263
-  def widthwidth18,306
-  def center_xcenter_x24,358
-  def center_ycenter_y28,412
-  def bulletbullet32,467
-  def bulletsbullets36,549
+  def widthwidth18,308
+  def center_xcenter_x24,362
+  def center_ycenter_y28,416
+  def bulletbullet32,471
+  def bulletsbullets36,553
 
 entities/components/component.rb,209
 class ComponentComponent1,0
@@ -279,23 +280,23 @@ class CharacterHealth < HealthCharacterHealth1,0
   def update_imageupdate_image25,485
   def hp_gauge(health)hp_gauge39,760
 
-entities/components/character_physics.rb,694
+entities/components/character_physics.rb,695
 class CharacterPhysics < ComponentCharacterPhysics1,0
   def initialize(game_object, object_pool)initialize4,98
   def can_move_to?(x, y)can_move_to?11,254
-  def moving?moving?37,991
-  def updateupdate41,1027
-  def box_widthbox_width92,2057
-  def box_heightbox_height96,2121
-  def boxbox100,2188
-  def change_direction(new_direction)change_direction125,2909
-  def collides_with_poly?(poly)collides_with_poly?133,3104
-  def collides_with_point?(x, y)collides_with_point?149,3478
-  def apply_movement_penalty(speed)apply_movement_penalty153,3553
-  def accelerateaccelerate157,3643
-  def deceleratedecelerate161,3699
-  def turboturbo166,3786
-  def resetreset170,3822
+  def moving?moving?37,1004
+  def updateupdate41,1040
+  def box_widthbox_width92,2070
+  def box_heightbox_height96,2134
+  def boxbox100,2201
+  def change_direction(new_direction)change_direction125,2922
+  def collides_with_poly?(poly)collides_with_poly?133,3117
+  def collides_with_point?(x, y)collides_with_point?149,3491
+  def apply_movement_penalty(speed)apply_movement_penalty153,3566
+  def accelerateaccelerate157,3656
+  def deceleratedecelerate161,3712
+  def turboturbo166,3799
+  def resetreset170,3835
 
 entities/components/powerup_graphics.rb,284
 class PowerupGraphics < ComponentPowerupGraphics1,0
@@ -413,17 +414,16 @@ class AiVisionAiVision1,0
   def closest_characterclosest_character15,270
   def find_closest_characterfind_closest_character27,543
 
-entities/components/bullet_physics.rb,425
+entities/components/bullet_physics.rb,365
 class BulletPhysics < ComponentBulletPhysics1,0
   def initialize(game_object, object_pool)initialize5,68
   def updateupdate16,383
-  def trajectory_lengthtrajectory_length29,742
-  def point_at_distance(distance)point_at_distance33,840
-  def boxbox43,1152
-  def arrived?arrived?57,1471
-  def check_hitcheck_hit61,1542
-  def do_hit(obj)do_hit75,2005
-  def collides_with_poly?(poly)collides_with_poly?82,2190
+  def trajectory_lengthtrajectory_length28,715
+  def point_at_distance(distance)point_at_distance32,813
+  def boxbox42,1125
+  def arrived?arrived?55,1415
+  def check_hitcheck_hit59,1486
+  def do_hit(obj)do_hit73,1972
 
 entities/components/health.rb,430
 class Health < ComponentHealth1,0

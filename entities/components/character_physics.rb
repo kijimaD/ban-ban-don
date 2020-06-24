@@ -14,7 +14,7 @@ class CharacterPhysics < Component
     return false unless @map.can_move_to?(x, y)
     @object_pool.nearby(object, 100).each do |obj|
       next if obj.class == Bullet && obj.source == object
-      if collides_with_poly?(obj.box)
+      if Utils.collides_with_poly?(obj.box, *object.box)
         if obj.is_a? Powerup
           obj.on_collision(object)
         else
@@ -129,22 +129,6 @@ class CharacterPhysics < Component
   end
 
   private
-
-  def collides_with_poly?(poly)
-    if poly
-      if poly.size == 2
-        px, py = poly
-        return Utils.point_in_poly(px, py, *box)
-      end
-      poly.each_slice(2) do |x, y|
-        return true if Utils.point_in_poly(x, y, *box)
-      end
-      box.each_slice(2) do |x, y|
-        return true if Utils.point_in_poly(x, y, *poly)
-      end
-    end
-    false
-  end
 
   def collides_with_point?(x, y)
     Utils.point_in_poly(x, y, box)

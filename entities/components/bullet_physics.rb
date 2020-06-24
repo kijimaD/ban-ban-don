@@ -63,7 +63,7 @@ class BulletPhysics < Component
         if Utils.distance_between(x, y, obj.x, obj.y) < @game_object.graphics.width.to_i
           return do_hit(obj) if obj.respond_to?(:health)
         end
-      elsif collides_with_poly?(obj.box)
+      elsif Utils.collides_with_poly?(obj.box, *object.box)
         # Direct hit - extra damage
         return do_hit(obj) if obj.respond_to?(:health)
       end
@@ -75,22 +75,6 @@ class BulletPhysics < Component
     object.target_x = x
     object.target_y = y
     @game_object.sounds.hit(@game_object, @object_pool.camera)
-  end
-
-  def collides_with_poly?(poly)
-    if poly
-      if poly.size == 2
-        px, py = poly
-        return Utils.point_in_poly(px, py, *box)
-      end
-      poly.each_slice(2) do |x, y|
-        return true if Utils.point_in_poly(x, y, *box)
-      end
-      box.each_slice(2) do |x, y|
-        return true if Utils.point_in_poly(x, y, *poly)
-      end
-    end
-    false
   end
 
 end
