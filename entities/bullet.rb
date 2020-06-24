@@ -1,25 +1,31 @@
 class Bullet < GameObject
   attr_accessor :target_x, :target_y, :speed, :fired_at, :source,
-                :weapon, :gun_angle, :sounds
+                :weapon, :gun_angle, :sounds,
+                :graphics
 
   def initialize(object_pool, object, source_x, source_y, target_x, target_y)
     super(object_pool, source_x, source_y)
+    @object_pool = object_pool
     @target_x, @target_y = target_x, target_y
     @gun_angle = object.gun_angle
     @weapon = object.weapon
     @sounds = BulletSounds.new
-    BulletPhysics.new(self, object_pool)
-    BulletGraphics.new(self)
+    @physics = BulletPhysics.new(self, object_pool)
+    @graphics = BulletGraphics.new(self)
     @sounds.play(self, object_pool.camera, @weapon['fire_sound'])
   end
 
   def box
-    [@x, @y]
+    return @box if @box
+    @physics.box
   end
 
   def explode
-    if @weapon['explodable'].to_i == 1
-      Explosion.new(object_pool, @x, @y, @source)
+    if @weapon['explodable'].to_i == 1 && @object_pool.map.can_move_to?(x, y)
+      Thread.new do
+        sleep 0.1
+        Explosion.new(object_pool, @x, @y, @source)
+      end
     end
     mark_for_removal
   end

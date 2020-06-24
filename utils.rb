@@ -162,4 +162,20 @@ module Utils
     [volume(object, camera), pan(object, camera)]
   end
 
+  def self.collides_with_poly?(poly, *box)
+    if poly
+      if poly.size == 2
+        px, py = poly
+        return Utils.point_in_poly(px, py, *box)
+      end
+      poly.each_slice(2) do |x, y|
+        return true if Utils.point_in_poly(x, y, *box)
+      end
+      box.each_slice(2) do |x, y|
+        return true if Utils.point_in_poly(x, y, *poly)
+      end
+    end
+    false
+  end
+
 end

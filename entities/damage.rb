@@ -1,5 +1,5 @@
 class Damage < GameObject
-  MAX_INSTANCES = 100
+  MAX_INSTANCES = 300
   @@instances = []
 
   def initialize(object_pool, x, y)

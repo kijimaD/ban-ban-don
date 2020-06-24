@@ -7,13 +7,30 @@ class BulletGraphics < Component
   end
 
   def draw(viewport)
-    bullet(@object.weapon['bullet_image']).draw_rot(x - 4, y - 4, 1, @object.gun_angle)
+    bullet.draw_rot(x - 4, y - 4, 1, @object.gun_angle)
+    Utils.mark_corners(object.box) if $debug
+  end
+
+  def height
+    @h ||= bullet.height
+  end
+
+  def width
+    @w ||= bullet.width
   end
 
   private
 
-  def bullet(image)
-    @bullet = bullets.frame(image)
+  def center_x
+    @center_x ||= x - width / 2
+  end
+
+  def center_y
+    @center_y ||= y - height / 2
+  end
+
+  def bullet
+    @bullet ||= bullets.frame(@object.weapon['bullet_image'])
   end
 
   def bullets
