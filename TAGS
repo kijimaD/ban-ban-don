@@ -538,7 +538,7 @@ class GameObjectGameObject1,0
   def collidecollide46,726
   def object_poolobject_pool51,760
 
-entities/face_display.rb,411
+entities/face_display.rb,543
 class FaceDisplay < ComponentFaceDisplay1,0
   def initialize(object_pool, character)initialize9,214
   def drawdraw14,320
@@ -546,10 +546,13 @@ class FaceDisplay < ComponentFaceDisplay1,0
   def draw_face_bgdraw_face_bg26,489
   def draw_hpdraw_hp36,680
   def draw_hp_filterdraw_hp_filter41,763
-  def face_coordsface_coords57,1158
-  def hp_coordshp_coords65,1334
-  def face_imageface_image73,1544
-  def hp_imagehp_image77,1641
+  def draw_magazinedraw_magazine55,1163
+  def face_coordsface_coords62,1239
+  def hp_coordshp_coords70,1415
+  def magazine_coordsmagazine_coords78,1625
+  def face_imageface_image86,1881
+  def hp_imagehp_image90,1978
+  def magazine_imagemagazine_image94,2063
 
 entities/damage.rb,153
 class Damage < GameObjectDamage1,0

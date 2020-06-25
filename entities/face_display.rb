@@ -16,6 +16,7 @@ class FaceDisplay < Component
     draw_face_bg
     draw_hp
     draw_hp_filter
+    draw_magazine
   end
 
   def draw_face
@@ -45,11 +46,16 @@ class FaceDisplay < Component
       x1 = PADDING + face_image.width + hp_image_len
     end
     $window.draw_quad(
-      x1, y1, FILTER,
-      x2, y1, FILTER,
-      x2, y2, FILTER,
-      x1, y2, FILTER,
+      x1, y1 + 1, FILTER,
+      x2, y1 + 1, FILTER,
+      x2, y2 - 1, FILTER,
+      x1, y2 - 1, FILTER,
       400)
+  end
+
+  def draw_magazine
+    x1, x2, y1, y2 = magazine_coords
+    magazine_image.draw(x1, y1, 200)
   end
 
   private
@@ -70,12 +76,24 @@ class FaceDisplay < Component
     [x1, x2, y1, y2]
   end
 
+  def magazine_coords
+    x1 = PADDING + face_image.width + hp_image.width + PADDING
+    x2 = PADDING + face_image.width + hp_image.width + magazine_image.width
+    y1 = $window.height - HEIGHT + PADDING
+    y2 = $window.height - PADDING
+    [x1, x2, y1, y2]
+  end
+
   def face_image
     @@face_image ||= Gosu::Image.new(Utils.media_path('sirase_mic.png'))
   end
 
   def hp_image
     @@hp_image ||= Gosu::Image.new(Utils.media_path('hp.png'))
+  end
+
+  def magazine_image
+    @@magazine_image ||= Gosu::Image.new(Utils.media_path('magazine.png'))
   end
 
 end
