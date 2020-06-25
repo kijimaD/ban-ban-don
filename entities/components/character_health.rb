@@ -1,6 +1,6 @@
 class CharacterHealth < Health
   attr_accessor :health, :max_health
-  MAX_HEALTH = 100
+  MAX_HEALTH = 500
 
   def initialize(object, object_pool)
     super(object, object_pool, MAX_HEALTH, true)

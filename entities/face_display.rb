@@ -2,7 +2,7 @@ class FaceDisplay < Component
   WIDTH = 200
   HEIGHT = 60
   PADDING = 10
-  BACKGROUND = Gosu::Color.new(255, 0, 0, 0)
+  BACKGROUND = Gosu::Color.new(255 * 0.5, 255, 0, 0)
   FONT_COLOR = Gosu::Color::WHITE
 
   def initialize(object_pool, character)

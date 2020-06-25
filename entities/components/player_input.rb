@@ -47,6 +47,10 @@ class PlayerInput < Component
       object.shoot(*@camera.mouse_coords)
     end
 
+    if Utils.button_down?(Gosu::KbSpace) && $debug == true
+      sleep 10
+    end
+
     if Utils.button_down?(Gosu::KbUp) && @camera.zoom < 2.0
       @camera.zoom += 0.1
     end
