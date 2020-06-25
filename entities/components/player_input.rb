@@ -48,7 +48,7 @@ class PlayerInput < Component
     end
 
     if Utils.button_down?(Gosu::KbSpace) && $debug == true
-      sleep 10
+      sleep 4
     end
 
     if Utils.button_down?(Gosu::KbUp) && @camera.zoom < 2.0

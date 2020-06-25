@@ -459,8 +459,8 @@ class PlayerInput < ComponentPlayerInput1,0
   def control(obj)control11,187
   def on_collision(with)on_collision15,235
   def updateupdate18,267
-  def any_button_down?(*buttons)any_button_down?62,1363
-  def change_angle(previous_angle, up, down, right, left)change_angle69,1488
+  def any_button_down?(*buttons)any_button_down?66,1445
+  def change_angle(previous_angle, up, down, right, left)change_angle73,1570
 
 entities/components/character_graphics.rb,420
 class CharacterGraphics < ComponentCharacterGraphics1,0
