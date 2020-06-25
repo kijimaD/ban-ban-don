@@ -25,11 +25,14 @@ class CharacterSounds < Component
   end
 
   def collide
-    vol, pan = Utils.volume_and_pan(
-           object, @object_pool.camera)
-    crash_sound.play(self.object_id, pan, vol, 1, false)
+    vol, pan = Utils.volume_and_pan(object, @object_pool.camera)
+    crash_sound.play(self.object_id, pan, vol)
   end
 
+  def reload
+    vol, pan = Utils.volume_and_pan(object, @object_pool.camera)
+    reload_sound.play(self.object_id, pan, vol)
+  end
 
   private
 
@@ -43,6 +46,10 @@ class CharacterSounds < Component
 
   def hit_bullet_sound
     @@hit_bullet_sound ||= StereoSample.new(Utils.media_path_sound('bullet_hit.mp3'))
+  end
+
+  def reload_sound
+    @@reload_sound ||= StereoSample.new(Utils.media_path_sound('reload.mp3'))
   end
 
 end

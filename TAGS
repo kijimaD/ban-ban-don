@@ -37,14 +37,14 @@ class PlayState < GameStatePlayState2,16
 
 game_states/menu_state.rb,264
 class MenuState < GameStateMenuState2,16
-  def initializeinitialize9,187
-  def enterenter13,314
-  def leaveleave18,375
-  def musicmusic23,430
-  def updateupdate27,522
-  def drawdraw32,748
-  def button_down(id)button_down44,1012
-  def bgbg55,1261
+  def initializeinitialize9,195
+  def enterenter13,322
+  def leaveleave18,383
+  def musicmusic23,438
+  def updateupdate27,530
+  def drawdraw32,756
+  def button_down(id)button_down44,1020
+  def bgbg55,1269
 
 misc/stats.rb,192
 class StatsStats1,0
@@ -118,8 +118,8 @@ class PowerupDisplayPowerupDisplay1,0
 entities/hud.rb,125
 class HUDHUD1,0
   def initialize(object_pool, character)initialize3,11
-  def updateupdate13,412
-  def drawdraw19,499
+  def updateupdate15,540
+  def drawdraw19,578
 
 entities/powerups/powerup_respawn_queue.rb,180
 class PowerupRespawnQueuePowerupRespawnQueue1,0
@@ -222,6 +222,16 @@ class AiInput < ComponentAiInput1,0
   def updateupdate30,629
   def draw(viewport)draw41,857
 
+entities/components/weapon_display.rb,324
+class WeaponDisplay < ComponentWeaponDisplay1,0
+  def initialize(object_pool, character)initialize8,161
+  def updateupdate14,288
+  def drawdraw17,308
+  def draw_weapon_typedraw_weapon_type22,366
+  def draw_weapon_bgdraw_weapon_bg27,486
+  def weapon_coordsweapon_coords39,738
+  def weapon_msgweapon_msg47,903
+
 entities/components/powerup_sounds.rb,104
 class PowerupSoundsPowerupSounds1,0
     def play(object, camera)play3,36
@@ -278,11 +288,11 @@ class TreeGraphics < ComponentTreeGraphics1,0
 
 entities/components/character_health.rb,243
 class CharacterHealth < HealthCharacterHealth1,0
-  def initialize(object, object_pool)initialize5,75
-  def updateupdate14,310
-  def draw(viewport)draw18,347
-  def update_imageupdate_image25,485
-  def hp_gauge(health)hp_gauge39,760
+  def initialize(object, object_pool)initialize5,88
+  def updateupdate15,352
+  def draw(viewport)draw19,389
+  def update_imageupdate_image26,527
+  def hp_gauge(health)hp_gauge40,802
 
 entities/components/character_physics.rb,634
 class CharacterPhysics < ComponentCharacterPhysics1,0
@@ -316,27 +326,26 @@ class ExplosionSoundsExplosionSounds1,0
     def play(object, camera)play3,38
     def soundsound10,194
 
-entities/components/ammo_display.rb,433
+entities/components/ammo_display.rb,298
 class AmmoDisplay < ComponentAmmoDisplay1,0
-  def initialize(object_pool, character)initialize8,160
-  def updateupdate14,287
-  def drawdraw18,418
-  def draw_ammodraw_ammo25,507
-  def draw_ammo_bgdraw_ammo_bg32,660
-  def draw_weapon_typedraw_weapon_type42,857
-  def draw_weapon_bgdraw_weapon_bg49,1015
-  def ammo_coordsammo_coords59,1334
-  def weapon_coordsweapon_coords67,1507
-  def ammo_imageammo_image75,1656
+  def initialize(object_pool, character)initialize8,159
+  def updateupdate14,286
+  def drawdraw17,306
+  def draw_ammodraw_ammo21,338
+  def draw_ammo_bgdraw_ammo_bg28,491
+  def ammo_coordsammo_coords40,699
+  def ammo_imageammo_image48,835
 
-entities/components/character_sounds.rb,289
+entities/components/character_sounds.rb,373
 class CharacterSounds < ComponentCharacterSounds1,0
   def initialize(object, object_pool)initialize3,35
   def updateupdate8,129
   def collidecollide27,652
-  def driving_sounddriving_sound36,819
-  def crash_soundcrash_sound40,929
-  def hit_bullet_soundhit_bullet_sound44,1030
+  def reload(object, camera)reload32,795
+  def driving_sounddriving_sound39,954
+  def crash_soundcrash_sound43,1064
+  def hit_bullet_soundhit_bullet_sound47,1165
+  def reload_soundreload_sound51,1281
 
 entities/components/ai/character_fleeing_state.rb,331
 class CharacterFleeingState < CharacterMotionStateCharacterFleeingState1,0
@@ -459,29 +468,30 @@ class PlayerInput < ComponentPlayerInput1,0
   def control(obj)control11,187
   def on_collision(with)on_collision15,235
   def updateupdate18,267
-  def any_button_down?(*buttons)any_button_down?62,1363
-  def change_angle(previous_angle, up, down, right, left)change_angle69,1488
+  def any_button_down?(*buttons)any_button_down?66,1445
+  def change_angle(previous_angle, up, down, right, left)change_angle73,1570
 
 entities/components/character_graphics.rb,420
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize9,171
   def update()update15,331
-  def draw(viewport)draw19,384
-  def draw_bounding_boxdraw_bounding_box24,478
-  def widthwidth37,747
-  def heightheight41,782
-  def direction_graphicsdirection_graphics45,819
-  def each_image(stand_image, run_image0, run_image1)each_image57,1118
-  def charascharas76,1570
+  def draw(viewport)draw22,473
+  def draw_bounding_boxdraw_bounding_box27,567
+  def widthwidth40,836
+  def heightheight44,871
+  def direction_graphicsdirection_graphics48,908
+  def each_image(stand_image, run_image0, run_image1)each_image60,1207
+  def charascharas79,1659
 
-entities/character.rb,293
+entities/character.rb,321
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize8,273
-  def boxbox25,838
-  def shoot(target_x, target_y)shoot29,872
-  def can_shoot?can_shoot?42,1179
-  def on_collision(object)on_collision46,1284
-  def reset_modifiersreset_modifiers58,1547
+  def initialize(object_pool, input)initialize9,307
+  def boxbox27,904
+  def shoot(target_x, target_y)shoot31,938
+  def can_shoot?can_shoot?44,1245
+  def reloadreload48,1350
+  def on_collision(object)on_collision63,1725
+  def reset_modifiersreset_modifiers75,1988
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
@@ -495,9 +505,9 @@ class SpeedMeterSpeedMeter1,0
   def initialize(object_pool, character)initialize8,146
   def updateupdate14,273
   def drawdraw17,293
-  def speed_imagespeed_image22,328
-  def draw_speed_bgdraw_speed_bg27,463
-  def speed_coordsspeed_coords38,667
+  def speed_imagespeed_image23,351
+  def draw_speed_bgdraw_speed_bg28,486
+  def speed_coordsspeed_coords39,690
 
 entities/object_pool.rb,357
 class ObjectPoolObjectPool1,0
@@ -537,6 +547,24 @@ class GameObjectGameObject1,0
   def boxbox43,709
   def collidecollide46,726
   def object_poolobject_pool51,760
+
+entities/face_display.rb,635
+class FaceDisplay < ComponentFaceDisplay1,0
+  def initialize(object_pool, character)initialize9,212
+  def drawdraw14,318
+  def draw_facedraw_face23,440
+  def draw_face_bgdraw_face_bg28,529
+  def draw_hpdraw_hp38,720
+  def draw_hp_filterdraw_hp_filter43,803
+  def draw_magazinedraw_magazine57,1203
+  def draw_magazine_msgdraw_magazine_msg62,1304
+  def face_coordsface_coords71,1462
+  def hp_coordshp_coords79,1638
+  def magazine_coordsmagazine_coords87,1848
+  def face_imageface_image95,2114
+  def hp_imagehp_image99,2211
+  def magazine_imagemagazine_image103,2296
+  def magazine_msgmagazine_msg107,2399
 
 entities/damage.rb,153
 class Damage < GameObjectDamage1,0

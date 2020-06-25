@@ -4,25 +4,25 @@
 			"frame": {
 				"x": 1,
 				"y": 1,
-				"w": 22,
-				"h": 22
+				"w": 8,
+				"h": 10
 			},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {
 				"x": 0,
 				"y": 0,
-				"w": 22,
-				"h": 22
+				"w": 8,
+				"h": 10
 			},
 			"sourceSize": {
-				"w": 22,
-				"h": 22
+				"w": 8,
+				"h": 10
 			}
 		},
 		"bullet_katana.png": {
 			"frame": {
-				"x": 25,
+				"x": 11,
 				"y": 1,
 				"w": 24,
 				"h": 24
@@ -42,7 +42,7 @@
 		},
 		"bullet_launcher.png": {
 			"frame": {
-				"x": 51,
+				"x": 37,
 				"y": 1,
 				"w": 16,
 				"h": 16
@@ -67,7 +67,7 @@
 		"image": "bullets.png",
 		"format": "RGBA8888",
 		"size": {
-			"w": 68,
+			"w": 54,
 			"h": 26
 		},
 		"scale": "1"
