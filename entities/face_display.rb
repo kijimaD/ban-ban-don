@@ -3,7 +3,7 @@ class FaceDisplay < Component
   HEIGHT = 60
   PADDING = 10
   FILTER = Gosu::Color.new(255 * 0.8, 255, 0, 0)
-  BACKGROUND = Gosu::Color.new(255 * 0.5, 255, 255, 255)
+  BACKGROUND = Gosu::Color.new(255 * 0.8, 255, 255, 255)
   FONT_COLOR = Gosu::Color::RED
 
   def initialize(object_pool, character)
@@ -13,7 +13,7 @@ class FaceDisplay < Component
 
   def draw
     draw_face
-    draw_face_bg
+    # draw_face_bg
     draw_hp
     draw_hp_filter
     draw_magazine

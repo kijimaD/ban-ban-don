@@ -118,8 +118,8 @@ class PowerupDisplayPowerupDisplay1,0
 entities/hud.rb,125
 class HUDHUD1,0
   def initialize(object_pool, character)initialize3,11
-  def updateupdate15,475
-  def drawdraw20,538
+  def updateupdate15,540
+  def drawdraw20,603
 
 entities/powerups/powerup_respawn_queue.rb,180
 class PowerupRespawnQueuePowerupRespawnQueue1,0
@@ -222,6 +222,16 @@ class AiInput < ComponentAiInput1,0
   def updateupdate30,629
   def draw(viewport)draw41,857
 
+entities/components/weapon_display.rb,324
+class WeaponDisplay < ComponentWeaponDisplay1,0
+  def initialize(object_pool, character)initialize8,161
+  def updateupdate14,288
+  def drawdraw18,309
+  def draw_weapon_typedraw_weapon_type23,367
+  def draw_weapon_bgdraw_weapon_bg30,524
+  def weapon_coordsweapon_coords42,736
+  def weapon_msgweapon_msg50,901
+
 entities/components/powerup_sounds.rb,104
 class PowerupSoundsPowerupSounds1,0
     def play(object, camera)play3,36
@@ -316,18 +326,15 @@ class ExplosionSoundsExplosionSounds1,0
     def play(object, camera)play3,38
     def soundsound10,194
 
-entities/components/ammo_display.rb,433
+entities/components/ammo_display.rb,298
 class AmmoDisplay < ComponentAmmoDisplay1,0
-  def initialize(object_pool, character)initialize8,159
-  def updateupdate14,286
-  def drawdraw18,417
-  def draw_ammodraw_ammo25,508
-  def draw_ammo_bgdraw_ammo_bg32,661
-  def draw_weapon_typedraw_weapon_type42,858
-  def draw_weapon_bgdraw_weapon_bg49,1016
-  def ammo_coordsammo_coords61,1228
-  def weapon_coordsweapon_coords69,1364
-  def ammo_imageammo_image77,1537
+  def initialize(object_pool, character)initialize9,179
+  def updateupdate15,306
+  def drawdraw18,326
+  def draw_ammodraw_ammo22,358
+  def draw_ammo_bgdraw_ammo_bg29,516
+  def ammo_coordsammo_coords41,724
+  def ammo_imageammo_image49,860
 
 entities/components/character_sounds.rb,289
 class CharacterSounds < ComponentCharacterSounds1,0
@@ -542,19 +549,19 @@ entities/face_display.rb,635
 class FaceDisplay < ComponentFaceDisplay1,0
   def initialize(object_pool, character)initialize9,212
   def drawdraw14,318
-  def draw_facedraw_face23,438
-  def draw_face_bgdraw_face_bg28,527
-  def draw_hpdraw_hp38,718
-  def draw_hp_filterdraw_hp_filter43,801
-  def draw_magazinedraw_magazine57,1201
-  def draw_magazine_msgdraw_magazine_msg62,1302
-  def face_coordsface_coords71,1447
-  def hp_coordshp_coords79,1623
-  def magazine_coordsmagazine_coords87,1833
-  def face_imageface_image95,2099
-  def hp_imagehp_image99,2196
-  def magazine_imagemagazine_image103,2281
-  def magazine_msgmagazine_msg107,2384
+  def draw_facedraw_face23,440
+  def draw_face_bgdraw_face_bg28,529
+  def draw_hpdraw_hp38,720
+  def draw_hp_filterdraw_hp_filter43,803
+  def draw_magazinedraw_magazine57,1203
+  def draw_magazine_msgdraw_magazine_msg62,1304
+  def face_coordsface_coords71,1462
+  def hp_coordshp_coords79,1638
+  def magazine_coordsmagazine_coords87,1848
+  def face_imageface_image95,2114
+  def hp_imagehp_image99,2211
+  def magazine_imagemagazine_image103,2296
+  def magazine_msgmagazine_msg107,2399
 
 entities/damage.rb,153
 class Damage < GameObjectDamage1,0

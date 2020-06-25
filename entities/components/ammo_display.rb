@@ -1,6 +1,6 @@
 class AmmoDisplay < Component
-  WIDTH = 80
-  HEIGHT = 80
+  WIDTH = 60
+  HEIGHT = 70
   PADDING = 10
   BACKGROUND = Gosu::Color.new(255 * 0.33, 0, 0, 0)
   FONT_COLOR = Gosu::Color::WHITE
@@ -12,14 +12,10 @@ class AmmoDisplay < Component
   end
 
   def update
-    @weapon_message = Gosu::Image.from_text(@character.weapon['name'], 20, options = {font: Utils.title_font})
   end
 
   def draw
-    # draw_ammo_bg
     draw_ammo
-    draw_weapon_type
-    draw_weapon_bg
   end
 
   def draw_ammo
@@ -39,23 +35,6 @@ class AmmoDisplay < Component
       200)
   end
 
-  def draw_weapon_type
-    x1, x2, y1, y2 = weapon_coords
-    if @weapon_message
-      @weapon_message.draw(x1, y1, 300, 1.0, 1.0, FONT_COLOR)
-    end
-  end
-
-  def draw_weapon_bg
-    x1, x2, y1, y2 = weapon_coords
-    $window.draw_quad(
-      x1, y1, BACKGROUND,
-      x2, y1, BACKGROUND,
-      x2, y2, BACKGROUND,
-      x1, y2, BACKGROUND,
-      200)
-  end
-
   private
 
   def ammo_coords
@@ -63,14 +42,6 @@ class AmmoDisplay < Component
     x2 = 0
     y1 = $window.height - HEIGHT - PADDING
     y2 = 0
-    [x1, x2, y1, y2]
-  end
-
-  def weapon_coords
-    x1 = PADDING * 2
-    x2 = @weapon_message.width + PADDING
-    y1 = PADDING * 2
-    y2 = @weapon_message.height + PADDING
     [x1, x2, y1, y2]
   end
 
