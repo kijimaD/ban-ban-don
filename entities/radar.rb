@@ -6,11 +6,9 @@ class Radar
   MIN_DISTANCE = 300
   MAX_DISTANCE = 2000
 
-  attr_accessor :target
-
-  def initialize(object_pool, target)
+  def initialize(object_pool, object)
     @object_pool = object_pool
-    @target = target
+    @object = object
     @last_update = 0
   end
 
@@ -18,13 +16,13 @@ class Radar
     if Gosu.milliseconds - @last_update > UPDATE_FREQUENCY
       @nearby = nil
     end
-    @nearby ||= @object_pool.nearby(@target, MAX_DISTANCE, MIN_DISTANCE).select do |o|
+    @nearby ||= @object_pool.nearby(@object, MAX_DISTANCE, MIN_DISTANCE).select do |o|
       o.class == Character && !o.health.dead?
     end
   end
 
   def draw
-    draw_character(@target)
+    draw_character(@object)
     @nearby && @nearby.each do |t|
       draw_character(t)
     end
@@ -33,12 +31,12 @@ class Radar
   private
 
   def draw_character(character)
-    if character == @target
+    if character == @object
       return
     end
 
-    atan = Math.atan2(@target.x - character.x,
-                      @target.y - character.y)
+    atan = Math.atan2(@object.x - character.x,
+                      @object.y - character.y)
     if atan < 0
       atan = atan + 2 * Math::PI
     end

@@ -21,6 +21,14 @@ module Utils
     end
   end
 
+  def self.title_font
+    media_path('GN-KillGothic-U-KanaNA.ttf')
+  end
+
+  def self.main_font()
+    media_path('MPLUS1p-Bold.ttf')
+  end
+
   def self.track_update_interval
     now = Gosu.milliseconds
     @update_interval = (now - (@last_update ||= 0)).to_f
