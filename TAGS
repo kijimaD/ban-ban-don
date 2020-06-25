@@ -118,8 +118,8 @@ class PowerupDisplayPowerupDisplay1,0
 entities/hud.rb,125
 class HUDHUD1,0
   def initialize(object_pool, character)initialize3,11
-  def updateupdate13,412
-  def drawdraw19,499
+  def updateupdate15,475
+  def drawdraw20,538
 
 entities/powerups/powerup_respawn_queue.rb,180
 class PowerupRespawnQueuePowerupRespawnQueue1,0
@@ -321,13 +321,13 @@ class AmmoDisplay < ComponentAmmoDisplay1,0
   def initialize(object_pool, character)initialize8,160
   def updateupdate14,287
   def drawdraw18,418
-  def draw_ammodraw_ammo25,507
-  def draw_ammo_bgdraw_ammo_bg32,660
-  def draw_weapon_typedraw_weapon_type42,857
-  def draw_weapon_bgdraw_weapon_bg49,1015
-  def ammo_coordsammo_coords59,1334
-  def weapon_coordsweapon_coords67,1507
-  def ammo_imageammo_image75,1656
+  def draw_ammodraw_ammo25,509
+  def draw_ammo_bgdraw_ammo_bg32,662
+  def draw_weapon_typedraw_weapon_type42,859
+  def draw_weapon_bgdraw_weapon_bg49,1017
+  def ammo_coordsammo_coords61,1229
+  def weapon_coordsweapon_coords69,1357
+  def ammo_imageammo_image77,1530
 
 entities/components/character_sounds.rb,289
 class CharacterSounds < ComponentCharacterSounds1,0
@@ -495,9 +495,9 @@ class SpeedMeterSpeedMeter1,0
   def initialize(object_pool, character)initialize8,146
   def updateupdate14,273
   def drawdraw17,293
-  def speed_imagespeed_image22,328
-  def draw_speed_bgdraw_speed_bg27,463
-  def speed_coordsspeed_coords38,667
+  def speed_imagespeed_image23,351
+  def draw_speed_bgdraw_speed_bg28,486
+  def speed_coordsspeed_coords39,690
 
 entities/object_pool.rb,357
 class ObjectPoolObjectPool1,0
@@ -537,6 +537,14 @@ class GameObjectGameObject1,0
   def boxbox43,709
   def collidecollide46,726
   def object_poolobject_pool51,760
+
+entities/face_display.rb,232
+class FaceDisplay < ComponentFaceDisplay1,0
+  def initialize(object_pool, character)initialize8,160
+  def drawdraw13,266
+  def draw_facedraw_face17,298
+  def face_coordsface_coords24,398
+  def face_imageface_image32,526
 
 entities/damage.rb,153
 class Damage < GameObjectDamage1,0

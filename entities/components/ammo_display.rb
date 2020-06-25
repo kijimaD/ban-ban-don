@@ -1,6 +1,6 @@
 class AmmoDisplay < Component
-  WIDTH = 150
-  HEIGHT = 100
+  WIDTH = 80
+  HEIGHT = 80
   PADDING = 10
   BACKGROUND = Gosu::Color.new(255 * 0.33, 0, 0, 0)
   FONT_COLOR = Gosu::Color::WHITE
@@ -50,30 +50,32 @@ class AmmoDisplay < Component
     x1, x2, y1, y2 = weapon_coords
     $window.draw_quad(
       x1, y1, BACKGROUND,
-      @weapon_message.width + PADDING, y1, BACKGROUND,
-      @weapon_message.width + PADDING, @weapon_message.height + PADDING, BACKGROUND,
-      x1, @weapon_message.height + PADDING, BACKGROUND,
+      x2, y1, BACKGROUND,
+      x2, y2, BACKGROUND,
+      x1, y2, BACKGROUND,
       200)
   end
 
+  private
+
   def ammo_coords
-    x1 = PADDING
-    x2 = $window.width - PADDING
+    x1 = WIDTH + PADDING
+    x2 = 0
     y1 = $window.height - HEIGHT - PADDING
-    y2 = $window.height - PADDING
+    y2 = 0
     [x1, x2, y1, y2]
   end
 
   def weapon_coords
-    x1 = PADDING
-    x2 = $window.width - PADDING
-    y1 = PADDING
-    y2 = $window.height - PADDING
+    x1 = PADDING * 2
+    x2 = @weapon_message.width + PADDING
+    y1 = PADDING * 2
+    y2 = @weapon_message.height + PADDING
     [x1, x2, y1, y2]
   end
 
   def ammo_image
-    Gosu::Image.new(Utils.media_path('ammo.png'))
+    @@image ||= Gosu::Image.new(Utils.media_path('ammo.png'))
   end
 
 end
