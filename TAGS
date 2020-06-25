@@ -31,9 +31,9 @@ class PlayState < GameStatePlayState2,16
   def enterenter20,580
   def leaveleave24,645
   def updateupdate32,810
-  def drawdraw41,961
-  def button_down(id)button_down64,1587
-  def update_captionupdate_caption82,1937
+  def drawdraw40,937
+  def button_down(id)button_down63,1563
+  def update_captionupdate_caption81,1913
 
 game_states/menu_state.rb,264
 class MenuState < GameStateMenuState2,16
@@ -336,16 +336,16 @@ class AmmoDisplay < ComponentAmmoDisplay1,0
   def ammo_coordsammo_coords40,699
   def ammo_imageammo_image48,835
 
-entities/components/character_sounds.rb,357
+entities/components/character_sounds.rb,373
 class CharacterSounds < ComponentCharacterSounds1,0
   def initialize(object, object_pool)initialize3,35
   def updateupdate8,129
   def collidecollide27,652
-  def reloadreload33,807
-  def driving_sounddriving_sound41,973
-  def crash_soundcrash_sound45,1083
-  def hit_bullet_soundhit_bullet_sound49,1184
-  def reload_soundreload_sound53,1300
+  def reload(object, camera)reload32,795
+  def driving_sounddriving_sound39,954
+  def crash_soundcrash_sound43,1064
+  def hit_bullet_soundhit_bullet_sound47,1165
+  def reload_soundreload_sound51,1281
 
 entities/components/ai/character_fleeing_state.rb,331
 class CharacterFleeingState < CharacterMotionStateCharacterFleeingState1,0
@@ -475,24 +475,23 @@ entities/components/character_graphics.rb,420
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize9,171
   def update()update15,331
-  def draw(viewport)draw19,384
-  def draw_bounding_boxdraw_bounding_box24,478
-  def widthwidth37,747
-  def heightheight41,782
-  def direction_graphicsdirection_graphics45,819
-  def each_image(stand_image, run_image0, run_image1)each_image57,1118
-  def charascharas76,1570
+  def draw(viewport)draw22,473
+  def draw_bounding_boxdraw_bounding_box27,567
+  def widthwidth40,836
+  def heightheight44,871
+  def direction_graphicsdirection_graphics48,908
+  def each_image(stand_image, run_image0, run_image1)each_image60,1207
+  def charascharas79,1659
 
-entities/character.rb,349
+entities/character.rb,321
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize9,306
-  def boxbox27,903
-  def updateupdate31,937
-  def shoot(target_x, target_y)shoot37,1027
-  def can_shoot?can_shoot?52,1360
-  def reloadreload56,1465
-  def on_collision(object)on_collision68,1743
-  def reset_modifiersreset_modifiers80,2006
+  def initialize(object_pool, input)initialize9,307
+  def boxbox27,904
+  def shoot(target_x, target_y)shoot31,938
+  def can_shoot?can_shoot?44,1245
+  def reloadreload48,1350
+  def on_collision(object)on_collision63,1725
+  def reset_modifiersreset_modifiers75,1988
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0

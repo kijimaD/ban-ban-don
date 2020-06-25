@@ -4,7 +4,7 @@ class Character < GameObject
                 :sounds, :physics, :graphics,
                 :number_ammo, :number_magazine, :health, :weapon,
                 :fire_rate_modifier, :speed_modifier
-  MAX_AMMO = 3
+  MAX_AMMO = 10
 
   def initialize(object_pool, input)
     x, y = object_pool.map.spawn_point
@@ -19,7 +19,7 @@ class Character < GameObject
     @shoot_delay = @weapon['shoot_delay'].to_i
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
-    @number_magazine = 30
+    @number_magazine = 20
     @number_ammo = MAX_AMMO
     reset_modifiers
   end
@@ -37,8 +37,6 @@ class Character < GameObject
         if $debug
           @number_ammo += 1
         end
-      else
-        reload
       end
     end
   end
@@ -51,10 +49,13 @@ class Character < GameObject
     if @number_magazine > 0 && Gosu.milliseconds - (@last_reload || 0) > 3000
       Thread.new do
         @last_reload = Gosu.milliseconds
+        @on_reload = true
+        sleep 0.8
         @sounds.reload
         @number_magazine -= 1
         sleep 2
         @number_ammo = MAX_AMMO
+        @on_reload = false
       end
     end
   end

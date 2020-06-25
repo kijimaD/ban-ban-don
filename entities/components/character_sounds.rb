@@ -25,15 +25,13 @@ class CharacterSounds < Component
   end
 
   def collide
-    vol, pan = Utils.volume_and_pan(
-           object, @object_pool.camera)
-    crash_sound.play(self.object_id, pan, vol, 1, false)
+    vol, pan = Utils.volume_and_pan(object, @object_pool.camera)
+    crash_sound.play(self.object_id, pan, vol)
   end
 
   def reload
-    vol, pan = Utils.volume_and_pan(
-           object, @object_pool.camera)
-    reload_sound.play(self.object_id, pan, vol, 1, false)
+    vol, pan = Utils.volume_and_pan(object, @object_pool.camera)
+    reload_sound.play(self.object_id, pan, vol)
   end
 
   private

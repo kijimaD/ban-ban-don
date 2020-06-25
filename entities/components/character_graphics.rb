@@ -14,6 +14,9 @@ class CharacterGraphics < Component
 
   def update()
     @body = direction_graphics
+    if object.number_ammo == 0 && object.number_magazine > 0
+      object.reload
+    end
   end
 
   def draw(viewport)
