@@ -11,7 +11,7 @@ class PlayState < GameState
     @object_pool.camera = @camera
     @hud = HUD.new(@object_pool, @character)
     Damage.new(@object_pool, 0, 0).mark_for_removal
-    3.times do
+    1.times do
       Character.new(@object_pool, AiInput.new(@object_pool))
     end
     puts "Pool size: #{@object_pool.size}"

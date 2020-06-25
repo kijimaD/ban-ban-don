@@ -31,9 +31,9 @@ class PlayState < GameStatePlayState2,16
   def enterenter20,580
   def leaveleave24,645
   def updateupdate32,810
-  def drawdraw40,937
-  def button_down(id)button_down63,1563
-  def update_captionupdate_caption81,1913
+  def drawdraw41,961
+  def button_down(id)button_down64,1587
+  def update_captionupdate_caption82,1937
 
 game_states/menu_state.rb,264
 class MenuState < GameStateMenuState2,16
@@ -119,7 +119,7 @@ entities/hud.rb,125
 class HUDHUD1,0
   def initialize(object_pool, character)initialize3,11
   def updateupdate15,540
-  def drawdraw20,603
+  def drawdraw19,578
 
 entities/powerups/powerup_respawn_queue.rb,180
 class PowerupRespawnQueuePowerupRespawnQueue1,0
@@ -226,11 +226,11 @@ entities/components/weapon_display.rb,324
 class WeaponDisplay < ComponentWeaponDisplay1,0
   def initialize(object_pool, character)initialize8,161
   def updateupdate14,288
-  def drawdraw18,309
-  def draw_weapon_typedraw_weapon_type23,367
-  def draw_weapon_bgdraw_weapon_bg30,524
-  def weapon_coordsweapon_coords42,736
-  def weapon_msgweapon_msg50,901
+  def drawdraw17,308
+  def draw_weapon_typedraw_weapon_type22,366
+  def draw_weapon_bgdraw_weapon_bg27,486
+  def weapon_coordsweapon_coords39,738
+  def weapon_msgweapon_msg47,903
 
 entities/components/powerup_sounds.rb,104
 class PowerupSoundsPowerupSounds1,0
@@ -328,22 +328,24 @@ class ExplosionSoundsExplosionSounds1,0
 
 entities/components/ammo_display.rb,298
 class AmmoDisplay < ComponentAmmoDisplay1,0
-  def initialize(object_pool, character)initialize9,179
-  def updateupdate15,306
-  def drawdraw18,326
-  def draw_ammodraw_ammo22,358
-  def draw_ammo_bgdraw_ammo_bg29,516
-  def ammo_coordsammo_coords41,724
-  def ammo_imageammo_image49,860
+  def initialize(object_pool, character)initialize8,159
+  def updateupdate14,286
+  def drawdraw17,306
+  def draw_ammodraw_ammo21,338
+  def draw_ammo_bgdraw_ammo_bg28,491
+  def ammo_coordsammo_coords40,699
+  def ammo_imageammo_image48,835
 
-entities/components/character_sounds.rb,289
+entities/components/character_sounds.rb,357
 class CharacterSounds < ComponentCharacterSounds1,0
   def initialize(object, object_pool)initialize3,35
   def updateupdate8,129
   def collidecollide27,652
-  def driving_sounddriving_sound36,819
-  def crash_soundcrash_sound40,929
-  def hit_bullet_soundhit_bullet_sound44,1030
+  def reloadreload33,807
+  def driving_sounddriving_sound41,973
+  def crash_soundcrash_sound45,1083
+  def hit_bullet_soundhit_bullet_sound49,1184
+  def reload_soundreload_sound53,1300
 
 entities/components/ai/character_fleeing_state.rb,331
 class CharacterFleeingState < CharacterMotionStateCharacterFleeingState1,0
@@ -481,14 +483,16 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def each_image(stand_image, run_image0, run_image1)each_image57,1118
   def charascharas76,1570
 
-entities/character.rb,293
+entities/character.rb,349
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize8,291
-  def boxbox26,881
-  def shoot(target_x, target_y)shoot30,915
-  def can_shoot?can_shoot?43,1222
-  def on_collision(object)on_collision47,1327
-  def reset_modifiersreset_modifiers59,1590
+  def initialize(object_pool, input)initialize9,306
+  def boxbox27,903
+  def updateupdate31,937
+  def shoot(target_x, target_y)shoot37,1027
+  def can_shoot?can_shoot?52,1360
+  def reloadreload56,1465
+  def on_collision(object)on_collision68,1743
+  def reset_modifiersreset_modifiers80,2006
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
