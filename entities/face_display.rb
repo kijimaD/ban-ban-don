@@ -4,7 +4,7 @@ class FaceDisplay < Component
   PADDING = 10
   FILTER = Gosu::Color.new(255 * 0.8, 255, 0, 0)
   BACKGROUND = Gosu::Color.new(255 * 0.5, 255, 255, 255)
-  FONT_COLOR = Gosu::Color::WHITE
+  FONT_COLOR = Gosu::Color::RED
 
   def initialize(object_pool, character)
     @object_pool = object_pool
@@ -17,6 +17,7 @@ class FaceDisplay < Component
     draw_hp
     draw_hp_filter
     draw_magazine
+    draw_magazine_msg
   end
 
   def draw_face
@@ -58,6 +59,13 @@ class FaceDisplay < Component
     magazine_image.draw(x1, y1, 200)
   end
 
+  def draw_magazine_msg
+    x1, x2, y1, y2 = magazine_coords
+    magazine_msg.draw(
+      x2, y1 + PADDING, 100, 1.0, 1.0, FONT_COLOR
+    )
+  end
+
   private
 
   def face_coords
@@ -94,6 +102,10 @@ class FaceDisplay < Component
 
   def magazine_image
     @@magazine_image ||= Gosu::Image.new(Utils.media_path('magazine.png'))
+  end
+
+  def magazine_msg
+    @msg = Gosu::Image.from_text("x#{@character.number_magazine}", 30, options = {font: Utils.title_font})
   end
 
 end

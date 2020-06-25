@@ -2,7 +2,7 @@ class Character < GameObject
   attr_accessor :throttle_down, :turbo, :reset,
                 :direction, :gun_angle, :input,
                 :sounds, :physics, :graphics,
-                :number_ammo, :health, :weapon,
+                :number_ammo, :number_magazine, :health, :weapon,
                 :fire_rate_modifier, :speed_modifier
 
   def initialize(object_pool, input)
@@ -18,6 +18,7 @@ class Character < GameObject
     @shoot_delay = @weapon['shoot_delay'].to_i
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
+    @number_magazine = 5
     @number_ammo = 24
     reset_modifiers
   end

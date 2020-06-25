@@ -476,12 +476,12 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
 
 entities/character.rb,293
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize8,273
-  def boxbox25,838
-  def shoot(target_x, target_y)shoot29,872
-  def can_shoot?can_shoot?42,1179
-  def on_collision(object)on_collision46,1284
-  def reset_modifiersreset_modifiers58,1547
+  def initialize(object_pool, input)initialize8,291
+  def boxbox26,881
+  def shoot(target_x, target_y)shoot30,915
+  def can_shoot?can_shoot?43,1222
+  def on_collision(object)on_collision47,1327
+  def reset_modifiersreset_modifiers59,1590
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
@@ -538,21 +538,23 @@ class GameObjectGameObject1,0
   def collidecollide46,726
   def object_poolobject_pool51,760
 
-entities/face_display.rb,543
+entities/face_display.rb,635
 class FaceDisplay < ComponentFaceDisplay1,0
-  def initialize(object_pool, character)initialize9,214
-  def drawdraw14,320
-  def draw_facedraw_face21,400
-  def draw_face_bgdraw_face_bg26,489
-  def draw_hpdraw_hp36,680
-  def draw_hp_filterdraw_hp_filter41,763
-  def draw_magazinedraw_magazine55,1163
-  def face_coordsface_coords62,1239
-  def hp_coordshp_coords70,1415
-  def magazine_coordsmagazine_coords78,1625
-  def face_imageface_image86,1881
-  def hp_imagehp_image90,1978
-  def magazine_imagemagazine_image94,2063
+  def initialize(object_pool, character)initialize9,212
+  def drawdraw14,318
+  def draw_facedraw_face23,438
+  def draw_face_bgdraw_face_bg28,527
+  def draw_hpdraw_hp38,718
+  def draw_hp_filterdraw_hp_filter43,801
+  def draw_magazinedraw_magazine57,1201
+  def draw_magazine_msgdraw_magazine_msg62,1302
+  def face_coordsface_coords71,1447
+  def hp_coordshp_coords79,1623
+  def magazine_coordsmagazine_coords87,1833
+  def face_imageface_image95,2099
+  def hp_imagehp_image99,2196
+  def magazine_imagemagazine_image103,2281
+  def magazine_msgmagazine_msg107,2384
 
 entities/damage.rb,153
 class Damage < GameObjectDamage1,0
