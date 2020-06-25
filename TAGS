@@ -546,10 +546,10 @@ class FaceDisplay < ComponentFaceDisplay1,0
   def draw_face_bgdraw_face_bg26,489
   def draw_hpdraw_hp36,680
   def draw_hp_filterdraw_hp_filter41,763
-  def face_coordsface_coords59,1300
-  def hp_coordshp_coords67,1476
-  def face_imageface_image75,1686
-  def hp_imagehp_image79,1783
+  def face_coordsface_coords57,1158
+  def hp_coordshp_coords65,1334
+  def face_imageface_image73,1544
+  def hp_imagehp_image77,1641
 
 entities/damage.rb,153
 class Damage < GameObjectDamage1,0
