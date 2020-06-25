@@ -37,14 +37,14 @@ class PlayState < GameStatePlayState2,16
 
 game_states/menu_state.rb,264
 class MenuState < GameStateMenuState2,16
-  def initializeinitialize9,187
-  def enterenter13,314
-  def leaveleave18,375
-  def musicmusic23,430
-  def updateupdate27,522
-  def drawdraw32,748
-  def button_down(id)button_down44,1012
-  def bgbg55,1261
+  def initializeinitialize9,195
+  def enterenter13,322
+  def leaveleave18,383
+  def musicmusic23,438
+  def updateupdate27,530
+  def drawdraw32,756
+  def button_down(id)button_down44,1020
+  def bgbg55,1269
 
 misc/stats.rb,192
 class StatsStats1,0
@@ -538,17 +538,18 @@ class GameObjectGameObject1,0
   def collidecollide46,726
   def object_poolobject_pool51,760
 
-entities/face_display.rb,370
+entities/face_display.rb,411
 class FaceDisplay < ComponentFaceDisplay1,0
-  def initialize(object_pool, character)initialize8,161
-  def drawdraw13,267
-  def draw_facedraw_face19,330
-  def draw_hpdraw_hp24,419
-  def draw_hp_filterdraw_hp_filter29,502
-  def face_coordsface_coords44,843
-  def hp_coordshp_coords52,971
-  def face_imageface_image60,1174
-  def hp_imagehp_image64,1271
+  def initialize(object_pool, character)initialize9,214
+  def drawdraw14,320
+  def draw_facedraw_face21,400
+  def draw_face_bgdraw_face_bg26,489
+  def draw_hpdraw_hp36,680
+  def draw_hp_filterdraw_hp_filter41,763
+  def face_coordsface_coords59,1300
+  def hp_coordshp_coords67,1476
+  def face_imageface_image75,1686
+  def hp_imagehp_image79,1783
 
 entities/damage.rb,153
 class Damage < GameObjectDamage1,0

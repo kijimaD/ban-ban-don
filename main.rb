@@ -24,7 +24,7 @@ end
   require_relative f.gsub("#{root_dir}/", '')
 end
 
-# $debug = true
+$debug = true
 $window = GameWindow.new
 GameState.switch(MenuState.instance)
 $window.show
