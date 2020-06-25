@@ -1,12 +1,13 @@
 class CharacterHealth < Health
-  attr_accessor :health
-  MAX_HEALTH = 500
+  attr_accessor :health, :max_health
+  MAX_HEALTH = 100
 
   def initialize(object, object_pool)
     super(object, object_pool, MAX_HEALTH, true)
     @object = object
     @object_pool = object_pool
     @health = MAX_HEALTH
+    @max_health = MAX_HEALTH
     @health_updated = true
     @last_damage = Gosu.milliseconds
   end

@@ -278,11 +278,11 @@ class TreeGraphics < ComponentTreeGraphics1,0
 
 entities/components/character_health.rb,243
 class CharacterHealth < HealthCharacterHealth1,0
-  def initialize(object, object_pool)initialize5,75
-  def updateupdate14,310
-  def draw(viewport)draw18,347
-  def update_imageupdate_image25,485
-  def hp_gauge(health)hp_gauge39,760
+  def initialize(object, object_pool)initialize5,88
+  def updateupdate15,352
+  def draw(viewport)draw19,389
+  def update_imageupdate_image26,527
+  def hp_gauge(health)hp_gauge40,802
 
 entities/components/character_physics.rb,634
 class CharacterPhysics < ComponentCharacterPhysics1,0
@@ -318,16 +318,16 @@ class ExplosionSoundsExplosionSounds1,0
 
 entities/components/ammo_display.rb,433
 class AmmoDisplay < ComponentAmmoDisplay1,0
-  def initialize(object_pool, character)initialize8,160
-  def updateupdate14,287
-  def drawdraw18,418
-  def draw_ammodraw_ammo25,509
-  def draw_ammo_bgdraw_ammo_bg32,662
-  def draw_weapon_typedraw_weapon_type42,859
-  def draw_weapon_bgdraw_weapon_bg49,1017
-  def ammo_coordsammo_coords61,1229
-  def weapon_coordsweapon_coords69,1357
-  def ammo_imageammo_image77,1530
+  def initialize(object_pool, character)initialize8,159
+  def updateupdate14,286
+  def drawdraw18,417
+  def draw_ammodraw_ammo25,508
+  def draw_ammo_bgdraw_ammo_bg32,661
+  def draw_weapon_typedraw_weapon_type42,858
+  def draw_weapon_bgdraw_weapon_bg49,1016
+  def ammo_coordsammo_coords61,1228
+  def weapon_coordsweapon_coords69,1364
+  def ammo_imageammo_image77,1537
 
 entities/components/character_sounds.rb,289
 class CharacterSounds < ComponentCharacterSounds1,0
@@ -538,13 +538,17 @@ class GameObjectGameObject1,0
   def collidecollide46,726
   def object_poolobject_pool51,760
 
-entities/face_display.rb,232
+entities/face_display.rb,370
 class FaceDisplay < ComponentFaceDisplay1,0
-  def initialize(object_pool, character)initialize8,160
-  def drawdraw13,266
-  def draw_facedraw_face17,298
-  def face_coordsface_coords24,398
-  def face_imageface_image32,526
+  def initialize(object_pool, character)initialize8,159
+  def drawdraw13,265
+  def draw_facedraw_face19,328
+  def draw_hpdraw_hp24,417
+  def draw_hp_filterdraw_hp_filter29,500
+  def face_coordsface_coords42,803
+  def hp_coordshp_coords50,931
+  def face_imageface_image58,1134
+  def hp_imagehp_image62,1231
 
 entities/damage.rb,153
 class Damage < GameObjectDamage1,0
