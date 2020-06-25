@@ -98,28 +98,13 @@ class CharacterPhysics < Component
   end
 
   def box
-    w = box_width / 2 - 1
-    h = box_height / 2 - 1
-    tw = 8                      # track width
-    fd = 8                      # track depth
-    rd = 6                      # rear depth
-    Utils.rotate(object.direction, x, y,
-                 x + w,      y + h,
-                 x + w - tw, y + h,
-                 x + w - tw, y + h - fd,
-
-                 x - w + tw, y + h - fd,
-                 x - w + tw, y + h,
-                 x - w,      y + h,
-
-                 x - w,      y - h,
-                 x - w + tw, y - h,
-                 x - w + tw, y - h + rd,
-
-                 x + w - tw, y - h + rd,
-                 x + w - tw, y - h,
-                 x + w,      y - h,
-                )
+    w = object.graphics.width / 2
+    h = object.graphics.height / 2
+    [x - w, y - h,
+     x + w, y - h,
+     x + w, y + h,
+     x - w, y + h,
+    ]
   end
 
   def change_direction(new_direction)

@@ -15,8 +15,9 @@ class SpeedMeter
   end
 
   def draw
-    speed_image
-    # draw_speed_bg
+    if $debug
+      speed_image
+    end
   end
 
   def speed_image

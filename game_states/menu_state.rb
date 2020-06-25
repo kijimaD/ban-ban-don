@@ -7,7 +7,7 @@ class MenuState < GameState
   PADDING = 10
 
   def initialize
-    @message = Gosu::Image.from_text("ばんばんどーん", 80, options = {font: Utils.title_font})
+    @message = Gosu::Image.from_text("ばんばんどーん!", 80, options = {font: Utils.title_font})
   end
 
   def enter

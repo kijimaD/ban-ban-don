@@ -38,13 +38,13 @@ class PlayState < GameStatePlayState2,16
 game_states/menu_state.rb,264
 class MenuState < GameStateMenuState2,16
   def initializeinitialize9,187
-  def enterenter13,313
-  def leaveleave18,374
-  def musicmusic23,429
-  def updateupdate27,521
-  def drawdraw32,747
-  def button_down(id)button_down44,1011
-  def bgbg55,1260
+  def enterenter13,314
+  def leaveleave18,375
+  def musicmusic23,430
+  def updateupdate27,522
+  def drawdraw32,748
+  def button_down(id)button_down44,1012
+  def bgbg55,1261
 
 misc/stats.rb,192
 class StatsStats1,0
@@ -293,13 +293,13 @@ class CharacterPhysics < ComponentCharacterPhysics1,0
   def box_widthbox_width92,2076
   def box_heightbox_height96,2140
   def boxbox100,2207
-  def change_direction(new_direction)change_direction125,2928
-  def collides_with_point?(x, y)collides_with_point?133,3123
-  def apply_movement_penalty(speed)apply_movement_penalty137,3198
-  def accelerateaccelerate141,3288
-  def deceleratedecelerate145,3344
-  def turboturbo150,3431
-  def resetreset154,3467
+  def change_direction(new_direction)change_direction110,2375
+  def collides_with_point?(x, y)collides_with_point?118,2570
+  def apply_movement_penalty(speed)apply_movement_penalty122,2645
+  def accelerateaccelerate126,2735
+  def deceleratedecelerate130,2791
+  def turboturbo135,2878
+  def resetreset139,2914
 
 entities/components/powerup_graphics.rb,284
 class PowerupGraphics < ComponentPowerupGraphics1,0
@@ -316,17 +316,18 @@ class ExplosionSoundsExplosionSounds1,0
     def play(object, camera)play3,38
     def soundsound10,194
 
-entities/components/ammo_display.rb,389
+entities/components/ammo_display.rb,433
 class AmmoDisplay < ComponentAmmoDisplay1,0
   def initialize(object_pool, character)initialize8,160
   def updateupdate14,287
-  def drawdraw19,440
-  def draw_ammodraw_ammo25,510
-  def draw_weapon_typedraw_weapon_type32,655
-  def draw_ammo_bgdraw_ammo_bg39,813
-  def ammo_coordsammo_coords49,1010
-  def weapon_coordsweapon_coords57,1183
-  def ammo_imageammo_image65,1332
+  def drawdraw18,418
+  def draw_ammodraw_ammo25,507
+  def draw_ammo_bgdraw_ammo_bg32,660
+  def draw_weapon_typedraw_weapon_type42,857
+  def draw_weapon_bgdraw_weapon_bg49,1015
+  def ammo_coordsammo_coords59,1334
+  def weapon_coordsweapon_coords67,1507
+  def ammo_imageammo_image75,1656
 
 entities/components/character_sounds.rb,289
 class CharacterSounds < ComponentCharacterSounds1,0
@@ -494,9 +495,9 @@ class SpeedMeterSpeedMeter1,0
   def initialize(object_pool, character)initialize8,146
   def updateupdate14,273
   def drawdraw17,293
-  def speed_imagespeed_image22,347
-  def draw_speed_bgdraw_speed_bg27,482
-  def speed_coordsspeed_coords38,686
+  def speed_imagespeed_image22,328
+  def draw_speed_bgdraw_speed_bg27,463
+  def speed_coordsspeed_coords38,667
 
 entities/object_pool.rb,357
 class ObjectPoolObjectPool1,0
