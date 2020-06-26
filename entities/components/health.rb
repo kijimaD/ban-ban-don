@@ -1,5 +1,5 @@
 class Health < Component
-  attr_accessor :health
+  attr_accessor :health, :initial_health
 
   def initialize(object, object_pool, health, explodes)
     super(object)
@@ -45,7 +45,8 @@ class Health < Component
   end
 
   def increase(amount)
-    @health = [@health + 25, @initial_health * 2].min
+    @initial_health += amount
+    @health += amount
     @health_updated = true
   end
 

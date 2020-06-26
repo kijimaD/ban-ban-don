@@ -102,7 +102,7 @@ class Map
 
   def generate_powerups
     pups = 0
-    target_pups = rand(20..30)
+    target_pups = rand(50..60)
     while pups < target_pups do
       x = rand(0..MAP_WIDTH * TILE_SIZE)
       y = rand(0..MAP_HEIGHT * TILE_SIZE)

@@ -43,7 +43,7 @@ class FaceDisplay < Component
   def draw_hp_filter
     x1, x2, y1, y2 = hp_coords
     if @character.health.health > 0
-      hp_image_len = hp_image.width * (@character.health.health.to_f / @character.health.max_health.to_f)
+      hp_image_len = hp_image.width * (@character.health.health.to_f / @character.health.initial_health.to_f)
       x1 = PADDING + face_image.width + hp_image_len
     end
     $window.draw_quad(

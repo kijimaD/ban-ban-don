@@ -1,13 +1,10 @@
 class CharacterHealth < Health
   attr_accessor :health, :max_health
-  MAX_HEALTH = 300
 
   def initialize(object, object_pool)
-    super(object, object_pool, MAX_HEALTH, true)
+    super(object, object_pool, 200, true)
     @object = object
     @object_pool = object_pool
-    @health = MAX_HEALTH
-    @max_health = MAX_HEALTH
     @health_updated = true
     @last_damage = Gosu.milliseconds
   end
@@ -39,7 +36,7 @@ class CharacterHealth < Health
 
   def hp_gauge(health)
     mark = "*"
-    mark * (health.to_f / MAX_HEALTH.to_f * 10).round
+    mark * (health.to_f / @initial_health.to_f * 10).round
   end
 
 end

@@ -209,11 +209,11 @@ class MapMap1,0
   def generate_boxesgenerate_boxes90,1940
   def generate_powerupsgenerate_powerups103,2237
   def random_poweruprandom_powerup116,2543
-  def find_spawn_pointfind_spawn_point127,2693
-  def tile_at(x, y)tile_at139,2946
-  def load_tilesload_tiles146,3113
-  def generate_mapgenerate_map156,3462
-  def choose_tile(val)choose_tile172,3807
+  def find_spawn_pointfind_spawn_point128,2713
+  def tile_at(x, y)tile_at140,2966
+  def load_tilesload_tiles147,3133
+  def generate_mapgenerate_map157,3482
+  def choose_tile(val)choose_tile173,3827
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -296,11 +296,11 @@ class TreeGraphics < ComponentTreeGraphics1,0
 
 entities/components/character_health.rb,243
 class CharacterHealth < HealthCharacterHealth1,0
-  def initialize(object, object_pool)initialize5,88
-  def updateupdate15,352
-  def draw(viewport)draw19,389
-  def update_imageupdate_image26,527
-  def hp_gauge(health)hp_gauge40,802
+  def initialize(object, object_pool)initialize4,69
+  def updateupdate12,272
+  def draw(viewport)draw16,309
+  def update_imageupdate_image23,447
+  def hp_gauge(health)hp_gauge37,722
 
 entities/components/character_physics.rb,634
 class CharacterPhysics < ComponentCharacterPhysics1,0
@@ -448,16 +448,16 @@ class BulletPhysics < ComponentBulletPhysics1,0
 
 entities/components/health.rb,430
 class Health < ComponentHealth1,0
-  def initialize(object, object_pool, health, explodes)initialize4,50
-  def restorerestore12,253
-  def dead?dead?17,331
-  def updateupdate21,366
-  def inflict_damage(amount, cause)inflict_damage25,403
-  def draw(viewport)draw39,801
-  def increase(amount)increase47,973
-  def draw?draw?54,1097
-  def update_imageupdate_image58,1127
-  def after_death(cause)after_death68,1339
+  def initialize(object, object_pool, health, explodes)initialize4,67
+  def restorerestore12,270
+  def dead?dead?17,348
+  def updateupdate21,383
+  def inflict_damage(amount, cause)inflict_damage25,420
+  def draw(viewport)draw39,818
+  def increase(amount)increase47,990
+  def draw?draw?55,1112
+  def update_imageupdate_image59,1142
+  def after_death(cause)after_death69,1354
 
 entities/components/box_graphics.rb,294
 class BoxGraphics < ComponentBoxGraphics1,0
@@ -564,15 +564,15 @@ class FaceDisplay < ComponentFaceDisplay1,0
   def draw_face_bgdraw_face_bg28,529
   def draw_hpdraw_hp38,720
   def draw_hp_filterdraw_hp_filter43,803
-  def draw_magazinedraw_magazine57,1203
-  def draw_magazine_msgdraw_magazine_msg62,1304
-  def face_coordsface_coords71,1462
-  def hp_coordshp_coords79,1638
-  def magazine_coordsmagazine_coords87,1848
-  def face_imageface_image95,2114
-  def hp_imagehp_image99,2211
-  def magazine_imagemagazine_image103,2296
-  def magazine_msgmagazine_msg107,2399
+  def draw_magazinedraw_magazine57,1207
+  def draw_magazine_msgdraw_magazine_msg62,1308
+  def face_coordsface_coords71,1466
+  def hp_coordshp_coords79,1642
+  def magazine_coordsmagazine_coords87,1852
+  def face_imageface_image95,2118
+  def hp_imagehp_image99,2215
+  def magazine_imagemagazine_image103,2300
+  def magazine_msgmagazine_msg107,2403
 
 entities/damage.rb,153
 class Damage < GameObjectDamage1,0
