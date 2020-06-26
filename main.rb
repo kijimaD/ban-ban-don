@@ -7,6 +7,9 @@ require 'singleton'
 # TODO: I have no idea why can't load Powerup first.(If not this part, ocuur error: uninitialized constant Powerup(NameError))
 require './entities/game_object'
 require './entities/powerups/powerup'
+require './play_state/game_state'
+require './play_state/play_state'
+require './play_state/demo_state'
 # ---
 
 root_dir = File.dirname(__FILE__)
