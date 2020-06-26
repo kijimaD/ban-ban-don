@@ -127,7 +127,15 @@ class PowerupRespawnQueuePowerupRespawnQueue1,0
   def enqueue(delay_seconds, type, x, y)enqueue8,135
   def respawn(object_pool)respawn13,292
 
-entities/powerups/health_powerup.rb,0
+entities/powerups/magazine_powerup.rb,116
+class MagazinePowerup < PowerupMagazinePowerup1,0
+  def pickup(object)pickup3,33
+  def graphicsgraphics12,197
+
+entities/powerups/health_powerup.rb,112
+class HealthPowerup < PowerupHealthPowerup1,0
+  def pickup(object)pickup3,31
+  def graphicsgraphics10,144
 
 entities/powerups/powerup.rb,261
 class Powerup < GameObjectPowerup1,0
@@ -201,11 +209,11 @@ class MapMap1,0
   def generate_boxesgenerate_boxes90,1940
   def generate_powerupsgenerate_powerups103,2237
   def random_poweruprandom_powerup116,2543
-  def find_spawn_pointfind_spawn_point126,2687
-  def tile_at(x, y)tile_at138,2940
-  def load_tilesload_tiles145,3107
-  def generate_mapgenerate_map155,3456
-  def choose_tile(val)choose_tile171,3801
+  def find_spawn_pointfind_spawn_point127,2693
+  def tile_at(x, y)tile_at139,2946
+  def load_tilesload_tiles146,3113
+  def generate_mapgenerate_map156,3462
+  def choose_tile(val)choose_tile172,3807
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -262,7 +270,7 @@ class BulletSoundsBulletSounds1,0
   def play(object, camera, fire_sound)play3,20
   def hit(object, camera)hit8,179
   def sound(fire_sound)sound15,328
-  def sound_hitsound_hit19,425
+  def sound_hitsound_hit19,427
 
 entities/components/explosion_graphics.rb,262
 class ExplosionGraphics < ComponentExplosionGraphics1,0
@@ -336,16 +344,16 @@ class AmmoDisplay < ComponentAmmoDisplay1,0
   def ammo_coordsammo_coords40,699
   def ammo_imageammo_image48,835
 
-entities/components/character_sounds.rb,373
+entities/components/character_sounds.rb,357
 class CharacterSounds < ComponentCharacterSounds1,0
   def initialize(object, object_pool)initialize3,35
   def updateupdate8,129
   def collidecollide27,652
-  def reload(object, camera)reload32,795
-  def driving_sounddriving_sound39,954
-  def crash_soundcrash_sound43,1064
-  def hit_bullet_soundhit_bullet_sound47,1165
-  def reload_soundreload_sound51,1281
+  def reloadreload32,785
+  def driving_sounddriving_sound39,929
+  def crash_soundcrash_sound43,1039
+  def hit_bullet_soundhit_bullet_sound47,1140
+  def reload_soundreload_sound51,1256
 
 entities/components/ai/character_fleeing_state.rb,331
 class CharacterFleeingState < CharacterMotionStateCharacterFleeingState1,0
@@ -490,8 +498,8 @@ class Character < GameObjectCharacter1,0
   def shoot(target_x, target_y)shoot31,938
   def can_shoot?can_shoot?44,1245
   def reloadreload48,1350
-  def on_collision(object)on_collision63,1725
-  def reset_modifiersreset_modifiers75,1988
+  def on_collision(object)on_collision63,1699
+  def reset_modifiersreset_modifiers75,1962
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0

@@ -4,6 +4,11 @@ require 'perlin_noise'
 require 'gosu_texture_packer'
 require 'singleton'
 
+# TODO: I have no idea why can't load Powerup first.(If not this part, ocuur error: uninitialized constant Powerup(NameError))
+require './entities/game_object'
+require './entities/powerups/powerup'
+# ---
+
 root_dir = File.dirname(__FILE__)
 require_pattern = File.join(root_dir, '**/*.rb')
 @failed = []
