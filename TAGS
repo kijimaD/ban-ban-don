@@ -294,13 +294,12 @@ class TreeGraphics < ComponentTreeGraphics1,0
   def center_ycenter_y62,1400
   def treestrees66,1461
 
-entities/components/character_health.rb,243
+entities/components/character_health.rb,193
 class CharacterHealth < HealthCharacterHealth1,0
-  def initialize(object, object_pool)initialize4,69
-  def updateupdate12,272
-  def draw(viewport)draw16,309
-  def update_imageupdate_image23,447
-  def hp_gauge(health)hp_gauge37,722
+  def initialize(object, object_pool)initialize9,173
+  def updateupdate17,376
+  def draw(viewport)draw20,396
+  def coordscoords42,891
 
 entities/components/character_physics.rb,635
 class CharacterPhysics < ComponentCharacterPhysics1,0
