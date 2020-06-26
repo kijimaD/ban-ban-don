@@ -25,16 +25,16 @@ class GameStateGameState1,0
   def needs_redraw?needs_redraw?21,220
   def button_down(id)button_down25,256
 
-game_states/play_state.rb,322
+game_states/play_state.rb,321
 class PlayState < GameStatePlayState2,16
   def initializeinitialize5,104
-  def enterenter23,698
-  def leaveleave27,763
-  def updateupdate35,928
-  def drawdraw43,1055
-  def button_down(id)button_down66,1681
-  def update_captionupdate_caption84,2031
-  def create_characters(amount)create_characters95,2420
+  def enterenter16,409
+  def leaveleave20,474
+  def updateupdate28,639
+  def drawdraw36,766
+  def button_down(id)button_down59,1392
+  def update_captionupdate_caption77,1742
+  def create_characters(amount)create_characters88,2131
 
 game_states/menu_state.rb,264
 class MenuState < GameStateMenuState2,16

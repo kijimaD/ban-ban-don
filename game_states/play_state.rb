@@ -9,15 +9,8 @@ class PlayState < GameState
     @camera = Camera.new
     @object_pool.camera = @camera
     create_characters(4)
-    @character = Character.new(@object_pool, PlayerInput.new(@camera, @object_pool))
-    @camera.target = @character
     @object_pool.camera = @camera
-    @hud = HUD.new(@object_pool, @character)
     Damage.new(@object_pool, 0, 0).mark_for_removal
-    1.times do
-      Character.new(@object_pool, AiInput.new(@object_pool))
-    end
-    puts "Pool size: #{@object_pool.size}"
   end
 
   def enter
