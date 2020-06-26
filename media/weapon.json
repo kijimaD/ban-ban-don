@@ -14,7 +14,7 @@
     {
 	"name": "Launcher",
 	"graphs": "",
-	"fire_sound": "largerifle-firing1.mp3",
+	"fire_sound": "grenade_launcher.wav",
 	"bullet_image": "bullet_launcher.png",
 	"bullet_trajectory": "",
 	"shoot_delay": "500",
