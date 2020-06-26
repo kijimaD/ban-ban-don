@@ -1,5 +1,5 @@
 class CharacterPhysics < Component
-  attr_accessor :speed, :shift, :in_collision, :collides_with
+  attr_accessor :speed, :in_collision, :collides_with
 
   def initialize(game_object, object_pool)
     super(game_object)
@@ -59,28 +59,28 @@ class CharacterPhysics < Component
     if @speed > 0
       new_x, new_y = x, y
       speed = apply_movement_penalty(@speed)
-      @shift = Utils.adjust_speed(speed) * object.speed_modifier
+      shift = Utils.adjust_speed(speed) * object.speed_modifier
       case @object.direction.to_i
       when 0
-        new_y -= @shift
+        new_y -= shift
       when 45
-        new_x += @shift
-        new_y -= @shift
+        new_x += shift
+        new_y -= shift
       when 90
-        new_x += @shift
+        new_x += shift
       when 135
-        new_x += @shift
-        new_y += @shift
+        new_x += shift
+        new_y += shift
       when 180
-        new_y += @shift
+        new_y += shift
       when 225
-        new_y += @shift
-        new_x -= @shift
+        new_y += shift
+        new_x -= shift
       when 270
-        new_x -= @shift
+        new_x -= shift
       when 315
-        new_x -= @shift
-        new_y -= @shift
+        new_x -= shift
+        new_y -= shift
       end
       if can_move_to?(new_x, new_y)
         object.move(new_x, new_y)

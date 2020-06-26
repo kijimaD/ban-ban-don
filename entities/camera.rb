@@ -88,7 +88,7 @@ class Camera
       Utils.point_at_distance(
         @target.x, @target.y,
         @target.direction,
-        @target.physics.speed.ceil * 25)
+        @target.physics.speed.ceil)
     else
       [@target.x, @target.y]
     end

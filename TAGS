@@ -183,7 +183,7 @@ class CameraCamera1,0
   def draw_crosshairdraw_crosshair68,1413
   def viewportviewport78,1632
   def desired_spotdesired_spot86,1847
-  def crosshaircrosshair98,2089
+  def crosshaircrosshair98,2084
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -314,20 +314,20 @@ class CharacterHealth < HealthCharacterHealth1,0
 
 entities/components/character_physics.rb,635
 class CharacterPhysics < ComponentCharacterPhysics1,0
-  def initialize(game_object, object_pool)initialize4,98
-  def can_move_to?(x, y)can_move_to?11,254
-  def moving?moving?37,1010
-  def updateupdate41,1046
-  def box_widthbox_width96,2166
-  def box_heightbox_height100,2230
-  def boxbox104,2297
-  def change_direction(new_direction)change_direction114,2465
-  def collides_with_point?(x, y)collides_with_point?122,2660
-  def apply_movement_penalty(speed)apply_movement_penalty126,2735
-  def accelerateaccelerate130,2825
-  def deceleratedecelerate134,2881
-  def turboturbo139,2968
-  def resetreset143,3004
+  def initialize(game_object, object_pool)initialize4,90
+  def can_move_to?(x, y)can_move_to?11,246
+  def moving?moving?37,1002
+  def updateupdate41,1038
+  def box_widthbox_width96,2145
+  def box_heightbox_height100,2209
+  def boxbox104,2276
+  def change_direction(new_direction)change_direction114,2444
+  def collides_with_point?(x, y)collides_with_point?122,2639
+  def apply_movement_penalty(speed)apply_movement_penalty126,2714
+  def accelerateaccelerate130,2804
+  def deceleratedecelerate134,2860
+  def turboturbo139,2947
+  def resetreset143,2983
 
 entities/components/powerup_graphics.rb,284
 class PowerupGraphics < ComponentPowerupGraphics1,0
