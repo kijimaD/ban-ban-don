@@ -39,6 +39,10 @@ class CharacterPhysics < Component
   end
 
   def update
+    if object.number_ammo == 0 && object.number_magazine > 0
+      object.reload
+    end
+
     if object.throttle_down && !object.health.dead?
       accelerate
     else

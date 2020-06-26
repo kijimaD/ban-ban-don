@@ -14,9 +14,6 @@ class CharacterGraphics < Component
 
   def update()
     @body = direction_graphics
-    if object.number_ammo == 0 && object.number_magazine > 0
-      object.reload
-    end
   end
 
   def draw(viewport)
@@ -72,6 +69,12 @@ class CharacterGraphics < Component
     else
       @num = stand_image
     end
+  end
+
+  def hit
+    fill = Magick::TextureFill.new(Magick::ImageList.new("plasma:fractal") {self.size = '1x1'})
+    bg = Magick::Image.new(1, 1, fill)
+    @body = Gosu::Image.new(bg)
   end
 
   private
