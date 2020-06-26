@@ -210,10 +210,10 @@ class MapMap1,0
   def generate_powerupsgenerate_powerups103,2237
   def random_poweruprandom_powerup116,2543
   def find_spawn_pointfind_spawn_point128,2713
-  def tile_at(x, y)tile_at140,2966
-  def load_tilesload_tiles147,3133
-  def generate_mapgenerate_map157,3482
-  def choose_tile(val)choose_tile173,3827
+  def tile_at(x, y)tile_at140,3013
+  def load_tilesload_tiles147,3180
+  def generate_mapgenerate_map157,3529
+  def choose_tile(val)choose_tile173,3874
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -475,8 +475,8 @@ class PlayerInput < ComponentPlayerInput1,0
   def control(obj)control11,187
   def on_collision(with)on_collision15,235
   def updateupdate18,267
-  def any_button_down?(*buttons)any_button_down?66,1445
-  def change_angle(previous_angle, up, down, right, left)change_angle73,1570
+  def any_button_down?(*buttons)any_button_down?70,1511
+  def change_angle(previous_angle, up, down, right, left)change_angle77,1636
 
 entities/components/character_graphics.rb,442
 class CharacterGraphics < ComponentCharacterGraphics1,0

@@ -50,8 +50,8 @@ class Character < GameObject
       Thread.new do
         @last_reload = Gosu.milliseconds
         @on_reload = true
-        sleep 0.8
         @sounds.reload
+        sleep 0.8
         @number_magazine -= 1
         sleep 2
         @number_ammo = MAX_AMMO

@@ -36,15 +36,22 @@ class ObjectPool
     @powerup_respawn_queue.respawn(self)
   end
 
-  def nearby(object, max_distance, min_distance = 0)
-    cx, cy = object.location
+  def nearby_point(cx, cy, max_distance, object = nil)
     hx, hy = cx + max_distance, cy + max_distance
+    # Fast, rough results
     results = @tree.query_range(
       AxisAlignedBoundingBox.new([cx, cy], [hx, hy]))
+    # Sift through to select fine-grained results
     results.select do |o|
-      dist = Utils.distance_between(o.x, o.y, object.x, object.y)
-      o != object && dist <= max_distance && dist >= min_distance
+      o != object &&
+        Utils.distance_between(
+          o.x, o.y, cx, cy) <= max_distance
     end
+  end
+
+  def nearby(object, max_distance, min_distance = 0)
+    cx, cy = object.location
+    nearby_point(cx, cy, max_distance, object)
   end
 
   def query_range(box)

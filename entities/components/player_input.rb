@@ -47,6 +47,10 @@ class PlayerInput < Component
       object.shoot(*@camera.mouse_coords)
     end
 
+    if Utils.button_down?(Gosu::KbR)
+      object.reload
+    end
+
     if Utils.button_down?(Gosu::KbSpace) && $debug == true
       sleep 4
     end
