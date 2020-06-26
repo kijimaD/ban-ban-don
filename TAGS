@@ -299,7 +299,7 @@ class CharacterHealth < HealthCharacterHealth1,0
   def initialize(object, object_pool)initialize9,173
   def updateupdate17,376
   def draw(viewport)draw20,396
-  def coordscoords42,891
+  def coordscoords42,919
 
 entities/components/character_physics.rb,635
 class CharacterPhysics < ComponentCharacterPhysics1,0
@@ -570,9 +570,9 @@ class FaceDisplay < ComponentFaceDisplay1,0
   def hp_coordshp_coords79,1642
   def magazine_coordsmagazine_coords87,1852
   def face_imageface_image95,2118
-  def hp_imagehp_image99,2215
-  def magazine_imagemagazine_image103,2300
-  def magazine_msgmagazine_msg107,2403
+  def hp_imagehp_image99,2211
+  def magazine_imagemagazine_image103,2296
+  def magazine_msgmagazine_msg107,2399
 
 entities/damage.rb,153
 class Damage < GameObjectDamage1,0
