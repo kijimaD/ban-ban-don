@@ -1,11 +1,14 @@
 # coding: utf-8
 class PlayState < GameState
+  attr_accessor :update_interval, :object_pool, :character
 
   def initialize
     @object_pool = ObjectPool.new(Map.bounding_box)
     @map = Map.new(@object_pool)
     @map.spawn_points(10)
     @camera = Camera.new
+    @object_pool.camera = @camera
+    create_characters(4)
     @character = Character.new(@object_pool, PlayerInput.new(@camera, @object_pool))
     @camera.target = @character
     @object_pool.camera = @camera
@@ -87,6 +90,17 @@ class PlayState < GameState
                         "Character @ #{@character.x.round}:#{@character.y.round}]"
       @caption_updated_at = now
     end
+  end
+
+  def create_characters(amount)
+    @map.spawn_points(amount * 3)
+    @character = Character.new(@object_pool, PlayerInput.new(@camera, @object_pool))
+    amount.times do |i|
+      Character.new(@object_pool, AiInput.new(
+                      @object_pool))
+    end
+    @camera.target = @character
+    @hud = HUD.new(@object_pool, @character)
   end
 
 end

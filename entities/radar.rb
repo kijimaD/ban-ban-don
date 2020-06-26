@@ -5,6 +5,7 @@ class Radar
   PADDING = 50
   MIN_DISTANCE = 300
   MAX_DISTANCE = 2000
+  attr_accessor :object
 
   def initialize(object_pool, object)
     @object_pool = object_pool

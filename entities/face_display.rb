@@ -5,6 +5,7 @@ class FaceDisplay < Component
   FILTER = Gosu::Color.new(255 * 0.8, 255, 0, 0)
   BACKGROUND = Gosu::Color.new(255 * 0.8, 255, 255, 255)
   FONT_COLOR = Gosu::Color::RED
+  attr_accessor :character
 
   def initialize(object_pool, character)
     @object_pool = object_pool
