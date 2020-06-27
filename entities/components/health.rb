@@ -1,5 +1,5 @@
 class Health < Component
-  attr_accessor :health
+  attr_accessor :health, :initial_health
 
   def initialize(object, object_pool, health, explodes)
     super(object)
@@ -27,6 +27,7 @@ class Health < Component
       @health_updated = true
       if object.respond_to?(:input)
         object.input.stats.add_damage(amount.floor)
+        object.graphics.hit
         if cause.respond_to?(:input) && cause != object
           cause.input.stats.add_score(amount.floor)
         end
@@ -45,7 +46,8 @@ class Health < Component
   end
 
   def increase(amount)
-    @health = [@health + 25, @initial_health * 2].min
+    @initial_health += amount
+    @health += amount
     @health_updated = true
   end
 

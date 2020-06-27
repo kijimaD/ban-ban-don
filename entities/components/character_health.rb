@@ -1,45 +1,50 @@
 class CharacterHealth < Health
   attr_accessor :health, :max_health
-  MAX_HEALTH = 300
+  PADDING = 20
+  WIDTH = 40
+  HEIGHT = 3
+  COLOR = Gosu::Color::GREEN
+  BACKGROUND = Gosu::Color::BLACK
 
   def initialize(object, object_pool)
-    super(object, object_pool, MAX_HEALTH, true)
+    super(object, object_pool, 200, true)
     @object = object
     @object_pool = object_pool
-    @health = MAX_HEALTH
-    @max_health = MAX_HEALTH
     @health_updated = true
     @last_damage = Gosu.milliseconds
   end
 
   def update
-    update_image
   end
 
   def draw(viewport)
-    @image.draw(
-      x - @image.width / 2,
-      y - object.graphics.height / 2 -
-      @image.height, 100)
-  end
-
-  def update_image
-    if @health_updated
-      if dead?
-        text = '+'
-        font_size = 25
-      else
-        text = hp_gauge(@health)
-        font_size = 18
-      end
-      @image = Gosu::Image.from_text(text, font_size)
-      @health_updated = false
+    x1, x2, y1, y2 = coords
+    if object.input.is_a?(AiInput)
+    $window.draw_quad(
+        x1, y1, BACKGROUND,
+        x2, y1, BACKGROUND,
+        x2, y2, BACKGROUND,
+        x1, y2, BACKGROUND,
+      )
+    if object.health.health > 0
+      gauge_len = WIDTH * (object.health.health.to_f / object.health.initial_health.to_f)
+      x2 = x1 + gauge_len
+      $window.draw_quad(
+        x1, y1, COLOR,
+        x2, y1, COLOR,
+        x2, y2, COLOR,
+        x1, y2, COLOR,
+      )
+    end
     end
   end
 
-  def hp_gauge(health)
-    mark = "*"
-    mark * (health.to_f / MAX_HEALTH.to_f * 10).round
+  def coords
+    x1 = x - PADDING
+    x2 = x - PADDING + WIDTH
+    y1 = y - HEIGHT - PADDING * 2
+    y2 = y + HEIGHT - PADDING * 2
+    [x1, x2, y1, y2]
   end
 
 end

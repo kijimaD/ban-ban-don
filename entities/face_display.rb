@@ -5,6 +5,7 @@ class FaceDisplay < Component
   FILTER = Gosu::Color.new(255 * 0.8, 255, 0, 0)
   BACKGROUND = Gosu::Color.new(255 * 0.8, 255, 255, 255)
   FONT_COLOR = Gosu::Color::RED
+  attr_accessor :character
 
   def initialize(object_pool, character)
     @object_pool = object_pool
@@ -43,7 +44,7 @@ class FaceDisplay < Component
   def draw_hp_filter
     x1, x2, y1, y2 = hp_coords
     if @character.health.health > 0
-      hp_image_len = hp_image.width * (@character.health.health.to_f / @character.health.max_health.to_f)
+      hp_image_len = hp_image.width * (@character.health.health.to_f / @character.health.initial_health.to_f)
       x1 = PADDING + face_image.width + hp_image_len
     end
     $window.draw_quad(
@@ -93,7 +94,7 @@ class FaceDisplay < Component
   end
 
   def face_image
-    @@face_image ||= Gosu::Image.new(Utils.media_path('sirase_mic.png'))
+    @@face_image ||= Gosu::Image.new(Utils.media_path('sirase.png'))
   end
 
   def hp_image

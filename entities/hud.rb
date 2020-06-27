@@ -1,4 +1,5 @@
 class HUD
+  attr_accessor :active
 
   def initialize(object_pool, character)
     @object_pool = object_pool
@@ -10,6 +11,13 @@ class HUD
     @speed_meter = SpeedMeter.new(@object_pool, @character)
     @radar = Radar.new(@object_pool, @character)
     @powerup = PowerupDisplay.new(@object_pool, @character)
+  end
+
+  def player=(character)
+    @character = character
+    @radar.object = character
+    @ammo_display.character = character
+    @face_display.character = character
   end
 
   def update

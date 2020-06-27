@@ -1,20 +1,16 @@
 # coding: utf-8
 class PlayState < GameState
+  attr_accessor :update_interval, :object_pool, :character
 
   def initialize
     @object_pool = ObjectPool.new(Map.bounding_box)
     @map = Map.new(@object_pool)
     @map.spawn_points(10)
     @camera = Camera.new
-    @character = Character.new(@object_pool, PlayerInput.new(@camera, @object_pool))
-    @camera.target = @character
     @object_pool.camera = @camera
-    @hud = HUD.new(@object_pool, @character)
+    create_characters(4)
+    @object_pool.camera = @camera
     Damage.new(@object_pool, 0, 0).mark_for_removal
-    1.times do
-      Character.new(@object_pool, AiInput.new(@object_pool))
-    end
-    puts "Pool size: #{@object_pool.size}"
   end
 
   def enter
@@ -87,6 +83,17 @@ class PlayState < GameState
                         "Character @ #{@character.x.round}:#{@character.y.round}]"
       @caption_updated_at = now
     end
+  end
+
+  def create_characters(amount)
+    @map.spawn_points(amount * 3)
+    @character = Character.new(@object_pool, PlayerInput.new(@camera, @object_pool))
+    amount.times do |i|
+      Character.new(@object_pool, AiInput.new(
+                      @object_pool))
+    end
+    @camera.target = @character
+    @hud = HUD.new(@object_pool, @character)
   end
 
 end

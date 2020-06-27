@@ -102,11 +102,11 @@ class Map
 
   def generate_powerups
     pups = 0
-    target_pups = rand(20..30)
+    target_pups = rand(50..60)
     while pups < target_pups do
       x = rand(0..MAP_WIDTH * TILE_SIZE)
       y = rand(0..MAP_HEIGHT * TILE_SIZE)
-      if tile_at(x, y) != @water
+      if tile_at(x, y) != @water && @object_pool.nearby_point(x, y, 150).empty?
         random_powerup.new(@object_pool, x, y)
         pups += 1
       end
@@ -115,10 +115,12 @@ class Map
 
   def random_powerup
     [
-     # HealthPowerup,
+     HealthPowerup,
      RepairPowerup,
      FireRatePowerup,
-     CharacterSpeedPowerup].sample
+     CharacterSpeedPowerup,
+     MagazinePowerup,
+    ].sample
   end
 
   private
@@ -127,10 +129,8 @@ class Map
     while true
       x = rand(0..MAP_WIDTH * TILE_SIZE)
       y = rand(0..MAP_HEIGHT * TILE_SIZE)
-      if can_move_to?(x, y)
+      if can_move_to?(x, y) && @object_pool.nearby_point(x, y, 150).empty?
         return [x, y]
-      else
-        puts "Invalid spawn point: #{[x, y]}"
       end
     end
   end
