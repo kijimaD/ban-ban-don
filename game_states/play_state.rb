@@ -8,7 +8,7 @@ class PlayState < GameState
     @map.spawn_points(10)
     @camera = Camera.new
     @object_pool.camera = @camera
-    create_characters(4)
+    create_characters(1)
     @object_pool.camera = @camera
     Damage.new(@object_pool, 0, 0).mark_for_removal
   end
@@ -31,6 +31,7 @@ class PlayState < GameState
     @camera.update
     @hud.update
     update_caption
+    clear_or_gameover
   end
 
   def draw
@@ -72,6 +73,17 @@ class PlayState < GameState
     end
   end
 
+  def clear_or_gameover
+    if @character.health.dead?
+      puts "gameover!"
+    end
+    @ai.each do |ai|
+      if ai.health.dead?
+        puts "win!"
+      end
+    end
+  end
+
   private
 
   def update_caption
@@ -88,9 +100,10 @@ class PlayState < GameState
   def create_characters(amount)
     @map.spawn_points(amount * 3)
     @character = Character.new(@object_pool, PlayerInput.new(@camera, @object_pool))
+    @ai = []
     amount.times do |i|
-      Character.new(@object_pool, AiInput.new(
-                      @object_pool))
+      @ai.push(Character.new(@object_pool, AiInput.new(
+                      @object_pool)))
     end
     @camera.target = @character
     @hud = HUD.new(@object_pool, @character)

@@ -1,19 +1,19 @@
 
-game_states/pause_state.rb,546
-class PauseState < GameStatePauseState3,36
-  def initializeinitialize7,114
-  def enterenter15,342
-  def continuecontinue18,361
-  def updateupdate21,383
-  def drawdraw32,826
-  def button_down(id)button_down36,882
-  def any_button_down?(*buttons)any_button_down?58,1352
-  def cursor_upcursor_up65,1477
-  def cursor_downcursor_down73,1638
-  def cursor_rightcursor_right81,1801
-  def cursor_leftcursor_left87,1877
-  def gen_choises(input_array, goal_y)gen_choises93,1952
-  def gen_button(goal_y, button)gen_button107,2344
+game_states/pause_state.rb,545
+class PauseState < GameStatePauseState2,16
+  def initializeinitialize6,94
+  def enterenter14,322
+  def continuecontinue17,341
+  def updateupdate20,363
+  def drawdraw31,806
+  def button_down(id)button_down35,862
+  def any_button_down?(*buttons)any_button_down?57,1332
+  def cursor_upcursor_up64,1457
+  def cursor_downcursor_down72,1618
+  def cursor_rightcursor_right80,1781
+  def cursor_leftcursor_left86,1857
+  def gen_choises(input_array, goal_y)gen_choises92,1932
+  def gen_button(goal_y, button)gen_button106,2324
 
 game_states/game_state.rb,252
 class GameStateGameState1,0
@@ -25,16 +25,17 @@ class GameStateGameState1,0
   def needs_redraw?needs_redraw?21,220
   def button_down(id)button_down25,256
 
-game_states/play_state.rb,321
+game_states/play_state.rb,372
 class PlayState < GameStatePlayState2,16
   def initializeinitialize5,104
   def enterenter16,409
   def leaveleave20,474
   def updateupdate28,639
-  def drawdraw36,766
-  def button_down(id)button_down59,1392
-  def update_captionupdate_caption77,1742
-  def create_characters(amount)create_characters88,2131
+  def drawdraw37,788
+  def button_down(id)button_down60,1414
+  def clear_or_gameoverclear_or_gameover76,1753
+  def update_captionupdate_caption89,1941
+  def create_characters(amount)create_characters100,2330
 
 game_states/menu_state.rb,264
 class MenuState < GameStateMenuState2,16
@@ -528,7 +529,7 @@ class SpeedMeterSpeedMeter1,0
   def draw_speed_bgdraw_speed_bg28,486
   def speed_coordsspeed_coords39,690
 
-entities/object_pool.rb,452
+entities/object_pool.rb,451
 class ObjectPoolObjectPool1,0
   def initialize(box)initialize5,98
   def sizesize11,228
@@ -536,9 +537,9 @@ class ObjectPoolObjectPool1,0
   def tree_remove(object)tree_remove20,337
   def tree_insert(object)tree_insert24,395
   def update_allupdate_all28,453
-  def nearby_point(cx, cy, max_distance, ,min_distance = 0, object = nil)nearby_point39,650
-  def nearby(object, max_distance, min_distance = 0)nearby52,1075
-  def query_range(box)query_range57,1211
+  def nearby_point(cx, cy, max_distance, min_distance = 0, object = nil)nearby_point39,650
+  def nearby(object, max_distance, min_distance = 0)nearby54,1153
+  def query_range(box)query_range59,1303
 
 entities/score_display.rb,207
 class ScoreDisplayScoreDisplay1,0
