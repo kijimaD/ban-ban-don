@@ -31,6 +31,8 @@ class Health < Component
         if cause.respond_to?(:input) && cause != object
           cause.input.stats.add_score(amount.floor)
         end
+      elsif object.class == Tree
+        object.graphics.shake(1)
       end
       @health = [@health - amount.to_i, 0].max
       after_death(cause) if dead?
