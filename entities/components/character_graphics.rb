@@ -1,15 +1,18 @@
 class CharacterGraphics < Component
   WALK_FRAME = 300
+  DAMAGE_FRAME = 4
   DEBUG_COLORS = [
     Gosu::Color::RED,
     Gosu::Color::BLUE,
     Gosu::Color::YELLOW,
     Gosu::Color::WHITE
   ]
+
   def initialize(game_object)
     super(game_object)
     @body = charas.frame('chara2.png')
     @chara_json = Utils.load_json("character_graphics.json")
+    @damage_frame = 0
   end
 
   def update()
@@ -17,6 +20,10 @@ class CharacterGraphics < Component
   end
 
   def draw(viewport)
+    if @damage_frame > 0
+      @body = damage_flashing
+      @damage_frame -= 1
+    end
     @body.draw(x - 16, y - 16, 1)
     draw_bounding_box if $debug
   end
@@ -71,10 +78,14 @@ class CharacterGraphics < Component
     end
   end
 
-  def hit
+  def damage_flashing
     fill = Magick::TextureFill.new(Magick::ImageList.new("plasma:fractal") {self.size = '1x1'})
     bg = Magick::Image.new(1, 1, fill)
-    @body = Gosu::Image.new(bg)
+    Gosu::Image.new(bg)
+  end
+
+  def damage
+    @damage_frame += DAMAGE_FRAME
   end
 
   private

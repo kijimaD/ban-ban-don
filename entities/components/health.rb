@@ -27,7 +27,7 @@ class Health < Component
       @health_updated = true
       if object.respond_to?(:input)
         object.input.stats.add_damage(amount.floor)
-        object.graphics.hit
+        object.graphics.damage
         if cause.respond_to?(:input) && cause != object
           cause.input.stats.add_score(amount.floor)
         end
