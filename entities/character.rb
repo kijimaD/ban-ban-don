@@ -4,7 +4,6 @@ class Character < GameObject
                 :sounds, :physics, :graphics,
                 :number_ammo, :number_magazine, :health, :weapon,
                 :fire_rate_modifier, :speed_modifier
-  MAX_AMMO = 10
 
   def initialize(object_pool, input)
     x, y = object_pool.map.spawn_point
@@ -20,7 +19,7 @@ class Character < GameObject
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
     @number_magazine = 10
-    @number_ammo = MAX_AMMO
+    @number_ammo = @weapon['number_shots'].to_i
     reset_modifiers
   end
 
@@ -53,8 +52,8 @@ class Character < GameObject
         @sounds.reload
         sleep 0.8
         @number_magazine -= 1
-        sleep 2
-        @number_ammo = MAX_AMMO
+        sleep 2 * @weapon['reload_time'].to_i
+        @number_ammo = @weapon['number_shots'].to_i
         @on_reload = false
       end
     end

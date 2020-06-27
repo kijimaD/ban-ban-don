@@ -504,13 +504,13 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
 
 entities/character.rb,321
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize9,307
-  def boxbox27,904
-  def shoot(target_x, target_y)shoot31,938
-  def can_shoot?can_shoot?44,1245
-  def reloadreload48,1350
-  def on_collision(object)on_collision63,1699
-  def reset_modifiersreset_modifiers75,1962
+  def initialize(object_pool, input)initialize8,291
+  def boxbox26,888
+  def shoot(target_x, target_y)shoot30,922
+  def can_shoot?can_shoot?43,1229
+  def reloadreload47,1334
+  def on_collision(object)on_collision62,1683
+  def reset_modifiersreset_modifiers74,1946
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
