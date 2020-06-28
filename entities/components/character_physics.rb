@@ -128,7 +128,7 @@ class CharacterPhysics < Component
   end
 
   def accelerate
-    @speed += 1.0 if @speed < 8
+    @speed += 1.0 if @speed < 10
   end
 
   def decelerate

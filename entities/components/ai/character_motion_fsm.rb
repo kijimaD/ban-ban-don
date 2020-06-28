@@ -43,8 +43,7 @@ class CharacterMotionFSM
     state.enter
     if $debug
       @image = Gosu::Image.from_text(
-        $window, state.class.to_s,
-        Gosu.default_font_name, 18)
+        state.class.to_s, 18)
     end
   end
 
