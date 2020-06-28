@@ -52,7 +52,7 @@ class AiGun
 
       @message = Gosu::Image.from_text(
         @object.weapon['name'], 20)
-      @message.draw(x, y, 300, 1, 1, color)
+      @message.draw(x + 20, y + 20, 300, 1, 1, color)
     end
   end
 

@@ -12,6 +12,14 @@ class CharacterMotionFSM
     set_state(@roaming_state)
   end
 
+  def draw(viewport)
+    color = Gosu::Color::RED
+    @image && @image.draw(
+      @object.x - @image.width / 2,
+      @object.y + @object.graphics.height / 2 -
+      @image.height, 100, 1, 1, color)
+  end
+
   def on_collision(with)
     @current_state.on_collision(with)
   end
@@ -33,6 +41,11 @@ class CharacterMotionFSM
     @last_state_change = Gosu.milliseconds
     @current_state = state
     state.enter
+    if $debug
+      @image = Gosu::Image.from_text(
+        $window, state.class.to_s,
+        Gosu.default_font_name, 18)
+    end
   end
 
   def choose_state
