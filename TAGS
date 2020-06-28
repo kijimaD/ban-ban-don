@@ -31,11 +31,11 @@ class PlayState < GameStatePlayState2,16
   def enterenter16,409
   def leaveleave20,474
   def updateupdate28,639
-  def drawdraw37,788
-  def button_down(id)button_down60,1414
-  def clear_or_gameoverclear_or_gameover76,1753
-  def update_captionupdate_caption89,1941
-  def create_characters(amount)create_characters100,2330
+  def drawdraw39,828
+  def button_down(id)button_down62,1454
+  def clear_or_gameoverclear_or_gameover81,1848
+  def update_captionupdate_caption94,2036
+  def create_characters(amount)create_characters105,2425
 
 game_states/menu_state.rb,264
 class MenuState < GameStateMenuState2,16
@@ -194,12 +194,12 @@ class Box < GameObjectBox1,0
 
 entities/radar.rb,257
 class RadarRadar1,0
-  def initialize(object_pool, object)initialize10,150
-  def updateupdate16,268
-  def drawdraw25,516
-  def draw_character(character)draw_character34,640
-  def center_coordscenter_coords51,1119
-  def image(image)image57,1238
+  def initialize(object_pool, object)initialize11,160
+  def updateupdate17,278
+  def drawdraw26,526
+  def draw_character(character)draw_character35,650
+  def center_coordscenter_coords52,1129
+  def image(image)image58,1248
 
 entities/explosion.rb,222
 class Explosion < GameObjectExplosion1,0
@@ -423,21 +423,22 @@ class AiGunAiGun1,0
   def adjust_angleadjust_angle14,293
   def updateupdate19,365
   def draw(viewport)draw45,1128
-  def distance_to_targetdistance_to_target59,1556
-  def should_shoot?should_shoot?64,1666
-  def can_make_new_decision?can_make_new_decision?68,1726
-  def adjust_desired_angleadjust_desired_angle76,1889
-  def change_target(new_target)change_target85,2184
-  def adjust_gun_angleadjust_gun_angle90,2273
+  def distance_to_targetdistance_to_target59,1566
+  def should_shoot?should_shoot?64,1676
+  def can_make_new_decision?can_make_new_decision?68,1736
+  def adjust_desired_angleadjust_desired_angle76,1899
+  def change_target(new_target)change_target85,2194
+  def adjust_gun_angleadjust_gun_angle90,2283
 
-entities/components/ai/character_motion_fsm.rb,294
+entities/components/ai/character_motion_fsm.rb,328
 class CharacterMotionFSMCharacterMotionFSM1,0
   def initialize(object, vision, gun)initialize4,53
-  def on_collision(with)on_collision15,449
-  def on_damage(amount)on_damage19,519
-  def updateupdate25,631
-  def set_state(state)set_state30,694
-  def choose_statechoose_state38,872
+  def draw(viewport)draw15,449
+  def on_collision(with)on_collision23,656
+  def on_damage(amount)on_damage27,726
+  def updateupdate33,838
+  def set_state(state)set_state38,901
+  def choose_statechoose_state51,1210
 
 entities/components/ai/vision.rb,227
 class AiVisionAiVision1,0
@@ -464,11 +465,11 @@ class Health < ComponentHealth1,0
   def dead?dead?17,348
   def updateupdate21,383
   def inflict_damage(amount, cause)inflict_damage25,420
-  def draw(viewport)draw40,846
-  def increase(amount)increase48,1018
-  def draw?draw?56,1140
-  def update_imageupdate_image60,1170
-  def after_death(cause)after_death70,1382
+  def draw(viewport)draw42,915
+  def increase(amount)increase50,1087
+  def draw?draw?58,1209
+  def update_imageupdate_image62,1239
+  def after_death(cause)after_death72,1451
 
 entities/components/box_graphics.rb,294
 class BoxGraphics < ComponentBoxGraphics1,0
@@ -490,18 +491,19 @@ class PlayerInput < ComponentPlayerInput1,0
   def any_button_down?(*buttons)any_button_down?70,1511
   def change_angle(previous_angle, up, down, right, left)change_angle77,1636
 
-entities/components/character_graphics.rb,442
+entities/components/character_graphics.rb,495
 class CharacterGraphics < ComponentCharacterGraphics1,0
-  def initialize(game_object)initialize9,171
-  def update()update15,331
-  def draw(viewport)draw19,384
-  def draw_bounding_boxdraw_bounding_box24,478
-  def widthwidth37,747
-  def heightheight41,782
-  def direction_graphicsdirection_graphics45,819
-  def each_image(stand_image, run_image0, run_image1)each_image57,1118
-  def hithit74,1559
-  def charascharas82,1754
+  def initialize(game_object)initialize11,191
+  def update()update18,373
+  def draw(viewport)draw22,426
+  def draw_bounding_boxdraw_bounding_box31,608
+  def widthwidth44,877
+  def heightheight48,912
+  def direction_graphicsdirection_graphics52,949
+  def each_image(stand_image, run_image0, run_image1)each_image64,1248
+  def damage_flashingdamage_flashing81,1689
+  def damagedamage87,1877
+  def charascharas93,1942
 
 entities/character.rb,321
 class Character < GameObjectCharacter1,0
@@ -571,21 +573,21 @@ class GameObjectGameObject1,0
 
 entities/face_display.rb,637
 class FaceDisplay < ComponentFaceDisplay1,0
-  def initialize(object_pool, character)initialize10,239
-  def drawdraw15,345
-  def draw_facedraw_face24,467
-  def draw_face_bgdraw_face_bg29,556
-  def draw_hpdraw_hp39,747
-  def draw_hp_filterdraw_hp_filter44,830
-  def draw_magazinedraw_magazine58,1234
-  def draw_magazine_msgdraw_magazine_msg63,1335
-  def face_coordsface_coords72,1493
-  def hp_coordshp_coords80,1669
-  def magazine_coordsmagazine_coords88,1879
-  def face_imageface_image96,2145
-  def hp_imagehp_image100,2238
-  def magazine_imagemagazine_image104,2323
-  def magazine_msgmagazine_msg108,2426
+  def initialize(object_pool, character)initialize11,249
+  def drawdraw16,355
+  def draw_facedraw_face25,477
+  def draw_face_bgdraw_face_bg30,564
+  def draw_hpdraw_hp40,758
+  def draw_hp_filterdraw_hp_filter45,839
+  def draw_magazinedraw_magazine59,1241
+  def draw_magazine_msgdraw_magazine_msg64,1340
+  def face_coordsface_coords73,1496
+  def hp_coordshp_coords81,1672
+  def magazine_coordsmagazine_coords89,1882
+  def face_imageface_image97,2148
+  def hp_imagehp_image101,2241
+  def magazine_imagemagazine_image105,2326
+  def magazine_msgmagazine_msg109,2429
 
 entities/damage.rb,153
 class Damage < GameObjectDamage1,0

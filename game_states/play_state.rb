@@ -8,7 +8,7 @@ class PlayState < GameState
     @map.spawn_points(10)
     @camera = Camera.new
     @object_pool.camera = @camera
-    create_characters(1)
+    create_characters(3)
     @object_pool.camera = @camera
     Damage.new(@object_pool, 0, 0).mark_for_removal
   end
@@ -31,7 +31,9 @@ class PlayState < GameState
     @camera.update
     @hud.update
     update_caption
-    clear_or_gameover
+    if $window.state.class == PlayState
+      clear_or_gameover
+    end
   end
 
   def draw
@@ -68,6 +70,9 @@ class PlayState < GameState
       x, y = @camera.mouse_coords
       t.move(x, y)
     end
+    if id == Gosu::KbF1
+      $debug = !$debug
+    end
     if id == Gosu::KbEscape
       GameState.switch(MenuState.instance)
     end
@@ -102,7 +107,7 @@ class PlayState < GameState
     @character = Character.new(@object_pool, PlayerInput.new(@camera, @object_pool))
     @ai = []
     amount.times do |i|
-      @ai.push(Character.new(@object_pool, AiInput.new(
+      @ai << (Character.new(@object_pool, AiInput.new(
                       @object_pool)))
     end
     @camera.target = @character
