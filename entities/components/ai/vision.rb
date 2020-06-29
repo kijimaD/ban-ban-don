@@ -37,7 +37,7 @@ class AiVision
     in_front = Utils.point_at_distance(
       *@viewer.location, @viewer.direction, 40)
     @object_pool.map.can_move_to?(*in_front) &&
-      @object_pool.nearby_point(*in_front, 40, @viewer)
+      @object_pool.nearby_point(*in_front, 40, 0, @viewer)
         .reject { |o| o.is_a? Powerup }.empty?
   end
 
@@ -54,7 +54,7 @@ class AiVision
           x = @viewer.x + x
           y = @viewer.y + y
           if @object_pool.map.can_move_to?(x, y) &&
-             @object_pool.nearby_point(x, y, radius, @viewer)
+             @object_pool.nearby_point(x, y, radius, 0, @viewer)
                .reject { |o| o.is_a? Powerup }.empty?
             if away_from
               paths << [x, y]

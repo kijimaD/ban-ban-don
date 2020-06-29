@@ -8,7 +8,7 @@ class CharacterRoamingState < CharacterMotionState
   def update
     change_direction if should_change_direction?
     if substate_expired?
-      rand > 0.3 ? drive : wait
+      rand > 0.2 ? drive : wait
     end
   end
 

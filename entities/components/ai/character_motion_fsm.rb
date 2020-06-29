@@ -1,5 +1,6 @@
 class CharacterMotionFSM
   STATE_CHANGE_DELAY = 500
+  LOCATION_CHECK_DELAY = 5000
 
   def initialize(object, vision, gun)
     @object = object
@@ -9,6 +10,8 @@ class CharacterMotionFSM
     @fighting_state = CharacterFightingState.new(object, vision)
     @fleeing_state = CharacterFleeingState.new(object, vision, gun)
     @chasing_state = CharacterChasingState.new(object, vision, gun)
+    @stuck_state = CharacterStuckState.new(object, vision, gun)
+    @navigating_state = CharacterNavigatingState.new(object, vision)
     set_state(@roaming_state)
   end
 
@@ -48,8 +51,33 @@ class CharacterMotionFSM
   end
 
   def choose_state
-    return unless Gosu.milliseconds -
-                  (@last_state_change) > STATE_CHANGE_DELAY
+    unless @vision.can_go_forward?
+      unless @current_state == @stuck_state
+        set_state(@navigating_state)
+      end
+    end
+
+    change_delay = STATE_CHANGE_DELAY
+    if @current_state == @stuck_state
+      change_delay *= 5
+    end
+    now = Gosu.milliseconds
+    return unless now - @last_state_change > change_delay
+    if @last_location_update.nil?
+      @last_location_update = now
+      @last_location = @object.location
+    end
+    if now - @last_location_update > LOCATION_CHECK_DELAY
+      unless @last_location.nil? || @current_state.waiting?
+        if Utils.distance_between(*@last_location, *@object.location) < 20
+          set_state(@stuck_state)
+          @stuck_state.stuck_at = @object.location
+          return
+        end
+      end
+      @last_location_update = now
+      @last_location = @object.location
+    end
     if @gun.target
       if @object.health.health > 40
         if @gun.distance_to_target > BulletPhysics::MAX_DIST

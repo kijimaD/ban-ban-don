@@ -326,9 +326,9 @@ class CharacterPhysics < ComponentCharacterPhysics1,0
   def collides_with_point?(x, y)collides_with_point?122,2639
   def apply_movement_penalty(speed)apply_movement_penalty126,2714
   def accelerateaccelerate130,2804
-  def deceleratedecelerate134,2860
-  def turboturbo139,2947
-  def resetreset143,2983
+  def deceleratedecelerate134,2861
+  def turboturbo139,2948
+  def resetreset143,2984
 
 entities/components/powerup_graphics.rb,284
 class PowerupGraphics < ComponentPowerupGraphics1,0
@@ -403,7 +403,7 @@ class CharacterChasingState < CharacterMotionStateCharacterChasingState1,0
   def drive_timedrive_time23,480
   def turn_timeturn_time27,514
 
-entities/components/ai/character_motion_state.rb,505
+entities/components/ai/character_motion_state.rb,537
 class CharacterMotionStateCharacterMotionState1,0
   def initialize(object, vision)initialize2,27
   def enterenter7,109
@@ -413,10 +413,11 @@ class CharacterMotionStateCharacterMotionState1,0
   def turn_timeturn_time19,205
   def updateupdate22,228
   def waitwait25,248
-  def drivedrive32,398
-  def should_change_direction?should_change_direction?39,550
-  def substate_expired?substate_expired?45,712
-  def on_collision(with)on_collision57,964
+  def waiting?waiting?32,398
+  def drivedrive36,447
+  def should_change_direction?should_change_direction?43,599
+  def substate_expired?substate_expired?50,808
+  def on_collision(with)on_collision62,1060
 
 entities/components/ai/gun.rb,483
 class AiGunAiGun1,0
@@ -431,26 +432,45 @@ class AiGunAiGun1,0
   def change_target(new_target)change_target85,2193
   def adjust_gun_angleadjust_gun_angle90,2282
 
-entities/components/ai/character_motion_fsm.rb,328
+entities/components/ai/character_motion_fsm.rb,330
 class CharacterMotionFSMCharacterMotionFSM1,0
-  def initialize(object, vision, gun)initialize4,53
-  def draw(viewport)draw15,449
-  def on_collision(with)on_collision23,656
-  def on_damage(amount)on_damage27,726
-  def updateupdate33,838
-  def set_state(state)set_state38,901
-  def choose_statechoose_state51,1201
+  def initialize(object, vision, gun)initialize5,83
+  def draw(viewport)draw18,612
+  def on_collision(with)on_collision26,819
+  def on_damage(amount)on_damage30,889
+  def updateupdate36,1001
+  def set_state(state)set_state41,1064
+  def choose_statechoose_state53,1332
 
-entities/components/ai/vision.rb,463
+entities/components/ai/character_navigating_state.rb,306
+class CharacterNavigatingState < CharacterMotionStateCharacterNavigatingState1,0
+  def initialize(object, vision)initialize2,54
+  def updateupdate7,136
+  def change_directionchange_direction12,215
+  def wait_timewait_time23,537
+  def drive_timedrive_time27,578
+  def turn_timeturn_time31,623
+
+entities/components/ai/character_stuck_state.rb,302
+class CharacterStuckState < CharacterMotionStateCharacterStuckState1,0
+  def initialize(object, vision, gun)initialize3,75
+  def updateupdate10,203
+  def change_directionchange_direction15,282
+  def wait_timewait_time33,858
+  def drive_timedrive_time37,899
+  def turn_timeturn_time41,944
+
+entities/components/ai/vision.rb,524
 class AiVisionAiVision1,0
   def initialize(viewer, object_pool, distance)initialize6,91
   def updateupdate12,223
   def closest_characterclosest_character16,299
   def closest_powerup(*suitable)closest_powerup26,561
   def can_go_forward?can_go_forward?36,859
-  def closest_free_path(away_from = nil)closest_free_path44,1127
-  def find_closest_characterfind_closest_character72,1825
-  def find_closest_powerup(*suitable)find_closest_powerup83,2122
+  def closest_free_path(away_from = nil)closest_free_path44,1130
+  def find_closest_characterfind_closest_character75,1898
+  def find_closest_powerup(*suitable)find_closest_powerup86,2195
+  def farthest_from(paths, away_from)farthest_from106,2673
 
 entities/components/bullet_physics.rb,365
 class BulletPhysics < ComponentBulletPhysics1,0
