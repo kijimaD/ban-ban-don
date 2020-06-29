@@ -1,13 +1,21 @@
-class AnnounceGraphics < Component
+class AnnounceGraphics
 
-  def initialize(object)
+  def initialize(object, character, ai)
     @object = object
+    @character = character
+    @ai = ai
   end
 
   def update
   end
 
   def draw
+    if @object.win
+      win_or_lose("win!!")
+    end
+    if @object.lose
+      win_or_lose("lose!!")
+    end
   end
 
   def win_or_lose(wl)

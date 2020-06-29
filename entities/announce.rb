@@ -1,20 +1,13 @@
-class Announce < GameObject
+class Announce
 
   def initialize(character, ai)
     @character = character
     @ai = ai
-    @graphics = AnnounceGraphics.new(self)
+    @graphics = AnnounceGraphics.new(self, character, ai)
   end
 
   def draw
-    if @character.health.dead?
-      lose
-    end
-    @ai.each do |ai|
-      if ai.health.dead?
-        win
-      end
-    end
+    @graphics.draw
   end
 
   def start
@@ -22,11 +15,13 @@ class Announce < GameObject
   end
 
   def win
-    @graphics.win_or_lose("win!!")
+    @ai.all? do |ai|
+      ai.health.dead?
+    end
   end
 
   def lose
-    @graphics.win_or_lose("lose!!")
+    @character.health.dead?
   end
 
 end
