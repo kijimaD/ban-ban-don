@@ -8,9 +8,9 @@ class PlayState < GameState
     @map.spawn_points(10)
     @camera = Camera.new
     @object_pool.camera = @camera
-    create_characters(3)
-    @object_pool.camera = @camera
-    Damage.new(@object_pool, 0, 0).mark_for_removal
+    create_characters(1)
+    @announce = Announce.new(@character, @ai)
+    Damage.new(@object_pool, 0, 0).mark_for_removal # initialize damage
   end
 
   def enter
@@ -31,9 +31,6 @@ class PlayState < GameState
     @camera.update
     @hud.update
     update_caption
-    if $window.state.class == PlayState
-      clear_or_gameover
-    end
   end
 
   def draw
@@ -57,6 +54,7 @@ class PlayState < GameState
     end
     @camera.draw_crosshair
     @hud.draw
+    @announce.draw
   end
 
   def button_down(id)
@@ -76,17 +74,10 @@ class PlayState < GameState
     if id == Gosu::KbEscape
       GameState.switch(MenuState.instance)
     end
-  end
-
-  def clear_or_gameover
-    if @character.health.dead?
-      puts "gameover!"
-    end
-    @ai.each do |ai|
-      if ai.health.dead?
-        puts "win!"
-      end
-    end
+    # if id == Kb && @done
+    #   leave
+    #   $window.close
+    # end
   end
 
   private
