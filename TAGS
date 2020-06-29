@@ -309,9 +309,9 @@ class TreeGraphics < ComponentTreeGraphics1,0
 entities/components/character_health.rb,193
 class CharacterHealth < HealthCharacterHealth1,0
   def initialize(object, object_pool)initialize9,173
-  def updateupdate17,377
-  def draw(viewport)draw20,397
-  def coordscoords42,920
+  def updateupdate17,376
+  def draw(viewport)draw20,396
+  def coordscoords42,919
 
 entities/components/character_physics.rb,635
 class CharacterPhysics < ComponentCharacterPhysics1,0
@@ -535,17 +535,17 @@ class Character < GameObjectCharacter1,0
   def initialize(object_pool, input)initialize8,291
   def boxbox26,908
   def shoot(target_x, target_y)shoot30,942
-  def can_shoot?can_shoot?43,1249
-  def reloadreload47,1354
-  def on_collision(object)on_collision62,1753
-  def reset_modifiersreset_modifiers74,2016
+  def can_shoot?can_shoot?44,1250
+  def reloadreload48,1355
+  def on_collision(object)on_collision63,1754
+  def reset_modifiersreset_modifiers75,2017
 
-entities/bullet.rb,220
+entities/bullet.rb,221
 class Bullet < GameObjectBullet1,0
   def initialize(object_pool, object, source_x, source_y, target_x, target_y)initialize6,165
-  def boxbox18,622
-  def explodeexplode23,680
-  def fire(source, speed)fire33,908
+  def boxbox21,738
+  def explodeexplode26,796
+  def fire(source, speed)fire36,1024
 
 entities/speed_meter.rb,257
 class SpeedMeterSpeedMeter1,0

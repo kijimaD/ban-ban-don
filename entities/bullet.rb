@@ -6,7 +6,8 @@ class Bullet < GameObject
   def initialize(object_pool, object, source_x, source_y, target_x, target_y)
     super(object_pool, source_x, source_y)
     @object_pool = object_pool
-    @target_x, @target_y = target_x, target_y
+    @target_x =(-10 * @x + (10 + 10) * target_x) / 10
+    @target_y =(-10 * @y + (10 + 10) * target_y) / 10
     @gun_angle = object.gun_angle
     @weapon = object.weapon
     @sounds = BulletSounds.new
