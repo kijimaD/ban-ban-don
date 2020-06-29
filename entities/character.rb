@@ -28,7 +28,6 @@ class Character < GameObject
   end
 
   def shoot(target_x, target_y)
-
     if can_shoot?
       if @number_ammo > 0
         @last_shot = Gosu.milliseconds
