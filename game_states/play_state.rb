@@ -1,6 +1,6 @@
 # coding: utf-8
 class PlayState < GameState
-  attr_accessor :update_interval, :object_pool, :character
+  attr_accessor :update_interval, :object_pool, :character, :announce
 
   def initialize
     @object_pool = ObjectPool.new(Map.bounding_box)
@@ -30,6 +30,7 @@ class PlayState < GameState
     @object_pool.update_all
     @camera.update
     @hud.update
+    @announce.update
     update_caption
   end
 
@@ -74,10 +75,6 @@ class PlayState < GameState
     if id == Gosu::KbEscape
       GameState.switch(MenuState.instance)
     end
-    # if id == Kb && @done
-    #   leave
-    #   $window.close
-    # end
   end
 
   private
@@ -95,7 +92,7 @@ class PlayState < GameState
 
   def create_characters(amount)
     @map.spawn_points(amount * 3)
-    @character = Character.new(@object_pool, PlayerInput.new(@camera, @object_pool))
+    @character = Character.new(@object_pool, PlayerInput.new(self, @camera, @object_pool))
     @ai = []
     amount.times do |i|
       @ai << (Character.new(@object_pool, AiInput.new(

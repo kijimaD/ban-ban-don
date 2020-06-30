@@ -1,8 +1,9 @@
 class PlayerInput < Component
   attr_reader :stats
 
-  def initialize(camera, object_pool)
+  def initialize(play_state, camera, object_pool)
     super(nil)
+    @play_state = play_state
     @camera = camera
     @object_pool = object_pool
     @stats = Stats.new
@@ -17,6 +18,10 @@ class PlayerInput < Component
 
   def update
     return if object.health.dead?
+    if @play_state.announce.done?
+      object.throttle_down = false
+      return
+    end
     d_x, d_y = @camera.target_delta_on_screen
     atan = Math.atan2(($window.width / 2) - d_x - $window.mouse_x,
                       ($window.height / 2) - d_y - $window.mouse_y)

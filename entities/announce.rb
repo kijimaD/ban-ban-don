@@ -1,4 +1,5 @@
 class Announce
+  attr_reader :done
 
   def initialize(character, ai)
     @character = character
@@ -10,18 +11,32 @@ class Announce
     @graphics.draw
   end
 
+  def update
+    done?
+    if Utils.button_down?(Gosu::KbReturn)
+        # leave
+        $window.close
+    end
+  end
+
   def start
     # start!!
   end
 
   def win
-    @ai.all? do |ai|
+    @win = @ai.all? do |ai|
       ai.health.dead?
     end
   end
 
   def lose
-    @character.health.dead?
+    @lose = @character.health.dead?
+  end
+
+  def done?
+    if @win || @lose
+      @done = true
+    end
   end
 
 end
