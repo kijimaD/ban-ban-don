@@ -15,7 +15,7 @@ class AnnounceGraphics
 
   def win_or_lose(wl)
     x, y = coords
-    Gosu::Image.from_text(wl, 120, options = {font: Utils.title_font}).draw(x, y, 1, 1, 1, Gosu::Color::RED)
+    Gosu::Image.from_text(wl, 120, options = {font: Utils.title_font}).draw(x, y, 300, 1, 1, Gosu::Color::RED)
   end
 
   def coords

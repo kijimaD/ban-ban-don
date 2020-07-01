@@ -7,7 +7,8 @@ class BulletGraphics < Component
   end
 
   def draw(viewport)
-    bullet.draw_rot(x - 4, y - 4, 1, @object.gun_angle)
+    bullet.draw_rot(x - 4, y - 4, 2, @object.gun_angle)
+    shadow.draw(x - 4, y - 4, 1)
     Utils.mark_corners(object.box) if $debug
   end
 
@@ -36,6 +37,10 @@ class BulletGraphics < Component
   def bullets
     @@bullets ||= Gosu::TexturePacker.load_json(
       Utils.media_path('bullets.json'))
+  end
+
+  def shadow
+    @@shadow ||= Gosu::Image.new(Utils.media_path('bullet_shadow.png'))
   end
 
 end
