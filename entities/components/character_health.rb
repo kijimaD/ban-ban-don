@@ -7,7 +7,7 @@ class CharacterHealth < Health
   BACKGROUND = Gosu::Color::BLACK
 
   def initialize(object, object_pool)
-    super(object, object_pool, 2, true)
+    super(object, object_pool, 100, true)
     @object = object
     @object_pool = object_pool
     @health_updated = true
