@@ -1,12 +1,7 @@
 class AnnounceGraphics
 
-  def initialize(object, character, ai)
+  def initialize(object)
     @object = object
-    @character = character
-    @ai = ai
-  end
-
-  def update
   end
 
   def draw

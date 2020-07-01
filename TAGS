@@ -185,15 +185,15 @@ class CameraCamera1,0
   def desired_spotdesired_spot86,1847
   def crosshaircrosshair98,2084
 
-entities/announce.rb,220
+entities/announce.rb,224
 class AnnounceAnnounce1,0
-  def initialize(character, ai)initialize4,36
-  def drawdraw10,173
-  def updateupdate14,210
-  def startstart22,328
-  def winwin26,361
-  def loselose32,436
-  def done?done?36,490
+  def initialize(character, ai)initialize4,49
+  def drawdraw10,171
+  def updateupdate14,208
+  def startstart24,345
+  def win?win?28,378
+  def lose?lose?34,454
+  def done?done?38,509
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -293,13 +293,12 @@ class BulletSoundsBulletSounds1,0
   def sound(fire_sound)sound15,328
   def sound_hitsound_hit19,427
 
-entities/components/announce_graphics.rb,217
+entities/components/announce_graphics.rb,174
 class AnnounceGraphicsAnnounceGraphics1,0
-  def initialize(object, character, ai)initialize3,24
-  def updateupdate9,132
-  def drawdraw12,152
-  def win_or_lose(wl)win_or_lose21,280
-  def coordscoords26,436
+  def initialize(object)initialize3,24
+  def drawdraw7,77
+  def win_or_lose(wl)win_or_lose16,205
+  def coordscoords21,361
 
 entities/components/explosion_graphics.rb,262
 class ExplosionGraphics < ComponentExplosionGraphics1,0
@@ -309,6 +308,11 @@ class ExplosionGraphics < ComponentExplosionGraphics1,0
   def current_framecurrent_frame29,518
   def done?done?33,592
   def animationanimation37,658
+
+entities/components/announce_sounds.rb,88
+class AnnounceSoundsAnnounceSounds1,0
+    def playplay4,38
+    def soundsound8,77
 
 entities/components/tree_graphics.rb,411
 class TreeGraphics < ComponentTreeGraphics1,0
@@ -326,9 +330,9 @@ class TreeGraphics < ComponentTreeGraphics1,0
 entities/components/character_health.rb,193
 class CharacterHealth < HealthCharacterHealth1,0
   def initialize(object, object_pool)initialize9,173
-  def updateupdate17,376
-  def draw(viewport)draw20,396
-  def coordscoords42,919
+  def updateupdate17,374
+  def draw(viewport)draw20,394
+  def coordscoords42,917
 
 entities/components/character_physics.rb,635
 class CharacterPhysics < ComponentCharacterPhysics1,0
@@ -530,8 +534,8 @@ class PlayerInput < ComponentPlayerInput1,0
   def control(obj)control12,228
   def on_collision(with)on_collision16,276
   def updateupdate19,308
-  def any_button_down?(*buttons)any_button_down?75,1642
-  def change_angle(previous_angle, up, down, right, left)change_angle82,1767
+  def any_button_down?(*buttons)any_button_down?76,1672
+  def change_angle(previous_angle, up, down, right, left)change_angle83,1797
 
 entities/components/character_graphics.rb,495
 class CharacterGraphics < ComponentCharacterGraphics1,0
@@ -554,8 +558,8 @@ class Character < GameObjectCharacter1,0
   def shoot(target_x, target_y)shoot30,942
   def can_shoot?can_shoot?43,1249
   def reloadreload47,1354
-  def on_collision(object)on_collision62,1755
-  def reset_modifiersreset_modifiers74,2018
+  def on_collision(object)on_collision62,1753
+  def reset_modifiersreset_modifiers74,2016
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
