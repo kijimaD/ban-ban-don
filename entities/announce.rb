@@ -36,14 +36,13 @@ class Announce
   end
 
   def done?
-    puts @done.nil?
     if (@win || @lose) && @done.nil?
       @done = true
       if @win
-        AnnounceSounds.play
+        AnnounceSounds.win
       end
       if @lose
-        AnnounceSounds.play
+        AnnounceSounds.lose
       end
     end
   end
