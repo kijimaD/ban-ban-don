@@ -1,6 +1,6 @@
 # coding: utf-8
 class PlayState < GameState
-  attr_accessor :update_interval, :object_pool, :character
+  attr_accessor :update_interval, :object_pool, :character, :announce
 
   def initialize
     @object_pool = ObjectPool.new(Map.bounding_box)
@@ -8,9 +8,9 @@ class PlayState < GameState
     @map.spawn_points(10)
     @camera = Camera.new
     @object_pool.camera = @camera
-    create_characters(3)
-    @object_pool.camera = @camera
-    Damage.new(@object_pool, 0, 0).mark_for_removal
+    create_characters(1)
+    @announce = Announce.new(@character, @ai)
+    Damage.new(@object_pool, 0, 0).mark_for_removal # initialize damage
   end
 
   def enter
@@ -30,10 +30,8 @@ class PlayState < GameState
     @object_pool.update_all
     @camera.update
     @hud.update
+    @announce.update
     update_caption
-    if $window.state.class == PlayState
-      clear_or_gameover
-    end
   end
 
   def draw
@@ -57,6 +55,7 @@ class PlayState < GameState
     end
     @camera.draw_crosshair
     @hud.draw
+    @announce.draw
   end
 
   def button_down(id)
@@ -78,17 +77,6 @@ class PlayState < GameState
     end
   end
 
-  def clear_or_gameover
-    if @character.health.dead?
-      puts "gameover!"
-    end
-    @ai.each do |ai|
-      if ai.health.dead?
-        puts "win!"
-      end
-    end
-  end
-
   private
 
   def update_caption
@@ -104,7 +92,7 @@ class PlayState < GameState
 
   def create_characters(amount)
     @map.spawn_points(amount * 3)
-    @character = Character.new(@object_pool, PlayerInput.new(@camera, @object_pool))
+    @character = Character.new(@object_pool, PlayerInput.new(self, @camera, @object_pool))
     @ai = []
     amount.times do |i|
       @ai << (Character.new(@object_pool, AiInput.new(

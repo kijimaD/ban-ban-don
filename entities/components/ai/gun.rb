@@ -1,5 +1,5 @@
 class AiGun
-  DECISION_DELAY = 1000
+  DECISION_DELAY = 100
   attr_reader :target, :desired_gun_angle
 
   def initialize(object, vision)

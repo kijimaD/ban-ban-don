@@ -25,17 +25,16 @@ class GameStateGameState1,0
   def needs_redraw?needs_redraw?21,220
   def button_down(id)button_down25,256
 
-game_states/play_state.rb,372
+game_states/play_state.rb,321
 class PlayState < GameStatePlayState2,16
-  def initializeinitialize5,104
-  def enterenter16,409
-  def leaveleave20,474
-  def updateupdate28,639
-  def drawdraw39,828
-  def button_down(id)button_down62,1454
-  def clear_or_gameoverclear_or_gameover81,1848
-  def update_captionupdate_caption94,2036
-  def create_characters(amount)create_characters105,2425
+  def initializeinitialize5,115
+  def enterenter16,452
+  def leaveleave20,517
+  def updateupdate28,682
+  def drawdraw37,830
+  def button_down(id)button_down61,1475
+  def update_captionupdate_caption82,1880
+  def create_characters(amount)create_characters93,2269
 
 game_states/menu_state.rb,264
 class MenuState < GameStateMenuState2,16
@@ -186,6 +185,16 @@ class CameraCamera1,0
   def desired_spotdesired_spot86,1847
   def crosshaircrosshair98,2084
 
+entities/announce.rb,220
+class AnnounceAnnounce1,0
+  def initialize(character, ai)initialize4,36
+  def drawdraw10,173
+  def updateupdate14,210
+  def startstart22,328
+  def winwin26,361
+  def loselose32,436
+  def done?done?36,490
+
 entities/box.rb,151
 class Box < GameObjectBox1,0
   def initialize(object_pool, x, y)initialize4,65
@@ -220,12 +229,12 @@ class MapMap1,0
   def generate_treesgenerate_trees72,1450
   def generate_boxesgenerate_boxes90,1940
   def generate_powerupsgenerate_powerups103,2237
-  def random_poweruprandom_powerup116,2590
-  def find_spawn_pointfind_spawn_point128,2760
-  def tile_at(x, y)tile_at138,3003
-  def load_tilesload_tiles145,3170
-  def generate_mapgenerate_map155,3519
-  def choose_tile(val)choose_tile171,3864
+  def random_poweruprandom_powerup116,2592
+  def find_spawn_pointfind_spawn_point128,2762
+  def tile_at(x, y)tile_at138,3005
+  def load_tilesload_tiles145,3172
+  def generate_mapgenerate_map155,3521
+  def choose_tile(val)choose_tile171,3866
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -284,6 +293,14 @@ class BulletSoundsBulletSounds1,0
   def sound(fire_sound)sound15,328
   def sound_hitsound_hit19,427
 
+entities/components/announce_graphics.rb,217
+class AnnounceGraphicsAnnounceGraphics1,0
+  def initialize(object, character, ai)initialize3,24
+  def updateupdate9,132
+  def drawdraw12,152
+  def win_or_lose(wl)win_or_lose21,280
+  def coordscoords26,436
+
 entities/components/explosion_graphics.rb,262
 class ExplosionGraphics < ComponentExplosionGraphics1,0
   def initialize(game_object)initialize4,59
@@ -326,9 +343,9 @@ class CharacterPhysics < ComponentCharacterPhysics1,0
   def collides_with_point?(x, y)collides_with_point?122,2639
   def apply_movement_penalty(speed)apply_movement_penalty126,2714
   def accelerateaccelerate130,2804
-  def deceleratedecelerate134,2860
-  def turboturbo139,2947
-  def resetreset143,2983
+  def deceleratedecelerate134,2861
+  def turboturbo139,2948
+  def resetreset143,2984
 
 entities/components/powerup_graphics.rb,284
 class PowerupGraphics < ComponentPowerupGraphics1,0
@@ -366,24 +383,25 @@ class CharacterSounds < ComponentCharacterSounds1,0
   def hit_bullet_soundhit_bullet_sound47,1140
   def reload_soundreload_sound51,1256
 
-entities/components/ai/character_fleeing_state.rb,331
+entities/components/ai/character_fleeing_state.rb,333
 class CharacterFleeingState < CharacterMotionStateCharacterFleeingState1,0
   def initialize(object, vision, gun)initialize3,92
   def can_flee?can_flee?10,220
   def enterenter15,340
   def updateupdate19,402
   def change_directionchange_direction24,481
-  def drive_timedrive_time33,709
-  def turn_timeturn_time37,743
+  def drive_timedrive_time42,1016
+  def turn_timeturn_time46,1050
 
-entities/components/ai/character_roaming_state.rb,300
+entities/components/ai/character_roaming_state.rb,352
 class CharacterRoamingState < CharacterMotionStateCharacterRoamingState1,0
   def initialize(object, vision)initialize2,51
   def updateupdate8,143
-  def change_directionchange_direction15,277
-  def wait_timewait_time36,753
-  def drive_timedrive_time40,796
-  def turn_timeturn_time44,841
+  def required_powerupsrequired_powerups15,277
+  def change_directionchange_direction36,766
+  def turn_timeturn_time66,1555
+  def wait_timewait_time74,1663
+  def drive_timedrive_time78,1704
 
 entities/components/ai/character_fighting_state.rb,302
 class CharacterFightingState < CharacterMotionStateCharacterFightingState1,0
@@ -391,8 +409,8 @@ class CharacterFightingState < CharacterMotionStateCharacterFightingState1,0
   def updateupdate8,144
   def change_directionchange_direction15,278
   def wait_timewait_time36,778
-  def drive_timedrive_time40,821
-  def turn_timeturn_time44,866
+  def drive_timedrive_time40,819
+  def turn_timeturn_time44,864
 
 entities/components/ai/character_chasing_state.rb,272
 class CharacterChasingState < CharacterMotionStateCharacterChasingState1,0
@@ -402,7 +420,7 @@ class CharacterChasingState < CharacterMotionStateCharacterChasingState1,0
   def drive_timedrive_time23,480
   def turn_timeturn_time27,514
 
-entities/components/ai/character_motion_state.rb,505
+entities/components/ai/character_motion_state.rb,537
 class CharacterMotionStateCharacterMotionState1,0
   def initialize(object, vision)initialize2,27
   def enterenter7,109
@@ -412,40 +430,64 @@ class CharacterMotionStateCharacterMotionState1,0
   def turn_timeturn_time19,205
   def updateupdate22,228
   def waitwait25,248
-  def drivedrive32,398
-  def should_change_direction?should_change_direction?39,550
-  def substate_expired?substate_expired?45,712
-  def on_collision(with)on_collision57,964
+  def waiting?waiting?32,398
+  def drivedrive36,447
+  def should_change_direction?should_change_direction?43,599
+  def substate_expired?substate_expired?50,808
+  def on_collision(with)on_collision62,1060
 
 entities/components/ai/gun.rb,483
 class AiGunAiGun1,0
-  def initialize(object, vision)initialize5,79
-  def adjust_angleadjust_angle14,293
-  def updateupdate19,365
-  def draw(viewport)draw45,1128
-  def distance_to_targetdistance_to_target59,1566
-  def should_shoot?should_shoot?64,1676
-  def can_make_new_decision?can_make_new_decision?68,1736
-  def adjust_desired_angleadjust_desired_angle76,1899
-  def change_target(new_target)change_target85,2194
-  def adjust_gun_angleadjust_gun_angle90,2283
+  def initialize(object, vision)initialize5,78
+  def adjust_angleadjust_angle14,292
+  def updateupdate19,364
+  def draw(viewport)draw45,1127
+  def distance_to_targetdistance_to_target59,1565
+  def should_shoot?should_shoot?64,1675
+  def can_make_new_decision?can_make_new_decision?68,1735
+  def adjust_desired_angleadjust_desired_angle76,1898
+  def change_target(new_target)change_target85,2193
+  def adjust_gun_angleadjust_gun_angle90,2282
 
-entities/components/ai/character_motion_fsm.rb,328
+entities/components/ai/character_motion_fsm.rb,330
 class CharacterMotionFSMCharacterMotionFSM1,0
-  def initialize(object, vision, gun)initialize4,53
-  def draw(viewport)draw15,449
-  def on_collision(with)on_collision23,656
-  def on_damage(amount)on_damage27,726
-  def updateupdate33,838
-  def set_state(state)set_state38,901
-  def choose_statechoose_state51,1210
+  def initialize(object, vision, gun)initialize5,83
+  def draw(viewport)draw18,612
+  def on_collision(with)on_collision26,819
+  def on_damage(amount)on_damage30,889
+  def updateupdate36,1001
+  def set_state(state)set_state41,1064
+  def choose_statechoose_state53,1332
 
-entities/components/ai/vision.rb,227
+entities/components/ai/character_navigating_state.rb,306
+class CharacterNavigatingState < CharacterMotionStateCharacterNavigatingState1,0
+  def initialize(object, vision)initialize2,54
+  def updateupdate7,136
+  def change_directionchange_direction12,215
+  def wait_timewait_time23,537
+  def drive_timedrive_time27,578
+  def turn_timeturn_time31,623
+
+entities/components/ai/character_stuck_state.rb,302
+class CharacterStuckState < CharacterMotionStateCharacterStuckState1,0
+  def initialize(object, vision, gun)initialize3,75
+  def updateupdate10,203
+  def change_directionchange_direction15,282
+  def wait_timewait_time33,858
+  def drive_timedrive_time37,899
+  def turn_timeturn_time41,944
+
+entities/components/ai/vision.rb,524
 class AiVisionAiVision1,0
-  def initialize(viewer, object_pool, distance)initialize5,62
-  def updateupdate11,194
-  def closest_characterclosest_character15,270
-  def find_closest_characterfind_closest_character27,543
+  def initialize(viewer, object_pool, distance)initialize6,91
+  def updateupdate12,223
+  def closest_characterclosest_character16,299
+  def closest_powerup(*suitable)closest_powerup26,561
+  def can_go_forward?can_go_forward?36,859
+  def closest_free_path(away_from = nil)closest_free_path44,1130
+  def find_closest_characterfind_closest_character75,1898
+  def find_closest_powerup(*suitable)find_closest_powerup86,2195
+  def farthest_from(paths, away_from)farthest_from106,2673
 
 entities/components/bullet_physics.rb,365
 class BulletPhysics < ComponentBulletPhysics1,0
@@ -482,14 +524,14 @@ class BoxGraphics < ComponentBoxGraphics1,0
   def center_ycenter_y32,437
   def boxesboxes36,492
 
-entities/components/player_input.rb,343
+entities/components/player_input.rb,355
 class PlayerInput < ComponentPlayerInput1,0
-  def initialize(camera, object_pool)initialize4,52
-  def control(obj)control11,187
-  def on_collision(with)on_collision15,235
-  def updateupdate18,267
-  def any_button_down?(*buttons)any_button_down?70,1511
-  def change_angle(previous_angle, up, down, right, left)change_angle77,1636
+  def initialize(play_state, camera, object_pool)initialize4,52
+  def control(obj)control12,228
+  def on_collision(with)on_collision16,276
+  def updateupdate19,308
+  def any_button_down?(*buttons)any_button_down?75,1642
+  def change_angle(previous_angle, up, down, right, left)change_angle82,1767
 
 entities/components/character_graphics.rb,495
 class CharacterGraphics < ComponentCharacterGraphics1,0
@@ -512,15 +554,15 @@ class Character < GameObjectCharacter1,0
   def shoot(target_x, target_y)shoot30,942
   def can_shoot?can_shoot?43,1249
   def reloadreload47,1354
-  def on_collision(object)on_collision62,1753
-  def reset_modifiersreset_modifiers74,2016
+  def on_collision(object)on_collision62,1755
+  def reset_modifiersreset_modifiers74,2018
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
-  def initialize(object_pool, object, source_x, source_y, target_x, target_y)initialize6,165
-  def boxbox18,622
-  def explodeexplode23,680
-  def fire(source, speed)fire33,908
+  def initialize(object_pool, object, source_x, source_y, target_x, target_y)initialize8,184
+  def boxbox21,701
+  def explodeexplode26,759
+  def fire(source, speed)fire36,987
 
 entities/speed_meter.rb,257
 class SpeedMeterSpeedMeter1,0

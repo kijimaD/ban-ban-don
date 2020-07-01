@@ -34,7 +34,7 @@ class CharacterFightingState < CharacterMotionState
   end
 
   def wait_time
-    rand(300..1000)
+    rand(30..100)
   end
 
   def drive_time

@@ -29,6 +29,10 @@ class CharacterMotionState
     @object.throttle_down = false
   end
 
+  def waiting?
+    @sub_state == :waiting
+  end
+
   def drive
     @sub_state = :driving
     @started_driving = Gosu.milliseconds
@@ -37,6 +41,7 @@ class CharacterMotionState
   end
 
   def should_change_direction?
+    return true unless @vision.can_go_forward?
     return true unless @changed_direction_at
     Gosu.milliseconds - @changed_direction_at >
       @will_keep_direction_for
