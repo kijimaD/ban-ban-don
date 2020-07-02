@@ -266,17 +266,16 @@ class PowerupSoundsPowerupSounds1,0
     def play(object, camera)play3,36
     def soundsound10,192
 
-entities/components/bullet_graphics.rb,322
+entities/components/bullet_graphics.rb,295
 class BulletGraphics < ComponentBulletGraphics1,0
   def initialize(object)initialize4,63
   def draw(viewport)draw9,134
-  def heightheight15,298
-  def widthwidth19,343
-  def center_xcenter_x25,397
-  def center_ycenter_y29,451
-  def bulletbullet33,506
-  def bulletsbullets37,588
-  def shadowshadow42,698
+  def heightheight15,296
+  def widthwidth19,341
+  def center_xcenter_x25,395
+  def center_ycenter_y29,449
+  def bulletbullet33,504
+  def bulletsbullets37,586
 
 entities/components/component.rb,209
 class ComponentComponent1,0
@@ -299,7 +298,7 @@ class AnnounceGraphicsAnnounceGraphics1,0
   def initialize(object)initialize3,24
   def drawdraw7,77
   def win_or_lose(wl)win_or_lose16,205
-  def coordscoords21,361
+  def coordscoords21,363
 
 entities/components/explosion_graphics.rb,262
 class ExplosionGraphics < ComponentExplosionGraphics1,0
