@@ -20,49 +20,29 @@
 				"h": 24
 			}
 		},
-		"diagonal_gun.png": {
+		"life_up.png": {
 			"frame": {
 				"x": 28,
 				"y": 1,
-				"w": 25,
-				"h": 24
+				"w": 40,
+				"h": 40
 			},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {
 				"x": 0,
 				"y": 0,
-				"w": 25,
-				"h": 24
+				"w": 40,
+				"h": 40
 			},
 			"sourceSize": {
-				"w": 25,
-				"h": 24
-			}
-		},
-		"life_up.png": {
-			"frame": {
-				"x": 55,
-				"y": 1,
-				"w": 25,
-				"h": 24
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 25,
-				"h": 24
-			},
-			"sourceSize": {
-				"w": 25,
-				"h": 24
+				"w": 40,
+				"h": 40
 			}
 		},
 		"magazine.png": {
 			"frame": {
-				"x": 82,
+				"x": 70,
 				"y": 1,
 				"w": 40,
 				"h": 40
@@ -78,86 +58,66 @@
 			"sourceSize": {
 				"w": 40,
 				"h": 40
-			}
-		},
-		"missile.png": {
-			"frame": {
-				"x": 124,
-				"y": 1,
-				"w": 25,
-				"h": 24
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 25,
-				"h": 24
-			},
-			"sourceSize": {
-				"w": 25,
-				"h": 24
 			}
 		},
 		"repair.png": {
 			"frame": {
-				"x": 151,
+				"x": 112,
 				"y": 1,
-				"w": 25,
-				"h": 24
+				"w": 40,
+				"h": 40
 			},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {
 				"x": 0,
 				"y": 0,
-				"w": 25,
-				"h": 24
+				"w": 40,
+				"h": 40
 			},
 			"sourceSize": {
-				"w": 25,
-				"h": 24
+				"w": 40,
+				"h": 40
 			}
 		},
 		"straight_gun.png": {
 			"frame": {
-				"x": 178,
+				"x": 154,
 				"y": 1,
-				"w": 25,
-				"h": 24
+				"w": 40,
+				"h": 40
 			},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {
 				"x": 0,
 				"y": 0,
-				"w": 25,
-				"h": 24
+				"w": 40,
+				"h": 40
 			},
 			"sourceSize": {
-				"w": 25,
-				"h": 24
+				"w": 40,
+				"h": 40
 			}
 		},
 		"wingman.png": {
 			"frame": {
-				"x": 205,
+				"x": 196,
 				"y": 1,
-				"w": 25,
-				"h": 24
+				"w": 40,
+				"h": 40
 			},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {
 				"x": 0,
 				"y": 0,
-				"w": 25,
-				"h": 24
+				"w": 40,
+				"h": 40
 			},
 			"sourceSize": {
-				"w": 25,
-				"h": 24
+				"w": 40,
+				"h": 40
 			}
 		}
 	},
@@ -167,7 +127,7 @@
 		"image": "pickups.png",
 		"format": "RGBA8888",
 		"size": {
-			"w": 231,
+			"w": 237,
 			"h": 42
 		},
 		"scale": "1"

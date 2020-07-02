@@ -18,8 +18,9 @@ class PlayerInput < Component
 
   def update
     return if object.health.dead?
-    if @play_state.announce.done?
+    if @play_state.announce.done
       object.throttle_down = false
+      object.physics.speed = 0
       return
     end
     d_x, d_y = @camera.target_delta_on_screen
