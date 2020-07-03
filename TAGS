@@ -185,15 +185,16 @@ class CameraCamera1,0
   def desired_spotdesired_spot86,1847
   def crosshaircrosshair98,2084
 
-entities/announce.rb,224
+entities/announce.rb,247
 class AnnounceAnnounce1,0
   def initialize(character, ai)initialize4,49
   def drawdraw10,171
-  def updateupdate14,208
-  def startstart24,345
-  def win?win?28,378
-  def lose?lose?34,454
-  def done?done?38,509
+  def updateupdate16,232
+  def startstart25,350
+  def win?win?29,383
+  def lose?lose?35,459
+  def onceonce39,514
+  def soundsound50,678
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -270,12 +271,12 @@ entities/components/bullet_graphics.rb,295
 class BulletGraphics < ComponentBulletGraphics1,0
   def initialize(object)initialize4,63
   def draw(viewport)draw9,134
-  def heightheight15,296
-  def widthwidth19,341
-  def center_xcenter_x25,395
-  def center_ycenter_y29,449
-  def bulletbullet33,504
-  def bulletsbullets37,586
+  def heightheight14,263
+  def widthwidth18,308
+  def center_xcenter_x24,362
+  def center_ycenter_y28,416
+  def bulletbullet32,471
+  def bulletsbullets36,553
 
 entities/components/component.rb,209
 class ComponentComponent1,0
@@ -293,12 +294,14 @@ class BulletSoundsBulletSounds1,0
   def sound(fire_sound)sound15,328
   def sound_hitsound_hit19,427
 
-entities/components/announce_graphics.rb,174
+entities/components/announce_graphics.rb,240
 class AnnounceGraphicsAnnounceGraphics1,0
-  def initialize(object)initialize3,24
-  def drawdraw7,77
-  def win_or_lose(wl)win_or_lose16,205
-  def coordscoords21,363
+  def initialize(object)initialize4,33
+  def drawdraw10,120
+  def updateupdate19,250
+  def win_or_lose(wl)win_or_lose22,270
+  def image(x, y, word)image32,407
+  def coordscoords36,551
 
 entities/components/explosion_graphics.rb,262
 class ExplosionGraphics < ComponentExplosionGraphics1,0
