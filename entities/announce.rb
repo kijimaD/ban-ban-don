@@ -8,16 +8,18 @@ class Announce
   end
 
   def draw
-    @graphics.draw
+    if @start
+      @graphics.draw
+    end
   end
 
   def update
     win?
     lose?
-    done?
-    if Utils.button_down?(Gosu::KbReturn)
-        # leave
-        $window.close
+    once
+    if @done && Utils.button_down?(Gosu::KbReturn)
+      MenuState.instance.play_state = nil
+      GameState.switch(MenuState.instance)
     end
   end
 
@@ -35,15 +37,23 @@ class Announce
     @lose = @character.health.dead?
   end
 
-  def done?
+  def once
     if (@win || @lose) && @done.nil?
       @done = true
-      if @win
-        AnnounceSounds.win
+      Thread.new do
+        sleep 2
+        @start = true
+        sound
       end
-      if @lose
-        AnnounceSounds.lose
-      end
+    end
+  end
+
+  def sound
+    if @win
+      AnnounceSounds.win
+    end
+    if @lose
+      AnnounceSounds.lose
     end
   end
 

@@ -11,7 +11,6 @@ class CharacterGraphics < Component
   def initialize(game_object)
     super(game_object)
     @body = charas.frame('chara2.png')
-    @chara_json = Utils.load_json("character_graphics.json")
     @damage_frame = 0
   end
 
@@ -50,7 +49,7 @@ class CharacterGraphics < Component
   end
 
   def direction_graphics
-    @chara_json['sirase']['graphs'].each_with_index do |graph, i|
+    object.character_json['graphs'].each_with_index do |graph, i|
       if object.direction == i * 45
         each_image(graph[0], graph[1], graph[2])
         break

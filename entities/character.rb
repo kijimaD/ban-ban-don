@@ -3,7 +3,8 @@ class Character < GameObject
                 :direction, :gun_angle, :input,
                 :sounds, :physics, :graphics,
                 :number_ammo, :number_magazine, :health, :weapon,
-                :fire_rate_modifier, :speed_modifier
+                :fire_rate_modifier, :speed_modifier,
+                :character_json
 
   def initialize(object_pool, input)
     x, y = object_pool.map.spawn_point
@@ -15,6 +16,7 @@ class Character < GameObject
     @health = CharacterHealth.new(self, object_pool)
     @graphics = CharacterGraphics.new(self)
     @weapon = Utils.load_json("weapon.json").sample
+    @character_json = Utils.load_json("character.json")["sirase"]
     @shoot_delay = @weapon['shoot_delay'].to_i
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)

@@ -57,10 +57,6 @@ class PlayerInput < Component
       object.reload
     end
 
-    if Utils.button_down?(Gosu::KbSpace) && $debug == true
-      sleep 4
-    end
-
     if Utils.button_down?(Gosu::KbUp) && @camera.zoom < 2.0
       @camera.zoom += 0.1
     end

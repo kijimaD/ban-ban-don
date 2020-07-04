@@ -15,6 +15,16 @@ class StereoSample
     end
   end
 
+  def self.stop_all
+    @@all_instances.each do |instances|
+      instances.each do |key, instance|
+        if instance.playing?
+          instance.stop
+        end
+      end
+    end
+  end
+
   def initialize(sound_l, sound_r = sound_l)
     @sound_l = Gosu::Sample.new(sound_l)
     if sound_l == sound_r

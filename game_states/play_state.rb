@@ -14,15 +14,12 @@ class PlayState < GameState
   end
 
   def enter
-    RubyProf.start if ENV['ENABLE_PROFILING']
+    @hud.active = true
   end
 
   def leave
-    if ENV['ENABLE_PROFILING']
-      result = RubyProf.stop
-      printer = RubyProf::FlatPrinter.new(result)
-      printer.print(STDOUT)
-    end
+    StereoSample.stop_all
+    @hud.active = false
   end
 
   def update
@@ -73,7 +70,12 @@ class PlayState < GameState
       $debug = !$debug
     end
     if id == Gosu::KbEscape
-      GameState.switch(MenuState.instance)
+      pause = PauseState.instance
+      pause.play_state = self
+      GameState.switch(pause)
+    end
+    if id == Gosu::KbI
+      GameState.switch(SelectState.instance)
     end
   end
 
