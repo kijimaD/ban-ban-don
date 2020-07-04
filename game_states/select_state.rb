@@ -20,7 +20,7 @@ class SelectState < GameState
   def update
     $window.caption = 'ばんばんどーん！SELECT' << "[FPS: #{Gosu.fps}]"
     @settings_sentence = Gosu::Image.from_text($window,
-      "      currnet x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}\n
+      "      current x, y = #{@cursor_x}, #{@cursor_y} save: #{@cursor_x_save}\n
       Character: #{gen_choises(@player_characters, 0)}
       Difficulty: #{gen_choises(@difficulties, 1)}
       #{gen_button(2, "戻る")}

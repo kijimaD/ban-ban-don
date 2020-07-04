@@ -49,13 +49,9 @@ class CharacterGraphics < Component
   end
 
   def direction_graphics
-    object.character_json['graphs'].each_with_index do |graph, i|
-      if object.direction == i * 45
-        each_image(graph[0], graph[1], graph[2])
-        break
-      end
-    end
-    @prev_flip = @flip
+    i = object.direction / 45
+    graph = object.character_json['graphs'][i]
+    each_image(graph[0], graph[1], graph[2])
     file = "chara" + @flip.to_s + ".png"
     charas.frame(file)
   end
