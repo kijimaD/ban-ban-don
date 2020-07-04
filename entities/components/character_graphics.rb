@@ -55,8 +55,8 @@ class CharacterGraphics < Component
         break
       end
     end
-    @prev_num = @num
-    file = "chara" + @num.to_s + ".png"
+    @prev_flip = @flip
+    file = "chara" + @flip.to_s + ".png"
     charas.frame(file)
   end
 
@@ -69,11 +69,10 @@ class CharacterGraphics < Component
         else
           @flip = run_image0
         end
-        @num = @flip
         @last_flip = Gosu.milliseconds
       end
     else
-      @num = stand_image
+      @flip = stand_image
     end
   end
 

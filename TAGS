@@ -561,20 +561,20 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def widthwidth43,816
   def heightheight47,851
   def direction_graphicsdirection_graphics51,888
-  def each_image(stand_image, run_image0, run_image1)each_image63,1187
-  def damage_flashingdamage_flashing80,1628
-  def damagedamage86,1816
-  def charascharas92,1881
+  def each_image(stand_image, run_image0, run_image1)each_image63,1190
+  def damage_flashingdamage_flashing79,1611
+  def damagedamage85,1799
+  def charascharas91,1864
 
-entities/character.rb,322
+entities/character.rb,323
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize9,320
-  def boxbox28,999
-  def shoot(target_x, target_y)shoot32,1033
-  def can_shoot?can_shoot?45,1340
-  def reloadreload49,1445
-  def on_collision(object)on_collision64,1844
-  def reset_modifiersreset_modifiers76,2107
+  def initialize(object_pool, input)initialize9,324
+  def boxbox28,1007
+  def shoot(target_x, target_y)shoot32,1041
+  def can_shoot?can_shoot?45,1348
+  def reloadreload49,1453
+  def on_collision(object)on_collision64,1852
+  def reset_modifiersreset_modifiers76,2115
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
