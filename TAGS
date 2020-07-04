@@ -2,11 +2,11 @@
 game_states/pause_state.rb,217
 class PauseState < GameStatePauseState2,20
   def initializeinitialize6,98
-  def enterenter12,209
-  def leaveleave18,325
-  def musicmusic24,433
-  def drawdraw29,541
-  def button_down(id)button_down37,701
+  def enterenter10,215
+  def leaveleave16,331
+  def musicmusic22,439
+  def drawdraw27,538
+  def button_down(id)button_down35,698
 
 game_states/game_state.rb,252
 class GameStateGameState1,0
@@ -549,32 +549,32 @@ class PlayerInput < ComponentPlayerInput1,0
   def control(obj)control12,228
   def on_collision(with)on_collision16,276
   def updateupdate19,308
-  def any_button_down?(*buttons)any_button_down?76,1672
-  def change_angle(previous_angle, up, down, right, left)change_angle83,1797
+  def any_button_down?(*buttons)any_button_down?72,1590
+  def change_angle(previous_angle, up, down, right, left)change_angle79,1715
 
 entities/components/character_graphics.rb,495
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize11,191
-  def update()update18,373
-  def draw(viewport)draw22,426
-  def draw_bounding_boxdraw_bounding_box31,608
-  def widthwidth44,877
-  def heightheight48,912
-  def direction_graphicsdirection_graphics52,949
-  def each_image(stand_image, run_image0, run_image1)each_image64,1248
-  def damage_flashingdamage_flashing81,1689
-  def damagedamage87,1877
-  def charascharas93,1942
+  def update()update17,312
+  def draw(viewport)draw21,365
+  def draw_bounding_boxdraw_bounding_box30,547
+  def widthwidth43,816
+  def heightheight47,851
+  def direction_graphicsdirection_graphics51,888
+  def each_image(stand_image, run_image0, run_image1)each_image63,1187
+  def damage_flashingdamage_flashing80,1628
+  def damagedamage86,1816
+  def charascharas92,1881
 
-entities/character.rb,321
+entities/character.rb,322
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize8,291
-  def boxbox26,908
-  def shoot(target_x, target_y)shoot30,942
-  def can_shoot?can_shoot?43,1249
-  def reloadreload47,1354
-  def on_collision(object)on_collision62,1753
-  def reset_modifiersreset_modifiers74,2016
+  def initialize(object_pool, input)initialize9,320
+  def boxbox28,999
+  def shoot(target_x, target_y)shoot32,1033
+  def can_shoot?can_shoot?45,1340
+  def reloadreload49,1445
+  def on_collision(object)on_collision64,1844
+  def reset_modifiersreset_modifiers76,2107
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
