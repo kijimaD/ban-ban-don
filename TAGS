@@ -1,19 +1,12 @@
 
-game_states/pause_state.rb,545
-class PauseState < GameStatePauseState2,16
-  def initializeinitialize6,94
-  def enterenter14,322
-  def continuecontinue17,341
-  def updateupdate20,363
-  def drawdraw31,806
-  def button_down(id)button_down35,862
-  def any_button_down?(*buttons)any_button_down?57,1332
-  def cursor_upcursor_up64,1457
-  def cursor_downcursor_down72,1618
-  def cursor_rightcursor_right80,1781
-  def cursor_leftcursor_left86,1857
-  def gen_choises(input_array, goal_y)gen_choises92,1932
-  def gen_button(goal_y, button)gen_button106,2324
+game_states/pause_state.rb,217
+class PauseState < GameStatePauseState2,20
+  def initializeinitialize6,98
+  def enterenter12,209
+  def leaveleave18,325
+  def musicmusic24,433
+  def drawdraw29,541
+  def button_down(id)button_down37,701
 
 game_states/game_state.rb,252
 class GameStateGameState1,0
@@ -29,12 +22,12 @@ game_states/play_state.rb,321
 class PlayState < GameStatePlayState2,16
   def initializeinitialize5,115
   def enterenter16,452
-  def leaveleave20,517
-  def updateupdate28,682
-  def drawdraw37,830
-  def button_down(id)button_down61,1475
-  def update_captionupdate_caption82,1880
-  def create_characters(amount)create_characters93,2269
+  def leaveleave20,494
+  def updateupdate25,563
+  def drawdraw34,711
+  def button_down(id)button_down58,1356
+  def update_captionupdate_caption84,1888
+  def create_characters(amount)create_characters95,2277
 
 game_states/menu_state.rb,264
 class MenuState < GameStateMenuState2,16
@@ -55,6 +48,22 @@ class DemoState < PlayStateDemoState1,0
   def button_down(id)button_down15,133
   def create_characters(amount)create_characters27,358
   def switch_to_character(character)switch_to_character40,757
+
+game_states/select_state.rb,547
+class SelectState < GameStateSelectState2,16
+  def initializeinitialize6,95
+  def enterenter14,323
+  def continuecontinue17,342
+  def updateupdate20,364
+  def drawdraw31,808
+  def button_down(id)button_down35,864
+  def any_button_down?(*buttons)any_button_down?57,1334
+  def cursor_upcursor_up64,1459
+  def cursor_downcursor_down72,1620
+  def cursor_rightcursor_right80,1783
+  def cursor_leftcursor_left86,1859
+  def gen_choises(input_array, goal_y)gen_choises92,1934
+  def gen_button(goal_y, button)gen_button106,2326
 
 misc/stats.rb,192
 class StatsStats1,0
@@ -79,19 +88,20 @@ class AxisAlignedBoundingBoxAxisAlignedBoundingBox1,0
   def intersects?(other)intersects?20,606
   def to_sto_s32,1005
 
-misc/stereo_sample.rb,549
+misc/stereo_sample.rb,586
 class StereoSampleStereoSample1,0
   def self.register_instances(instances)register_instances4,43
   def self.cleanupcleanup8,124
-  def initialize(sound_l, sound_r = sound_l)initialize18,345
-  def paused?(id = :default)paused?29,616
-  def playing?(id = :default)playing?34,701
-  def stopped?(id = :default)stopped?39,788
-  def play(id = :default, pan = 0,play43,856
-  def pause(id = :default)pause52,1140
-  def resume(id = :default)resume57,1238
-  def stopstop62,1339
-  def volume_and_pan(id, volume, pan)volume_and_pan67,1433
+  def self.stop_allstop_all18,345
+  def initialize(sound_l, sound_r = sound_l)initialize28,535
+  def paused?(id = :default)paused?39,806
+  def playing?(id = :default)playing?44,891
+  def stopped?(id = :default)stopped?49,978
+  def play(id = :default, pan = 0,play53,1046
+  def pause(id = :default)pause62,1330
+  def resume(id = :default)resume67,1428
+  def stopstop72,1529
+  def volume_and_pan(id, volume, pan)volume_and_pan77,1623
 
 utils.rb,1169
 module UtilsUtils1,0
@@ -190,11 +200,11 @@ class AnnounceAnnounce1,0
   def initialize(character, ai)initialize4,49
   def drawdraw10,171
   def updateupdate16,232
-  def startstart25,350
-  def win?win?29,383
-  def lose?lose?35,459
-  def onceonce39,514
-  def soundsound50,678
+  def startstart26,424
+  def win?win?30,457
+  def lose?lose?36,533
+  def onceonce40,588
+  def soundsound51,752
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -296,12 +306,12 @@ class BulletSoundsBulletSounds1,0
 
 entities/components/announce_graphics.rb,240
 class AnnounceGraphicsAnnounceGraphics1,0
-  def initialize(object)initialize4,33
-  def drawdraw10,120
-  def updateupdate19,250
-  def win_or_lose(wl)win_or_lose22,270
-  def image(x, y, word)image32,407
-  def coordscoords36,551
+  def initialize(object)initialize4,46
+  def drawdraw10,133
+  def updateupdate19,263
+  def win_or_lose(wl)win_or_lose22,283
+  def image(x, y, word)image32,434
+  def coordscoords36,578
 
 entities/components/explosion_graphics.rb,262
 class ExplosionGraphics < ComponentExplosionGraphics1,0

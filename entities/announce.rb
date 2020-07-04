@@ -17,8 +17,9 @@ class Announce
     win?
     lose?
     once
-    if Utils.button_down?(Gosu::KbReturn)
-      $window.close
+    if @done && Utils.button_down?(Gosu::KbReturn)
+      MenuState.instance.play_state = nil
+      GameState.switch(MenuState.instance)
     end
   end
 
