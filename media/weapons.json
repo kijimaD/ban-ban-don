@@ -1,0 +1,75 @@
+{
+	"frames": {
+		"ak47.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 350,
+				"h": 86
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 350,
+				"h": 86
+			},
+			"sourceSize": {
+				"w": 350,
+				"h": 86
+			}
+		},
+		"mf-scare.png": {
+			"frame": {
+				"x": 1,
+				"y": 89,
+				"w": 344,
+				"h": 95
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 344,
+				"h": 95
+			},
+			"sourceSize": {
+				"w": 344,
+				"h": 95
+			}
+		},
+		"uzi-micro.png": {
+			"frame": {
+				"x": 353,
+				"y": 1,
+				"w": 191,
+				"h": 121
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 191,
+				"h": 121
+			},
+			"sourceSize": {
+				"w": 191,
+				"h": 121
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "weapons.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 545,
+			"h": 185
+		},
+		"scale": "1"
+	}
+}
