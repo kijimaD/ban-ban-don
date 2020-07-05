@@ -82,12 +82,43 @@ class QuadTreeQuadTree1,0
   def query_range(range)query_range43,985
   def subdividesubdivide66,1403
 
+misc/utils.rb,1169
+module UtilsUtils1,0
+  def self.media_path(file)media_path10,158
+  def self.media_path_sound(file)media_path_sound14,262
+  def self.load_json(file)load_json18,336
+  def self.title_fonttitle_font24,436
+  def self.main_font()main_font28,510
+  def self.track_update_intervaltrack_update_interval32,575
+  def self.update_intervalupdate_interval38,723
+  def self.adjust_speed(speed)adjust_speed42,806
+  def self.button_down?(button)button_down46,880
+  def self.button_up?(button)button_up63,1219
+  def self.rotate(angle, around_x, around_y, *points)rotate80,1557
+  def self.point_in_poly(testx, testy, *poly)point_in_poly95,2041
+  def self.distance_between(x1, y1, x2, y2)distance_between116,2551
+  def self.angle_between(x, y, target_x, target_y)angle_between122,2669
+  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance128,2831
+  def self.mark_corners(box)mark_corners135,3049
+  def self.volume(object, camera)volume148,3316
+  def self.pan(object, camera)pan157,3588
+  def self.volume_and_pan(object, camera)volume_and_pan169,3841
+  def self.collides_with_poly?(poly, *box)collides_with_poly173,3940
+
 misc/axis_aligned_bounding_box.rb,221
 class AxisAlignedBoundingBoxAxisAlignedBoundingBox1,0
   def initialize(center, half_dimension)initialize3,68
   def contains?(point)contains?10,272
   def intersects?(other)intersects?20,606
   def to_sto_s32,1005
+
+misc/game_window.rb,211
+class GameWindow < Gosu::WindowGameWindow1,0
+  def initializeinitialize5,57
+  def updateupdate9,108
+  def drawdraw13,146
+  def needs_redraw?needs_redraw?17,180
+  def button_down(id)button_down21,232
 
 misc/stereo_sample.rb,586
 class StereoSampleStereoSample1,0
@@ -103,29 +134,6 @@ class StereoSampleStereoSample1,0
   def resume(id = :default)resume67,1428
   def stopstop72,1529
   def volume_and_pan(id, volume, pan)volume_and_pan77,1623
-
-utils.rb,1169
-module UtilsUtils1,0
-  def self.media_path(file)media_path10,158
-  def self.media_path_sound(file)media_path_sound14,246
-  def self.load_json(file)load_json18,320
-  def self.title_fonttitle_font24,420
-  def self.main_font()main_font28,494
-  def self.track_update_intervaltrack_update_interval32,559
-  def self.update_intervalupdate_interval38,707
-  def self.adjust_speed(speed)adjust_speed42,790
-  def self.button_down?(button)button_down46,864
-  def self.button_up?(button)button_up63,1203
-  def self.rotate(angle, around_x, around_y, *points)rotate80,1541
-  def self.point_in_poly(testx, testy, *poly)point_in_poly95,2025
-  def self.distance_between(x1, y1, x2, y2)distance_between116,2535
-  def self.angle_between(x, y, target_x, target_y)angle_between122,2653
-  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance128,2815
-  def self.mark_corners(box)mark_corners135,3033
-  def self.volume(object, camera)volume148,3300
-  def self.pan(object, camera)pan157,3572
-  def self.volume_and_pan(object, camera)volume_and_pan169,3825
-  def self.collides_with_poly?(poly, *box)collides_with_poly173,3924
 
 entities/powerup_display.rb,257
 class PowerupDisplayPowerupDisplay1,0
@@ -553,7 +561,7 @@ class PlayerInput < ComponentPlayerInput1,0
   def any_button_down?(*buttons)any_button_down?72,1590
   def change_angle(previous_angle, up, down, right, left)change_angle79,1715
 
-entities/components/character_graphics.rb,558
+entities/components/character_graphics.rb,571
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize11,191
   def update()update18,344
@@ -562,12 +570,12 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def widthwidth44,848
   def heightheight48,883
   def direction_graphicsdirection_graphics52,920
-  def state_image(graphic)state_image60,1092
-  def different?(runs)different?75,1475
-  def damage_flashingdamage_flashing81,1551
-  def damagedamage87,1739
-  def gen_image_arraygen_image_array93,1804
-  def charascharas103,2013
+  def state_image(directional_graphics)state_image58,1069
+  def different?(runs)different?75,1485
+  def damage_flashingdamage_flashing81,1565
+  def damagedamage87,1753
+  def gen_image_arraygen_image_array93,1818
+  def charascharas103,2027
 
 entities/character.rb,323
 class Character < GameObjectCharacter1,0
@@ -660,11 +668,3 @@ class Damage < GameObjectDamage1,0
   def track(instance)track17,207
 
 main.rb,0
-
-game_window.rb,211
-class GameWindow < Gosu::WindowGameWindow1,0
-  def initializeinitialize5,57
-  def updateupdate9,108
-  def drawdraw13,146
-  def needs_redraw?needs_redraw?17,180
-  def button_down(id)button_down21,232
