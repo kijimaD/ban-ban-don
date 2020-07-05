@@ -6,6 +6,7 @@ class DemoState < PlayState
 
   def update
     super
+    character_dead?
   end
 
   def draw
@@ -14,11 +15,26 @@ class DemoState < PlayState
 
   def button_down(id)
     super
-    if id == Gosu::KbSpace
+    if id == Gosu::KbSpace && @characters.length > 1
       target_character = @characters.reject do |t|
         t == @camera.target
       end.sample
       switch_to_character(target_character)
+    end
+    if id == Gosu::KbT
+      t = Character.new(@object_pool,
+                        AiInput.new(@object_pool))
+      x, y = @camera.mouse_coords
+      t.move(x, y)
+      @characters << t
+    end
+  end
+
+  def character_dead?
+    @characters.each do |character|
+      if character.health.dead?
+        @characters.delete(character)
+      end
     end
   end
 

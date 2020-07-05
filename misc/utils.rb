@@ -8,7 +8,7 @@ module Utils
   ]
 
   def self.media_path(file)
-    File.join(File.dirname(__FILE__), 'media', file)
+    File.join(File.dirname((File.dirname(__FILE__))), 'media', file)
   end
 
   def self.media_path_sound(file)
