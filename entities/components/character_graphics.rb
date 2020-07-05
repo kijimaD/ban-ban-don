@@ -50,29 +50,31 @@ class CharacterGraphics < Component
   end
 
   def direction_graphics
-    i = (object.direction / 45) % 7
-    graphic = @image_array[i]
-    state_image(graphic)
-    file = @flip.to_s + ".png"
-    charas.frame(file)
+    i = (object.direction / 45) % 8
+    state_image(graphic = @image_array[i])
+    charas.frame(@flip.to_s + ".png")
   end
 
-  def state_image(graphic)
-    stand_image = graphic[0]
-    run_image0 = graphic[1]
-    run_image1 = graphic[2]
+  def state_image(directional_graphics)
+    dgs = directional_graphics
+    stand_image = dgs[0]
+    runs = [dgs[1], dgs[2]]
+
     if object.throttle_down == true
-      if Gosu.milliseconds - (@last_flip || 0 ) > WALK_FRAME ||
-         (@flip != run_image0 && @flip != run_image1)
-        if @flip == run_image0
-          @flip = run_image1
-        else
-          @flip = run_image0
-        end
+      if Gosu.milliseconds - (@last_flip || 0 ) > WALK_FRAME || different?(runs)
+        @flip = runs.reject do |t|
+          t == @flip
+        end.sample
         @last_flip = Gosu.milliseconds
       end
     else
       @flip = stand_image
+    end
+  end
+
+  def different?(runs)
+    runs.all? do |run|
+      @flip != run
     end
   end
 

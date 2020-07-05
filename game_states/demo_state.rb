@@ -13,7 +13,6 @@ class DemoState < PlayState
     super
   end
 
-
   def button_down(id)
     super
     if id == Gosu::KbSpace && @characters.length > 1

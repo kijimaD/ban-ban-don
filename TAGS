@@ -45,10 +45,10 @@ class DemoState < PlayStateDemoState1,0
   def enterenter4,56
   def updateupdate7,75
   def drawdraw12,125
-  def button_down(id)button_down17,154
-  def character_dead?character_dead?34,590
-  def create_characters(amount)create_characters44,754
-  def switch_to_character(character)switch_to_character57,1153
+  def button_down(id)button_down16,153
+  def character_dead?character_dead?33,589
+  def create_characters(amount)create_characters43,753
+  def switch_to_character(character)switch_to_character56,1152
 
 game_states/select_state.rb,547
 class SelectState < GameStateSelectState2,16
@@ -553,7 +553,7 @@ class PlayerInput < ComponentPlayerInput1,0
   def any_button_down?(*buttons)any_button_down?72,1590
   def change_angle(previous_angle, up, down, right, left)change_angle79,1715
 
-entities/components/character_graphics.rb,497
+entities/components/character_graphics.rb,558
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize11,191
   def update()update18,344
@@ -562,10 +562,12 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def widthwidth44,848
   def heightheight48,883
   def direction_graphicsdirection_graphics52,920
-  def state_image(stand_image, run_image0, run_image1)state_image60,1116
-  def damage_flashingdamage_flashing76,1538
-  def damagedamage82,1726
-  def charascharas88,1791
+  def state_image(graphic)state_image60,1092
+  def different?(runs)different?75,1475
+  def damage_flashingdamage_flashing81,1551
+  def damagedamage87,1739
+  def gen_image_arraygen_image_array93,1804
+  def charascharas103,2013
 
 entities/character.rb,323
 class Character < GameObjectCharacter1,0
