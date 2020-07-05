@@ -14,12 +14,14 @@ class Announce
   end
 
   def update
-    win?
-    lose?
-    once
-    if @done && Utils.button_down?(Gosu::KbReturn)
-      MenuState.instance.play_state = nil
-      GameState.switch(MenuState.instance)
+    if @ai                      # If demo_state, invalidate annouce function
+      win?
+      lose?
+      once
+      if @done && Utils.button_down?(Gosu::KbReturn)
+        MenuState.instance.play_state = nil
+        GameState.switch(MenuState.instance)
+      end
     end
   end
 

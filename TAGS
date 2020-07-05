@@ -40,14 +40,15 @@ class MenuState < GameStateMenuState2,16
   def button_down(id)button_down44,1031
   def bgbg59,1381
 
-game_states/demo_state.rb,275
+game_states/demo_state.rb,321
 class DemoState < PlayStateDemoState1,0
   def enterenter4,56
   def updateupdate7,75
-  def drawdraw11,105
-  def button_down(id)button_down15,133
-  def create_characters(amount)create_characters27,358
-  def switch_to_character(character)switch_to_character40,757
+  def drawdraw12,125
+  def button_down(id)button_down17,154
+  def character_dead?character_dead?34,585
+  def create_characters(amount)create_characters44,749
+  def switch_to_character(character)switch_to_character57,1148
 
 game_states/select_state.rb,547
 class SelectState < GameStateSelectState2,16
@@ -200,11 +201,11 @@ class AnnounceAnnounce1,0
   def initialize(character, ai)initialize4,49
   def drawdraw10,171
   def updateupdate16,232
-  def startstart26,424
-  def win?win?30,457
-  def lose?lose?36,533
-  def onceonce40,588
-  def soundsound51,752
+  def startstart28,457
+  def win?win?32,490
+  def lose?lose?38,566
+  def onceonce42,621
+  def soundsound53,785
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -552,7 +553,7 @@ class PlayerInput < ComponentPlayerInput1,0
   def any_button_down?(*buttons)any_button_down?72,1590
   def change_angle(previous_angle, up, down, right, left)change_angle79,1715
 
-entities/components/character_graphics.rb,532
+entities/components/character_graphics.rb,531
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize11,191
   def update()update17,309
@@ -562,10 +563,10 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def heightheight47,848
   def image_numimage_num51,885
   def direction_graphicsdirection_graphics62,1178
-  def state_image(stand_image, run_image0, run_image1)state_image73,1411
-  def damage_flashingdamage_flashing89,1833
-  def damagedamage95,2021
-  def charascharas101,2086
+  def state_image(stand_image, run_image0, run_image1)state_image70,1371
+  def damage_flashingdamage_flashing86,1793
+  def damagedamage92,1981
+  def charascharas98,2046
 
 entities/character.rb,323
 class Character < GameObjectCharacter1,0
