@@ -12,6 +12,7 @@ class CharacterGraphics < Component
     super(game_object)
     @body = charas.frame('4-0.png')
     @damage_frame = 0
+    @image_array = gen_image_array
   end
 
   def update()
@@ -48,26 +49,18 @@ class CharacterGraphics < Component
     @body.height
   end
 
-  def image_num
-    @graph ||= [["0-0", "0-1", "0-2"],
-	         ["1-0", "1-1", "1-2"],
-	         ["2-0", "2-1", "2-2"],
-	         ["3-0", "3-1", "3-2"],
-	         ["4-0", "4-1", "4-2"],
-	         ["5-0", "5-1", "5-2"],
-	         ["6-0", "6-1", "6-2"],
-	         ["7-0", "7-1", "7-2"]]
-  end
-
   def direction_graphics
     i = (object.direction / 45) % 7
-    graph = image_num[i]
-    state_image(graph[0], graph[1], graph[2])
+    graphic = @image_array[i]
+    state_image(graphic)
     file = @flip.to_s + ".png"
     charas.frame(file)
   end
 
-  def state_image(stand_image, run_image0, run_image1)
+  def state_image(graphic)
+    stand_image = graphic[0]
+    run_image0 = graphic[1]
+    run_image1 = graphic[2]
     if object.throttle_down == true
       if Gosu.milliseconds - (@last_flip || 0 ) > WALK_FRAME ||
          (@flip != run_image0 && @flip != run_image1)
@@ -94,6 +87,16 @@ class CharacterGraphics < Component
   end
 
   private
+
+  def gen_image_array
+    goal = Array.new(8).map{Array.new(2)}
+    for direction in 0..7 do
+      for i in 0..2 do
+        goal[direction][i] = direction.to_s + "-" + i.to_s
+      end
+    end
+    goal
+  end
 
   def charas
     @@charas ||= Gosu::TexturePacker.load_json(

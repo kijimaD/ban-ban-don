@@ -46,9 +46,9 @@ class DemoState < PlayStateDemoState1,0
   def updateupdate7,75
   def drawdraw12,125
   def button_down(id)button_down17,154
-  def character_dead?character_dead?34,585
-  def create_characters(amount)create_characters44,749
-  def switch_to_character(character)switch_to_character57,1148
+  def character_dead?character_dead?34,590
+  def create_characters(amount)create_characters44,754
+  def switch_to_character(character)switch_to_character57,1153
 
 game_states/select_state.rb,547
 class SelectState < GameStateSelectState2,16
@@ -201,11 +201,11 @@ class AnnounceAnnounce1,0
   def initialize(character, ai)initialize4,49
   def drawdraw10,171
   def updateupdate16,232
-  def startstart28,457
-  def win?win?32,490
-  def lose?lose?38,566
-  def onceonce42,621
-  def soundsound53,785
+  def startstart28,523
+  def win?win?32,556
+  def lose?lose?38,632
+  def onceonce42,687
+  def soundsound53,851
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -252,7 +252,7 @@ entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
   def initialize(object_pool)initialize2,33
   def draw(viewport)draw8,133
-  def imagesimages14,209
+  def imagesimages16,233
 
 entities/components/ai_input.rb,264
 class AiInput < ComponentAiInput1,0
@@ -553,20 +553,19 @@ class PlayerInput < ComponentPlayerInput1,0
   def any_button_down?(*buttons)any_button_down?72,1590
   def change_angle(previous_angle, up, down, right, left)change_angle79,1715
 
-entities/components/character_graphics.rb,531
+entities/components/character_graphics.rb,497
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize11,191
-  def update()update17,309
-  def draw(viewport)draw21,362
-  def draw_bounding_boxdraw_bounding_box30,544
-  def widthwidth43,813
-  def heightheight47,848
-  def image_numimage_num51,885
-  def direction_graphicsdirection_graphics62,1178
-  def state_image(stand_image, run_image0, run_image1)state_image70,1371
-  def damage_flashingdamage_flashing86,1793
-  def damagedamage92,1981
-  def charascharas98,2046
+  def update()update18,344
+  def draw(viewport)draw22,397
+  def draw_bounding_boxdraw_bounding_box31,579
+  def widthwidth44,848
+  def heightheight48,883
+  def direction_graphicsdirection_graphics52,920
+  def state_image(stand_image, run_image0, run_image1)state_image60,1116
+  def damage_flashingdamage_flashing76,1538
+  def damagedamage82,1726
+  def charascharas88,1791
 
 entities/character.rb,323
 class Character < GameObjectCharacter1,0
