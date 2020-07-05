@@ -10,7 +10,7 @@ class CharacterGraphics < Component
 
   def initialize(game_object)
     super(game_object)
-    @body = charas.frame('chara2.png')
+    @body = charas.frame('4-0.png')
     @damage_frame = 0
   end
 
@@ -48,15 +48,26 @@ class CharacterGraphics < Component
     @body.height
   end
 
+  def image_num
+    @graph ||= [["0-0", "0-1", "0-2"],
+	         ["1-0", "1-1", "1-2"],
+	         ["2-0", "2-1", "2-2"],
+	         ["3-0", "3-1", "3-2"],
+	         ["4-0", "4-1", "4-2"],
+	         ["5-0", "5-1", "5-2"],
+	         ["6-0", "6-1", "6-2"],
+	         ["7-0", "7-1", "7-2"]]
+  end
+
   def direction_graphics
-    i = object.direction / 45
-    graph = object.character_json['graphs'][i]
-    each_image(graph[0], graph[1], graph[2])
-    file = "chara" + @flip.to_s + ".png"
+    i = (object.direction / 45) % 7
+    graph = image_num[i]
+    state_image(graph[0], graph[1], graph[2])
+    file = @flip.to_s + ".png"
     charas.frame(file)
   end
 
-  def each_image(stand_image, run_image0, run_image1)
+  def state_image(stand_image, run_image0, run_image1)
     if object.throttle_down == true
       if Gosu.milliseconds - (@last_flip || 0 ) > WALK_FRAME ||
          (@flip != run_image0 && @flip != run_image1)

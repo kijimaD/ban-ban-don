@@ -552,19 +552,20 @@ class PlayerInput < ComponentPlayerInput1,0
   def any_button_down?(*buttons)any_button_down?72,1590
   def change_angle(previous_angle, up, down, right, left)change_angle79,1715
 
-entities/components/character_graphics.rb,495
+entities/components/character_graphics.rb,532
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize11,191
-  def update()update17,312
-  def draw(viewport)draw21,365
-  def draw_bounding_boxdraw_bounding_box30,547
-  def widthwidth43,816
-  def heightheight47,851
-  def direction_graphicsdirection_graphics51,888
-  def each_image(stand_image, run_image0, run_image1)each_image63,1190
-  def damage_flashingdamage_flashing79,1611
-  def damagedamage85,1799
-  def charascharas91,1864
+  def update()update17,309
+  def draw(viewport)draw21,362
+  def draw_bounding_boxdraw_bounding_box30,544
+  def widthwidth43,813
+  def heightheight47,848
+  def image_numimage_num51,885
+  def direction_graphicsdirection_graphics62,1178
+  def state_image(stand_image, run_image0, run_image1)state_image73,1411
+  def damage_flashingdamage_flashing89,1833
+  def damagedamage95,2021
+  def charascharas101,2086
 
 entities/character.rb,323
 class Character < GameObjectCharacter1,0
