@@ -1,12 +1,12 @@
 
-game_states/pause_state.rb,217
-class PauseState < GameStatePauseState2,20
-  def initializeinitialize6,98
-  def enterenter10,215
-  def leaveleave16,331
-  def musicmusic22,439
-  def drawdraw27,538
-  def button_down(id)button_down35,698
+game_states/pause_state.rb,215
+class PauseState < GameStatePauseState1,0
+  def initializeinitialize5,78
+  def enterenter9,195
+  def leaveleave15,311
+  def musicmusic21,419
+  def drawdraw26,518
+  def button_down(id)button_down34,678
 
 game_states/game_state.rb,252
 class GameStateGameState1,0
@@ -38,7 +38,15 @@ class MenuState < GameStateMenuState2,16
   def updateupdate27,530
   def drawdraw32,767
   def button_down(id)button_down44,1031
-  def bgbg59,1381
+  def bgbg64,1526
+
+game_states/choice_state.rb,210
+class ChoiceState < GameStateChoiceState1,0
+  def initialize(messages, images)initialize4,59
+  def enterenter9,147
+  def leaveleave12,166
+  def drawdraw17,221
+  def button_down(id)button_down21,260
 
 game_states/demo_state.rb,320
 class DemoState < PlayStateDemoState1,0

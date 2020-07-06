@@ -54,6 +54,11 @@ class MenuState < GameState
       @play_state = DemoState.new
       GameState.switch(@play_state)
     end
+    if id == Gosu::KbI
+      choice = ChoiceState.new("message", "images")
+      choice.menu_state = self
+      GameState.switch(choice)
+    end
   end
 
   def bg
