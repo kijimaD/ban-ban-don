@@ -197,12 +197,12 @@ class CameraCamera1,0
   def can_view?(x, y, obj)can_view?11,164
   def mouse_coordsmouse_coords17,308
   def updateupdate26,601
-  def to_sto_s58,1191
-  def target_delta_on_screentarget_delta_on_screen64,1320
-  def draw_crosshairdraw_crosshair68,1413
-  def viewportviewport78,1632
-  def desired_spotdesired_spot86,1847
-  def crosshaircrosshair98,2084
+  def to_sto_s57,1134
+  def target_delta_on_screentarget_delta_on_screen63,1263
+  def draw_crosshairdraw_crosshair67,1356
+  def viewportviewport77,1575
+  def desired_spotdesired_spot85,1790
+  def crosshaircrosshair97,2031
 
 entities/announce.rb,247
 class AnnounceAnnounce1,0
@@ -579,16 +579,16 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def charascharas120,2485
   def weaponsweapons125,2592
 
-entities/character.rb,369
+entities/character.rb,370
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize9,324
-  def boxbox28,1007
-  def shoot(target_x, target_y)shoot32,1041
-  def can_shoot?can_shoot?45,1348
-  def recently_shoot?recently_shoot?49,1453
-  def reloadreload53,1531
-  def on_collision(object)on_collision68,1930
-  def reset_modifiersreset_modifiers80,2193
+  def initialize(object_pool, input)initialize10,353
+  def boxbox29,1036
+  def shoot(target_x, target_y)shoot33,1070
+  def can_shoot?can_shoot?46,1377
+  def recently_shoot?recently_shoot?50,1482
+  def reloadreload54,1580
+  def on_collision(object)on_collision69,1979
+  def reset_modifiersreset_modifiers81,2242
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
