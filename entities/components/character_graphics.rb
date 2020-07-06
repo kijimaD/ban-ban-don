@@ -11,23 +11,29 @@ class CharacterGraphics < Component
 
   def initialize(game_object)
     super(game_object)
-    @weapon = weapons.frame('ak47s.png')
     @damage_frame = 0
     @image_array = gen_image_array
   end
 
   def update()
+    if object.recently_shoot?
+      object.direction = object.gun_angle
+    end
     @body = body_direction
+    @weapon = weapons.frame('ak47s.png')
   end
 
   def draw(viewport)
     if @damage_frame > 0
       @body = damage_flashing
+      @weapon = damage_flashing
       @damage_frame -= 1
     end
     @body.draw(x - PADDING, y - PADDING, 1)
     draw_bounding_box if $debug
-    draw_weapon
+    if object.recently_shoot?
+      draw_weapon
+    end
   end
 
   def draw_bounding_box
@@ -62,7 +68,7 @@ class CharacterGraphics < Component
     stand_image = dgs[0]
     runs = [dgs[1], dgs[2]]
 
-    if object.throttle_down == true
+    if object.throttle_down
       if Gosu.milliseconds - (@last_flip || 0 ) > WALK_FRAME || different?(runs)
         @anime = runs.reject do |t|
           t == @anime
@@ -75,7 +81,8 @@ class CharacterGraphics < Component
   end
 
   def draw_weapon
-    if object.direction < 180
+    i = (object.direction / 45) % 8
+    if i < 4
       @weapon.draw_rot(x + PADDING / 2, y + PADDING / 2, 2, object.direction - 90)
     else
       @weapon.draw_rot(x - PADDING / 2, y + PADDING / 2, 2, object.direction + 90, 0.5, 0.5, -1)
