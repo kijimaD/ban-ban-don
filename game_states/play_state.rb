@@ -8,7 +8,7 @@ class PlayState < GameState
     @map.spawn_points(10)
     @camera = Camera.new
     @object_pool.camera = @camera
-    create_characters(2)
+    create_characters(1)
     @announce = Announce.new(@character, @ai)
     Damage.new(@object_pool, 0, 0).mark_for_removal # initialize damage
   end
