@@ -38,15 +38,22 @@ class MenuState < GameStateMenuState2,16
   def updateupdate27,530
   def drawdraw32,767
   def button_down(id)button_down44,1031
-  def bgbg64,1526
+  def bgbg65,1601
 
-game_states/choice_state.rb,210
+game_states/choice_state.rb,497
 class ChoiceState < GameStateChoiceState1,0
-  def initialize(messages, images)initialize4,59
-  def enterenter9,147
-  def leaveleave12,166
-  def drawdraw17,221
-  def button_down(id)button_down21,260
+  def initialize(messages, images)initialize7,148
+  def enterenter13,254
+  def leaveleave16,273
+  def drawdraw19,292
+  def updateupdate26,386
+  def draw_messagedraw_message30,407
+  def button_down(id)button_down39,674
+  def draw_cursordraw_cursor52,975
+  def draw_cursor_coverdraw_cursor_cover63,1133
+  def cursor_coordscursor_coords74,1318
+  def can_move_right?can_move_right?80,1410
+  def can_move_left?can_move_left?84,1476
 
 game_states/demo_state.rb,320
 class DemoState < PlayStateDemoState1,0

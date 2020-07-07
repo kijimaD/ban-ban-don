@@ -55,7 +55,8 @@ class MenuState < GameState
       GameState.switch(@play_state)
     end
     if id == Gosu::KbI
-      choice = ChoiceState.new("message", "images")
+      messages = ["かんたん", "ふつう", "難しい", "パワフル"]
+      choice = ChoiceState.new(messages, "images")
       choice.menu_state = self
       GameState.switch(choice)
     end
