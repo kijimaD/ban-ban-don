@@ -398,8 +398,8 @@ class PowerupGraphics < ComponentPowerupGraphics1,0
   def animation(y)animation19,369
   def imageimage33,568
   def imagesimages37,631
-  def center_xcenter_x41,732
-  def center_ycenter_y45,792
+  def center_xcenter_x41,739
+  def center_ycenter_y45,799
 
 entities/components/explosion_sounds.rb,108
 class ExplosionSoundsExplosionSounds1,0
@@ -593,18 +593,18 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def different?(runs)different?105,2210
   def gen_image_arraygen_image_array111,2291
   def charascharas121,2500
-  def weaponsweapons126,2607
+  def weaponsweapons126,2614
 
 entities/character.rb,378
 class Character < GameObjectCharacter1,0
-  def initialize(object, object_pool, input)initialize10,353
-  def boxbox30,1098
-  def shoot(target_x, target_y)shoot34,1132
-  def can_shoot?can_shoot?47,1439
-  def recently_shoot?recently_shoot?51,1544
-  def reloadreload55,1642
-  def on_collision(object)on_collision70,2041
-  def reset_modifiersreset_modifiers82,2304
+  def initialize(object, object_pool, input)initialize10,358
+  def boxbox30,1129
+  def shoot(target_x, target_y)shoot34,1163
+  def can_shoot?can_shoot?47,1470
+  def recently_shoot?recently_shoot?51,1575
+  def reloadreload55,1673
+  def on_collision(object)on_collision70,2072
+  def reset_modifiersreset_modifiers82,2335
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
