@@ -8,6 +8,7 @@ class MenuState < GameState
 
   def initialize
     @message = Gosu::Image.from_text("ばんばんどーん!", 80, options = {font: Utils.title_font})
+    @choice_return = []
   end
 
   def enter
@@ -55,10 +56,21 @@ class MenuState < GameState
       GameState.switch(@play_state)
     end
     if id == Gosu::KbI
-      messages = ["かんたん", "ふつう", "難しい", "パワフル"]
-      choice = ChoiceState.new(messages, "images")
-      choice.menu_state = self
-      GameState.switch(choice)
+      if @choice_return.length == 0
+        messages = ["かんたん", "ふつう", "難しい", "パワフル"]
+        choice = ChoiceState.new(messages, "images")
+        choice.menu_state = self
+        GameState.switch(choice)
+      elsif @choice_return.length == 1
+        messages = ["パワポケ", "白瀬", "石中", "灰原"]
+        choice = ChoiceState.new(messages, "images")
+        choice.menu_state = self
+        GameState.switch(choice)
+      else
+        @play_state = PlayState.new(@choice_return[0])
+        # @play_state.character.select_character = @choice_return[1]
+        GameState.switch(@play_state)
+      end
     end
   end
 

@@ -39,7 +39,7 @@ class ChoiceState < GameState
   def button_down(id)
     $window.close if id == Gosu::KbQ
     if id == Gosu::KbReturn && @menu_state
-      @menu_state.choice_return = @cursor_x
+      @menu_state.choice_return << @cursor_x
       GameState.switch(@menu_state)
     end
     if id == Gosu::KbRight && can_move_right?

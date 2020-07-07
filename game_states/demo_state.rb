@@ -37,7 +37,7 @@ class DemoState < PlayState
     @map.spawn_points(amount * 3)
     @characters = []
     amount.times do |i|
-      @characters << Character.new(@object_pool, AiInput.new(
+      @characters << Character.new(self, @object_pool, AiInput.new(
                                      @object_pool))
     end
     target_character = @characters.sample

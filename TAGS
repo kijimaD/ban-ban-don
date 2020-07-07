@@ -18,27 +18,27 @@ class GameStateGameState1,0
   def needs_redraw?needs_redraw?21,220
   def button_down(id)button_down25,256
 
-game_states/play_state.rb,321
+game_states/play_state.rb,335
 class PlayState < GameStatePlayState2,16
-  def initializeinitialize5,115
-  def enterenter16,452
-  def leaveleave20,494
-  def updateupdate25,563
-  def drawdraw34,711
-  def button_down(id)button_down58,1356
-  def update_captionupdate_caption84,1888
-  def create_characters(amount)create_characters95,2277
+  def initialize(difficulty=0)initialize6,144
+  def enterenter18,524
+  def leaveleave22,566
+  def updateupdate27,635
+  def drawdraw36,783
+  def button_down(id)button_down60,1428
+  def update_captionupdate_caption86,1960
+  def create_characters(amount)create_characters97,2349
 
 game_states/menu_state.rb,264
 class MenuState < GameStateMenuState2,16
   def initializeinitialize9,211
-  def enterenter13,338
-  def leaveleave18,399
-  def musicmusic23,454
-  def updateupdate27,546
-  def drawdraw32,783
-  def button_down(id)button_down44,1047
-  def bgbg65,1617
+  def enterenter14,362
+  def leaveleave19,423
+  def musicmusic24,478
+  def updateupdate28,570
+  def drawdraw33,807
+  def button_down(id)button_down45,1071
+  def bgbg77,2092
 
 game_states/choice_state.rb,498
 class ChoiceState < GameStateChoiceState1,0
@@ -49,11 +49,11 @@ class ChoiceState < GameStateChoiceState1,0
   def updateupdate27,403
   def draw_messagedraw_message30,423
   def button_down(id)button_down39,690
-  def draw_cursordraw_cursor53,1035
-  def draw_cursor_coverdraw_cursor_cover64,1193
-  def cursor_coordscursor_coords75,1422
-  def can_move_right?can_move_right?81,1514
-  def can_move_left?can_move_left?85,1580
+  def draw_cursordraw_cursor53,1036
+  def draw_cursor_coverdraw_cursor_cover64,1194
+  def cursor_coordscursor_coords75,1423
+  def can_move_right?can_move_right?81,1515
+  def can_move_left?can_move_left?85,1581
 
 game_states/demo_state.rb,320
 class DemoState < PlayStateDemoState1,0
@@ -63,7 +63,7 @@ class DemoState < PlayStateDemoState1,0
   def button_down(id)button_down16,153
   def character_dead?character_dead?26,393
   def create_characters(amount)create_characters36,557
-  def switch_to_character(character)switch_to_character49,956
+  def switch_to_character(character)switch_to_character49,962
 
 game_states/select_state.rb,547
 class SelectState < GameStateSelectState2,16
@@ -594,16 +594,16 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def charascharas120,2485
   def weaponsweapons125,2592
 
-entities/character.rb,370
+entities/character.rb,378
 class Character < GameObjectCharacter1,0
-  def initialize(object_pool, input)initialize10,353
-  def boxbox29,1036
-  def shoot(target_x, target_y)shoot33,1070
-  def can_shoot?can_shoot?46,1377
-  def recently_shoot?recently_shoot?50,1482
-  def reloadreload54,1580
-  def on_collision(object)on_collision69,1979
-  def reset_modifiersreset_modifiers81,2242
+  def initialize(object, object_pool, input)initialize10,353
+  def boxbox30,1086
+  def shoot(target_x, target_y)shoot34,1120
+  def can_shoot?can_shoot?47,1427
+  def recently_shoot?recently_shoot?51,1532
+  def reloadreload55,1630
+  def on_collision(object)on_collision70,2029
+  def reset_modifiersreset_modifiers82,2292
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
