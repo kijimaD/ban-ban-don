@@ -1,6 +1,7 @@
 class CharacterGraphics < Component
   WALK_FRAME = 300
   DAMAGE_FRAME = 4
+  PADDING = 16
   DEBUG_COLORS = [
     Gosu::Color::RED,
     Gosu::Color::BLUE,
@@ -10,22 +11,29 @@ class CharacterGraphics < Component
 
   def initialize(game_object)
     super(game_object)
-    @body = charas.frame('4-0.png')
     @damage_frame = 0
     @image_array = gen_image_array
   end
 
   def update()
-    @body = direction_graphics
+    if object.recently_shoot?
+      object.direction = object.gun_angle
+    end
+    @body = body_direction
+    @weapon = weapons.frame('ak47s.png')
   end
 
   def draw(viewport)
     if @damage_frame > 0
       @body = damage_flashing
+      @weapon = damage_flashing
       @damage_frame -= 1
     end
-    @body.draw(x - 16, y - 16, 1)
+    @body.draw(x - PADDING, y - PADDING, 1)
     draw_bounding_box if $debug
+    if object.recently_shoot?
+      draw_weapon
+    end
   end
 
   def draw_bounding_box
@@ -49,10 +57,10 @@ class CharacterGraphics < Component
     @body.height
   end
 
-  def direction_graphics
+  def body_direction
     i = (object.direction / 45) % 8
     state_image(graphic = @image_array[i])
-    charas.frame(@flip.to_s + ".png")
+    charas.frame(@anime.to_s + ".png")
   end
 
   def state_image(directional_graphics)
@@ -60,21 +68,24 @@ class CharacterGraphics < Component
     stand_image = dgs[0]
     runs = [dgs[1], dgs[2]]
 
-    if object.throttle_down == true
+    if object.throttle_down
       if Gosu.milliseconds - (@last_flip || 0 ) > WALK_FRAME || different?(runs)
-        @flip = runs.reject do |t|
-          t == @flip
+        @anime = runs.reject do |t|
+          t == @anime
         end.sample
         @last_flip = Gosu.milliseconds
       end
     else
-      @flip = stand_image
+      @anime = stand_image
     end
   end
 
-  def different?(runs)
-    runs.all? do |run|
-      @flip != run
+  def draw_weapon
+    i = (object.direction / 45) % 8
+    if i < 4
+      @weapon.draw_rot(x + PADDING / 2, y + PADDING / 2, 2, object.direction - 90)
+    else
+      @weapon.draw_rot(x - PADDING / 2, y + PADDING / 2, 2, object.direction + 90, 0.5, 0.5, -1)
     end
   end
 
@@ -90,6 +101,12 @@ class CharacterGraphics < Component
 
   private
 
+  def different?(runs)
+    runs.all? do |run|
+      @anime != run
+    end
+  end
+
   def gen_image_array
     goal = Array.new(8).map{Array.new(2)}
     for direction in 0..7 do
@@ -102,6 +119,11 @@ class CharacterGraphics < Component
 
   def charas
     @@charas ||= Gosu::TexturePacker.load_json(
-      Utils.media_path('charas.json'), :precise)
+      Utils.media_path('charas.json'))
+  end
+
+  def weapons
+    @@weapons ||= Gosu::TexturePacker.load_json(
+      Utils.media_path('weapons.json'))
   end
 end

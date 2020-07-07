@@ -5,10 +5,12 @@ class Character < GameObject
                 :number_ammo, :number_magazine, :health, :weapon,
                 :fire_rate_modifier, :speed_modifier,
                 :character_json
+  RECENTLY_SHOOT_TIME = 2000
 
-  def initialize(object_pool, input)
+  def initialize(object, object_pool, input)
     x, y = object_pool.map.spawn_point
     super(object_pool, x, y)
+    @object = object
     @input = input
     @input.control(self)
     @physics = CharacterPhysics.new(self, object_pool)
@@ -20,7 +22,7 @@ class Character < GameObject
     @shoot_delay = @weapon['shoot_delay'].to_i
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
-    @number_magazine = 10
+    @number_magazine = 10 - @object.difficulty * 2
     @number_ammo = @weapon['number_shots'].to_i
     reset_modifiers
   end
@@ -44,6 +46,10 @@ class Character < GameObject
 
   def can_shoot?
     Gosu.milliseconds - (@last_shot || 0) > (@shoot_delay / @fire_rate_modifier)
+  end
+
+  def recently_shoot?
+    Gosu.milliseconds - (@last_shot || -10000) < RECENTLY_SHOOT_TIME
   end
 
   def reload

@@ -21,13 +21,6 @@ class DemoState < PlayState
       end.sample
       switch_to_character(target_character)
     end
-    if id == Gosu::KbT
-      t = Character.new(@object_pool,
-                        AiInput.new(@object_pool))
-      x, y = @camera.mouse_coords
-      t.move(x, y)
-      @characters << t
-    end
   end
 
   def character_dead?
@@ -44,7 +37,7 @@ class DemoState < PlayState
     @map.spawn_points(amount * 3)
     @characters = []
     amount.times do |i|
-      @characters << Character.new(@object_pool, AiInput.new(
+      @characters << Character.new(self, @object_pool, AiInput.new(
                                      @object_pool))
     end
     target_character = @characters.sample

@@ -1,13 +1,15 @@
 # coding: utf-8
 class PlayState < GameState
-  attr_accessor :update_interval, :object_pool, :character, :announce
+  attr_accessor :update_interval, :object_pool, :character, :announce,
+                :difficulty
 
-  def initialize
+  def initialize(difficulty=0)
     @object_pool = ObjectPool.new(Map.bounding_box)
     @map = Map.new(@object_pool)
     @map.spawn_points(10)
     @camera = Camera.new
     @object_pool.camera = @camera
+    @difficulty = difficulty
     create_characters(2)
     @announce = Announce.new(@character, @ai)
     Damage.new(@object_pool, 0, 0).mark_for_removal # initialize damage
@@ -94,10 +96,10 @@ class PlayState < GameState
 
   def create_characters(amount)
     @map.spawn_points(amount * 3)
-    @character = Character.new(@object_pool, PlayerInput.new(self, @camera, @object_pool))
+    @character = Character.new(self, @object_pool, PlayerInput.new(self, @camera, @object_pool))
     @ai = []
     amount.times do |i|
-      @ai << (Character.new(@object_pool, AiInput.new(
+      @ai << (Character.new(self, @object_pool, AiInput.new(
                       @object_pool)))
     end
     @camera.target = @character

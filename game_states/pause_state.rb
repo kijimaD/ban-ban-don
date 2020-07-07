@@ -1,4 +1,3 @@
-require 'singleton'
 class PauseState < GameState
   include Singleton
   attr_accessor :play_state
