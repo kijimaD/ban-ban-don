@@ -484,7 +484,7 @@
 	"meta": {
 		"app": "http://www.codeandweb.com/texturepacker",
 		"version": "1.0",
-		"image": "charas.png",
+		"image": "sirase_sprite.png",
 		"format": "RGBA8888",
 		"size": {
 			"w": 608,

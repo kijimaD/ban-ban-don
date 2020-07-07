@@ -580,20 +580,20 @@ class PlayerInput < ComponentPlayerInput1,0
 entities/components/character_graphics.rb,635
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize12,206
-  def updateupdate19,359
-  def draw(viewport)draw27,527
-  def draw_bounding_boxdraw_bounding_box40,807
-  def widthwidth53,1076
-  def heightheight57,1111
-  def body_directionbody_direction61,1148
-  def state_image(directional_graphics)state_image67,1284
-  def draw_weapondraw_weapon84,1695
-  def damage_flashingdamage_flashing93,1966
-  def damagedamage99,2154
-  def different?(runs)different?105,2219
-  def gen_image_arraygen_image_array111,2300
-  def charascharas121,2509
-  def weaponsweapons126,2616
+  def updateupdate19,350
+  def draw(viewport)draw27,518
+  def draw_bounding_boxdraw_bounding_box40,798
+  def widthwidth53,1067
+  def heightheight57,1102
+  def body_directionbody_direction61,1139
+  def state_image(directional_graphics)state_image67,1275
+  def draw_weapondraw_weapon84,1686
+  def damage_flashingdamage_flashing93,1957
+  def damagedamage99,2145
+  def different?(runs)different?105,2210
+  def gen_image_arraygen_image_array111,2291
+  def charascharas121,2500
+  def weaponsweapons126,2607
 
 entities/character.rb,378
 class Character < GameObjectCharacter1,0
@@ -676,9 +676,9 @@ class FaceDisplay < ComponentFaceDisplay1,0
   def hp_coordshp_coords81,1672
   def magazine_coordsmagazine_coords89,1882
   def face_imageface_image97,2148
-  def hp_imagehp_image101,2241
-  def magazine_imagemagazine_image105,2326
-  def magazine_msgmagazine_msg109,2429
+  def hp_imagehp_image101,2246
+  def magazine_imagemagazine_image105,2331
+  def magazine_msgmagazine_msg109,2434
 
 entities/damage.rb,153
 class Damage < GameObjectDamage1,0

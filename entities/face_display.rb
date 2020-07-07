@@ -95,7 +95,7 @@ class FaceDisplay < Component
   end
 
   def face_image
-    @@face_image ||= Gosu::Image.new(Utils.media_path('sirase.png'))
+    @@face_image ||= Gosu::Image.new(Utils.media_path('sirase_icon.png'))
   end
 
   def hp_image
