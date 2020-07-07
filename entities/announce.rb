@@ -7,21 +7,22 @@ class Announce
     @graphics = AnnounceGraphics.new(self)
   end
 
-  def draw
-    if @start
-      @graphics.draw
-    end
-  end
-
   def update
     if @ai                      # If demo_state, invalidate annouce function
       win?
       lose?
       once
-      if @done && Utils.button_down?(Gosu::KbReturn)
-        MenuState.instance.play_state = nil
-        GameState.switch(MenuState.instance)
-      end
+    end
+    if @done && Utils.button_down?(Gosu::KbReturn)
+      MenuState.instance.play_state = nil
+      MenuState.instance.choice_return = []
+      GameState.switch(MenuState.instance)
+    end
+  end
+
+  def draw
+    if @start
+      @graphics.draw
     end
   end
 

@@ -18,27 +18,28 @@ class GameStateGameState1,0
   def needs_redraw?needs_redraw?21,220
   def button_down(id)button_down25,256
 
-game_states/play_state.rb,335
+game_states/play_state.rb,337
 class PlayState < GameStatePlayState2,16
-  def initialize(difficulty=0)initialize6,144
-  def enterenter18,524
-  def leaveleave22,566
-  def updateupdate27,635
-  def drawdraw36,783
-  def button_down(id)button_down60,1428
-  def update_captionupdate_caption86,1960
-  def create_characters(amount)create_characters97,2349
+  def initialize(difficulty = 0)initialize6,144
+  def enterenter18,526
+  def leaveleave22,568
+  def updateupdate27,637
+  def drawdraw36,785
+  def button_down(id)button_down60,1430
+  def update_captionupdate_caption86,1968
+  def create_characters(amount)create_characters97,2357
 
-game_states/menu_state.rb,264
+game_states/menu_state.rb,306
 class MenuState < GameStateMenuState2,16
   def initializeinitialize9,211
   def enterenter14,362
-  def leaveleave19,423
-  def musicmusic24,478
-  def updateupdate28,570
-  def drawdraw33,807
-  def button_down(id)button_down45,1071
-  def bgbg77,2092
+  def leaveleave20,441
+  def musicmusic25,496
+  def updateupdate29,588
+  def drawdraw34,825
+  def button_down(id)button_down46,1089
+  def bgbg69,1713
+  def choice_branchchoice_branch73,1787
 
 game_states/choice_state.rb,498
 class ChoiceState < GameStateChoiceState1,0
@@ -48,12 +49,12 @@ class ChoiceState < GameStateChoiceState1,0
   def drawdraw20,309
   def updateupdate27,403
   def draw_messagedraw_message30,423
-  def button_down(id)button_down39,690
-  def draw_cursordraw_cursor53,1036
-  def draw_cursor_coverdraw_cursor_cover64,1194
-  def cursor_coordscursor_coords75,1423
-  def can_move_right?can_move_right?81,1515
-  def can_move_left?can_move_left?85,1581
+  def button_down(id)button_down39,692
+  def draw_cursordraw_cursor53,1038
+  def draw_cursor_coverdraw_cursor_cover64,1196
+  def cursor_coordscursor_coords75,1425
+  def can_move_right?can_move_right?81,1517
+  def can_move_left?can_move_left?85,1583
 
 game_states/demo_state.rb,320
 class DemoState < PlayStateDemoState1,0
@@ -222,13 +223,13 @@ class CameraCamera1,0
 entities/announce.rb,247
 class AnnounceAnnounce1,0
   def initialize(character, ai)initialize4,49
-  def drawdraw10,171
-  def updateupdate16,232
-  def startstart28,523
-  def win?win?32,556
-  def lose?lose?38,632
-  def onceonce42,687
-  def soundsound53,851
+  def updateupdate10,171
+  def drawdraw23,498
+  def startstart29,559
+  def win?win?33,592
+  def lose?lose?39,668
+  def onceonce43,723
+  def soundsound54,887
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -576,23 +577,23 @@ class PlayerInput < ComponentPlayerInput1,0
   def any_button_down?(*buttons)any_button_down?72,1590
   def change_angle(previous_angle, up, down, right, left)change_angle79,1715
 
-entities/components/character_graphics.rb,637
+entities/components/character_graphics.rb,635
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize12,206
-  def update()update18,323
-  def draw(viewport)draw26,493
-  def draw_bounding_boxdraw_bounding_box39,773
-  def widthwidth52,1042
-  def heightheight56,1077
-  def body_directionbody_direction60,1114
-  def state_image(directional_graphics)state_image66,1260
-  def draw_weapondraw_weapon83,1671
-  def damage_flashingdamage_flashing92,1942
-  def damagedamage98,2130
-  def different?(runs)different?104,2195
-  def gen_image_arraygen_image_array110,2276
-  def charascharas120,2485
-  def weaponsweapons125,2592
+  def updateupdate19,359
+  def draw(viewport)draw27,527
+  def draw_bounding_boxdraw_bounding_box40,807
+  def widthwidth53,1076
+  def heightheight57,1111
+  def body_directionbody_direction61,1148
+  def state_image(directional_graphics)state_image67,1284
+  def draw_weapondraw_weapon84,1695
+  def damage_flashingdamage_flashing93,1966
+  def damagedamage99,2154
+  def different?(runs)different?105,2219
+  def gen_image_arraygen_image_array111,2300
+  def charascharas121,2509
+  def weaponsweapons126,2616
 
 entities/character.rb,378
 class Character < GameObjectCharacter1,0

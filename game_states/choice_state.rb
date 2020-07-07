@@ -31,8 +31,8 @@ class ChoiceState < GameState
     @messages.each_with_index do |message, i|
       @image = Gosu::Image.from_text(message, 20, options = {font: Utils.title_font})
       @image.draw(PADDING + i * 100,
-                 PADDING,
-                 10, 1.0, 1.0, COLOR)
+                  PADDING,
+                  10, 1.0, 1.0, COLOR)
     end
   end
 
