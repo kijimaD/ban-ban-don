@@ -22,7 +22,7 @@ class Character < GameObject
     @shoot_delay = @weapon['shoot_delay'].to_i
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
-    @number_magazine = 10 - @object.difficulty * 2
+    @number_magazine = 10 * (1 - @object.difficulty * 0.1)
     @number_ammo = @weapon['number_shots'].to_i
     reset_modifiers
   end
