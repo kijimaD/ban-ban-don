@@ -16,12 +16,12 @@ class Character < GameObject
     @physics = CharacterPhysics.new(self, object_pool)
     @sounds = CharacterSounds.new(self, object_pool)
     @health = CharacterHealth.new(self, object_pool)
+    @direction = rand(0..7) * 45
+    @gun_angle = rand(0..360)
     @graphics = CharacterGraphics.new(self)
     @weapon = Utils.load_json("weapon.json").sample
     @character_json = Utils.load_json("character.json")["sirase"]
     @shoot_delay = @weapon['shoot_delay'].to_i
-    @direction = rand(0..7) * 45
-    @gun_angle = rand(0..360)
     @number_magazine = 10 * (1 - @object.difficulty * 0.1)
     @number_ammo = @weapon['number_shots'].to_i
     reset_modifiers

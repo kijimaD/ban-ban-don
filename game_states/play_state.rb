@@ -3,7 +3,7 @@ class PlayState < GameState
   attr_accessor :update_interval, :object_pool, :character, :announce,
                 :difficulty
 
-  def initialize(difficulty=0)
+  def initialize(difficulty = 0)
     @object_pool = ObjectPool.new(Map.bounding_box)
     @map = Map.new(@object_pool)
     @map.spawn_points(10)
@@ -63,7 +63,7 @@ class PlayState < GameState
       $window.close
     end
     if id == Gosu::KbT
-      t = Character.new(@object_pool,
+      t = Character.new(self, @object_pool,
                    AiInput.new(@object_pool))
       x, y = @camera.mouse_coords
       t.move(x, y)

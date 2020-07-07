@@ -13,9 +13,10 @@ class CharacterGraphics < Component
     super(game_object)
     @damage_frame = 0
     @image_array = gen_image_array
+    @body = body_direction
   end
 
-  def update()
+  def update
     if object.recently_shoot?
       object.direction = object.gun_angle
     end
@@ -59,7 +60,7 @@ class CharacterGraphics < Component
 
   def body_direction
     i = (object.direction / 45) % 8
-    state_image(graphic = @image_array[i])
+    state_image(@image_array[i])
     charas.frame(@anime.to_s + ".png")
   end
 
