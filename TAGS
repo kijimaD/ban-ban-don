@@ -31,29 +31,29 @@ class PlayState < GameStatePlayState2,16
 
 game_states/menu_state.rb,264
 class MenuState < GameStateMenuState2,16
-  def initializeinitialize9,195
-  def enterenter13,322
-  def leaveleave18,383
-  def musicmusic23,438
-  def updateupdate27,530
-  def drawdraw32,767
-  def button_down(id)button_down44,1031
-  def bgbg65,1601
+  def initializeinitialize9,211
+  def enterenter13,338
+  def leaveleave18,399
+  def musicmusic23,454
+  def updateupdate27,546
+  def drawdraw32,783
+  def button_down(id)button_down44,1047
+  def bgbg65,1617
 
-game_states/choice_state.rb,497
+game_states/choice_state.rb,498
 class ChoiceState < GameStateChoiceState1,0
-  def initialize(messages, images)initialize7,148
-  def enterenter13,254
-  def leaveleave16,273
-  def drawdraw19,292
-  def updateupdate26,386
-  def draw_messagedraw_message30,407
-  def button_down(id)button_down39,674
-  def draw_cursordraw_cursor52,975
-  def draw_cursor_coverdraw_cursor_cover63,1133
-  def cursor_coordscursor_coords74,1318
-  def can_move_right?can_move_right?80,1410
-  def can_move_left?can_move_left?84,1476
+  def initialize(messages, images)initialize8,165
+  def enterenter14,271
+  def leaveleave17,290
+  def drawdraw20,309
+  def updateupdate27,403
+  def draw_messagedraw_message30,423
+  def button_down(id)button_down39,690
+  def draw_cursordraw_cursor53,1035
+  def draw_cursor_coverdraw_cursor_cover64,1193
+  def cursor_coordscursor_coords75,1422
+  def can_move_right?can_move_right?81,1514
+  def can_move_left?can_move_left?85,1580
 
 game_states/demo_state.rb,320
 class DemoState < PlayStateDemoState1,0

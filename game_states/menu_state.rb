@@ -1,7 +1,7 @@
 # coding: utf-8
 class MenuState < GameState
   include Singleton
-  attr_accessor :play_state
+  attr_accessor :play_state, :choice_return
   TITLE_FONT_COLOR = Gosu::Color.new(174, 0, 0)
   BODY_FONT_COLOR = Gosu::Color::WHITE
   PADDING = 10
