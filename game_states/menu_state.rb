@@ -14,6 +14,7 @@ class MenuState < GameState
   def enter
     music.play(true)
     music.volume = 1
+    choice_branch
   end
 
   def leave
@@ -57,24 +58,27 @@ class MenuState < GameState
     end
     if id == Gosu::KbI
       if @choice_return.length == 0
-        messages = ["かんたん", "ふつう", "難しい", "パワフル"]
+        messages = [["かんたん", 0.8], ["ふつう", 1], ["難しい", 1.2], ["パワフル", 1.5]]
         choice = ChoiceState.new(messages, "images")
         choice.menu_state = self
         GameState.switch(choice)
-      elsif @choice_return.length == 1
-        messages = ["パワポケ", "白瀬", "石中", "灰原"]
-        choice = ChoiceState.new(messages, "images")
-        choice.menu_state = self
-        GameState.switch(choice)
-      else
-        @play_state = PlayState.new(@choice_return[0])
-        # @play_state.character.select_character = @choice_return[1]
-        GameState.switch(@play_state)
       end
     end
   end
 
   def bg
     @bg ||= Gosu::Image.new(Utils.media_path('city.png'))
+  end
+
+  def choice_branch
+    if @choice_return.length == 1
+      messages = [["パワポケ", "pawapoke"], ["白瀬", "sirase"], ["石中", "ishinaka"], ["灰原", "haibara"]]
+      choice = ChoiceState.new(messages, "images")
+      choice.menu_state = self
+      GameState.switch(choice)
+    elsif @choice_return.length == 2
+      @play_state = PlayState.new(@choice_return)
+      GameState.switch(@play_state)
+    end
   end
 end

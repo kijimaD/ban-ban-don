@@ -95,7 +95,7 @@ class FaceDisplay < Component
   end
 
   def face_image
-    @@face_image ||= Gosu::Image.new(Utils.media_path('sirase.png'))
+    @@face_image ||= Gosu::Image.new(Utils.media_path('sirase_icon.png'))
   end
 
   def hp_image
@@ -107,7 +107,7 @@ class FaceDisplay < Component
   end
 
   def magazine_msg
-    @msg = Gosu::Image.from_text("x#{@character.number_magazine}", 30, options = {font: Utils.title_font})
+    @msg = Gosu::Image.from_text("x#{@character.number_magazine.to_i}", 30, options = {font: Utils.title_font})
   end
 
 end

@@ -13,9 +13,10 @@ class CharacterGraphics < Component
     super(game_object)
     @damage_frame = 0
     @image_array = gen_image_array
+    @body = body_direction
   end
 
-  def update()
+  def update
     if object.recently_shoot?
       object.direction = object.gun_angle
     end
@@ -59,7 +60,7 @@ class CharacterGraphics < Component
 
   def body_direction
     i = (object.direction / 45) % 8
-    state_image(graphic = @image_array[i])
+    state_image(@image_array[i])
     charas.frame(@anime.to_s + ".png")
   end
 
@@ -83,9 +84,11 @@ class CharacterGraphics < Component
   def draw_weapon
     i = (object.direction / 45) % 8
     if i < 4
-      @weapon.draw_rot(x + PADDING / 2, y + PADDING / 2, 2, object.direction - 90)
+      weapon_z = 2
+      @weapon.draw_rot(x + PADDING / 2, y + PADDING / 2, weapon_z, object.direction - 90, 0.5, 0.5, 1)
     else
-      @weapon.draw_rot(x - PADDING / 2, y + PADDING / 2, 2, object.direction + 90, 0.5, 0.5, -1)
+      weapon_z = 0
+      @weapon.draw_rot(x - PADDING / 2, y + PADDING / 2, weapon_z, object.direction + 90, 0.5, 0.5, -1)
     end
   end
 
@@ -118,12 +121,12 @@ class CharacterGraphics < Component
   end
 
   def charas
-    @@charas ||= Gosu::TexturePacker.load_json(
-      Utils.media_path('charas.json'))
+    @charas ||= Gosu::TexturePacker.load_json(
+      Utils.media_path("#{object.character_parameter["name"]}_packed.json"))
   end
 
   def weapons
-    @@weapons ||= Gosu::TexturePacker.load_json(
-      Utils.media_path('weapons.json'))
+    @weapons ||= Gosu::TexturePacker.load_json(
+      Utils.media_path('weapons_packed.json'))
   end
 end

@@ -35,7 +35,7 @@ class PowerupGraphics < Component
   end
 
   def images
-    @@images ||= Gosu::TexturePacker.load_json(Utils.media_path('pickups.json'))
+    @@images ||= Gosu::TexturePacker.load_json(Utils.media_path('pickups_packed.json'))
   end
 
   def center_x

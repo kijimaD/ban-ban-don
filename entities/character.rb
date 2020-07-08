@@ -4,10 +4,10 @@ class Character < GameObject
                 :sounds, :physics, :graphics,
                 :number_ammo, :number_magazine, :health, :weapon,
                 :fire_rate_modifier, :speed_modifier,
-                :character_json
+                :character_parameter
   RECENTLY_SHOOT_TIME = 2000
 
-  def initialize(object, object_pool, input)
+  def initialize(object, object_pool, input, character_parameter)
     x, y = object_pool.map.spawn_point
     super(object_pool, x, y)
     @object = object
@@ -16,13 +16,13 @@ class Character < GameObject
     @physics = CharacterPhysics.new(self, object_pool)
     @sounds = CharacterSounds.new(self, object_pool)
     @health = CharacterHealth.new(self, object_pool)
-    @graphics = CharacterGraphics.new(self)
-    @weapon = Utils.load_json("weapon.json").sample
-    @character_json = Utils.load_json("character.json")["sirase"]
-    @shoot_delay = @weapon['shoot_delay'].to_i
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
-    @number_magazine = 10 - @object.difficulty * 2
+    @character_parameter = character_parameter
+    @graphics = CharacterGraphics.new(self)
+    @weapon = Utils.load_json("weapons_parameter.json").sample
+    @shoot_delay = @weapon['shoot_delay'].to_i
+    @number_magazine = 10 * (1 - @object.difficulty * 0.1)
     @number_ammo = @weapon['number_shots'].to_i
     reset_modifiers
   end

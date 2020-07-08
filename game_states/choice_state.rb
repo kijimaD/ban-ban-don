@@ -29,17 +29,17 @@ class ChoiceState < GameState
 
   def draw_message
     @messages.each_with_index do |message, i|
-      @image = Gosu::Image.from_text(message, 20, options = {font: Utils.title_font})
+      @image = Gosu::Image.from_text(message[0], 20, options = {font: Utils.title_font})
       @image.draw(PADDING + i * 100,
-                 PADDING,
-                 10, 1.0, 1.0, COLOR)
+                  PADDING,
+                  10, 1.0, 1.0, COLOR)
     end
   end
 
   def button_down(id)
     $window.close if id == Gosu::KbQ
     if id == Gosu::KbReturn && @menu_state
-      @menu_state.choice_return << @cursor_x
+      @menu_state.choice_return << @messages[@cursor_x][1]
       GameState.switch(@menu_state)
     end
     if id == Gosu::KbRight && can_move_right?
