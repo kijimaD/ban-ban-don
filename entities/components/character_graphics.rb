@@ -122,7 +122,7 @@ class CharacterGraphics < Component
 
   def charas
     @charas ||= Gosu::TexturePacker.load_json(
-      Utils.media_path("#{object.character_parameter}_packed.json"))
+      Utils.media_path("#{object.character_parameter["name"]}_packed.json"))
   end
 
   def weapons

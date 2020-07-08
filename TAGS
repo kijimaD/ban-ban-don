@@ -18,18 +18,19 @@ class GameStateGameState1,0
   def needs_redraw?needs_redraw?21,220
   def button_down(id)button_down25,256
 
-game_states/play_state.rb,453
+game_states/play_state.rb,509
 class PlayState < GameStatePlayState2,16
-  def initialize(difficulty = 0)initialize6,144
-  def enterenter19,556
-  def leaveleave23,598
-  def updateupdate28,667
-  def drawdraw37,815
-  def button_down(id)button_down61,1460
-  def update_captionupdate_caption87,2016
-  def create_characters(amount)create_characters98,2405
-  def load_character_parametersload_character_parameters110,2832
-  def random_characterrandom_character114,2947
+  def initialize(settings = [])initialize6,144
+  def enterenter20,596
+  def leaveleave24,638
+  def updateupdate29,707
+  def drawdraw38,855
+  def button_down(id)button_down62,1500
+  def update_captionupdate_caption88,2056
+  def create_characters(amount)create_characters99,2445
+  def character_parameterscharacter_parameters112,2902
+  def player_selected_characterplayer_selected_character116,3012
+  def random_characterrandom_character120,3109
 
 game_states/menu_state.rb,306
 class MenuState < GameStateMenuState2,16
@@ -40,8 +41,8 @@ class MenuState < GameStateMenuState2,16
   def updateupdate29,588
   def drawdraw34,825
   def button_down(id)button_down46,1089
-  def bgbg69,1713
-  def choice_branchchoice_branch73,1787
+  def bgbg69,1739
+  def choice_branchchoice_branch73,1813
 
 game_states/choice_state.rb,498
 class ChoiceState < GameStateChoiceState1,0
@@ -51,12 +52,12 @@ class ChoiceState < GameStateChoiceState1,0
   def drawdraw20,309
   def updateupdate27,403
   def draw_messagedraw_message30,423
-  def button_down(id)button_down39,692
-  def draw_cursordraw_cursor53,1038
-  def draw_cursor_coverdraw_cursor_cover64,1196
-  def cursor_coordscursor_coords75,1425
-  def can_move_right?can_move_right?81,1517
-  def can_move_left?can_move_left?85,1583
+  def button_down(id)button_down39,695
+  def draw_cursordraw_cursor53,1055
+  def draw_cursor_coverdraw_cursor_cover64,1213
+  def cursor_coordscursor_coords75,1442
+  def can_move_right?can_move_right?81,1534
+  def can_move_left?can_move_left?85,1600
 
 game_states/demo_state.rb,320
 class DemoState < PlayStateDemoState1,0
@@ -215,12 +216,12 @@ class CameraCamera1,0
   def can_view?(x, y, obj)can_view?11,164
   def mouse_coordsmouse_coords17,308
   def updateupdate26,601
-  def to_sto_s57,1134
-  def target_delta_on_screentarget_delta_on_screen63,1263
-  def draw_crosshairdraw_crosshair67,1356
-  def viewportviewport77,1575
-  def desired_spotdesired_spot85,1790
-  def crosshaircrosshair97,2031
+  def to_sto_s57,1135
+  def target_delta_on_screentarget_delta_on_screen63,1264
+  def draw_crosshairdraw_crosshair67,1357
+  def viewportviewport77,1576
+  def desired_spotdesired_spot85,1791
+  def crosshaircrosshair97,2032
 
 entities/announce.rb,247
 class AnnounceAnnounce1,0
@@ -595,7 +596,7 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def different?(runs)different?107,2275
   def gen_image_arraygen_image_array113,2356
   def charascharas123,2565
-  def weaponsweapons128,2701
+  def weaponsweapons129,2744
 
 entities/character.rb,399
 class Character < GameObjectCharacter1,0

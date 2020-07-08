@@ -3,15 +3,16 @@ class PlayState < GameState
   attr_accessor :update_interval, :object_pool, :character, :announce,
                 :difficulty
 
-  def initialize(difficulty = 0)
+  def initialize(settings = [0, "sirase"])
     @object_pool = ObjectPool.new(Map.bounding_box)
     @map = Map.new(@object_pool)
     @map.spawn_points(10)
     @camera = Camera.new
     @object_pool.camera = @camera
-    @difficulty = difficulty
-    load_character_parameters
-    create_characters(2)
+    @difficulty = settings[0]
+    @player_selected_character = settings[1]
+    character_parameters
+    create_characters(1)
     @announce = Announce.new(@character, @ai)
     Damage.new(@object_pool, 0, 0).mark_for_removal # initialize damage
   end
@@ -97,7 +98,7 @@ class PlayState < GameState
 
   def create_characters(amount)
     @map.spawn_points(amount * 3)
-    @character = Character.new(self, @object_pool, PlayerInput.new(self, @camera, @object_pool), random_character)
+    @character = Character.new(self, @object_pool, PlayerInput.new(self, @camera, @object_pool), player_selected_character)
     @ai = []
     amount.times do |i|
       @ai << (Character.new(self, @object_pool, AiInput.new(
@@ -105,14 +106,19 @@ class PlayState < GameState
     end
     @camera.target = @character
     @hud = HUD.new(@object_pool, @character)
+    random_character
   end
 
-  def load_character_parameters
+  def character_parameters
     @@character_parameters ||= Utils.load_json("characters_parameter.json")
   end
 
+  def player_selected_character
+    character_parameters["#{@player_selected_character}"]
+  end
+
   def random_character
-    load_character_parameters.keys.sample
+    character_parameters["#{character_parameters.keys.sample}"]
   end
 
 end
