@@ -18,18 +18,18 @@ class GameStateGameState1,0
   def needs_redraw?needs_redraw?21,220
   def button_down(id)button_down25,256
 
-game_states/play_state.rb,433
+game_states/play_state.rb,453
 class PlayState < GameStatePlayState2,16
   def initialize(difficulty = 0)initialize6,144
-  def enterenter19,545
-  def leaveleave23,587
-  def updateupdate28,656
-  def drawdraw37,804
-  def button_down(id)button_down61,1449
-  def update_captionupdate_caption87,2005
-  def create_characters(amount)create_characters98,2394
-  def random_characterrandom_character110,2821
-  def load_parametersload_parameters114,2882
+  def enterenter19,556
+  def leaveleave23,598
+  def updateupdate28,667
+  def drawdraw37,815
+  def button_down(id)button_down61,1460
+  def update_captionupdate_caption87,2016
+  def create_characters(amount)create_characters98,2405
+  def load_character_parametersload_character_parameters110,2832
+  def random_characterrandom_character114,2947
 
 game_states/menu_state.rb,306
 class MenuState < GameStateMenuState2,16
@@ -579,7 +579,7 @@ class PlayerInput < ComponentPlayerInput1,0
   def any_button_down?(*buttons)any_button_down?72,1590
   def change_angle(previous_angle, up, down, right, left)change_angle79,1715
 
-entities/components/character_graphics.rb,635
+entities/components/character_graphics.rb,636
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize12,206
   def updateupdate19,350
@@ -590,12 +590,12 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def body_directionbody_direction61,1139
   def state_image(directional_graphics)state_image67,1275
   def draw_weapondraw_weapon84,1686
-  def damage_flashingdamage_flashing93,1957
-  def damagedamage99,2145
-  def different?(runs)different?105,2210
-  def gen_image_arraygen_image_array111,2291
-  def charascharas121,2500
-  def weaponsweapons126,2637
+  def damage_flashingdamage_flashing95,2022
+  def damagedamage101,2210
+  def different?(runs)different?107,2275
+  def gen_image_arraygen_image_array113,2356
+  def charascharas123,2565
+  def weaponsweapons128,2701
 
 entities/character.rb,399
 class Character < GameObjectCharacter1,0

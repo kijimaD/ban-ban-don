@@ -84,9 +84,11 @@ class CharacterGraphics < Component
   def draw_weapon
     i = (object.direction / 45) % 8
     if i < 4
-      @weapon.draw_rot(x + PADDING / 2, y + PADDING / 2, 2, object.direction - 90)
+      weapon_z = 2
+      @weapon.draw_rot(x + PADDING / 2, y + PADDING / 2, weapon_z, object.direction - 90, 0.5, 0.5, 1)
     else
-      @weapon.draw_rot(x - PADDING / 2, y + PADDING / 2, 2, object.direction + 90, 0.5, 0.5, -1)
+      weapon_z = 0
+      @weapon.draw_rot(x - PADDING / 2, y + PADDING / 2, weapon_z, object.direction + 90, 0.5, 0.5, -1)
     end
   end
 

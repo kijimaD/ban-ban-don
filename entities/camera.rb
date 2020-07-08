@@ -25,7 +25,7 @@ class Camera
 
   def update
     des_x, des_y = desired_spot
-    shift = Utils.adjust_speed(20)
+    shift = Utils.adjust_speed(100)
     if @x < des_x
       if des_x - @x < shift
         @x = des_x
