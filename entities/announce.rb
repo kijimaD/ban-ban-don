@@ -8,7 +8,7 @@ class Announce
   end
 
   def update
-    if @ai                      # If demo_state, invalidate annouce function
+    if @ai && !$debug                     # If demo_state or debug-mode, invalidate annouce function
       win?
       lose?
       once

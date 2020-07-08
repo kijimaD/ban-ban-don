@@ -12,7 +12,7 @@ class PlayState < GameState
     @difficulty = settings[0]
     @player_selected_character = settings[1]
     character_parameters
-    create_characters(1)
+    create_characters(0)
     @announce = Announce.new(@character, @ai)
     Damage.new(@object_pool, 0, 0).mark_for_removal # initialize damage
   end
@@ -64,22 +64,24 @@ class PlayState < GameState
       leave
       $window.close
     end
-    if id == Gosu::KbT
-      t = Character.new(self, @object_pool,
-                   AiInput.new(@object_pool), random_character)
-      x, y = @camera.mouse_coords
-      t.move(x, y)
-    end
-    if id == Gosu::KbF1
-      $debug = !$debug
-    end
     if id == Gosu::KbEscape
       pause = PauseState.instance
       pause.play_state = self
       GameState.switch(pause)
     end
-    if id == Gosu::KbI
-      GameState.switch(SelectState.instance)
+    if id == Gosu::KbF1
+      $debug = !$debug
+    end
+    if id == Gosu::KbT && $debug
+      t = Character.new(self, @object_pool,
+                   AiInput.new(@object_pool), random_character)
+      x, y = @camera.mouse_coords
+      t.move(x, y)
+    end
+    if id == Gosu::KbSpace && $debug
+      Utils.load_all
+      @play_state = PlayState.new
+      GameState.switch(@play_state)
     end
   end
 
@@ -88,7 +90,7 @@ class PlayState < GameState
   def update_caption
     now = Gosu.milliseconds
     if now - (@caption_updated_at || 0) > 1000
-      $window.caption = 'ばんばんどーん！' <<
+      $window.caption = 'ばんばんばんどーん！' <<
                         "残: #{@character.number_ammo}" <<
                         "[FPS: #{Gosu.fps}. " <<
                         "Character @ #{@character.x.round}:#{@character.y.round}]"

@@ -49,20 +49,20 @@ class MenuState < GameState
       GameState.switch(@play_state)
     end
     if id == Gosu::KbN
-      @play_state = PlayState.new
-      GameState.switch(@play_state)
-    end
-    if id == Gosu::KbD
-      @play_state = DemoState.new
-      GameState.switch(@play_state)
-    end
-    if id == Gosu::KbI
       if @choice_return.length == 0
         messages = [["かんたん", 0.8], ["ふつう", 1], ["難しい", 1.2], ["パワフル", 1.5]]
         choice = ChoiceState.new(messages, "images")
         choice.menu_state = self
         GameState.switch(choice)
       end
+    end
+    if id == Gosu::KbD
+      @play_state = DemoState.new
+      GameState.switch(@play_state)
+    end
+    if id == Gosu::KbI
+      @play_state = PlayState.new
+      GameState.switch(@play_state)
     end
   end
 

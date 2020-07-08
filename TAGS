@@ -18,19 +18,19 @@ class GameStateGameState1,0
   def needs_redraw?needs_redraw?21,220
   def button_down(id)button_down25,256
 
-game_states/play_state.rb,509
+game_states/play_state.rb,521
 class PlayState < GameStatePlayState2,16
-  def initialize(settings = [])initialize6,144
-  def enterenter20,596
-  def leaveleave24,638
-  def updateupdate29,707
-  def drawdraw38,855
-  def button_down(id)button_down62,1500
-  def update_captionupdate_caption88,2056
-  def create_characters(amount)create_characters99,2445
-  def character_parameterscharacter_parameters112,2902
-  def player_selected_characterplayer_selected_character116,3012
-  def random_characterrandom_character120,3109
+  def initialize(settings = [0, "sirase"])initialize6,144
+  def enterenter20,607
+  def leaveleave24,649
+  def updateupdate29,718
+  def drawdraw38,866
+  def button_down(id)button_down62,1511
+  def update_captionupdate_caption90,2137
+  def create_characters(amount)create_characters101,2526
+  def character_parameterscharacter_parameters114,2983
+  def player_selected_characterplayer_selected_character118,3093
+  def random_characterrandom_character122,3190
 
 game_states/menu_state.rb,306
 class MenuState < GameStateMenuState2,16
@@ -101,7 +101,7 @@ class QuadTreeQuadTree1,0
   def query_range(range)query_range43,985
   def subdividesubdivide66,1403
 
-misc/utils.rb,1169
+misc/utils.rb,1207
 module UtilsUtils1,0
   def self.media_path(file)media_path10,158
   def self.media_path_sound(file)media_path_sound14,262
@@ -123,6 +123,7 @@ module UtilsUtils1,0
   def self.pan(object, camera)pan157,3588
   def self.volume_and_pan(object, camera)volume_and_pan169,3841
   def self.collides_with_poly?(poly, *box)collides_with_poly173,3940
+  def self.load_allload_all189,4325
 
 misc/axis_aligned_bounding_box.rb,221
 class AxisAlignedBoundingBoxAxisAlignedBoundingBox1,0
@@ -227,12 +228,12 @@ entities/announce.rb,247
 class AnnounceAnnounce1,0
   def initialize(character, ai)initialize4,49
   def updateupdate10,171
-  def drawdraw23,498
-  def startstart29,559
-  def win?win?33,592
-  def lose?lose?39,668
-  def onceonce43,723
-  def soundsound54,887
+  def drawdraw23,522
+  def startstart29,583
+  def win?win?33,616
+  def lose?lose?39,692
+  def onceonce43,747
+  def soundsound54,911
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -596,7 +597,7 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def different?(runs)different?107,2275
   def gen_image_arraygen_image_array113,2356
   def charascharas123,2565
-  def weaponsweapons129,2744
+  def weaponsweapons128,2709
 
 entities/character.rb,399
 class Character < GameObjectCharacter1,0
