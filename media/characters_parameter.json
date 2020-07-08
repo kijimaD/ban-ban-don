@@ -1,13 +1,11 @@
 {
     "sirase":{
-	"name": "sirase",
 	"weapon": "HandGun",
 	"health": "200",
 	"ai": "sirase",
 	"graphs": "sirase"
     },
     "haibara":{
-	"name": "haibara",
 	"weapon": "Katana",
 	"health": "300",
 	"ai": "haibara",

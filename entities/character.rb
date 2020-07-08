@@ -7,7 +7,7 @@ class Character < GameObject
                 :character_parameter
   RECENTLY_SHOOT_TIME = 2000
 
-  def initialize(object, object_pool, input)
+  def initialize(object, object_pool, input, character_parameter)
     x, y = object_pool.map.spawn_point
     super(object_pool, x, y)
     @object = object
@@ -18,9 +18,9 @@ class Character < GameObject
     @health = CharacterHealth.new(self, object_pool)
     @direction = rand(0..7) * 45
     @gun_angle = rand(0..360)
+    @character_parameter = character_parameter
     @graphics = CharacterGraphics.new(self)
     @weapon = Utils.load_json("weapons_parameter.json").sample
-    @character_parameter = Utils.load_json("characters_parameter.json")["sirase"]
     @shoot_delay = @weapon['shoot_delay'].to_i
     @number_magazine = 10 * (1 - @object.difficulty * 0.1)
     @number_ammo = @weapon['number_shots'].to_i

@@ -10,6 +10,7 @@ class PlayState < GameState
     @camera = Camera.new
     @object_pool.camera = @camera
     @difficulty = difficulty
+    load_character_parameters
     create_characters(2)
     @announce = Announce.new(@character, @ai)
     Damage.new(@object_pool, 0, 0).mark_for_removal # initialize damage
@@ -64,7 +65,7 @@ class PlayState < GameState
     end
     if id == Gosu::KbT
       t = Character.new(self, @object_pool,
-                   AiInput.new(@object_pool))
+                   AiInput.new(@object_pool), random_character)
       x, y = @camera.mouse_coords
       t.move(x, y)
     end
@@ -96,14 +97,22 @@ class PlayState < GameState
 
   def create_characters(amount)
     @map.spawn_points(amount * 3)
-    @character = Character.new(self, @object_pool, PlayerInput.new(self, @camera, @object_pool))
+    @character = Character.new(self, @object_pool, PlayerInput.new(self, @camera, @object_pool), random_character)
     @ai = []
     amount.times do |i|
       @ai << (Character.new(self, @object_pool, AiInput.new(
-                      @object_pool)))
+                      @object_pool), random_character))
     end
     @camera.target = @character
     @hud = HUD.new(@object_pool, @character)
+  end
+
+  def load_character_parameters
+    @@character_parameters ||= Utils.load_json("characters_parameter.json")
+  end
+
+  def random_character
+    load_character_parameters.keys.sample
   end
 
 end

@@ -18,16 +18,18 @@ class GameStateGameState1,0
   def needs_redraw?needs_redraw?21,220
   def button_down(id)button_down25,256
 
-game_states/play_state.rb,337
+game_states/play_state.rb,433
 class PlayState < GameStatePlayState2,16
   def initialize(difficulty = 0)initialize6,144
-  def enterenter18,526
-  def leaveleave22,568
-  def updateupdate27,637
-  def drawdraw36,785
-  def button_down(id)button_down60,1430
-  def update_captionupdate_caption86,1968
-  def create_characters(amount)create_characters97,2357
+  def enterenter19,545
+  def leaveleave23,587
+  def updateupdate28,656
+  def drawdraw37,804
+  def button_down(id)button_down61,1449
+  def update_captionupdate_caption87,2005
+  def create_characters(amount)create_characters98,2394
+  def random_characterrandom_character110,2821
+  def load_parametersload_parameters114,2882
 
 game_states/menu_state.rb,306
 class MenuState < GameStateMenuState2,16
@@ -593,18 +595,18 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def different?(runs)different?105,2210
   def gen_image_arraygen_image_array111,2291
   def charascharas121,2500
-  def weaponsweapons126,2614
+  def weaponsweapons126,2637
 
-entities/character.rb,378
+entities/character.rb,399
 class Character < GameObjectCharacter1,0
-  def initialize(object, object_pool, input)initialize10,358
-  def boxbox30,1129
-  def shoot(target_x, target_y)shoot34,1163
-  def can_shoot?can_shoot?47,1470
-  def recently_shoot?recently_shoot?51,1575
-  def reloadreload55,1673
-  def on_collision(object)on_collision70,2072
-  def reset_modifiersreset_modifiers82,2335
+  def initialize(object, object_pool, input, character_parameter)initialize10,358
+  def boxbox30,1116
+  def shoot(target_x, target_y)shoot34,1150
+  def can_shoot?can_shoot?47,1457
+  def recently_shoot?recently_shoot?51,1562
+  def reloadreload55,1660
+  def on_collision(object)on_collision70,2059
+  def reset_modifiersreset_modifiers82,2322
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
