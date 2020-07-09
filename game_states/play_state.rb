@@ -1,4 +1,3 @@
-# coding: utf-8
 class PlayState < GameState
   attr_accessor :update_interval, :object_pool, :character, :announce,
                 :difficulty
@@ -79,6 +78,7 @@ class PlayState < GameState
       t.move(x, y)
     end
     if id == Gosu::KbSpace && $debug
+      StereoSample.stop_all
       Utils.load_all
       @play_state = PlayState.new
       GameState.switch(@play_state)
@@ -90,7 +90,7 @@ class PlayState < GameState
   def update_caption
     now = Gosu.milliseconds
     if now - (@caption_updated_at || 0) > 1000
-      $window.caption = 'ばんばんばんどーん！' <<
+      $window.caption = 'BBD' <<
                         "[FPS: #{Gosu.fps}. " <<
                         "@ #{@character.x.round}:#{@character.y.round}]"
       @caption_updated_at = now
