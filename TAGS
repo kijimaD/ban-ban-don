@@ -262,19 +262,19 @@ class MapMap1,0
   def self.bounding_boxbounding_box7,85
   def initialize(object_pool)initialize15,351
   def draw(viewport)draw25,545
-  def spawn_points(max)spawn_points61,1546
-  def spawn_pointspawn_point68,1674
-  def can_move_to?(x, y)can_move_to?72,1768
-  def movement_penalty(x, y)movement_penalty77,1852
-  def generate_treesgenerate_trees87,1978
-  def generate_boxesgenerate_boxes105,2475
-  def generate_powerupsgenerate_powerups118,2779
-  def random_poweruprandom_powerup131,3139
-  def find_spawn_pointfind_spawn_point143,3309
-  def tile_at(x, y)tile_at153,3559
-  def load_tilesload_tiles160,3740
-  def generate_mapgenerate_map172,4185
-  def choose_tile(val)choose_tile188,4530
+  def spawn_points(max)spawn_points62,1545
+  def spawn_pointspawn_point69,1673
+  def can_move_to?(x, y)can_move_to?73,1767
+  def movement_penalty(x, y)movement_penalty78,1851
+  def generate_treesgenerate_trees88,1977
+  def generate_boxesgenerate_boxes106,2470
+  def generate_powerupsgenerate_powerups119,2770
+  def random_poweruprandom_powerup132,3126
+  def find_spawn_pointfind_spawn_point144,3296
+  def tile_at(x, y)tile_at154,3542
+  def load_tilesload_tiles161,3715
+  def generate_mapgenerate_map173,4160
+  def choose_tile(val)choose_tile189,4505
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
