@@ -1,7 +1,6 @@
 class Map
   MAP_WIDTH = 30
   MAP_HEIGHT = 30
-  TILE_SIZE = 128
   TILE_WIDTH = 256
   TILE_HEIGHT = 128
 
@@ -24,17 +23,17 @@ class Map
   end
 
   def draw(viewport)
+    p viewport
     viewport[0] = viewport[0] / TILE_WIDTH
     viewport[1] = viewport[1] / TILE_WIDTH
-    viewport[2] = viewport[2] / TILE_HEIGHT
-    viewport[3] = viewport[3] / TILE_HEIGHT
-    # viewport.map! {|p| p / TILE_SIZE}
+    viewport[2] = viewport[2] / TILE_HEIGHT * 2
+    viewport[3] = viewport[3] / TILE_HEIGHT * 2
     x0, x1, y0, y1 = viewport.map(&:to_i)
       @even_x = 0
-      (x0-10..x1).each do |x|
+      (x0..x1).each do |x|
         @even_x = @even_x + TILE_WIDTH
         @even_y = 0
-      (y0-10..y1).each do |y|
+      (y0..y1).each do |y|
         row = @map[x]
         if y % 2 == 0
           @even_y = @even_y + TILE_HEIGHT
@@ -48,7 +47,7 @@ class Map
           tile = @map[x][y]
           if tile
             tile.draw(map_x, map_y, 0)
-            @msg = Gosu::Image.from_text("X:#{x}, Y:#{y}", 16).draw(map_x, map_y, 100)
+            # @msg = Gosu::Image.from_text("X:#{x}, Y:#{y}", 16).draw(map_x, map_y, 100)
           else
             @water.draw(map_x, map_y, 0)
           end
@@ -93,7 +92,7 @@ class Map
     target_trees = rand(30..50)
     while trees < target_trees do
       x = rand(0..MAP_WIDTH * TILE_WIDTH)
-      y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
+      y = rand(0..MAP_HEIGHT * TILE_HEIGHT / 2)
       n = noises[x * 0.001, y * 0.001]
       n = contrast.call(n)
       if tile_at(x, y) == @grass && n > 0.5
@@ -108,7 +107,7 @@ class Map
     target_boxes = rand(10..30)
     while boxes < target_boxes do
       x = rand(0..MAP_WIDTH * TILE_WIDTH)
-      y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
+      y = rand(0..MAP_HEIGHT * TILE_HEIGHT / 2)
       if tile_at(x, y) != @water
         Box.new(@object_pool, x, y)
         boxes += 1
@@ -121,7 +120,7 @@ class Map
     target_pups = rand(20..30)
     while pups < target_pups do
       x = rand(0..MAP_WIDTH * TILE_WIDTH)
-      y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
+      y = rand(0..MAP_HEIGHT * TILE_HEIGHT / 2)
       if tile_at(x, y) != @water && @object_pool.nearby_point(x, y, 150).empty?
         random_powerup.new(@object_pool, x, y)
         pups += 1
@@ -144,7 +143,7 @@ class Map
   def find_spawn_point
     while true
       x = rand(0..MAP_WIDTH * TILE_WIDTH)
-      y = rand(0..MAP_HEIGHT * TILE_WIDTH)
+      y = rand(0..MAP_HEIGHT * TILE_HEIGHT / 2)
       if can_move_to?(x, y) && @object_pool.nearby_point(x, y, 150).empty?
         return [x, y]
       end
@@ -153,7 +152,7 @@ class Map
 
   def tile_at(x, y)
     t_x = ((x / TILE_WIDTH) % TILE_WIDTH).floor
-    t_y = ((y / TILE_HEIGHT) % TILE_HEIGHT).floor
+    t_y = ((y / TILE_HEIGHT / 2) % TILE_HEIGHT / 2).floor
     row = @map[t_x]
     row ? row[t_y] : @water
   end
