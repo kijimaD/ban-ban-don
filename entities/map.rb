@@ -30,29 +30,30 @@ class Map
     viewport[3] = viewport[3] / TILE_HEIGHT
     # viewport.map! {|p| p / TILE_SIZE}
     x0, x1, y0, y1 = viewport.map(&:to_i)
-    (x0..x1).each do |x|
-      (y0..y1).each do |y|
+      @even_x = 0
+      (x0-10..x1).each do |x|
+        @even_x = @even_x + TILE_WIDTH
+        @even_y = 0
+      (y0-10..y1).each do |y|
         row = @map[x]
         if y % 2 == 0
-          map_x = x * TILE_WIDTH
-          map_y = y * TILE_HEIGHT
+          @even_y = @even_y + TILE_HEIGHT
+          map_x = @even_x
+          map_y = @even_y
         elsif y % 2 == 1
-          map_x = x * TILE_WIDTH + TILE_WIDTH / 2
-          map_y = (y + 1) * TILE_HEIGHT - TILE_HEIGHT / 2
+          map_x = @even_x - TILE_WIDTH / 2
+          map_y = @even_y - TILE_HEIGHT / 2
         end
         if row
           tile = @map[x][y]
           if tile
             tile.draw(map_x, map_y, 0)
-            $window.draw_rect(map_x, map_y, 2, 2, Gosu::Color::RED, 1)
-            @msg = Gosu::Image.from_text("X:#{x}, Y:#{y}", 16, options = {font: Utils.title_font}).draw(map_x, map_y, 100)
+            @msg = Gosu::Image.from_text("X:#{x}, Y:#{y}", 16).draw(map_x, map_y, 100)
           else
             @water.draw(map_x, map_y, 0)
-            $window.draw_rect(map_x, map_y, 2, 2, Gosu::Color::RED, 1)
           end
         else
           @water.draw(map_x, map_y, 0)
-          $window.draw_rect(map_x, map_y, 2, 2, Gosu::Color::RED, 1)
         end
       end
     end
@@ -91,8 +92,8 @@ class Map
     trees = 0
     target_trees = rand(30..50)
     while trees < target_trees do
-      x = rand(0..MAP_WIDTH * TILE_SIZE)
-      y = rand(0..MAP_HEIGHT * TILE_SIZE)
+      x = rand(0..MAP_WIDTH * TILE_WIDTH)
+      y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
       n = noises[x * 0.001, y * 0.001]
       n = contrast.call(n)
       if tile_at(x, y) == @grass && n > 0.5
@@ -106,8 +107,8 @@ class Map
     boxes = 0
     target_boxes = rand(10..30)
     while boxes < target_boxes do
-      x = rand(0..MAP_WIDTH * TILE_SIZE)
-      y = rand(0..MAP_HEIGHT * TILE_SIZE)
+      x = rand(0..MAP_WIDTH * TILE_WIDTH)
+      y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
       if tile_at(x, y) != @water
         Box.new(@object_pool, x, y)
         boxes += 1
@@ -119,8 +120,8 @@ class Map
     pups = 0
     target_pups = rand(20..30)
     while pups < target_pups do
-      x = rand(0..MAP_WIDTH * TILE_SIZE)
-      y = rand(0..MAP_HEIGHT * TILE_SIZE)
+      x = rand(0..MAP_WIDTH * TILE_WIDTH)
+      y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
       if tile_at(x, y) != @water && @object_pool.nearby_point(x, y, 150).empty?
         random_powerup.new(@object_pool, x, y)
         pups += 1
@@ -142,8 +143,8 @@ class Map
 
   def find_spawn_point
     while true
-      x = rand(0..MAP_WIDTH * TILE_SIZE)
-      y = rand(0..MAP_HEIGHT * TILE_SIZE)
+      x = rand(0..MAP_WIDTH * TILE_WIDTH)
+      y = rand(0..MAP_HEIGHT * TILE_WIDTH)
       if can_move_to?(x, y) && @object_pool.nearby_point(x, y, 150).empty?
         return [x, y]
       end
@@ -166,8 +167,7 @@ class Map
     # @grass = tiles[8]
     # @grass = Gosu::Image.new(Utils.media_path('snow.png'), options = {tileable: true})
     @grass = Gosu::Image.new(Utils.media_path('concrete.png'))
-    @water = Gosu::Image.new(Utils.media_path('water.png'), options = {tileable: true})
-
+    @water = Gosu::Image.new(Utils.media_path('snow.png'))
   end
 
   def generate_map
@@ -188,11 +188,11 @@ class Map
 
   def choose_tile(val)
     case val
-    when 0.0..0.3 # 30% chance
+    when 0.0..0.1
       @water
-    when 0.3..0.45 # 15% chance, water edges
+    when 0.3..0.45
       @sand
-    else # 55% chance
+    else
       @grass
     end
   end
