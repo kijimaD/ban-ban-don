@@ -23,10 +23,9 @@ class Map
   end
 
   def draw(viewport)
-    p viewport
     viewport[0] = viewport[0] / TILE_WIDTH
     viewport[1] = viewport[1] / TILE_WIDTH
-    viewport[2] = viewport[2] / TILE_HEIGHT * 2
+    viewport[2] = viewport[2] / TILE_HEIGHT
     viewport[3] = viewport[3] / TILE_HEIGHT * 2
     x0, x1, y0, y1 = viewport.map(&:to_i)
 
@@ -37,7 +36,7 @@ class Map
       (y0-10..y1+10).each do |y|
         row = @map[x]
         if y % 2 == 0
-          @even_y = y * TILE_HEIGHT * 0.5
+          @even_y = y * TILE_HEIGHT / 2
           map_x = @even_x
           map_y = @even_y
         elsif y % 2 == 1
@@ -51,10 +50,10 @@ class Map
             tile.draw(map_x, map_y, 0)
             # @msg = Gosu::Image.from_text("X:#{x}, Y:#{y}", 16).draw(map_x, map_y, 100)
           else
-            @water.draw(map_x, map_y, 0)
+            # @water.draw(map_x, map_y, 0)
           end
         else
-          @water.draw(map_x, map_y, 0)
+          # @water.draw(map_x, map_y, 0)
         end
       end
     end
@@ -122,7 +121,7 @@ class Map
     target_pups = rand(20..30)
     while pups < target_pups do
       x = rand(0..MAP_WIDTH * TILE_WIDTH)
-      y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
+      y = rand(0..MAP_HEIGHT * TILE_HEIGHT / 2)
       if tile_at(x, y) != @water && @object_pool.nearby_point(x, y, 150).empty?
         random_powerup.new(@object_pool, x, y)
         pups += 1
@@ -154,21 +153,16 @@ class Map
 
   def tile_at(x, y)
     t_x = ((x / TILE_WIDTH) % TILE_WIDTH).floor
-    t_y = ((y / TILE_HEIGHT) % TILE_HEIGHT).floor
+    t_y = ((y / TILE_HEIGHT * 2) % TILE_HEIGHT).floor
+    puts "x:#{t_x}, y:#{t_y}"
     row = @map[t_x]
     row ? row[t_y] : @water
   end
 
   def load_tiles
-    tiles = Gosu::Image.load_tiles(
-      $window, Utils.media_path('ground.png'),
-      128, 128, true)
-    # @sand = tiles[0]
-    @sand = Gosu::Image.new(Utils.media_path('dirt.png'))
-    # @grass = tiles[8]
-    # @grass = Gosu::Image.new(Utils.media_path('snow.png'), options = {tileable: true})
-    @grass = Gosu::Image.new(Utils.media_path('concrete.png'))
-    @water = Gosu::Image.new(Utils.media_path('snow.png'))
+    @sand = Gosu::Image.new(Utils.media_path('dirt.png'), options = {tileable: true})
+    @grass = Gosu::Image.new(Utils.media_path('concrete.png'), options = {tileable: true})
+    @water = Gosu::Image.new(Utils.media_path('snow.png'), options = {tileable: true})
   end
 
   def generate_map
@@ -189,7 +183,7 @@ class Map
 
   def choose_tile(val)
     case val
-    when 0.0..0.1
+    when 0.0..0.2
       @water
     when 0.3..0.45
       @sand
