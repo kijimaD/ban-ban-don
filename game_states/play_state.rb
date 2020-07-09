@@ -44,7 +44,7 @@ class PlayState < GameState
     x1, x2, y1, y2 = viewport
     box = AxisAlignedBoundingBox.new(
       [x1 + (x2 - x1) / 2, y1 + (y2 - y1) / 2],
-      [x1 - Map::TILE_SIZE, y1 - Map::TILE_SIZE])
+      [x1 - Map::TILE_WIDTH, y1 - Map::TILE_HEIGHT])
     $window.translate(off_x, off_y) do
       zoom = @camera.zoom
       $window.scale(zoom, zoom, cam_x, cam_y) do
@@ -91,9 +91,8 @@ class PlayState < GameState
     now = Gosu.milliseconds
     if now - (@caption_updated_at || 0) > 1000
       $window.caption = 'ばんばんばんどーん！' <<
-                        "残: #{@character.number_ammo}" <<
                         "[FPS: #{Gosu.fps}. " <<
-                        "Character @ #{@character.x.round}:#{@character.y.round}]"
+                        "@ #{@character.x.round}:#{@character.y.round}]"
       @caption_updated_at = now
     end
   end

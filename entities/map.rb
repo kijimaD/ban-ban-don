@@ -2,12 +2,14 @@ class Map
   MAP_WIDTH = 30
   MAP_HEIGHT = 30
   TILE_SIZE = 128
+  TILE_WIDTH = 256
+  TILE_HEIGHT = 128
 
   def self.bounding_box
-    center = [MAP_WIDTH * TILE_SIZE / 2,
-              MAP_HEIGHT * TILE_SIZE / 2]
-    half_dimension = [MAP_WIDTH * TILE_SIZE,
-                      MAP_HEIGHT * TILE_SIZE]
+    center = [MAP_WIDTH * TILE_WIDTH / 2,
+              MAP_HEIGHT * TILE_HEIGHT / 2]
+    half_dimension = [MAP_WIDTH * TILE_WIDTH,
+                      MAP_HEIGHT * TILE_HEIGHT]
     AxisAlignedBoundingBox.new(center, half_dimension)
   end
 
@@ -22,22 +24,35 @@ class Map
   end
 
   def draw(viewport)
-    viewport.map! {|p| p / TILE_SIZE}
+    viewport[0] = viewport[0] / TILE_WIDTH
+    viewport[1] = viewport[1] / TILE_WIDTH
+    viewport[2] = viewport[2] / TILE_HEIGHT
+    viewport[3] = viewport[3] / TILE_HEIGHT
+    # viewport.map! {|p| p / TILE_SIZE}
     x0, x1, y0, y1 = viewport.map(&:to_i)
-    (x0-10..x1).each do |x|
-      (y0-10..y1).each do |y|
+    (x0..x1).each do |x|
+      (y0..y1).each do |y|
         row = @map[x]
-        map_x = x * TILE_SIZE
-        map_y = y * TILE_SIZE
+        if y % 2 == 0
+          map_x = x * TILE_WIDTH
+          map_y = y * TILE_HEIGHT
+        elsif y % 2 == 1
+          map_x = x * TILE_WIDTH + TILE_WIDTH / 2
+          map_y = (y + 1) * TILE_HEIGHT - TILE_HEIGHT / 2
+        end
         if row
           tile = @map[x][y]
           if tile
             tile.draw(map_x, map_y, 0)
+            $window.draw_rect(map_x, map_y, 2, 2, Gosu::Color::RED, 1)
+            @msg = Gosu::Image.from_text("X:#{x}, Y:#{y}", 16, options = {font: Utils.title_font}).draw(map_x, map_y, 100)
           else
             @water.draw(map_x, map_y, 0)
+            $window.draw_rect(map_x, map_y, 2, 2, Gosu::Color::RED, 1)
           end
         else
           @water.draw(map_x, map_y, 0)
+          $window.draw_rect(map_x, map_y, 2, 2, Gosu::Color::RED, 1)
         end
       end
     end
@@ -136,8 +151,8 @@ class Map
   end
 
   def tile_at(x, y)
-    t_x = ((x / TILE_SIZE) % TILE_SIZE).floor
-    t_y = ((y / TILE_SIZE) % TILE_SIZE).floor
+    t_x = ((x / TILE_WIDTH) % TILE_WIDTH).floor
+    t_y = ((y / TILE_HEIGHT) % TILE_HEIGHT).floor
     row = @map[t_x]
     row ? row[t_y] : @water
   end
@@ -146,10 +161,13 @@ class Map
     tiles = Gosu::Image.load_tiles(
       $window, Utils.media_path('ground.png'),
       128, 128, true)
-    @sand = tiles[0]
+    # @sand = tiles[0]
+    @sand = Gosu::Image.new(Utils.media_path('dirt.png'))
     # @grass = tiles[8]
-    @grass = Gosu::Image.new(Utils.media_path('snow.png'), options = {tileable: true})
+    # @grass = Gosu::Image.new(Utils.media_path('snow.png'), options = {tileable: true})
+    @grass = Gosu::Image.new(Utils.media_path('concrete.png'))
     @water = Gosu::Image.new(Utils.media_path('water.png'), options = {tileable: true})
+
   end
 
   def generate_map

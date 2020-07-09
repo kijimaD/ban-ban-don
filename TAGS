@@ -25,12 +25,12 @@ class PlayState < GameStatePlayState2,16
   def leaveleave24,649
   def updateupdate29,718
   def drawdraw38,866
-  def button_down(id)button_down62,1511
-  def update_captionupdate_caption90,2137
-  def create_characters(amount)create_characters101,2526
-  def character_parameterscharacter_parameters114,2983
-  def player_selected_characterplayer_selected_character118,3093
-  def random_characterrandom_character122,3190
+  def button_down(id)button_down62,1514
+  def update_captionupdate_caption90,2140
+  def create_characters(amount)create_characters100,2465
+  def character_parameterscharacter_parameters113,2922
+  def player_selected_characterplayer_selected_character117,3032
+  def random_characterrandom_character121,3129
 
 game_states/menu_state.rb,306
 class MenuState < GameStateMenuState2,16
@@ -101,29 +101,29 @@ class QuadTreeQuadTree1,0
   def query_range(range)query_range43,985
   def subdividesubdivide66,1403
 
-misc/utils.rb,1207
+misc/utils.rb,1210
 module UtilsUtils1,0
   def self.media_path(file)media_path10,158
   def self.media_path_sound(file)media_path_sound14,262
   def self.load_json(file)load_json18,336
-  def self.title_fonttitle_font24,436
-  def self.main_font()main_font28,510
-  def self.track_update_intervaltrack_update_interval32,575
-  def self.update_intervalupdate_interval38,723
-  def self.adjust_speed(speed)adjust_speed42,806
-  def self.button_down?(button)button_down46,880
-  def self.button_up?(button)button_up63,1219
-  def self.rotate(angle, around_x, around_y, *points)rotate80,1557
-  def self.point_in_poly(testx, testy, *poly)point_in_poly95,2041
-  def self.distance_between(x1, y1, x2, y2)distance_between116,2551
-  def self.angle_between(x, y, target_x, target_y)angle_between122,2669
-  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance128,2831
-  def self.mark_corners(box)mark_corners135,3049
-  def self.volume(object, camera)volume148,3316
-  def self.pan(object, camera)pan157,3588
-  def self.volume_and_pan(object, camera)volume_and_pan169,3841
-  def self.collides_with_poly?(poly, *box)collides_with_poly173,3940
-  def self.load_allload_all189,4325
+  def self.load_allload_all24,436
+  def self.title_fonttitle_font41,861
+  def self.main_font()main_font45,935
+  def self.track_update_intervaltrack_update_interval49,1000
+  def self.update_intervalupdate_interval55,1148
+  def self.adjust_speed(speed)adjust_speed59,1231
+  def self.button_down?(button)button_down63,1305
+  def self.button_up?(button)button_up80,1644
+  def self.rotate(angle, around_x, around_y, *points)rotate97,1982
+  def self.point_in_poly(testx, testy, *poly)point_in_poly112,2466
+  def self.distance_between(x1, y1, x2, y2)distance_between133,2976
+  def self.angle_between(x, y, target_x, target_y)angle_between139,3094
+  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance145,3256
+  def self.mark_corners(box)mark_corners152,3474
+  def self.volume(object, camera)volume165,3741
+  def self.pan(object, camera)pan174,4013
+  def self.volume_and_pan(object, camera)volume_and_pan186,4266
+  def self.collides_with_poly?(poly, *box)collides_with_poly190,4365
 
 misc/axis_aligned_bounding_box.rb,221
 class AxisAlignedBoundingBoxAxisAlignedBoundingBox1,0
@@ -257,24 +257,24 @@ class Explosion < GameObjectExplosion1,0
   def mark_for_removalmark_for_removal24,462
   def inflict_damageinflict_damage30,513
 
-entities/map.rb,716
+entities/map.rb,718
 class MapMap1,0
-  def self.bounding_boxbounding_box6,64
-  def initialize(object_pool)initialize14,324
-  def draw(viewport)draw24,518
-  def spawn_points(max)spawn_points46,1018
-  def spawn_pointspawn_point53,1146
-  def can_move_to?(x, y)can_move_to?57,1240
-  def movement_penalty(x, y)movement_penalty62,1324
-  def generate_treesgenerate_trees72,1450
-  def generate_boxesgenerate_boxes90,1940
-  def generate_powerupsgenerate_powerups103,2237
-  def random_poweruprandom_powerup116,2592
-  def find_spawn_pointfind_spawn_point128,2762
-  def tile_at(x, y)tile_at138,3005
-  def load_tilesload_tiles145,3172
-  def generate_mapgenerate_map155,3521
-  def choose_tile(val)choose_tile171,3866
+  def self.bounding_boxbounding_box8,103
+  def initialize(object_pool)initialize16,369
+  def draw(viewport)draw26,563
+  def spawn_points(max)spawn_points61,1746
+  def spawn_pointspawn_point68,1874
+  def can_move_to?(x, y)can_move_to?72,1968
+  def movement_penalty(x, y)movement_penalty77,2052
+  def generate_treesgenerate_trees87,2178
+  def generate_boxesgenerate_boxes105,2668
+  def generate_powerupsgenerate_powerups118,2965
+  def random_poweruprandom_powerup131,3318
+  def find_spawn_pointfind_spawn_point143,3488
+  def tile_at(x, y)tile_at153,3731
+  def load_tilesload_tiles160,3904
+  def generate_mapgenerate_map173,4379
+  def choose_tile(val)choose_tile189,4724
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
