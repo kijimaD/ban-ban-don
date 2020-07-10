@@ -28,6 +28,7 @@ class Health < Component
       if object.respond_to?(:input)
         object.input.stats.add_damage(amount.floor)
         object.graphics.damage
+        DamagePopup.new(@object_pool, x, y, amount.floor)
         if cause.respond_to?(:input) && cause != object
           cause.input.stats.add_score(amount.floor)
         end
