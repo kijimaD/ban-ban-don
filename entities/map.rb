@@ -24,21 +24,21 @@ class Map
 
   def draw(viewport)
     viewport[0] = viewport[0] / TILE_WIDTH
-    viewport[1] = viewport[1] / TILE_WIDTH
+    viewport[1] = viewport[1] / TILE_WIDTH * 2
     viewport[2] = viewport[2] / TILE_HEIGHT
     viewport[3] = viewport[3] / TILE_HEIGHT * 2
     x0, x1, y0, y1 = viewport.map(&:to_i)
-
-    (x0-10..x1+10).each do |x|
-      (y0-10..y1+10).each do |y|
+    (x0-1..x1).each do |x|
+      (y0-1..y1).each do |y|
         row = @map[x]
         map_x = (y - x) * TILE_HEIGHT
+        map_x += (MAP_WIDTH * TILE_WIDTH / 2) # offset_x
         map_y = (y + x) * (TILE_HEIGHT / 2)
         if row
           tile = @map[x][y]
           if tile
             tile.draw(map_x, map_y, 0)
-            # @msg = Gosu::Image.from_text("X:#{x}, Y:#{y}", 16).draw(map_x, map_y, 100)
+          # @msg = Gosu::Image.from_text("X:#{x}, Y:#{y}", 16).draw(map_x, map_y, 100)
           else
             # @water.draw(map_x, map_y, 0)
           end
@@ -142,15 +142,12 @@ class Map
   end
 
   def tile_at(x, y)
-    # t_x = ((x / TILE_WIDTH) % TILE_WIDTH).floor
-    # t_y = ((y / TILE_HEIGHT * 2) % TILE_HEIGHT).floor
+    offset_x = (MAP_WIDTH * TILE_WIDTH / 2)
     col = y * 2
-    col = (col - x) / 2
-    row = ((x + col) - TILE_HEIGHT)
+    col = (offset_x + col - x) / 2
+    row = ((x + col) - TILE_HEIGHT) - offset_x
     t_x = (col / TILE_HEIGHT).round
     t_y = (row / TILE_HEIGHT).round
-    # t_x = ((y - x) * TILE_HEIGHT).floor
-    # t_y = ((y + x) * (TILE_HEIGHT / 2)).floor
     puts "x:#{t_x}, y:#{t_y}"
     row = @map[t_x]
     row ? row[t_y] : @water
