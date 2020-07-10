@@ -3,6 +3,7 @@ class Map
   MAP_HEIGHT = 30
   TILE_WIDTH = 256
   TILE_HEIGHT = 128
+  OFFSET_X = MAP_WIDTH * TILE_WIDTH / 2
 
   def self.bounding_box
     center = [MAP_WIDTH * TILE_WIDTH / 2,
@@ -31,8 +32,7 @@ class Map
     (x0-20..x1+20).each do |x|
       (y0-20..y1+20).each do |y|
         row = @map[x]
-        map_x = (y - x) * TILE_HEIGHT
-        map_x += (MAP_WIDTH * TILE_WIDTH / 2) # offset_x
+        map_x = (y - x) * TILE_HEIGHT + OFFSET_X
         map_y = (y + x) * (TILE_HEIGHT / 2)
         if row
           tile = @map[x][y]
@@ -82,8 +82,8 @@ class Map
     trees = 0
     target_trees = rand(30..50)
     while trees < target_trees do
-      x = rand(0..MAP_WIDTH * TILE_WIDTH)
-      y = rand(0..MAP_HEIGHT * TILE_HEIGHT / 2)
+      x = rand(0..MAP_WIDTH * TILE_WIDTH + OFFSET_X)
+      y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
       n = noises[x * 0.001, y * 0.001]
       n = contrast.call(n)
       if tile_at(x, y) == @grass && n > 0.5
@@ -97,9 +97,9 @@ class Map
     boxes = 0
     target_boxes = rand(10..30)
     while boxes < target_boxes do
-      x = rand(0..MAP_WIDTH * TILE_WIDTH)
-      y = rand(0..MAP_HEIGHT * TILE_HEIGHT / 2)
-      if tile_at(x, y) != @water
+      x = rand(0..MAP_WIDTH * TILE_WIDTH + OFFSET_X)
+      y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
+      if tile_at(x, y) == @grass
         Box.new(@object_pool, x, y)
         boxes += 1
       end
@@ -110,9 +110,9 @@ class Map
     pups = 0
     target_pups = rand(20..30)
     while pups < target_pups do
-      x = rand(0..MAP_WIDTH * TILE_WIDTH)
-      y = rand(0..MAP_HEIGHT * TILE_HEIGHT / 2)
-      if tile_at(x, y) != @water && @object_pool.nearby_point(x, y, 150).empty?
+      x = rand(0..MAP_WIDTH * TILE_WIDTH + OFFSET_X)
+      y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
+      if tile_at(x, y) == @grass && @object_pool.nearby_point(x, y, 150).empty?
         random_powerup.new(@object_pool, x, y)
         pups += 1
       end
@@ -133,7 +133,7 @@ class Map
 
   def find_spawn_point
     while true
-      x = rand(0..MAP_WIDTH * TILE_WIDTH)
+      x = rand(0..MAP_WIDTH * TILE_WIDTH + OFFSET_X)
       y = rand(0..MAP_HEIGHT * TILE_HEIGHT / 2)
       if can_move_to?(x, y) && @object_pool.nearby_point(x, y, 150).empty?
         return [x, y]
@@ -142,10 +142,8 @@ class Map
   end
 
   def tile_at(x, y)
-    offset_x = (MAP_WIDTH * TILE_WIDTH / 2)
-    col = y * 2
-    col = (offset_x + col - x) / 2
-    row = ((x + col) - TILE_HEIGHT) - offset_x
+    col = (OFFSET_X + y * 2 - x) / 2
+    row = ((x + col) - TILE_HEIGHT) - OFFSET_X
     t_x = (col / TILE_HEIGHT).round
     t_y = (row / TILE_HEIGHT).round
     # puts "x:#{t_x}, y:#{t_y}"

@@ -83,7 +83,7 @@ class Camera
   end
 
   def desired_spot
-    if @target.physics.moving? && @target.recently_shoot?
+    if @target.recently_shoot?
       Utils.point_at_distance(
         @target.x, @target.y,
         @target.gun_angle,

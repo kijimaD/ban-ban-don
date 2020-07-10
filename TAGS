@@ -221,8 +221,8 @@ class CameraCamera1,0
   def target_delta_on_screentarget_delta_on_screen63,1264
   def draw_crosshairdraw_crosshair67,1357
   def viewportviewport77,1576
-  def desired_spotdesired_spot86,1817
-  def crosshaircrosshair98,2058
+  def desired_spotdesired_spot85,1791
+  def crosshaircrosshair97,2005
 
 entities/announce.rb,247
 class AnnounceAnnounce1,0
@@ -257,24 +257,24 @@ class Explosion < GameObjectExplosion1,0
   def mark_for_removalmark_for_removal24,462
   def inflict_damageinflict_damage30,513
 
-entities/map.rb,716
+entities/map.rb,718
 class MapMap1,0
-  def self.bounding_boxbounding_box7,85
-  def initialize(object_pool)initialize15,351
-  def draw(viewport)draw25,545
-  def spawn_points(max)spawn_points52,1357
-  def spawn_pointspawn_point59,1485
-  def can_move_to?(x, y)can_move_to?63,1579
-  def movement_penalty(x, y)movement_penalty68,1663
-  def generate_treesgenerate_trees78,1789
-  def generate_boxesgenerate_boxes96,2286
-  def generate_powerupsgenerate_powerups109,2590
-  def random_poweruprandom_powerup122,2950
-  def find_spawn_pointfind_spawn_point134,3120
-  def tile_at(x, y)tile_at144,3370
-  def load_tilesload_tiles156,3691
-  def generate_mapgenerate_map162,3979
-  def choose_tile(val)choose_tile178,4324
+  def self.bounding_boxbounding_box8,125
+  def initialize(object_pool)initialize16,391
+  def draw(viewport)draw26,585
+  def spawn_points(max)spawn_points52,1351
+  def spawn_pointspawn_point59,1479
+  def can_move_to?(x, y)can_move_to?63,1573
+  def movement_penalty(x, y)movement_penalty68,1657
+  def generate_treesgenerate_trees78,1783
+  def generate_boxesgenerate_boxes100,2350
+  def generate_powerupsgenerate_powerups113,2661
+  def random_poweruprandom_powerup126,3039
+  def find_spawn_pointfind_spawn_point138,3209
+  def tile_at(x, y)tile_at148,3470
+  def load_tilesload_tiles158,3733
+  def generate_mapgenerate_map164,4021
+  def choose_tile(val)choose_tile180,4366
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
