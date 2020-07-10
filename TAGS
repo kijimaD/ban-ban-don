@@ -221,8 +221,8 @@ class CameraCamera1,0
   def target_delta_on_screentarget_delta_on_screen63,1264
   def draw_crosshairdraw_crosshair67,1357
   def viewportviewport77,1576
-  def desired_spotdesired_spot85,1791
-  def crosshaircrosshair97,2032
+  def desired_spotdesired_spot86,1817
+  def crosshaircrosshair98,2058
 
 entities/announce.rb,247
 class AnnounceAnnounce1,0
@@ -272,9 +272,9 @@ class MapMap1,0
   def random_poweruprandom_powerup122,2950
   def find_spawn_pointfind_spawn_point134,3120
   def tile_at(x, y)tile_at144,3370
-  def load_tilesload_tiles156,3689
-  def generate_mapgenerate_map162,3977
-  def choose_tile(val)choose_tile178,4322
+  def load_tilesload_tiles156,3691
+  def generate_mapgenerate_map162,3979
+  def choose_tile(val)choose_tile178,4324
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0

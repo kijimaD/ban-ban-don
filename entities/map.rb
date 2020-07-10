@@ -24,12 +24,12 @@ class Map
 
   def draw(viewport)
     viewport[0] = viewport[0] / TILE_WIDTH
-    viewport[1] = viewport[1] / TILE_WIDTH * 2
+    viewport[1] = viewport[1] / TILE_WIDTH
     viewport[2] = viewport[2] / TILE_HEIGHT
-    viewport[3] = viewport[3] / TILE_HEIGHT * 2
+    viewport[3] = viewport[3] / TILE_HEIGHT
     x0, x1, y0, y1 = viewport.map(&:to_i)
-    (x0-1..x1).each do |x|
-      (y0-1..y1).each do |y|
+    (x0-20..x1+20).each do |x|
+      (y0-20..y1+20).each do |y|
         row = @map[x]
         map_x = (y - x) * TILE_HEIGHT
         map_x += (MAP_WIDTH * TILE_WIDTH / 2) # offset_x
@@ -148,7 +148,7 @@ class Map
     row = ((x + col) - TILE_HEIGHT) - offset_x
     t_x = (col / TILE_HEIGHT).round
     t_y = (row / TILE_HEIGHT).round
-    puts "x:#{t_x}, y:#{t_y}"
+    # puts "x:#{t_x}, y:#{t_y}"
     row = @map[t_x]
     row ? row[t_y] : @water
   end

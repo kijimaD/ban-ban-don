@@ -57,7 +57,7 @@ class PlayerInput < Component
       object.reload
     end
 
-    if Utils.button_down?(Gosu::KbUp) && @camera.zoom < 2.0
+    if Utils.button_down?(Gosu::KbUp) && @camera.zoom < 1.2
       @camera.zoom += 0.1
     end
 
