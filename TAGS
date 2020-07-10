@@ -18,19 +18,19 @@ class GameStateGameState1,0
   def needs_redraw?needs_redraw?21,220
   def button_down(id)button_down25,256
 
-game_states/play_state.rb,509
-class PlayState < GameStatePlayState2,16
-  def initialize(settings = [])initialize6,144
-  def enterenter20,596
-  def leaveleave24,638
-  def updateupdate29,707
-  def drawdraw38,855
-  def button_down(id)button_down62,1500
-  def update_captionupdate_caption88,2056
-  def create_characters(amount)create_characters99,2445
-  def character_parameterscharacter_parameters112,2902
-  def player_selected_characterplayer_selected_character116,3012
-  def random_characterrandom_character120,3109
+game_states/play_state.rb,520
+class PlayState < GameStatePlayState1,0
+  def initialize(settings = [0, "sirase"])initialize5,128
+  def enterenter19,591
+  def leaveleave23,633
+  def updateupdate28,702
+  def drawdraw37,850
+  def button_down(id)button_down61,1498
+  def update_captionupdate_caption90,2152
+  def create_characters(amount)create_characters100,2450
+  def character_parameterscharacter_parameters113,2907
+  def player_selected_characterplayer_selected_character117,3017
+  def random_characterrandom_character121,3114
 
 game_states/menu_state.rb,306
 class MenuState < GameStateMenuState2,16
@@ -101,28 +101,29 @@ class QuadTreeQuadTree1,0
   def query_range(range)query_range43,985
   def subdividesubdivide66,1403
 
-misc/utils.rb,1169
+misc/utils.rb,1210
 module UtilsUtils1,0
   def self.media_path(file)media_path10,158
   def self.media_path_sound(file)media_path_sound14,262
   def self.load_json(file)load_json18,336
-  def self.title_fonttitle_font24,436
-  def self.main_font()main_font28,510
-  def self.track_update_intervaltrack_update_interval32,575
-  def self.update_intervalupdate_interval38,723
-  def self.adjust_speed(speed)adjust_speed42,806
-  def self.button_down?(button)button_down46,880
-  def self.button_up?(button)button_up63,1219
-  def self.rotate(angle, around_x, around_y, *points)rotate80,1557
-  def self.point_in_poly(testx, testy, *poly)point_in_poly95,2041
-  def self.distance_between(x1, y1, x2, y2)distance_between116,2551
-  def self.angle_between(x, y, target_x, target_y)angle_between122,2669
-  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance128,2831
-  def self.mark_corners(box)mark_corners135,3049
-  def self.volume(object, camera)volume148,3316
-  def self.pan(object, camera)pan157,3588
-  def self.volume_and_pan(object, camera)volume_and_pan169,3841
-  def self.collides_with_poly?(poly, *box)collides_with_poly173,3940
+  def self.load_allload_all24,436
+  def self.title_fonttitle_font41,861
+  def self.main_font()main_font45,935
+  def self.track_update_intervaltrack_update_interval49,1000
+  def self.update_intervalupdate_interval55,1148
+  def self.adjust_speed(speed)adjust_speed59,1231
+  def self.button_down?(button)button_down63,1305
+  def self.button_up?(button)button_up80,1644
+  def self.rotate(angle, around_x, around_y, *points)rotate97,1982
+  def self.point_in_poly(testx, testy, *poly)point_in_poly112,2466
+  def self.distance_between(x1, y1, x2, y2)distance_between133,2976
+  def self.angle_between(x, y, target_x, target_y)angle_between139,3094
+  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance145,3256
+  def self.mark_corners(box)mark_corners152,3474
+  def self.volume(object, camera)volume165,3741
+  def self.pan(object, camera)pan174,4013
+  def self.volume_and_pan(object, camera)volume_and_pan186,4266
+  def self.collides_with_poly?(poly, *box)collides_with_poly190,4365
 
 misc/axis_aligned_bounding_box.rb,221
 class AxisAlignedBoundingBoxAxisAlignedBoundingBox1,0
@@ -221,18 +222,18 @@ class CameraCamera1,0
   def draw_crosshairdraw_crosshair67,1357
   def viewportviewport77,1576
   def desired_spotdesired_spot85,1791
-  def crosshaircrosshair97,2032
+  def crosshaircrosshair97,2005
 
 entities/announce.rb,247
 class AnnounceAnnounce1,0
   def initialize(character, ai)initialize4,49
   def updateupdate10,171
-  def drawdraw23,498
-  def startstart29,559
-  def win?win?33,592
-  def lose?lose?39,668
-  def onceonce43,723
-  def soundsound54,887
+  def drawdraw23,522
+  def startstart29,583
+  def win?win?33,616
+  def lose?lose?39,692
+  def onceonce43,747
+  def soundsound54,911
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -256,24 +257,24 @@ class Explosion < GameObjectExplosion1,0
   def mark_for_removalmark_for_removal24,462
   def inflict_damageinflict_damage30,513
 
-entities/map.rb,716
+entities/map.rb,718
 class MapMap1,0
-  def self.bounding_boxbounding_box6,64
-  def initialize(object_pool)initialize14,324
-  def draw(viewport)draw24,518
-  def spawn_points(max)spawn_points46,1018
-  def spawn_pointspawn_point53,1146
-  def can_move_to?(x, y)can_move_to?57,1240
-  def movement_penalty(x, y)movement_penalty62,1324
-  def generate_treesgenerate_trees72,1450
-  def generate_boxesgenerate_boxes90,1940
-  def generate_powerupsgenerate_powerups103,2237
-  def random_poweruprandom_powerup116,2592
-  def find_spawn_pointfind_spawn_point128,2762
-  def tile_at(x, y)tile_at138,3005
-  def load_tilesload_tiles145,3172
-  def generate_mapgenerate_map155,3521
-  def choose_tile(val)choose_tile171,3866
+  def self.bounding_boxbounding_box8,125
+  def initialize(object_pool)initialize16,391
+  def draw(viewport)draw26,585
+  def spawn_points(max)spawn_points52,1351
+  def spawn_pointspawn_point59,1479
+  def can_move_to?(x, y)can_move_to?63,1573
+  def movement_penalty(x, y)movement_penalty68,1657
+  def generate_treesgenerate_trees78,1783
+  def generate_boxesgenerate_boxes100,2350
+  def generate_powerupsgenerate_powerups113,2661
+  def random_poweruprandom_powerup126,3039
+  def find_spawn_pointfind_spawn_point138,3209
+  def tile_at(x, y)tile_at148,3470
+  def load_tilesload_tiles158,3733
+  def generate_mapgenerate_map164,4021
+  def choose_tile(val)choose_tile180,4366
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -577,8 +578,8 @@ class PlayerInput < ComponentPlayerInput1,0
   def control(obj)control12,228
   def on_collision(with)on_collision16,276
   def updateupdate19,308
-  def any_button_down?(*buttons)any_button_down?72,1590
-  def change_angle(previous_angle, up, down, right, left)change_angle79,1715
+  def any_button_down?(*buttons)any_button_down?72,1632
+  def change_angle(previous_angle, up, down, right, left)change_angle79,1757
 
 entities/components/character_graphics.rb,636
 class CharacterGraphics < ComponentCharacterGraphics1,0
@@ -596,7 +597,7 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def different?(runs)different?107,2275
   def gen_image_arraygen_image_array113,2356
   def charascharas123,2565
-  def weaponsweapons129,2744
+  def weaponsweapons128,2709
 
 entities/character.rb,399
 class Character < GameObjectCharacter1,0

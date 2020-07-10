@@ -37,7 +37,7 @@ class PlayerInput < Component
       object.throttle_down = false
     end
 
-    if Utils.button_down?(Gosu::KbLeftShift)
+    if Utils.button_down?(Gosu::KbLeftShift) || Utils.button_down?(Gosu::KbRightShift)
       object.turbo = true
     else
       object.turbo = false
@@ -57,11 +57,11 @@ class PlayerInput < Component
       object.reload
     end
 
-    if Utils.button_down?(Gosu::KbUp) && @camera.zoom < 2.0
+    if Utils.button_down?(Gosu::KbUp) && @camera.zoom < 1.2
       @camera.zoom += 0.1
     end
 
-    if Utils.button_down?(Gosu::KbDown) && @camera.zoom > 0.6
+    if Utils.button_down?(Gosu::KbDown) && @camera.zoom > 0.4
       @camera.zoom -= 0.1
     end
 

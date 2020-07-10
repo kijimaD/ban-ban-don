@@ -21,6 +21,23 @@ module Utils
     end
   end
 
+  def self.load_all
+    root_dir = File.dirname((File.dirname(__FILE__)))
+    require_pattern = File.join(root_dir, '**/*.rb')
+    @failed = []
+
+    # Dynamically require everything
+    Dir.glob(require_pattern).each do |f|
+      next if f.end_with?('/main.rb')
+      begin
+        load f.gsub("#{root_dir}/", '')
+      rescue
+        # May fail if parent class not required yet
+        @failed << f
+      end
+    end
+  end
+
   def self.title_font
     media_path('GN-KillGothic-U-KanaNA.ttf')
   end

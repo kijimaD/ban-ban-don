@@ -75,15 +75,15 @@ class Camera
   end
 
   def viewport
-    x0 = @x - ($window.width / 2)  / @zoom
-    x1 = @x + ($window.width / 2)  / @zoom
-    y0 = @y - ($window.height / 2) / @zoom
-    y1 = @y + ($window.height / 2) / @zoom
+    x0 = @x - ($window.width * 4)  / @zoom
+    x1 = @x + ($window.width * 4)  / @zoom
+    y0 = @y - ($window.height * 4) / @zoom
+    y1 = @y + ($window.height * 4) / @zoom
     [x0, x1, y0, y1]
   end
 
   def desired_spot
-    if @target.physics.moving? && @target.recently_shoot?
+    if @target.recently_shoot?
       Utils.point_at_distance(
         @target.x, @target.y,
         @target.gun_angle,

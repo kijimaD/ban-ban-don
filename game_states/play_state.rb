@@ -1,4 +1,3 @@
-# coding: utf-8
 class PlayState < GameState
   attr_accessor :update_interval, :object_pool, :character, :announce,
                 :difficulty
@@ -12,7 +11,7 @@ class PlayState < GameState
     @difficulty = settings[0]
     @player_selected_character = settings[1]
     character_parameters
-    create_characters(1)
+    create_characters(0)
     @announce = Announce.new(@character, @ai)
     Damage.new(@object_pool, 0, 0).mark_for_removal # initialize damage
   end
@@ -44,7 +43,7 @@ class PlayState < GameState
     x1, x2, y1, y2 = viewport
     box = AxisAlignedBoundingBox.new(
       [x1 + (x2 - x1) / 2, y1 + (y2 - y1) / 2],
-      [x1 - Map::TILE_SIZE, y1 - Map::TILE_SIZE])
+      [x1 - Map::TILE_WIDTH, y1 - Map::TILE_HEIGHT])
     $window.translate(off_x, off_y) do
       zoom = @camera.zoom
       $window.scale(zoom, zoom, cam_x, cam_y) do
@@ -64,22 +63,25 @@ class PlayState < GameState
       leave
       $window.close
     end
-    if id == Gosu::KbT
-      t = Character.new(self, @object_pool,
-                   AiInput.new(@object_pool), random_character)
-      x, y = @camera.mouse_coords
-      t.move(x, y)
-    end
-    if id == Gosu::KbF1
-      $debug = !$debug
-    end
     if id == Gosu::KbEscape
       pause = PauseState.instance
       pause.play_state = self
       GameState.switch(pause)
     end
-    if id == Gosu::KbI
-      GameState.switch(SelectState.instance)
+    if id == Gosu::KbF1
+      $debug = !$debug
+    end
+    if id == Gosu::KbT && $debug
+      t = Character.new(self, @object_pool,
+                   AiInput.new(@object_pool), random_character)
+      x, y = @camera.mouse_coords
+      t.move(x, y)
+    end
+    if id == Gosu::KbSpace && $debug
+      StereoSample.stop_all
+      Utils.load_all
+      @play_state = PlayState.new
+      GameState.switch(@play_state)
     end
   end
 
@@ -88,10 +90,9 @@ class PlayState < GameState
   def update_caption
     now = Gosu.milliseconds
     if now - (@caption_updated_at || 0) > 1000
-      $window.caption = 'ばんばんどーん！' <<
-                        "残: #{@character.number_ammo}" <<
+      $window.caption = 'BBD' <<
                         "[FPS: #{Gosu.fps}. " <<
-                        "Character @ #{@character.x.round}:#{@character.y.round}]"
+                        "@ #{@character.x.round}:#{@character.y.round}]"
       @caption_updated_at = now
     end
   end
