@@ -257,7 +257,7 @@ class Explosion < GameObjectExplosion1,0
   def mark_for_removalmark_for_removal24,462
   def inflict_damageinflict_damage30,513
 
-entities/map.rb,718
+entities/map.rb,717
 class MapMap1,0
   def self.bounding_boxbounding_box8,125
   def initialize(object_pool)initialize16,391
@@ -267,14 +267,14 @@ class MapMap1,0
   def can_move_to?(x, y)can_move_to?63,1573
   def movement_penalty(x, y)movement_penalty68,1657
   def generate_treesgenerate_trees78,1783
-  def generate_boxesgenerate_boxes100,2350
-  def generate_powerupsgenerate_powerups113,2661
-  def random_poweruprandom_powerup126,3039
-  def find_spawn_pointfind_spawn_point138,3209
-  def tile_at(x, y)tile_at148,3470
-  def load_tilesload_tiles158,3733
-  def generate_mapgenerate_map164,4021
-  def choose_tile(val)choose_tile180,4366
+  def generate_boxesgenerate_boxes96,2287
+  def generate_powerupsgenerate_powerups109,2598
+  def random_poweruprandom_powerup122,2965
+  def find_spawn_pointfind_spawn_point134,3135
+  def tile_at(x, y)tile_at144,3396
+  def load_tilesload_tiles154,3659
+  def generate_mapgenerate_map160,3947
+  def choose_tile(val)choose_tile176,4292
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -555,11 +555,11 @@ class Health < ComponentHealth1,0
   def dead?dead?17,348
   def updateupdate21,383
   def inflict_damage(amount, cause)inflict_damage25,420
-  def draw(viewport)draw42,915
-  def increase(amount)increase50,1087
-  def draw?draw?58,1209
-  def update_imageupdate_image62,1239
-  def after_death(cause)after_death72,1451
+  def draw(viewport)draw42,923
+  def increase(amount)increase50,1095
+  def draw?draw?58,1217
+  def update_imageupdate_image62,1247
+  def after_death(cause)after_death72,1459
 
 entities/components/box_graphics.rb,294
 class BoxGraphics < ComponentBoxGraphics1,0
@@ -581,7 +581,7 @@ class PlayerInput < ComponentPlayerInput1,0
   def any_button_down?(*buttons)any_button_down?72,1632
   def change_angle(previous_angle, up, down, right, left)change_angle79,1757
 
-entities/components/character_graphics.rb,636
+entities/components/character_graphics.rb,673
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize12,206
   def updateupdate19,350
@@ -598,6 +598,7 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def gen_image_arraygen_image_array113,2356
   def charascharas123,2565
   def weaponsweapons128,2709
+  def damage_msgdamage_msg133,2825
 
 entities/character.rb,399
 class Character < GameObjectCharacter1,0
