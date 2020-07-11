@@ -38,7 +38,7 @@ class DemoState < PlayState
     @characters = []
     amount.times do |i|
       @characters << Character.new(self, @object_pool, AiInput.new(
-                                     @object_pool))
+                                     @object_pool), random_character)
     end
     target_character = @characters.sample
     @hud = HUD.new(@object_pool, target_character)
