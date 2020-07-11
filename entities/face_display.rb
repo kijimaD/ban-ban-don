@@ -107,7 +107,7 @@ class FaceDisplay < Component
   end
 
   def magazine_msg
-    @msg = Gosu::Image.from_text("x#{@character.number_magazine.to_i}", 30, options = {font: Utils.title_font})
+    @msg = Gosu::Image.from_text("x#{@character.number_magazine.to_i}", 30, options = { font: Utils.title_font })
   end
 
 end

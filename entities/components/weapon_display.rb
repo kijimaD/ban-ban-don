@@ -2,8 +2,8 @@ class WeaponDisplay < Component
   WIDTH = 80
   HEIGHT = 20
   PADDING = 10
-  BACKGROUND = Gosu::Color.new(255 * 0.66, 0, 0, 0)
   FONT_COLOR = Gosu::Color::WHITE
+  BACKGROUND = Gosu::Color.new(255 * 0.66, 0, 0, 0)
 
   def initialize(object_pool, character)
     @object_pool = object_pool
