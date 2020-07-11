@@ -351,11 +351,11 @@ class ExplosionGraphics < ComponentExplosionGraphics1,0
   def done?done?33,592
   def animationanimation37,658
 
-entities/components/damage_popup_graphics.rb,176
+entities/components/damage_popup_graphics.rb,177
 class DamagePopupGraphics < ComponentDamagePopupGraphics1,0
   def initialize(object, amount)initialize3,39
-  def draw(viewport)draw9,141
-  def popup_msgpopup_msg20,321
+  def draw(viewport)draw10,149
+  def popup_msgpopup_msg24,374
 
 entities/components/announce_sounds.rb,156
 class AnnounceSoundsAnnounceSounds1,0
@@ -561,11 +561,11 @@ class Health < ComponentHealth1,0
   def dead?dead?17,348
   def updateupdate21,383
   def inflict_damage(amount, cause)inflict_damage25,420
-  def draw(viewport)draw43,987
-  def increase(amount)increase51,1159
-  def draw?draw?59,1281
-  def update_imageupdate_image63,1311
-  def after_death(cause)after_death73,1523
+  def draw(viewport)draw43,973
+  def increase(amount)increase51,1145
+  def draw?draw?59,1267
+  def update_imageupdate_image63,1297
+  def after_death(cause)after_death73,1509
 
 entities/components/box_graphics.rb,294
 class BoxGraphics < ComponentBoxGraphics1,0
@@ -587,7 +587,7 @@ class PlayerInput < ComponentPlayerInput1,0
   def any_button_down?(*buttons)any_button_down?72,1632
   def change_angle(previous_angle, up, down, right, left)change_angle79,1757
 
-entities/components/character_graphics.rb,644
+entities/components/character_graphics.rb,636
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize12,206
   def updateupdate19,350
@@ -599,11 +599,11 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def state_image(directional_graphics)state_image67,1275
   def draw_weapondraw_weapon84,1686
   def damage_flashingdamage_flashing95,2022
-  def damage(amount)damage101,2210
-  def different?(runs)different?107,2283
-  def gen_image_arraygen_image_array113,2364
-  def charascharas123,2573
-  def weaponsweapons128,2717
+  def damagedamage101,2210
+  def different?(runs)different?107,2275
+  def gen_image_arraygen_image_array113,2356
+  def charascharas123,2565
+  def weaponsweapons128,2709
 
 entities/character.rb,399
 class Character < GameObjectCharacter1,0

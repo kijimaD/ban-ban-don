@@ -3,13 +3,17 @@ class DamagePopupGraphics < Component
   def initialize(object, amount)
     super(object)
     @amount = amount
-    @frame_remain = 10
+    @frame = 0
+    @offset = 0
   end
 
   def draw(viewport)
-    if @frame_remain > 0
-      popup_msg.draw(object.x, object.y, 1)
-      @frame_remain -= 1
+    if @frame < 20
+      if @frame % 5 == 0
+        @offset += 1
+      end
+      popup_msg.draw(x, y - @offset * 10, 1)
+      @frame += 1
     else
       object.mark_for_removal
     end
