@@ -154,7 +154,7 @@ class Map
   def load_tiles
     @sand = Gosu::Image.new(Utils.media_path('dirt.png'), options = {tileable: true})
     @grass = Gosu::Image.new(Utils.media_path('concrete.png'), options = {tileable: true})
-    @water = Gosu::Image.new(Utils.media_path('snow.png'), options = {tileable: true})
+    @water = Gosu::Image.new(Utils.media_path('gray.png'), options = {tileable: true})
   end
 
   def generate_map

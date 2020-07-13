@@ -16,7 +16,7 @@ class CharacterSounds < Component
       elsif driving_sound.stopped?(id)
         driving_sound.play(id, pan, 0.5, 1, true)
       end
-      driving_sound.volume_and_pan(id, move_volume * 0.5, pan)
+      driving_sound.volume_and_pan(id, move_volume * 0.2, pan)
     else
       if driving_sound.playing?(id)
         driving_sound.pause(id)

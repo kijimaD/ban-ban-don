@@ -77,6 +77,11 @@ class PlayState < GameState
       x, y = @camera.mouse_coords
       t.move(x, y)
     end
+    if id == Gosu::KbG && $debug
+      x, y = @camera.mouse_coords
+      g = Tree.new(@object_pool, x, y, 0.7)
+      g.move(x, y)
+    end
     if id == Gosu::KbSpace && $debug
       StereoSample.stop_all
       Utils.load_all

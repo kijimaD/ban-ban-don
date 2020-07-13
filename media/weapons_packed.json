@@ -22,28 +22,28 @@
 		},
 		"ak47s.png": {
 			"frame": {
-				"x": 1,
-				"y": 89,
-				"w": 50,
-				"h": 12
+				"x": 353,
+				"y": 1,
+				"w": 52,
+				"h": 14
 			},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {
 				"x": 0,
 				"y": 0,
-				"w": 50,
-				"h": 12
+				"w": 52,
+				"h": 14
 			},
 			"sourceSize": {
-				"w": 50,
-				"h": 12
+				"w": 52,
+				"h": 14
 			}
 		},
 		"mf-scare.png": {
 			"frame": {
-				"x": 1,
-				"y": 103,
+				"x": 407,
+				"y": 1,
 				"w": 344,
 				"h": 95
 			},
@@ -62,7 +62,7 @@
 		},
 		"uzi-micro.png": {
 			"frame": {
-				"x": 353,
+				"x": 753,
 				"y": 1,
 				"w": 191,
 				"h": 121
@@ -87,8 +87,8 @@
 		"image": "weapons.png",
 		"format": "RGBA8888",
 		"size": {
-			"w": 545,
-			"h": 199
+			"w": 945,
+			"h": 123
 		},
 		"scale": "1"
 	}

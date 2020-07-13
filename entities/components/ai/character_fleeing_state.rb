@@ -32,7 +32,7 @@ class CharacterFleeingState < CharacterMotionState
         angle - angle % 45)
     else
       @object.physics.change_direction(
-        180 + @gun_desired_gun_angle -
+        180 + @gun.desired_gun_angle -
         @gun.desired_gun_angle % 45)
     end
     @changed_direction_at = Gosu.milliseconds
