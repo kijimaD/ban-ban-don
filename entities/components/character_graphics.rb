@@ -12,6 +12,7 @@ class CharacterGraphics < Component
   def initialize(game_object)
     super(game_object)
     @damage_frame = 0
+    @run_frame = 0
     @image_array = gen_image_array
     @body = body_direction
   end
@@ -32,9 +33,7 @@ class CharacterGraphics < Component
     end
     @body.draw(x - PADDING, y - PADDING, 1)
     draw_bounding_box if $debug
-    if object.recently_shoot?
-      draw_weapon
-    end
+    draw_weapon
   end
 
   def draw_bounding_box
@@ -70,22 +69,24 @@ class CharacterGraphics < Component
 
     if object.throttle_down
       if Gosu.milliseconds - (@last_flip || 0 ) > WALK_FRAME || different?(runs)
-        @anime = runs.reject do |t|
-          t == @anime
-        end.sample
+        @anime = runs[@run_frame % runs.length]
+        @run_frame += 1
         @last_flip = Gosu.milliseconds
       end
     else
       @anime = stand_image
+      @run_frame = 0
     end
     @anime
   end
 
   def draw_weapon
     i = (object.direction / 45) % 8
-    if i < 4
+    if 0 < i && i < 1
+    elsif i < 4
       weapon_z = 2
       @weapon.draw_rot(x + PADDING / 2, y + PADDING / 2, weapon_z, object.direction - 90, 0.5, 0.5, 1)
+    elsif 7 < i && i < 8
     else
       weapon_z = 0
       @weapon.draw_rot(x - PADDING / 2, y + PADDING / 2, weapon_z, object.direction + 90, 0.5, 0.5, -1)
