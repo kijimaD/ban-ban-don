@@ -26,11 +26,11 @@ class PlayState < GameStatePlayState1,0
   def updateupdate28,702
   def drawdraw37,850
   def button_down(id)button_down61,1498
-  def update_captionupdate_caption90,2152
-  def create_characters(amount)create_characters100,2450
-  def character_parameterscharacter_parameters113,2907
-  def player_selected_characterplayer_selected_character117,3017
-  def random_characterrandom_character121,3114
+  def update_captionupdate_caption95,2290
+  def create_characters(amount)create_characters105,2588
+  def character_parameterscharacter_parameters118,3045
+  def player_selected_characterplayer_selected_character122,3155
+  def random_characterrandom_character126,3252
 
 game_states/menu_state.rb,306
 class MenuState < GameStateMenuState2,16
@@ -67,7 +67,7 @@ class DemoState < PlayStateDemoState1,0
   def button_down(id)button_down16,153
   def character_dead?character_dead?26,393
   def create_characters(amount)create_characters36,557
-  def switch_to_character(character)switch_to_character49,962
+  def switch_to_character(character)switch_to_character49,980
 
 game_states/select_state.rb,547
 class SelectState < GameStateSelectState2,16
@@ -355,7 +355,7 @@ entities/components/damage_popup_graphics.rb,177
 class DamagePopupGraphics < ComponentDamagePopupGraphics1,0
   def initialize(object, amount)initialize3,39
   def draw(viewport)draw10,149
-  def popup_msgpopup_msg24,374
+  def popup_msgpopup_msg24,373
 
 entities/components/announce_sounds.rb,156
 class AnnounceSoundsAnnounceSounds1,0
@@ -597,13 +597,13 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def heightheight57,1102
   def body_directionbody_direction61,1139
   def state_image(directional_graphics)state_image67,1275
-  def draw_weapondraw_weapon84,1686
-  def damage_flashingdamage_flashing95,2022
-  def damagedamage101,2210
-  def different?(runs)different?107,2275
-  def gen_image_arraygen_image_array113,2356
-  def charascharas123,2565
-  def weaponsweapons128,2709
+  def draw_weapondraw_weapon86,1712
+  def damage_flashingdamage_flashing97,2048
+  def damagedamage103,2236
+  def different?(runs)different?109,2301
+  def gen_image_arraygen_image_array115,2382
+  def charascharas125,2591
+  def weaponsweapons130,2735
 
 entities/character.rb,399
 class Character < GameObjectCharacter1,0
@@ -644,13 +644,15 @@ class ObjectPoolObjectPool1,0
   def nearby(object, max_distance, min_distance = 0)nearby54,1153
   def query_range(box)query_range59,1303
 
-entities/score_display.rb,207
+entities/score_display.rb,276
 class ScoreDisplayScoreDisplay1,0
-  def initialize(object_pool, character)initialize7,79
-  def updateupdate13,206
-  def drawdraw16,226
-  def score_imagescore_image23,309
-  def coordscoords27,463
+  def initialize(object_pool, character)initialize9,177
+  def updateupdate15,304
+  def drawdraw18,324
+  def draw_bgdraw_bg27,500
+  def score_imagescore_image34,660
+  def damage_imagedamage_image38,817
+  def coordscoords42,978
 
 entities/tree.rb,159
 class Tree < GameObjectTree1,0

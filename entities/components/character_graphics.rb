@@ -60,8 +60,7 @@ class CharacterGraphics < Component
 
   def body_direction
     i = (object.direction / 45) % 8
-    state_image(@image_array[i])
-    charas.frame(@anime.to_s + ".png")
+    charas.frame(state_image(@image_array[i]).to_s + ".png")
   end
 
   def state_image(directional_graphics)
@@ -79,6 +78,7 @@ class CharacterGraphics < Component
     else
       @anime = stand_image
     end
+    @anime
   end
 
   def draw_weapon
