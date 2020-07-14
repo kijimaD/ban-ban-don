@@ -1,14 +1,28 @@
 {
+    "pawapoke":{
+	"name": "pawapoke",
+	"weapon": "handgun",
+	"health": "300",
+	"ai": "pawapoke",
+	"graphs": "pawapoke"
+    },
+    "ishinaka":{
+	"name": "ishinaka",
+	"weapon": "launcher",
+	"health": "500",
+	"ai": "ishinaka",
+	"graphs": "ishinaka"
+    },
     "sirase":{
-    "name": "sirase",
-	"weapon": "HandGun",
+	"name": "sirase",
+	"weapon": "handGun",
 	"health": "200",
 	"ai": "sirase",
 	"graphs": "sirase"
     },
     "haibara":{
-    "name": "haibara",
-	"weapon": "Katana",
+	"name": "haibara",
+	"weapon": "katana",
 	"health": "300",
 	"ai": "haibara",
 	"graphs": "haibara"

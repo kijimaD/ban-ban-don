@@ -103,6 +103,16 @@ class CharacterGraphics < Component
     @damage_frame += DAMAGE_FRAME
   end
 
+  def charas
+    @charas ||= Gosu::TexturePacker.load_json(
+      Utils.media_path("#{object.character_parameter["name"]}_packed.json"))
+  end
+
+  def weapons
+    @weapons ||= Gosu::TexturePacker.load_json(
+      Utils.media_path('weapons_packed.json'))
+  end
+
   private
 
   def different?(runs)
@@ -119,15 +129,5 @@ class CharacterGraphics < Component
       end
     end
     goal
-  end
-
-  def charas
-    @charas ||= Gosu::TexturePacker.load_json(
-      Utils.media_path("#{object.character_parameter["name"]}_packed.json"))
-  end
-
-  def weapons
-    @weapons ||= Gosu::TexturePacker.load_json(
-      Utils.media_path('weapons_packed.json'))
   end
 end

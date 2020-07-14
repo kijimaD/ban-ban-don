@@ -155,21 +155,22 @@ class StereoSampleStereoSample1,0
   def stopstop72,1529
   def volume_and_pan(id, volume, pan)volume_and_pan77,1623
 
-entities/powerup_display.rb,257
+entities/powerup_display.rb,265
 class PowerupDisplayPowerupDisplay1,0
-  def initialize(object_pool, character)initialize6,64
-  def updateupdate12,191
-  def drawdraw15,211
-  def fire_rate_imagefire_rate_image25,391
-  def speed_imagespeed_image38,744
-  def coordscoords51,1053
+  def initialize(object, object_pool, character)initialize6,64
+  def updateupdate13,220
+  def drawdraw16,240
+  def fire_rate_imagefire_rate_image26,420
+  def speed_imagespeed_image39,773
+  def coordscoords52,1082
 
-entities/hud.rb,165
+entities/hud.rb,192
 class HUDHUD1,0
   def initialize(object_pool, character)initialize4,35
-  def player=(character)player=16,564
-  def updateupdate23,733
-  def drawdraw27,771
+  def player=(character)player=16,606
+  def updateupdate23,775
+  def drawdraw27,813
+  def imagesimages37,982
 
 entities/powerups/powerup_respawn_queue.rb,180
 class PowerupRespawnQueuePowerupRespawnQueue1,0
@@ -241,21 +242,21 @@ class Box < GameObjectBox1,0
   def on_collision(object)on_collision11,237
   def boxbox17,395
 
-entities/radar.rb,257
+entities/radar.rb,261
 class RadarRadar1,0
-  def initialize(object_pool, object)initialize11,160
-  def updateupdate17,278
-  def drawdraw26,526
-  def draw_character(character)draw_character35,650
-  def center_coordscenter_coords52,1129
-  def image(image)image58,1248
+  def initialize(object, object_pool, character)initialize11,160
+  def updateupdate18,316
+  def drawdraw27,567
+  def draw_character(character)draw_character36,694
+  def center_coordscenter_coords53,1155
+  def imageimage59,1274
 
 entities/explosion.rb,222
 class Explosion < GameObjectExplosion1,0
   def initialize(object_pool, x, y, source)initialize3,30
-  def effect?effect?18,402
-  def mark_for_removalmark_for_removal22,432
-  def inflict_damageinflict_damage28,483
+  def effect?effect?19,431
+  def mark_for_removalmark_for_removal23,461
+  def inflict_damageinflict_damage29,512
 
 entities/map.rb,717
 class MapMap1,0
@@ -291,15 +292,15 @@ class AiInput < ComponentAiInput1,0
   def updateupdate30,629
   def draw(viewport)draw41,857
 
-entities/components/weapon_display.rb,324
+entities/components/weapon_display.rb,332
 class WeaponDisplay < ComponentWeaponDisplay1,0
-  def initialize(object_pool, character)initialize8,161
-  def updateupdate14,288
-  def drawdraw17,308
-  def draw_weapon_typedraw_weapon_type22,366
-  def draw_weapon_bgdraw_weapon_bg27,486
-  def weapon_coordsweapon_coords39,738
-  def weapon_msgweapon_msg47,903
+  def initialize(object, object_pool, character)initialize8,161
+  def updateupdate15,317
+  def drawdraw18,337
+  def draw_weapon_typedraw_weapon_type23,395
+  def draw_weapon_bgdraw_weapon_bg28,515
+  def weapon_coordsweapon_coords40,767
+  def weapon_msgweapon_msg48,932
 
 entities/components/powerup_sounds.rb,104
 class PowerupSoundsPowerupSounds1,0
@@ -416,15 +417,15 @@ class ExplosionSoundsExplosionSounds1,0
     def play(object, camera)play3,38
     def soundsound10,194
 
-entities/components/ammo_display.rb,298
+entities/components/ammo_display.rb,286
 class AmmoDisplay < ComponentAmmoDisplay1,0
-  def initialize(object_pool, character)initialize9,186
-  def updateupdate15,313
-  def drawdraw18,333
-  def draw_ammodraw_ammo22,365
-  def draw_ammo_bgdraw_ammo_bg29,518
-  def ammo_coordsammo_coords41,726
-  def ammo_imageammo_image49,862
+  def initialize(object, object_pool, character)initialize9,186
+  def updateupdate16,342
+  def drawdraw19,362
+  def draw_ammodraw_ammo23,394
+  def draw_ammo_bgdraw_ammo_bg30,537
+  def coordscoords42,740
+  def imageimage50,871
 
 entities/components/character_sounds.rb,357
 class CharacterSounds < ComponentCharacterSounds1,0
@@ -623,14 +624,14 @@ class Bullet < GameObjectBullet1,0
   def explodeexplode26,759
   def fire(source, speed)fire36,987
 
-entities/speed_meter.rb,257
+entities/speed_meter.rb,265
 class SpeedMeterSpeedMeter1,0
-  def initialize(object_pool, character)initialize8,146
-  def updateupdate14,273
-  def drawdraw17,293
-  def speed_imagespeed_image23,351
-  def draw_speed_bgdraw_speed_bg28,486
-  def speed_coordsspeed_coords39,690
+  def initialize(object, object_pool, character)initialize8,146
+  def updateupdate15,302
+  def drawdraw18,322
+  def speed_imagespeed_image24,380
+  def draw_speed_bgdraw_speed_bg29,515
+  def speed_coordsspeed_coords40,719
 
 entities/object_pool.rb,451
 class ObjectPoolObjectPool1,0
@@ -644,15 +645,15 @@ class ObjectPoolObjectPool1,0
   def nearby(object, max_distance, min_distance = 0)nearby54,1153
   def query_range(box)query_range59,1303
 
-entities/score_display.rb,276
+entities/score_display.rb,285
 class ScoreDisplayScoreDisplay1,0
-  def initialize(object_pool, character)initialize9,177
-  def updateupdate15,304
-  def drawdraw18,324
-  def draw_bgdraw_bg27,500
-  def score_imagescore_image34,660
-  def damage_imagedamage_image38,817
-  def coordscoords42,978
+  def initialize(object, object_pool, character)initialize9,177
+  def updateupdate16,333
+  def drawdraw19,353
+  def draw_bgdraw_bg28,529
+  def score_imagescore_image35,689
+  def damage_imagedamage_image39,846
+  def coordscoords43,1007
 
 entities/tree.rb,159
 class Tree < GameObjectTree1,0
@@ -674,23 +675,23 @@ class GameObjectGameObject1,0
   def collidecollide46,726
   def object_poolobject_pool51,760
 
-entities/face_display.rb,637
+entities/face_display.rb,645
 class FaceDisplay < ComponentFaceDisplay1,0
-  def initialize(object_pool, character)initialize11,249
-  def drawdraw16,355
-  def draw_facedraw_face25,477
-  def draw_face_bgdraw_face_bg30,564
-  def draw_hpdraw_hp40,758
-  def draw_hp_filterdraw_hp_filter45,839
-  def draw_magazinedraw_magazine59,1241
-  def draw_magazine_msgdraw_magazine_msg64,1340
-  def face_coordsface_coords73,1496
-  def hp_coordshp_coords81,1672
-  def magazine_coordsmagazine_coords89,1882
-  def face_imageface_image97,2148
-  def hp_imagehp_image101,2246
-  def magazine_imagemagazine_image105,2331
-  def magazine_msgmagazine_msg109,2434
+  def initialize(object, object_pool, character)initialize11,249
+  def drawdraw17,384
+  def draw_facedraw_face26,506
+  def draw_face_bgdraw_face_bg31,593
+  def draw_hpdraw_hp41,787
+  def draw_hp_filterdraw_hp_filter46,868
+  def draw_magazinedraw_magazine60,1270
+  def draw_magazine_msgdraw_magazine_msg65,1369
+  def face_coordsface_coords74,1525
+  def hp_coordshp_coords82,1701
+  def magazine_coordsmagazine_coords90,1911
+  def face_imageface_image98,2177
+  def hp_imagehp_image102,2234
+  def magazine_imagemagazine_image106,2305
+  def magazine_msgmagazine_msg110,2394
 
 entities/damage_popup.rb,174
 class DamagePopup < GameObjectDamagePopup1,0

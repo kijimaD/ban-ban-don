@@ -16,7 +16,7 @@
     {
 	"name": "Launcher",
 	"weapon_image": "launcher.png",
-	"fire_sound": "grenade_launcher.wav",
+	"fire_sound": "launcher.wav",
 	"bullet_image": "bullet_launcher.png",
 	"bullet_trajectory": "",
 	"shoot_delay": "1000",
@@ -29,7 +29,7 @@
     },
     {
 	"name": "Katana",
-	"weapon_image": "ak47s.png",
+	"weapon_image": "katana.png",
 	"fire_sound": "katana-gesture1.mp3",
 	"bullet_image": "bullet_katana.png",
 	"bullet_trajectory": "",

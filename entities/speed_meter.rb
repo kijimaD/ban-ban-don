@@ -5,7 +5,8 @@ class SpeedMeter
   BACKGROUND = Gosu::Color.new(255 * 0.33, 0, 0, 0)
   FONT_COLOR = Gosu::Color::WHITE
 
-  def initialize(object_pool, character)
+  def initialize(object, object_pool, character)
+    @object = object
     @object_pool = object_pool
     @character = character
     @last_update = 0
