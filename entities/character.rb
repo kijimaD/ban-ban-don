@@ -52,16 +52,16 @@ class Character < GameObject
   end
 
   def reload
-    if @number_magazine > 0 && Gosu.milliseconds - (@last_reload || 0) > 3000
+    if @number_magazine > 0 && @on_reload.nil?
       Thread.new do
         @last_reload = Gosu.milliseconds
         @on_reload = true
         @sounds.reload
         sleep 0.8
         @number_magazine -= 1
-        sleep 2 * @weapon['reload_time'].to_i
-        @number_ammo = @weapon['number_shots'].to_i
-        @on_reload = false
+        sleep weapon['reload_time'].to_i
+        @number_ammo = weapon['number_shots'].to_i
+        @on_reload = nil
       end
     end
   end
