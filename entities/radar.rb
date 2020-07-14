@@ -8,8 +8,8 @@ class Radar
   MAX_DISTANCE = 2000
   attr_accessor :object
 
-  def initialize(object, object_pool, character)
-    @object = object
+  def initialize(hud, object_pool, character)
+    @hud = hud
     @object_pool = object_pool
     @character = character
     @last_update = 0
@@ -57,7 +57,7 @@ class Radar
   end
 
   def image
-    @@image ||= object.images.frame('sozai_cman_jp_arrow.png')
+    @@image ||= @hud.images.frame('sozai_cman_jp_arrow.png')
   end
 
 end
