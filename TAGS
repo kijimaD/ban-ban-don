@@ -381,9 +381,9 @@ class TreeGraphics < ComponentTreeGraphics1,0
 entities/components/character_health.rb,193
 class CharacterHealth < HealthCharacterHealth1,0
   def initialize(object, object_pool)initialize9,173
-  def updateupdate17,376
-  def draw(viewport)draw20,396
-  def coordscoords42,919
+  def updateupdate17,414
+  def draw(viewport)draw20,434
+  def coordscoords42,957
 
 entities/components/character_physics.rb,635
 class CharacterPhysics < ComponentCharacterPhysics1,0
@@ -601,21 +601,22 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def draw_weapondraw_weapon83,1699
   def damage_flashingdamage_flashing96,2085
   def damagedamage102,2273
-  def different?(runs)different?108,2338
-  def gen_image_arraygen_image_array114,2419
-  def charascharas124,2628
-  def weaponsweapons129,2772
+  def charascharas106,2327
+  def weaponsweapons111,2471
+  def different?(runs)different?118,2598
+  def gen_image_arraygen_image_array124,2679
 
-entities/character.rb,399
+entities/character.rb,427
 class Character < GameObjectCharacter1,0
-  def initialize(object, object_pool, input, character_parameter)initialize10,358
-  def boxbox30,1116
-  def shoot(target_x, target_y)shoot34,1150
-  def can_shoot?can_shoot?47,1457
-  def recently_shoot?recently_shoot?51,1562
-  def reloadreload55,1660
-  def on_collision(object)on_collision70,2059
-  def reset_modifiersreset_modifiers82,2322
+  def initialize(object, object_pool, input, character_parameter)initialize10,349
+  def boxbox29,1042
+  def shoot(target_x, target_y)shoot33,1076
+  def can_shoot?can_shoot?46,1383
+  def recently_shoot?recently_shoot?50,1488
+  def reloadreload54,1586
+  def on_collision(object)on_collision69,1985
+  def reset_modifiersreset_modifiers81,2248
+  def weaponweapon86,2329
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
@@ -689,9 +690,9 @@ class FaceDisplay < ComponentFaceDisplay1,0
   def hp_coordshp_coords82,1701
   def magazine_coordsmagazine_coords90,1911
   def face_imageface_image98,2177
-  def hp_imagehp_image102,2234
-  def magazine_imagemagazine_image106,2305
-  def magazine_msgmagazine_msg110,2394
+  def hp_imagehp_image102,2267
+  def magazine_imagemagazine_image106,2338
+  def magazine_msgmagazine_msg110,2427
 
 entities/damage_popup.rb,174
 class DamagePopup < GameObjectDamagePopup1,0

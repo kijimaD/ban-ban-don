@@ -11,7 +11,7 @@ class PlayState < GameState
     @difficulty = settings[0]
     @player_selected_character = settings[1]
     character_parameters
-    create_characters(0)
+    create_characters(1)
     @announce = Announce.new(@character, @ai)
     Damage.new(@object_pool, 0, 0).mark_for_removal # initialize damage
   end
