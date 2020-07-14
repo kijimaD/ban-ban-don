@@ -40,9 +40,49 @@
 				"h": 14
 			}
 		},
-		"mf-scare.png": {
+		"handgun.png": {
 			"frame": {
 				"x": 407,
+				"y": 1,
+				"w": 30,
+				"h": 19
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 19
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 19
+			}
+		},
+		"launcher.png": {
+			"frame": {
+				"x": 439,
+				"y": 1,
+				"w": 52,
+				"h": 17
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 52,
+				"h": 17
+			},
+			"sourceSize": {
+				"w": 52,
+				"h": 17
+			}
+		},
+		"mf-scare.png": {
+			"frame": {
+				"x": 493,
 				"y": 1,
 				"w": 344,
 				"h": 95
@@ -62,7 +102,7 @@
 		},
 		"uzi-micro.png": {
 			"frame": {
-				"x": 753,
+				"x": 839,
 				"y": 1,
 				"w": 191,
 				"h": 121
@@ -84,10 +124,10 @@
 	"meta": {
 		"app": "http://www.codeandweb.com/texturepacker",
 		"version": "1.0",
-		"image": "weapons.png",
+		"image": "weapons_sprite.png",
 		"format": "RGBA8888",
 		"size": {
-			"w": 945,
+			"w": 1031,
 			"h": 123
 		},
 		"scale": "1"

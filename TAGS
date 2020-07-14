@@ -253,9 +253,9 @@ class RadarRadar1,0
 entities/explosion.rb,222
 class Explosion < GameObjectExplosion1,0
   def initialize(object_pool, x, y, source)initialize3,30
-  def effect?effect?19,431
-  def mark_for_removalmark_for_removal23,461
-  def inflict_damageinflict_damage29,512
+  def effect?effect?18,402
+  def mark_for_removalmark_for_removal22,432
+  def inflict_damageinflict_damage28,483
 
 entities/map.rb,717
 class MapMap1,0
@@ -591,19 +591,19 @@ entities/components/character_graphics.rb,636
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize12,206
   def updateupdate20,369
-  def draw(viewport)draw28,537
-  def draw_bounding_boxdraw_bounding_box39,777
-  def widthwidth52,1046
-  def heightheight56,1081
-  def body_directionbody_direction60,1118
-  def state_image(directional_graphics)state_image65,1243
-  def draw_weapondraw_weapon83,1681
-  def damage_flashingdamage_flashing96,2067
-  def damagedamage102,2255
-  def different?(runs)different?108,2320
-  def gen_image_arraygen_image_array114,2401
-  def charascharas124,2610
-  def weaponsweapons129,2754
+  def draw(viewport)draw28,555
+  def draw_bounding_boxdraw_bounding_box39,795
+  def widthwidth52,1064
+  def heightheight56,1099
+  def body_directionbody_direction60,1136
+  def state_image(directional_graphics)state_image65,1261
+  def draw_weapondraw_weapon83,1699
+  def damage_flashingdamage_flashing96,2085
+  def damagedamage102,2273
+  def different?(runs)different?108,2338
+  def gen_image_arraygen_image_array114,2419
+  def charascharas124,2628
+  def weaponsweapons129,2772
 
 entities/character.rb,399
 class Character < GameObjectCharacter1,0

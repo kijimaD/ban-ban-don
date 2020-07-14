@@ -35,7 +35,7 @@ class BulletGraphics < Component
 
   def bullets
     @@bullets ||= Gosu::TexturePacker.load_json(
-      Utils.media_path('bullets.json'))
+      Utils.media_path('bullets_packed.json'))
   end
 
 end

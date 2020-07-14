@@ -22,7 +22,7 @@ class CharacterGraphics < Component
       object.direction = object.gun_angle
     end
     @body = body_direction
-    @weapon = weapons.frame('ak47s.png')
+    @weapon = weapons.frame(object.weapon['weapon_image'])
   end
 
   def draw(viewport)

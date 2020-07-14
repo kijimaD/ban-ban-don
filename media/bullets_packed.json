@@ -1,8 +1,28 @@
 {
 	"frames": {
-		"bullet_handgun.png": {
+		"ammo.png": {
 			"frame": {
 				"x": 1,
+				"y": 1,
+				"w": 16,
+				"h": 32
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 16,
+				"h": 32
+			},
+			"sourceSize": {
+				"w": 16,
+				"h": 32
+			}
+		},
+		"bullet_handgun.png": {
+			"frame": {
+				"x": 19,
 				"y": 1,
 				"w": 8,
 				"h": 10
@@ -22,7 +42,7 @@
 		},
 		"bullet_katana.png": {
 			"frame": {
-				"x": 11,
+				"x": 29,
 				"y": 1,
 				"w": 24,
 				"h": 24
@@ -42,33 +62,33 @@
 		},
 		"bullet_launcher.png": {
 			"frame": {
-				"x": 37,
+				"x": 55,
 				"y": 1,
-				"w": 16,
-				"h": 16
+				"w": 11,
+				"h": 54
 			},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {
 				"x": 0,
 				"y": 0,
-				"w": 16,
-				"h": 16
+				"w": 11,
+				"h": 54
 			},
 			"sourceSize": {
-				"w": 16,
-				"h": 16
+				"w": 11,
+				"h": 54
 			}
 		}
 	},
 	"meta": {
 		"app": "http://www.codeandweb.com/texturepacker",
 		"version": "1.0",
-		"image": "bullets.png",
+		"image": "bullets_sprite.png",
 		"format": "RGBA8888",
 		"size": {
-			"w": 54,
-			"h": 26
+			"w": 67,
+			"h": 56
 		},
 		"scale": "1"
 	}

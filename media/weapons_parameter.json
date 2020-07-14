@@ -1,7 +1,7 @@
 [
     {
 	"name": "Handgun",
-	"graphs": "",
+	"weapon_image": "handgun.png",
 	"fire_sound": "9mm.mp3",
 	"bullet_image": "bullet_handgun.png",
 	"bullet_trajectory": "",
@@ -15,21 +15,21 @@
     },
     {
 	"name": "Launcher",
-	"graphs": "",
+	"weapon_image": "launcher.png",
 	"fire_sound": "grenade_launcher.wav",
 	"bullet_image": "bullet_launcher.png",
 	"bullet_trajectory": "",
-	"shoot_delay": "500",
+	"shoot_delay": "1000",
 	"damage": "1.2",
 	"range": "3.0",
-	"speed": "0.6",
+	"speed": "1.0",
 	"explodable": "1",
-	"number_shots": "6",
-	"reload_time": "1.2"
+	"number_shots": "2",
+	"reload_time": "2"
     },
     {
 	"name": "Katana",
-	"graphs": "",
+	"weapon_image": "ak47s.png",
 	"fire_sound": "katana-gesture1.mp3",
 	"bullet_image": "bullet_katana.png",
 	"bullet_trajectory": "",
