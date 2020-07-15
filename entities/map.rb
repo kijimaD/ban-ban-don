@@ -151,12 +151,6 @@ class Map
     row ? row[t_y] : @water
   end
 
-  def load_tiles
-    @sand = Gosu::Image.new(Utils.media_path('dirt.png'), options = {tileable: true})
-    @grass = Gosu::Image.new(Utils.media_path('concrete.png'), options = {tileable: true})
-    @water = Gosu::Image.new(Utils.media_path('gray.png'), options = {tileable: true})
-  end
-
   def generate_map
     noises = Perlin::Noise.new(2)
     contrast = Perlin::Curve.contrast(
@@ -182,5 +176,16 @@ class Map
     else
       @grass
     end
+  end
+
+  def load_tiles
+    @sand = images.frame("dirt.png")
+    @grass = images.frame("concrete.png")
+    @water = images.frame("gray.png")
+  end
+
+  def images
+    @@images ||= Gosu::TexturePacker.load_json(
+      Utils.media_path("tiles_packed.json"))
   end
 end

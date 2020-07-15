@@ -258,7 +258,7 @@ class Explosion < GameObjectExplosion1,0
   def mark_for_removalmark_for_removal23,461
   def inflict_damageinflict_damage29,512
 
-entities/map.rb,717
+entities/map.rb,746
 class MapMap1,0
   def self.bounding_boxbounding_box8,125
   def initialize(object_pool)initialize16,391
@@ -274,14 +274,15 @@ class MapMap1,0
   def find_spawn_pointfind_spawn_point134,3135
   def tile_at(x, y)tile_at144,3396
   def load_tilesload_tiles154,3659
-  def generate_mapgenerate_map160,3947
-  def choose_tile(val)choose_tile176,4292
+  def imagesimages160,3947
+  def generate_mapgenerate_map165,4043
+  def choose_tile(val)choose_tile181,4388
 
-entities/components/damage_graphics.rb,158
+entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
   def initialize(object_pool)initialize2,33
-  def draw(viewport)draw11,235
-  def imagesimages19,335
+  def draw(viewport)draw9,169
+  def imagesimages17,269
 
 entities/components/ai_input.rb,264
 class AiInput < ComponentAiInput1,0
