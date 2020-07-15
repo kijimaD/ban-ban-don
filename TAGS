@@ -277,11 +277,11 @@ class MapMap1,0
   def generate_mapgenerate_map160,3947
   def choose_tile(val)choose_tile176,4292
 
-entities/components/damage_graphics.rb,157
+entities/components/damage_graphics.rb,158
 class DamageGraphics < ComponentDamageGraphics1,0
   def initialize(object_pool)initialize2,33
-  def draw(viewport)draw8,133
-  def imagesimages16,233
+  def draw(viewport)draw11,235
+  def imagesimages19,335
 
 entities/components/ai_input.rb,264
 class AiInput < ComponentAiInput1,0
@@ -347,10 +347,10 @@ entities/components/explosion_graphics.rb,262
 class ExplosionGraphics < ComponentExplosionGraphics1,0
   def initialize(game_object)initialize4,59
   def draw(viewport)draw9,129
-  def updateupdate17,273
-  def current_framecurrent_frame29,518
-  def done?done?33,592
-  def animationanimation37,658
+  def updateupdate17,295
+  def current_framecurrent_frame29,540
+  def done?done?33,614
+  def animationanimation37,680
 
 entities/components/damage_popup_graphics.rb,177
 class DamagePopupGraphics < ComponentDamagePopupGraphics1,0
