@@ -614,9 +614,9 @@ class Character < GameObjectCharacter1,0
   def can_shoot?can_shoot?46,1383
   def recently_shoot?recently_shoot?50,1488
   def reloadreload54,1586
-  def on_collision(object)on_collision69,1944
-  def reset_modifiersreset_modifiers81,2207
-  def weaponweapon86,2288
+  def on_collision(object)on_collision69,1946
+  def reset_modifiersreset_modifiers81,2209
+  def weaponweapon86,2290
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0

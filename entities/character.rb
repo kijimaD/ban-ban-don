@@ -84,7 +84,8 @@ class Character < GameObject
   end
 
   def weapon
-    @@weapon ||= Utils.load_json("weapons_parameter.json")["#{@character_parameter['weapon']}"]
+    weapon = @character_parameter['weapon']
+    @weapon ||= Utils.load_json("weapons_parameter.json")["#{weapon}"]
   end
 
 end
