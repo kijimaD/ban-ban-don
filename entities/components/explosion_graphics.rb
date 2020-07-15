@@ -9,9 +9,9 @@ class ExplosionGraphics < Component
   def draw(viewport)
     image = current_frame
     image.draw(
-      x - image.width / 2 + 3,
-      y - image.height / 2 - 35,
-      20)
+      x - image.width * 3 / 2 + 3 * 3,
+      y - image.height * 3 / 2 - 35 * 3,
+      20, 3, 3)
   end
 
   def update
