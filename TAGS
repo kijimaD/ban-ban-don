@@ -273,10 +273,10 @@ class MapMap1,0
   def random_poweruprandom_powerup122,2965
   def find_spawn_pointfind_spawn_point134,3135
   def tile_at(x, y)tile_at144,3396
-  def load_tilesload_tiles154,3659
-  def imagesimages160,3947
-  def generate_mapgenerate_map165,4043
-  def choose_tile(val)choose_tile181,4388
+  def generate_mapgenerate_map154,3659
+  def choose_tile(val)choose_tile170,4004
+  def load_tilesload_tiles181,4139
+  def imagesimages187,4280
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -600,12 +600,12 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def body_directionbody_direction60,1136
   def state_image(directional_graphics)state_image65,1261
   def draw_weapondraw_weapon83,1699
-  def damage_flashingdamage_flashing96,2085
-  def damagedamage102,2273
-  def charascharas106,2327
-  def weaponsweapons111,2471
-  def different?(runs)different?118,2598
-  def gen_image_arraygen_image_array124,2679
+  def damage_flashingdamage_flashing97,2098
+  def damagedamage103,2286
+  def charascharas107,2340
+  def weaponsweapons112,2484
+  def different?(runs)different?119,2611
+  def gen_image_arraygen_image_array125,2692
 
 entities/character.rb,427
 class Character < GameObjectCharacter1,0
