@@ -1,0 +1,95 @@
+{
+	"frames": {
+		"concrete.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 256,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 256,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 256,
+				"h": 128
+			}
+		},
+		"dirt.png": {
+			"frame": {
+				"x": 1,
+				"y": 131,
+				"w": 256,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 256,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 256,
+				"h": 128
+			}
+		},
+		"gray.png": {
+			"frame": {
+				"x": 259,
+				"y": 1,
+				"w": 256,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 256,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 256,
+				"h": 128
+			}
+		},
+		"snow.png": {
+			"frame": {
+				"x": 259,
+				"y": 131,
+				"w": 256,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 256,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 256,
+				"h": 128
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "tiles_sprite.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 516,
+			"h": 260
+		},
+		"scale": "1"
+	}
+}

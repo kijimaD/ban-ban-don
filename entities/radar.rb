@@ -8,9 +8,10 @@ class Radar
   MAX_DISTANCE = 2000
   attr_accessor :object
 
-  def initialize(object_pool, object)
+  def initialize(hud, object_pool, character)
+    @hud = hud
     @object_pool = object_pool
-    @object = object
+    @character = character
     @last_update = 0
   end
 
@@ -18,13 +19,13 @@ class Radar
     if Gosu.milliseconds - @last_update > UPDATE_FREQUENCY
       @nearby = nil
     end
-    @nearby ||= @object_pool.nearby(@object, MAX_DISTANCE, MIN_DISTANCE).select do |o|
+    @nearby ||= @object_pool.nearby(@character, MAX_DISTANCE, MIN_DISTANCE).select do |o|
       o.class == Character && !o.health.dead?
     end
   end
 
   def draw
-    draw_character(@object)
+    draw_character(@character)
     @nearby && @nearby.each do |t|
       draw_character(t)
     end
@@ -33,12 +34,12 @@ class Radar
   private
 
   def draw_character(character)
-    if character == @object
+    if character == @character
       return
     end
 
-    atan = Math.atan2(@object.x - character.x,
-                      @object.y - character.y)
+    atan = Math.atan2(@character.x - character.x,
+                      @character.y - character.y)
     if atan < 0
       atan = atan + 2 * Math::PI
     end
@@ -46,7 +47,7 @@ class Radar
 
     center_x, center_y = center_coords
     goal_x, goal_y = Utils.point_at_distance(center_x, center_y, angle, $window.height / 2)
-    image('sozai_cman_jp_arrow.png').draw_rot(goal_x, goal_y, Z, angle)
+    image.draw_rot(goal_x, goal_y, Z, angle)
   end
 
   def center_coords
@@ -55,8 +56,8 @@ class Radar
     [center_x, center_y]
   end
 
-  def image(image)
-    @@image ||= Gosu::Image.new(Utils.media_path(image))
+  def image
+    @@image ||= @hud.images.frame('sozai_cman_jp_arrow.png')
   end
 
 end

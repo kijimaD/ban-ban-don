@@ -8,7 +8,8 @@ class FaceDisplay < Component
   FONT_COLOR = Gosu::Color::RED
   attr_accessor :character
 
-  def initialize(object_pool, character)
+  def initialize(object, object_pool, character)
+    @object = object
     @object_pool = object_pool
     @character = character
   end
@@ -95,15 +96,15 @@ class FaceDisplay < Component
   end
 
   def face_image
-    @@face_image ||= Gosu::Image.new(Utils.media_path('sirase_icon.png'))
+    @@face_image ||= @character.graphics.charas.frame('icon.png')
   end
 
   def hp_image
-    @@hp_image ||= Gosu::Image.new(Utils.media_path('hp.png'))
+    @@hp_image ||= object.images.frame('hp.png')
   end
 
   def magazine_image
-    @@magazine_image ||= Gosu::Image.new(Utils.media_path('magazine.png'))
+    @@magazine_image ||= object.images.frame('magazine.png')
   end
 
   def magazine_msg

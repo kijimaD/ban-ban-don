@@ -2,7 +2,7 @@ class Character < GameObject
   attr_accessor :throttle_down, :turbo, :reset,
                 :direction, :gun_angle, :input,
                 :sounds, :physics, :graphics,
-                :number_ammo, :number_magazine, :health, :weapon,
+                :number_ammo, :number_magazine, :health,
                 :fire_rate_modifier, :speed_modifier,
                 :character_parameter
   RECENTLY_SHOOT_TIME = 2000
@@ -13,17 +13,16 @@ class Character < GameObject
     @object = object
     @input = input
     @input.control(self)
+    @character_parameter = character_parameter
+    @direction = rand(0..7) * 45
+    @gun_angle = rand(0..360)
     @physics = CharacterPhysics.new(self, object_pool)
     @sounds = CharacterSounds.new(self, object_pool)
     @health = CharacterHealth.new(self, object_pool)
-    @direction = rand(0..7) * 45
-    @gun_angle = rand(0..360)
-    @character_parameter = character_parameter
     @graphics = CharacterGraphics.new(self)
-    @weapon = Utils.load_json("weapons_parameter.json").sample
-    @shoot_delay = @weapon['shoot_delay'].to_i
+    @shoot_delay = weapon['shoot_delay'].to_i
     @number_magazine = 10 * (1 - @object.difficulty * 0.1)
-    @number_ammo = @weapon['number_shots'].to_i
+    @number_ammo = weapon['number_shots'].to_i
     reset_modifiers
   end
 
@@ -53,16 +52,16 @@ class Character < GameObject
   end
 
   def reload
-    if @number_magazine > 0 && Gosu.milliseconds - (@last_reload || 0) > 3000
+    if @number_magazine > 0 && @on_reload.nil?
       Thread.new do
         @last_reload = Gosu.milliseconds
         @on_reload = true
         @sounds.reload
         sleep 0.8
         @number_magazine -= 1
-        sleep 2 * @weapon['reload_time'].to_i
-        @number_ammo = @weapon['number_shots'].to_i
-        @on_reload = false
+        sleep weapon['reload_time'].to_i
+        @number_ammo = weapon['number_shots'].to_i
+        @on_reload = nil
       end
     end
   end
@@ -83,4 +82,10 @@ class Character < GameObject
     @fire_rate_modifier = 1
     @speed_modifier = 1
   end
+
+  def weapon
+    weapon = @character_parameter['weapon']
+    @weapon ||= Utils.load_json("weapons_parameter.json")["#{weapon}"]
+  end
+
 end

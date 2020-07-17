@@ -22,7 +22,7 @@ class CharacterGraphics < Component
       object.direction = object.gun_angle
     end
     @body = body_direction
-    @weapon = weapons.frame('ak47s.png')
+    @weapon = weapons.frame(object.weapon['weapon_image'])
   end
 
   def draw(viewport)
@@ -82,7 +82,7 @@ class CharacterGraphics < Component
 
   def draw_weapon
     i = (object.direction / 45) % 8
-    if 0 < i && i < 1
+    if 0 <= i && i < 1
     elsif i < 4
       weapon_z = 2
       @weapon.draw_rot(x + PADDING / 2, y + PADDING / 2, weapon_z, object.direction - 90, 0.5, 0.5, 1)
@@ -103,6 +103,16 @@ class CharacterGraphics < Component
     @damage_frame += DAMAGE_FRAME
   end
 
+  def charas
+    @charas ||= Gosu::TexturePacker.load_json(
+      Utils.media_path("#{object.character_parameter["name"]}_packed.json"))
+  end
+
+  def weapons
+    @weapons ||= Gosu::TexturePacker.load_json(
+      Utils.media_path("weapons_packed.json"))
+  end
+
   private
 
   def different?(runs)
@@ -119,15 +129,5 @@ class CharacterGraphics < Component
       end
     end
     goal
-  end
-
-  def charas
-    @charas ||= Gosu::TexturePacker.load_json(
-      Utils.media_path("#{object.character_parameter["name"]}_packed.json"))
-  end
-
-  def weapons
-    @weapons ||= Gosu::TexturePacker.load_json(
-      Utils.media_path('weapons_packed.json'))
   end
 end

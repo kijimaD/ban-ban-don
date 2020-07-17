@@ -58,7 +58,7 @@ class BulletPhysics < Component
 
   def check_hit
     @object_pool.nearby(object, 50).each do |obj|
-      next if obj == object.source # Don't hit source tank
+      next if obj == object.source # Don't hit source object
       if obj.class == Tree
         if Utils.distance_between(x, y, obj.x, obj.y) < @game_object.graphics.width.to_i
           return do_hit(obj) if obj.respond_to?(:health)
@@ -68,11 +68,17 @@ class BulletPhysics < Component
         return do_hit(obj) if obj.respond_to?(:health)
       end
     end
+    unless @object_pool.map.can_through_bullet?(x, y)
+      return do_hit
+    end
   end
 
-  def do_hit(obj)
+  def do_hit(obj = nil)
     @game_object.sounds.hit(@game_object, @object_pool.camera)
+    if obj
     obj.health.inflict_damage(20, object.source)
+    end
+    object.explode
     object.target_x = x
     object.target_y = y
   end

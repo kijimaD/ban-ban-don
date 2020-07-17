@@ -24,7 +24,7 @@ class Bullet < GameObject
   end
 
   def explode
-    if @weapon['explodable'].to_i == 1 && @object_pool.map.can_move_to?(x, y)
+    if @weapon['explodable'].to_i == 1
       Thread.new do
         sleep 0.1
         Explosion.new(object_pool, @x, @y, @source)

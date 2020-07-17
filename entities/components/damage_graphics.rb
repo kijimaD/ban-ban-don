@@ -1,7 +1,8 @@
 class DamageGraphics < Component
   def initialize(object_pool)
     super
-    @image = images.sample
+    i = rand(1..4)
+    @image = images.frame("damage#{i}.png")
     @angle = rand(0..360)
   end
 
@@ -14,8 +15,7 @@ class DamageGraphics < Component
   private
 
   def images
-    @@images ||= (1..4).map do |i|
-      Gosu::Image.new(Utils.media_path("damage#{i}.png"))
-    end
+    @@images ||= Gosu::TexturePacker.load_json(
+      Utils.media_path("damages_packed.json"))
   end
 end

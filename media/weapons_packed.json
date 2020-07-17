@@ -3,7 +3,7 @@
 		"ak47.png": {
 			"frame": {
 				"x": 1,
-				"y": 1,
+				"y": 89,
 				"w": 350,
 				"h": 86
 			},
@@ -23,7 +23,7 @@
 		"ak47s.png": {
 			"frame": {
 				"x": 353,
-				"y": 1,
+				"y": 17,
 				"w": 52,
 				"h": 14
 			},
@@ -40,10 +40,70 @@
 				"h": 14
 			}
 		},
+		"handgun.png": {
+			"frame": {
+				"x": 385,
+				"y": 33,
+				"w": 30,
+				"h": 19
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 19
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 19
+			}
+		},
+		"katana.png": {
+			"frame": {
+				"x": 353,
+				"y": 56,
+				"w": 9,
+				"h": 80
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 9,
+				"h": 80
+			},
+			"sourceSize": {
+				"w": 9,
+				"h": 80
+			}
+		},
+		"launcher.png": {
+			"frame": {
+				"x": 364,
+				"y": 75,
+				"w": 52,
+				"h": 17
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 52,
+				"h": 17
+			},
+			"sourceSize": {
+				"w": 52,
+				"h": 17
+			}
+		},
 		"mf-scare.png": {
 			"frame": {
-				"x": 407,
-				"y": 1,
+				"x": 1,
+				"y": 274,
 				"w": 344,
 				"h": 95
 			},
@@ -62,8 +122,8 @@
 		},
 		"uzi-micro.png": {
 			"frame": {
-				"x": 753,
-				"y": 1,
+				"x": 364,
+				"y": 124,
 				"w": 191,
 				"h": 121
 			},
@@ -84,11 +144,11 @@
 	"meta": {
 		"app": "http://www.codeandweb.com/texturepacker",
 		"version": "1.0",
-		"image": "weapons.png",
+		"image": "weapons_sprite.png",
 		"format": "RGBA8888",
 		"size": {
-			"w": 945,
-			"h": 123
+			"w": 620,
+			"h": 370
 		},
 		"scale": "1"
 	}

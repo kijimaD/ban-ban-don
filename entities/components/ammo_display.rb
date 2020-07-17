@@ -6,7 +6,8 @@ class AmmoDisplay < Component
   FONT_COLOR = Gosu::Color::WHITE
   attr_accessor :character
 
-  def initialize(object_pool, character)
+  def initialize(object, object_pool, character)
+    @object = object
     @object_pool = object_pool
     @character = character
     @last_update = 0
@@ -20,14 +21,14 @@ class AmmoDisplay < Component
   end
 
   def draw_ammo
-    x1, x2, y1, y2 = ammo_coords
+    x1, x2, y1, y2 = coords
     @character.number_ammo.times do |i|
-      ammo_image.draw(x1 + PADDING * i, y1, 300)
+      image.draw(x1 + PADDING * i, y1, 300)
     end
   end
 
   def draw_ammo_bg
-    x1, x2, y1, y2 = ammo_coords
+    x1, x2, y1, y2 = coords
     $window.draw_quad(
       x1, y1, BACKGROUND,
       x2, y1, BACKGROUND,
@@ -38,7 +39,7 @@ class AmmoDisplay < Component
 
   private
 
-  def ammo_coords
+  def coords
     x1 = WIDTH + PADDING
     x2 = 0
     y1 = $window.height - HEIGHT - PADDING
@@ -46,8 +47,8 @@ class AmmoDisplay < Component
     [x1, x2, y1, y2]
   end
 
-  def ammo_image
-    @@image ||= Gosu::Image.new(Utils.media_path('ammo.png'))
+  def image
+    @@image ||= object.images.frame('ammo.png')
   end
 
 end

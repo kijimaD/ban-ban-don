@@ -1,6 +1,6 @@
 class Map
-  MAP_WIDTH = 30
-  MAP_HEIGHT = 30
+  MAP_WIDTH = 8
+  MAP_HEIGHT = 8
   TILE_WIDTH = 256
   TILE_HEIGHT = 128
   OFFSET_X = MAP_WIDTH * TILE_WIDTH / 2
@@ -17,10 +17,10 @@ class Map
     load_tiles
     @object_pool = object_pool
     object_pool.map = self
-    @map = generate_map
-    generate_trees
-    generate_boxes
-    generate_powerups
+    @map = generate_fix_map
+    # generate_trees
+    # generate_boxes
+    # generate_powerups
   end
 
   def draw(viewport)
@@ -65,6 +65,11 @@ class Map
     tile && tile != @water
   end
 
+  def can_through_bullet?(x, y)
+    tile = tile_at(x, y)
+    tile && tile != @water
+  end
+
   def movement_penalty(x, y)
     tile = tile_at(x, y)
     case tile
@@ -86,7 +91,7 @@ class Map
       y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
       n = noises[x * 0.001, y * 0.001]
       n = contrast.call(n)
-      if tile_at(x, y) == @grass && n > 0.5
+      if tile_at(x, y) == @concrete && n > 0.5
         Tree.new(@object_pool, x, y, n * 2 - 1)
         trees += 1
       end
@@ -99,7 +104,7 @@ class Map
     while boxes < target_boxes do
       x = rand(0..MAP_WIDTH * TILE_WIDTH + OFFSET_X)
       y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
-      if tile_at(x, y) == @grass
+      if tile_at(x, y) == @concrete
         Box.new(@object_pool, x, y)
         boxes += 1
       end
@@ -112,7 +117,7 @@ class Map
     while pups < target_pups do
       x = rand(0..MAP_WIDTH * TILE_WIDTH + OFFSET_X)
       y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
-      if tile_at(x, y) == @grass && @object_pool.nearby_point(x, y, 150).empty?
+      if tile_at(x, y) == @concrete && @object_pool.nearby_point(x, y, 150).empty?
         random_powerup.new(@object_pool, x, y)
         pups += 1
       end
@@ -146,18 +151,11 @@ class Map
     row = ((x + col) - TILE_HEIGHT) - OFFSET_X
     t_x = (col / TILE_HEIGHT).round
     t_y = (row / TILE_HEIGHT).round
-    # puts "x:#{t_x}, y:#{t_y}"
     row = @map[t_x]
     row ? row[t_y] : @water
   end
 
-  def load_tiles
-    @sand = Gosu::Image.new(Utils.media_path('dirt.png'), options = {tileable: true})
-    @grass = Gosu::Image.new(Utils.media_path('concrete.png'), options = {tileable: true})
-    @water = Gosu::Image.new(Utils.media_path('gray.png'), options = {tileable: true})
-  end
-
-  def generate_map
+  def generate_random_map
     noises = Perlin::Noise.new(2)
     contrast = Perlin::Curve.contrast(
       Perlin::Curve::CUBIC, 2)
@@ -173,6 +171,21 @@ class Map
     map
   end
 
+  def generate_fix_map
+    # puts maps
+    # t_map = { 0 => { 0 => @concrete, 1 => @sand, 2 => @concrete } }
+    # puts t_map
+    map = {}
+    maps.each_with_index do |x, i_x|
+      map[i_x] = {}
+      x.each_with_index do |y, i_y|
+        symb = eval "@#{y}"
+        map[i_x][i_y] = symb
+      end
+    end
+    map
+  end
+
   def choose_tile(val)
     case val
     when 0.0..0.2
@@ -180,7 +193,23 @@ class Map
     when 0.3..0.45
       @sand
     else
-      @grass
+      @concrete
     end
+  end
+
+  def load_tiles
+    @sand = images.frame("dirt.png")
+    @concrete = images.frame("concrete.png")
+    @water = images.frame("gray.png")
+    @wall = images.frame("gray.png")
+  end
+
+  def maps
+    @@maps ||= Utils.parse_json('maps_parameter.json')
+  end
+
+  def images
+    @@images ||= Gosu::TexturePacker.load_json(
+      Utils.media_path("tiles_packed.json"))
   end
 end
