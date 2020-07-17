@@ -1,6 +1,6 @@
 class Map
-  MAP_WIDTH = 3
-  MAP_HEIGHT = 3
+  MAP_WIDTH = 8
+  MAP_HEIGHT = 8
   TILE_WIDTH = 256
   TILE_HEIGHT = 128
   OFFSET_X = MAP_WIDTH * TILE_WIDTH / 2
@@ -91,7 +91,7 @@ class Map
       y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
       n = noises[x * 0.001, y * 0.001]
       n = contrast.call(n)
-      if tile_at(x, y) == @grass && n > 0.5
+      if tile_at(x, y) == @concrete && n > 0.5
         Tree.new(@object_pool, x, y, n * 2 - 1)
         trees += 1
       end
@@ -104,7 +104,7 @@ class Map
     while boxes < target_boxes do
       x = rand(0..MAP_WIDTH * TILE_WIDTH + OFFSET_X)
       y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
-      if tile_at(x, y) == @grass
+      if tile_at(x, y) == @concrete
         Box.new(@object_pool, x, y)
         boxes += 1
       end
@@ -117,7 +117,7 @@ class Map
     while pups < target_pups do
       x = rand(0..MAP_WIDTH * TILE_WIDTH + OFFSET_X)
       y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
-      if tile_at(x, y) == @grass && @object_pool.nearby_point(x, y, 150).empty?
+      if tile_at(x, y) == @concrete && @object_pool.nearby_point(x, y, 150).empty?
         random_powerup.new(@object_pool, x, y)
         pups += 1
       end
@@ -172,10 +172,18 @@ class Map
   end
 
   def generate_fix_map
+    # puts maps
+    # t_map = { 0 => { 0 => @concrete, 1 => @sand, 2 => @concrete } }
+    # puts t_map
     map = {}
-    map[0] = {}
-    map[0][0] = @grass
-    map = { 0 => { 0 => @grass, 1 => @sand, 2 => @grass } }
+    maps.each_with_index do |x, i_x|
+      map[i_x] = {}
+      x.each_with_index do |y, i_y|
+        symb = eval "@#{y}"
+        map[i_x][i_y] = symb
+      end
+    end
+    map
   end
 
   def choose_tile(val)
@@ -185,14 +193,19 @@ class Map
     when 0.3..0.45
       @sand
     else
-      @grass
+      @concrete
     end
   end
 
   def load_tiles
     @sand = images.frame("dirt.png")
-    @grass = images.frame("concrete.png")
+    @concrete = images.frame("concrete.png")
     @water = images.frame("gray.png")
+    @wall = images.frame("gray.png")
+  end
+
+  def maps
+    @@maps ||= Utils.parse_json('maps_parameter.json')
   end
 
   def images

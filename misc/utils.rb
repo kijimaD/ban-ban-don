@@ -17,7 +17,13 @@ module Utils
 
   def self.load_json(file)
     File.open(media_path(file)) do |j|
-      JSON.load(j)
+      JSON.load(j, { symbolize_names: true })
+    end
+  end
+
+  def self.parse_json(file)
+    File.open(media_path(file)) do |j|
+      JSON.parse(j.read, { symbolize_names: true })
     end
   end
 

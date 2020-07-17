@@ -22,6 +22,7 @@ class BulletPhysics < Component
     object.move(@x, @y)
     @last_update = now
     check_hit
+    object.explode if arrived?
   end
 
   def trajectory_length
@@ -67,8 +68,7 @@ class BulletPhysics < Component
         return do_hit(obj) if obj.respond_to?(:health)
       end
     end
-    if @object_pool.map.can_through_bullet?(x, y)
-    else
+    unless @object_pool.map.can_through_bullet?(x, y)
       return do_hit
     end
   end
