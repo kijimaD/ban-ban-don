@@ -1,6 +1,6 @@
 class Map
-  MAP_WIDTH = 30
-  MAP_HEIGHT = 30
+  MAP_WIDTH = 3
+  MAP_HEIGHT = 3
   TILE_WIDTH = 256
   TILE_HEIGHT = 128
   OFFSET_X = MAP_WIDTH * TILE_WIDTH / 2
@@ -17,10 +17,10 @@ class Map
     load_tiles
     @object_pool = object_pool
     object_pool.map = self
-    @map = generate_map
-    generate_trees
-    generate_boxes
-    generate_powerups
+    @map = generate_fix_map
+    # generate_trees
+    # generate_boxes
+    # generate_powerups
   end
 
   def draw(viewport)
@@ -61,6 +61,11 @@ class Map
   end
 
   def can_move_to?(x, y)
+    tile = tile_at(x, y)
+    tile && tile != @water
+  end
+
+  def can_through_bullet?(x, y)
     tile = tile_at(x, y)
     tile && tile != @water
   end
@@ -146,12 +151,11 @@ class Map
     row = ((x + col) - TILE_HEIGHT) - OFFSET_X
     t_x = (col / TILE_HEIGHT).round
     t_y = (row / TILE_HEIGHT).round
-    # puts "x:#{t_x}, y:#{t_y}"
     row = @map[t_x]
     row ? row[t_y] : @water
   end
 
-  def generate_map
+  def generate_random_map
     noises = Perlin::Noise.new(2)
     contrast = Perlin::Curve.contrast(
       Perlin::Curve::CUBIC, 2)
@@ -165,6 +169,13 @@ class Map
       end
     end
     map
+  end
+
+  def generate_fix_map
+    map = {}
+    map[0] = {}
+    map[0][0] = @grass
+    map = { 0 => { 0 => @grass, 1 => @sand, 2 => @grass } }
   end
 
   def choose_tile(val)

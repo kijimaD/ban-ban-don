@@ -21,16 +21,16 @@ class GameStateGameState1,0
 game_states/play_state.rb,520
 class PlayState < GameStatePlayState1,0
   def initialize(settings = [0, "sirase"])initialize5,128
-  def enterenter19,591
-  def leaveleave23,633
-  def updateupdate28,702
-  def drawdraw37,850
-  def button_down(id)button_down61,1498
-  def update_captionupdate_caption95,2290
-  def create_characters(amount)create_characters105,2588
-  def character_parameterscharacter_parameters118,3045
-  def player_selected_characterplayer_selected_character122,3155
-  def random_characterrandom_character126,3252
+  def enterenter20,619
+  def leaveleave24,661
+  def updateupdate29,730
+  def drawdraw38,878
+  def button_down(id)button_down62,1526
+  def update_captionupdate_caption96,2318
+  def create_characters(amount)create_characters106,2616
+  def character_parameterscharacter_parameters119,3073
+  def player_selected_characterplayer_selected_character123,3183
+  def random_characterrandom_character127,3280
 
 game_states/menu_state.rb,306
 class MenuState < GameStateMenuState2,16
@@ -258,25 +258,27 @@ class Explosion < GameObjectExplosion1,0
   def mark_for_removalmark_for_removal23,461
   def inflict_damageinflict_damage29,512
 
-entities/map.rb,746
+entities/map.rb,870
 class MapMap1,0
-  def self.bounding_boxbounding_box8,125
-  def initialize(object_pool)initialize16,391
-  def draw(viewport)draw26,585
-  def spawn_points(max)spawn_points52,1351
-  def spawn_pointspawn_point59,1479
-  def can_move_to?(x, y)can_move_to?63,1573
-  def movement_penalty(x, y)movement_penalty68,1657
-  def generate_treesgenerate_trees78,1783
-  def generate_boxesgenerate_boxes96,2287
-  def generate_powerupsgenerate_powerups109,2598
-  def random_poweruprandom_powerup122,2965
-  def find_spawn_pointfind_spawn_point134,3135
-  def tile_at(x, y)tile_at144,3396
-  def generate_mapgenerate_map154,3659
-  def choose_tile(val)choose_tile170,4004
-  def load_tilesload_tiles181,4139
-  def imagesimages187,4280
+  def self.bounding_boxbounding_box8,123
+  def initialize(object_pool)initialize16,389
+  def draw(viewport)draw26,593
+  def spawn_points(max)spawn_points52,1359
+  def spawn_pointspawn_point59,1487
+  def can_move_to?(x, y)can_move_to?63,1581
+  def can_through_bullet?(x, y)can_through_bullet?68,1665
+  def movement_penalty(x, y)movement_penalty73,1756
+  def generate_treesgenerate_trees83,1882
+  def generate_boxesgenerate_boxes101,2386
+  def generate_powerupsgenerate_powerups114,2697
+  def random_poweruprandom_powerup127,3064
+  def find_spawn_pointfind_spawn_point139,3234
+  def tile_at(x, y)tile_at149,3495
+  def generate_random_mapgenerate_random_map158,3726
+  def generate_fix_mapgenerate_fix_map174,4078
+  def choose_tile(val)choose_tile181,4220
+  def load_tilesload_tiles192,4355
+  def imagesimages198,4496
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -545,16 +547,16 @@ class AiVisionAiVision1,0
   def find_closest_powerup(*suitable)find_closest_powerup86,2195
   def farthest_from(paths, away_from)farthest_from106,2673
 
-entities/components/bullet_physics.rb,365
+entities/components/bullet_physics.rb,371
 class BulletPhysics < ComponentBulletPhysics1,0
   def initialize(game_object, object_pool)initialize5,68
   def updateupdate16,383
-  def trajectory_lengthtrajectory_length28,715
-  def point_at_distance(distance)point_at_distance32,813
-  def boxbox42,1125
-  def arrived?arrived?55,1415
-  def check_hitcheck_hit59,1486
-  def do_hit(obj)do_hit73,1972
+  def trajectory_lengthtrajectory_length27,684
+  def point_at_distance(distance)point_at_distance31,782
+  def boxbox41,1094
+  def arrived?arrived?54,1384
+  def check_hitcheck_hit58,1455
+  def do_hit(obj = nil)do_hit76,2027
 
 entities/components/health.rb,431
 class Health < ComponentHealth1,0
@@ -600,12 +602,12 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def body_directionbody_direction60,1136
   def state_image(directional_graphics)state_image65,1261
   def draw_weapondraw_weapon83,1699
-  def damage_flashingdamage_flashing97,2098
-  def damagedamage103,2286
-  def charascharas107,2340
-  def weaponsweapons112,2484
-  def different?(runs)different?119,2611
-  def gen_image_arraygen_image_array125,2692
+  def damage_flashingdamage_flashing96,2086
+  def damagedamage102,2274
+  def charascharas106,2328
+  def weaponsweapons111,2472
+  def different?(runs)different?118,2599
+  def gen_image_arraygen_image_array124,2680
 
 entities/character.rb,427
 class Character < GameObjectCharacter1,0
@@ -624,7 +626,7 @@ class Bullet < GameObjectBullet1,0
   def initialize(object_pool, object, source_x, source_y, target_x, target_y)initialize8,184
   def boxbox21,701
   def explodeexplode26,759
-  def fire(source, speed)fire36,987
+  def fire(source, speed)fire36,948
 
 entities/speed_meter.rb,265
 class SpeedMeterSpeedMeter1,0
