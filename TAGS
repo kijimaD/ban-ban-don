@@ -261,26 +261,26 @@ class Explosion < GameObjectExplosion1,0
 
 entities/map.rb,895
 class MapMap1,0
-  def self.bounding_boxbounding_box8,123
-  def initialize(object_pool)initialize16,389
-  def draw(viewport)draw26,593
-  def spawn_points(max)spawn_points52,1359
-  def spawn_pointspawn_point59,1487
-  def can_move_to?(x, y)can_move_to?63,1581
-  def can_through_bullet?(x, y)can_through_bullet?68,1665
-  def movement_penalty(x, y)movement_penalty73,1756
-  def generate_treesgenerate_trees83,1882
-  def generate_boxesgenerate_boxes101,2389
-  def generate_powerupsgenerate_powerups114,2703
-  def random_poweruprandom_powerup127,3073
-  def find_spawn_pointfind_spawn_point139,3243
-  def tile_at(x, y)tile_at149,3504
-  def generate_random_mapgenerate_random_map158,3735
-  def generate_fix_mapgenerate_fix_map174,4087
-  def choose_tile(val)choose_tile189,4409
-  def load_tilesload_tiles200,4547
-  def mapsmaps207,4728
-  def imagesimages211,4801
+  def self.bounding_boxbounding_box8,125
+  def initialize(object_pool)initialize16,391
+  def draw(viewport)draw26,595
+  def spawn_points(max)spawn_points52,1361
+  def spawn_pointspawn_point59,1489
+  def can_move_to?(x, y)can_move_to?63,1583
+  def can_through_bullet?(x, y)can_through_bullet?68,1667
+  def movement_penalty(x, y)movement_penalty73,1758
+  def generate_treesgenerate_trees83,1884
+  def generate_boxesgenerate_boxes101,2391
+  def generate_powerupsgenerate_powerups114,2705
+  def random_poweruprandom_powerup127,3075
+  def find_spawn_pointfind_spawn_point139,3245
+  def tile_at(x, y)tile_at149,3506
+  def generate_random_mapgenerate_random_map158,3737
+  def generate_fix_mapgenerate_fix_map174,4089
+  def choose_tile(val)choose_tile190,4425
+  def load_tilesload_tiles201,4563
+  def mapsmaps208,4744
+  def imagesimages212,4827
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -553,12 +553,12 @@ entities/components/bullet_physics.rb,371
 class BulletPhysics < ComponentBulletPhysics1,0
   def initialize(game_object, object_pool)initialize5,68
   def updateupdate16,383
-  def trajectory_lengthtrajectory_length27,684
-  def point_at_distance(distance)point_at_distance31,782
-  def boxbox41,1094
-  def arrived?arrived?54,1384
-  def check_hitcheck_hit58,1455
-  def do_hit(obj = nil)do_hit76,2038
+  def trajectory_lengthtrajectory_length28,715
+  def point_at_distance(distance)point_at_distance32,813
+  def boxbox42,1125
+  def arrived?arrived?55,1415
+  def check_hitcheck_hit59,1486
+  def do_hit(obj = nil)do_hit76,2056
 
 entities/components/health.rb,431
 class Health < ComponentHealth1,0

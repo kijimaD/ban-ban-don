@@ -1,6 +1,6 @@
 class Map
-  MAP_WIDTH = 8
-  MAP_HEIGHT = 8
+  MAP_WIDTH = 10
+  MAP_HEIGHT = 10
   TILE_WIDTH = 256
   TILE_HEIGHT = 128
   OFFSET_X = MAP_WIDTH * TILE_WIDTH / 2
@@ -17,7 +17,7 @@ class Map
     load_tiles
     @object_pool = object_pool
     object_pool.map = self
-    @map = generate_fix_map
+    @map = generate_fix_map(:parking)
     # generate_trees
     # generate_boxes
     # generate_powerups
@@ -171,12 +171,9 @@ class Map
     map
   end
 
-  def generate_fix_map
-    # puts maps
-    # t_map = { 0 => { 0 => @concrete, 1 => @sand, 2 => @concrete } }
-    # puts t_map
+  def generate_fix_map(select_map)
     map = {}
-    maps.each_with_index do |x, i_x|
+    maps[select_map].each_with_index do |x, i_x|
       map[i_x] = {}
       x.each_with_index do |y, i_y|
         symb = eval "@#{y}"
