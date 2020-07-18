@@ -15,6 +15,7 @@ class Map
 
   def initialize(object_pool)
     load_tiles
+    load_walls
     @object_pool = object_pool
     object_pool.map = self
     @map = generate_fix_map(:parking)
@@ -31,19 +32,25 @@ class Map
     x0, x1, y0, y1 = viewport.map(&:to_i)
     (x0-20..x1+20).each do |x|
       (y0-20..y1+20).each do |y|
-        row = @map[x]
         map_x = (y - x) * TILE_HEIGHT + OFFSET_X
         map_y = (y + x) * (TILE_HEIGHT / 2)
-        if row
-          tile = @map[x][y]
+        if @map[:floor][x]
+          tile = @map[:floor][x][y]
           if tile
             tile.draw(map_x, map_y, 0)
-          # @msg = Gosu::Image.from_text("X:#{x}, Y:#{y}", 16).draw(map_x, map_y, 100)
-          else
-            # @water.draw(map_x, map_y, 0)
           end
-        else
-          # @water.draw(map_x, map_y, 0)
+        end
+        if @map[:wall_ns][x]
+          ns_wall = @map[:wall_ns][x][y]
+          if ns_wall
+            ns_wall.draw(map_x + TILE_WIDTH / 2, (map_y +  TILE_HEIGHT / 2) - ns_wall.height, 0)
+          end
+        end
+        if @map[:wall_we][x]
+          we_wall = @map[:wall_we][x][y]
+          if we_wall
+            we_wall.draw(map_x, (map_y +  TILE_HEIGHT / 2) - we_wall.height, 0)
+          end
         end
       end
     end
@@ -151,7 +158,7 @@ class Map
     row = ((x + col) - TILE_HEIGHT) - OFFSET_X
     t_x = (col / TILE_HEIGHT).round
     t_y = (row / TILE_HEIGHT).round
-    row = @map[t_x]
+    row = @map[:floor][t_x]
     row ? row[t_y] : @water
   end
 
@@ -173,13 +180,33 @@ class Map
 
   def generate_fix_map(select_map)
     map = {}
-    maps[select_map].each_with_index do |x, i_x|
-      map[i_x] = {}
+    map[:floor] = {}
+    maps[select_map][:floor].each_with_index do |x, i_x|
+      map[:floor][i_x] = {}
       x.each_with_index do |y, i_y|
         symb = eval "@#{y}"
-        map[i_x][i_y] = symb
+        map[:floor][i_x][i_y] = symb
       end
     end
+
+    map[:wall_ns] = {}
+    maps[select_map][:wall_ns].each_with_index do |x, i_x|
+      map[:wall_ns][i_x] = {}
+      x.each_with_index do |y, i_y|
+        symb = eval "@#{y}"
+        map[:wall_ns][i_x][i_y] = symb
+      end
+    end
+
+    map[:wall_we] = {}
+    maps[select_map][:wall_we].each_with_index do |x, i_x|
+      map[:wall_we][i_x] = {}
+      x.each_with_index do |y, i_y|
+        symb = eval "@#{y}"
+        map[:wall_we][i_x][i_y] = symb
+      end
+    end
+
     map
   end
 
@@ -199,6 +226,11 @@ class Map
     @concrete = images.frame("concrete.png")
     @water = images.frame("gray.png")
     @wall = images.frame("gray.png")
+  end
+
+  def load_walls
+    @wall_ns = Gosu::Image.new(Utils.media_path('wall_ns.png'))
+    @wall_we = Gosu::Image.new(Utils.media_path('wall_we.png'))
   end
 
   def maps

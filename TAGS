@@ -259,28 +259,29 @@ class Explosion < GameObjectExplosion1,0
   def mark_for_removalmark_for_removal23,461
   def inflict_damageinflict_damage29,512
 
-entities/map.rb,895
+entities/map.rb,944
 class MapMap1,0
   def self.bounding_boxbounding_box8,125
   def initialize(object_pool)initialize16,391
-  def draw(viewport)draw26,595
-  def spawn_points(max)spawn_points52,1361
-  def spawn_pointspawn_point59,1489
-  def can_move_to?(x, y)can_move_to?63,1583
-  def can_through_bullet?(x, y)can_through_bullet?68,1667
-  def movement_penalty(x, y)movement_penalty73,1758
-  def generate_treesgenerate_trees83,1884
-  def generate_boxesgenerate_boxes101,2391
-  def generate_powerupsgenerate_powerups114,2705
-  def random_poweruprandom_powerup127,3075
-  def find_spawn_pointfind_spawn_point139,3245
-  def tile_at(x, y)tile_at149,3506
-  def generate_random_mapgenerate_random_map158,3737
-  def generate_fix_mapgenerate_fix_map174,4089
-  def choose_tile(val)choose_tile190,4425
-  def load_tilesload_tiles201,4563
-  def mapsmaps208,4744
-  def imagesimages212,4827
+  def draw(viewport)draw27,620
+  def spawn_points(max)spawn_points59,1598
+  def spawn_pointspawn_point66,1726
+  def can_move_to?(x, y)can_move_to?70,1820
+  def can_through_bullet?(x, y)can_through_bullet?75,1904
+  def movement_penalty(x, y)movement_penalty80,1995
+  def generate_treesgenerate_trees90,2121
+  def generate_boxesgenerate_boxes108,2628
+  def generate_powerupsgenerate_powerups121,2942
+  def random_poweruprandom_powerup134,3312
+  def find_spawn_pointfind_spawn_point146,3482
+  def tile_at(x, y)tile_at156,3743
+  def generate_random_mapgenerate_random_map165,3982
+  def generate_fix_map(select_map)generate_fix_map181,4334
+  def choose_tile(val)choose_tile213,5091
+  def load_tilesload_tiles224,5229
+  def load_wallsload_walls231,5410
+  def mapsmaps236,5562
+  def imagesimages240,5635
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
