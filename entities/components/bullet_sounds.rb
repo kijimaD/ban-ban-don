@@ -17,6 +17,6 @@ class BulletSounds
   end
 
   def sound_hit
-    @hit_sound ||= StereoSample.new(Utils.media_path_sound('bullet-hit.mp3'))
+    @hit_sound ||= StereoSample.new(Utils.media_path_sound('bullet-hit.wav'))
   end
 end
