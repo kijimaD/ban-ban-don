@@ -49,7 +49,7 @@ class Map
             else
               z = 100
             end
-            ns_wall.draw(map_x + TILE_WIDTH / 2, (map_y +  TILE_HEIGHT / 2) - ns_wall.height, z)
+            ns_wall.draw(map_x + TILE_WIDTH / 2, (map_y + TILE_HEIGHT / 2) - ns_wall.height, z)
           end
         end
         if @map[:wall_we][x]
@@ -60,7 +60,13 @@ class Map
             else
               z = 100
             end
-            we_wall.draw(map_x, (map_y +  TILE_HEIGHT / 2) - we_wall.height, z)
+            we_wall.draw(map_x, (map_y + TILE_HEIGHT / 2) - we_wall.height, z)
+          end
+        end
+        if @map[:ceiling][x]
+          ceiling = @map[:ceiling][x][y]
+          if ceiling
+            ceiling.draw(map_x, (map_y + TILE_HEIGHT / 2) - 256, 100)
           end
         end
       end
@@ -218,6 +224,15 @@ class Map
       end
     end
 
+    map[:ceiling] = {}
+    maps[select_map][:ceiling].each_with_index do |x, i_x|
+      map[:ceiling][i_x] = {}
+      x.each_with_index do |y, i_y|
+        symb = eval "@#{y}"
+        map[:ceiling][i_x][i_y] = symb
+      end
+    end
+
     map
   end
 
@@ -237,6 +252,7 @@ class Map
     @concrete = images.frame("concrete.png")
     @water = images.frame("gray.png")
     @wall = images.frame("gray.png")
+    @black = images.frame("black.png")
   end
 
   def load_walls

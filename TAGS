@@ -259,29 +259,29 @@ class Explosion < GameObjectExplosion1,0
   def mark_for_removalmark_for_removal23,461
   def inflict_damageinflict_damage29,512
 
-entities/map.rb,944
+entities/map.rb,945
 class MapMap1,0
   def self.bounding_boxbounding_box8,125
   def initialize(object_pool)initialize16,391
   def draw(viewport)draw27,620
-  def spawn_points(max)spawn_points59,1598
-  def spawn_pointspawn_point66,1726
-  def can_move_to?(x, y)can_move_to?70,1820
-  def can_through_bullet?(x, y)can_through_bullet?75,1904
-  def movement_penalty(x, y)movement_penalty80,1995
-  def generate_treesgenerate_trees90,2121
-  def generate_boxesgenerate_boxes108,2628
-  def generate_powerupsgenerate_powerups121,2942
-  def random_poweruprandom_powerup134,3312
-  def find_spawn_pointfind_spawn_point146,3482
-  def tile_at(x, y)tile_at156,3743
-  def generate_random_mapgenerate_random_map165,3982
-  def generate_fix_map(select_map)generate_fix_map181,4334
-  def choose_tile(val)choose_tile213,5091
-  def load_tilesload_tiles224,5229
-  def load_wallsload_walls231,5410
-  def mapsmaps236,5562
-  def imagesimages240,5635
+  def spawn_points(max)spawn_points76,2077
+  def spawn_pointspawn_point83,2205
+  def can_move_to?(x, y)can_move_to?87,2299
+  def can_through_bullet?(x, y)can_through_bullet?92,2383
+  def movement_penalty(x, y)movement_penalty97,2474
+  def generate_treesgenerate_trees107,2600
+  def generate_boxesgenerate_boxes125,3107
+  def generate_powerupsgenerate_powerups138,3421
+  def random_poweruprandom_powerup151,3791
+  def find_spawn_pointfind_spawn_point163,3961
+  def tile_at(x, y)tile_at173,4222
+  def generate_random_mapgenerate_random_map182,4461
+  def generate_fix_map(select_map)generate_fix_map198,4813
+  def choose_tile(val)choose_tile239,5804
+  def load_tilesload_tiles250,5942
+  def load_wallsload_walls258,6162
+  def mapsmaps263,6314
+  def imagesimages267,6387
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0

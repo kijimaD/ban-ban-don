@@ -139,8 +139,21 @@
 	    [],
 	    [],
 	    [
-			false,
-			false,
+		false,
+		false,
+		"wall_ns",
+		"wall_ns",
+		false,
+		false,
+		"wall_ns",
+		"wall_ns"
+	    ],
+	    [],
+	    [],
+	    [],
+	    [
+		false,
+		false,
 		"wall_ns",
 		"wall_ns",
 		false,
@@ -185,6 +198,25 @@
 		"wall_we"
 	    ],
 	    [
+		"wall_we",
+		false,
+		false,
+		false,
+		"wall_we",
+		false,
+		false,
+		false,
+		"wall_we"
+	    ],
+	    [
+		"wall_we",
+		false,
+		false,
+		false,
+		"wall_we",
+		false,
+		false,
+		false,
 		"wall_we"
 	    ],
 	    [
@@ -192,9 +224,60 @@
 	    ],
 	    [
 		"wall_we"
+	    ]
+	],
+	"ceiling":[
+	    [],
+	    [],
+	    [
+		false,
+		false,
+		"black",
+		"black",
+		false,
+		false,
+		"black",
+		"black",
+		false,
+		false
 	    ],
 	    [
-		"wall_we"
+		false,
+		false,
+		"black",
+		"black",
+		false,
+		false,
+		"black",
+		"black",
+		false,
+		false
+	    ],
+	    [],
+	    [],
+	    [
+		false,
+		false,
+		"black",
+		"black",
+		false,
+		false,
+		"black",
+		"black",
+		false,
+		false
+	    ],
+	    [
+		false,
+		false,
+		"black",
+		"black",
+		false,
+		false,
+		"black",
+		"black",
+		false,
+		false
 	    ]
 	]
     }

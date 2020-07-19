@@ -1,6 +1,6 @@
 {
 	"frames": {
-		"concrete.png": {
+		"black.png": {
 			"frame": {
 				"x": 1,
 				"y": 1,
@@ -20,10 +20,30 @@
 				"h": 128
 			}
 		},
-		"dirt.png": {
+		"concrete.png": {
 			"frame": {
 				"x": 1,
 				"y": 131,
+				"w": 256,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 256,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 256,
+				"h": 128
+			}
+		},
+		"dirt.png": {
+			"frame": {
+				"x": 1,
+				"y": 261,
 				"w": 256,
 				"h": 128
 			},
@@ -88,7 +108,7 @@
 		"format": "RGBA8888",
 		"size": {
 			"w": 516,
-			"h": 260
+			"h": 390
 		},
 		"scale": "1"
 	}
