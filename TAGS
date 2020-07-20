@@ -259,29 +259,29 @@ class Explosion < GameObjectExplosion1,0
   def mark_for_removalmark_for_removal23,461
   def inflict_damageinflict_damage29,512
 
-entities/map.rb,945
+entities/map.rb,956
 class MapMap1,0
   def self.bounding_boxbounding_box8,125
   def initialize(object_pool)initialize16,391
-  def draw(viewport)draw27,620
-  def spawn_points(max)spawn_points76,2075
-  def spawn_pointspawn_point83,2203
-  def can_move_to?(x, y)can_move_to?87,2297
-  def can_through_bullet?(x, y)can_through_bullet?92,2381
-  def movement_penalty(x, y)movement_penalty97,2472
-  def generate_treesgenerate_trees107,2598
-  def generate_boxesgenerate_boxes125,3105
-  def generate_powerupsgenerate_powerups138,3419
-  def random_poweruprandom_powerup151,3789
-  def find_spawn_pointfind_spawn_point163,3959
-  def tile_at(x, y)tile_at173,4220
-  def generate_random_mapgenerate_random_map182,4459
-  def generate_fix_map(select_map)generate_fix_map198,4811
-  def choose_tile(val)choose_tile239,5802
-  def load_tilesload_tiles250,5940
-  def load_wallsload_walls258,6160
-  def mapsmaps263,6312
-  def imagesimages267,6385
+  def draw(viewport, character)draw27,620
+  def spawn_points(max)spawn_points75,2010
+  def spawn_pointspawn_point82,2138
+  def can_move_to?(x, y)can_move_to?86,2232
+  def can_through_bullet?(x, y)can_through_bullet?91,2316
+  def movement_penalty(x, y)movement_penalty96,2407
+  def generate_treesgenerate_trees106,2533
+  def generate_boxesgenerate_boxes124,3040
+  def generate_powerupsgenerate_powerups137,3354
+  def random_poweruprandom_powerup150,3724
+  def find_spawn_pointfind_spawn_point162,3894
+  def tile_at(x, y)tile_at172,4155
+  def generate_random_mapgenerate_random_map181,4394
+  def generate_fix_map(select_map)generate_fix_map197,4746
+  def choose_tile(val)choose_tile238,5737
+  def load_tilesload_tiles249,5875
+  def load_wallsload_walls257,6095
+  def mapsmaps262,6301
+  def imagesimages266,6374
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -608,9 +608,9 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def damage_flashingdamage_flashing96,2086
   def damagedamage102,2274
   def charascharas106,2328
-  def weaponsweapons111,2472
-  def different?(runs)different?118,2599
-  def gen_image_arraygen_image_array124,2680
+  def weaponsweapons111,2482
+  def different?(runs)different?118,2619
+  def gen_image_arraygen_image_array124,2700
 
 entities/character.rb,427
 class Character < GameObjectCharacter1,0

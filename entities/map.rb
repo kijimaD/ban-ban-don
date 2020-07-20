@@ -255,8 +255,8 @@ class Map
   end
 
   def load_walls
-    @wall_ns = Gosu::Image.new(Utils.media_path('wall_ns.png'))
-    @wall_we = Gosu::Image.new(Utils.media_path('wall_we.png'))
+    @wall_ns = Gosu::Image.new(Utils.media_path('wall_ns.png'), options={tileable: true })
+    @wall_we = Gosu::Image.new(Utils.media_path('wall_we.png'), options={tileable: true })
   end
 
   def maps
@@ -265,6 +265,6 @@ class Map
 
   def images
     @@images ||= Gosu::TexturePacker.load_json(
-      Utils.media_path("tiles_packed.json"))
+      Utils.media_path("tiles_packed.json"), :precise)
   end
 end

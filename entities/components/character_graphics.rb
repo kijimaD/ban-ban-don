@@ -105,12 +105,12 @@ class CharacterGraphics < Component
 
   def charas
     @charas ||= Gosu::TexturePacker.load_json(
-      Utils.media_path("#{object.character_parameter["name"]}_packed.json"))
+      Utils.media_path("#{object.character_parameter["name"]}_packed.json"), :precise)
   end
 
   def weapons
     @weapons ||= Gosu::TexturePacker.load_json(
-      Utils.media_path("weapons_packed.json"))
+      Utils.media_path("weapons_packed.json"), :precise)
   end
 
   private
