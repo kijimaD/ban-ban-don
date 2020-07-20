@@ -11,7 +11,11 @@ class CharacterPhysics < Component
   def can_move_to?(x, y)
     old_x, old_y = object.x, object.y
     object.move(x, y)
-    return false unless @map.can_move_to?(x, y)
+    for tx in -15..15 do
+      for ty in -15..15 do
+        return false unless @map.can_move_to?(x + tx, y + ty)
+      end
+    end
     @object_pool.nearby(object, 100).each do |obj|
       next if obj.class == Bullet && obj.source == object
       if Utils.collides_with_poly?(obj.box, *object.box)
@@ -114,7 +118,7 @@ class CharacterPhysics < Component
   def change_direction(new_direction)
     change = (new_direction - object.direction + 360) % 360
     change = 360 - change if change > 180
-    object.direction = new_direction
+    object.direction = new_direction % 360
   end
 
   private

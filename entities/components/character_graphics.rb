@@ -130,4 +130,5 @@ class CharacterGraphics < Component
     end
     goal
   end
+
 end

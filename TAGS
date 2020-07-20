@@ -393,23 +393,22 @@ class CharacterHealth < HealthCharacterHealth1,0
   def draw(viewport)draw20,434
   def coordscoords42,957
 
-entities/components/character_physics.rb,664
+entities/components/character_physics.rb,636
 class CharacterPhysics < ComponentCharacterPhysics1,0
   def initialize(game_object, object_pool)initialize4,90
   def can_move_to?(x, y)can_move_to?11,246
-  def moving?moving?37,1002
-  def updateupdate41,1038
-  def box_widthbox_width96,2145
-  def box_heightbox_height100,2209
-  def boxbox104,2276
-  def change_direction(new_direction)change_direction114,2444
-  def collides_with_point?(x, y)collides_with_point?122,2639
-  def apply_movement_penalty(speed)apply_movement_penalty126,2714
-  def accelerateaccelerate130,2804
-  def deceleratedecelerate134,2861
-  def turboturbo139,2948
-  def resetreset143,2984
-  def coordscoords147,3018
+  def moving?moving?42,1128
+  def updateupdate46,1164
+  def box_widthbox_width101,2271
+  def box_heightbox_height105,2335
+  def boxbox109,2402
+  def change_direction(new_direction)change_direction119,2570
+  def collides_with_point?(x, y)collides_with_point?127,2771
+  def apply_movement_penalty(speed)apply_movement_penalty131,2846
+  def accelerateaccelerate135,2936
+  def deceleratedecelerate139,2993
+  def turboturbo144,3080
+  def resetreset148,3116
 
 entities/components/powerup_graphics.rb,284
 class PowerupGraphics < ComponentPowerupGraphics1,0
