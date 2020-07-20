@@ -1,6 +1,6 @@
 class Map
-  MAP_WIDTH = 8
-  MAP_HEIGHT = 8
+  MAP_WIDTH = 10
+  MAP_HEIGHT = 10
   TILE_WIDTH = 256
   TILE_HEIGHT = 128
   OFFSET_X = MAP_WIDTH * TILE_WIDTH / 2
@@ -15,15 +15,16 @@ class Map
 
   def initialize(object_pool)
     load_tiles
+    load_walls
     @object_pool = object_pool
     object_pool.map = self
-    @map = generate_fix_map
+    @map = generate_fix_map(:parking)
     # generate_trees
     # generate_boxes
     # generate_powerups
   end
 
-  def draw(viewport)
+  def draw(viewport, character)
     viewport[0] = viewport[0] / TILE_WIDTH
     viewport[1] = viewport[1] / TILE_WIDTH
     viewport[2] = viewport[2] / TILE_HEIGHT
@@ -31,19 +32,41 @@ class Map
     x0, x1, y0, y1 = viewport.map(&:to_i)
     (x0-20..x1+20).each do |x|
       (y0-20..y1+20).each do |y|
-        row = @map[x]
         map_x = (y - x) * TILE_HEIGHT + OFFSET_X
         map_y = (y + x) * (TILE_HEIGHT / 2)
-        if row
-          tile = @map[x][y]
+        if @map[:floor][x]
+          tile = @map[:floor][x][y]
           if tile
             tile.draw(map_x, map_y, 0)
-          # @msg = Gosu::Image.from_text("X:#{x}, Y:#{y}", 16).draw(map_x, map_y, 100)
-          else
-            # @water.draw(map_x, map_y, 0)
           end
-        else
-          # @water.draw(map_x, map_y, 0)
+        end
+        if @map[:wall_ns][x]
+          ns_wall = @map[:wall_ns][x][y]
+          if ns_wall
+            if character.y > map_y
+              z = 0
+            else
+              z = 10
+            end
+            ns_wall.draw(map_x + TILE_WIDTH / 2, (map_y + TILE_HEIGHT / 2) - ns_wall.height, z)
+          end
+        end
+        if @map[:wall_we][x]
+          we_wall = @map[:wall_we][x][y]
+          if we_wall
+            if character.y > map_y
+              z = 0
+            else
+              z = 10
+            end
+            we_wall.draw(map_x, (map_y + TILE_HEIGHT / 2) - we_wall.height, z)
+          end
+        end
+        if @map[:ceiling][x]
+          ceiling = @map[:ceiling][x][y]
+          if ceiling
+            ceiling.draw(map_x, (map_y + TILE_HEIGHT / 2) - 256, 100)
+          end
         end
       end
     end
@@ -151,7 +174,7 @@ class Map
     row = ((x + col) - TILE_HEIGHT) - OFFSET_X
     t_x = (col / TILE_HEIGHT).round
     t_y = (row / TILE_HEIGHT).round
-    row = @map[t_x]
+    row = @map[:floor][t_x]
     row ? row[t_y] : @water
   end
 
@@ -171,18 +194,44 @@ class Map
     map
   end
 
-  def generate_fix_map
-    # puts maps
-    # t_map = { 0 => { 0 => @concrete, 1 => @sand, 2 => @concrete } }
-    # puts t_map
+  def generate_fix_map(select_map)
     map = {}
-    maps.each_with_index do |x, i_x|
-      map[i_x] = {}
+    map[:floor] = {}
+    maps[select_map][:floor].each_with_index do |x, i_x|
+      map[:floor][i_x] = {}
       x.each_with_index do |y, i_y|
         symb = eval "@#{y}"
-        map[i_x][i_y] = symb
+        map[:floor][i_x][i_y] = symb
       end
     end
+
+    map[:wall_ns] = {}
+    maps[select_map][:wall_ns].each_with_index do |x, i_x|
+      map[:wall_ns][i_x] = {}
+      x.each_with_index do |y, i_y|
+        symb = eval "@#{y}"
+        map[:wall_ns][i_x][i_y] = symb
+      end
+    end
+
+    map[:wall_we] = {}
+    maps[select_map][:wall_we].each_with_index do |x, i_x|
+      map[:wall_we][i_x] = {}
+      x.each_with_index do |y, i_y|
+        symb = eval "@#{y}"
+        map[:wall_we][i_x][i_y] = symb
+      end
+    end
+
+    map[:ceiling] = {}
+    maps[select_map][:ceiling].each_with_index do |x, i_x|
+      map[:ceiling][i_x] = {}
+      x.each_with_index do |y, i_y|
+        symb = eval "@#{y}"
+        map[:ceiling][i_x][i_y] = symb
+      end
+    end
+
     map
   end
 
@@ -201,7 +250,12 @@ class Map
     @sand = images.frame("dirt.png")
     @concrete = images.frame("concrete.png")
     @water = images.frame("gray.png")
-    @wall = images.frame("gray.png")
+    @black = images.frame("black.png")
+  end
+
+  def load_walls
+    @wall_ns = Gosu::Image.new(Utils.media_path('wall_ns.png'), options={tileable: true })
+    @wall_we = Gosu::Image.new(Utils.media_path('wall_we.png'), options={tileable: true })
   end
 
   def maps
@@ -210,6 +264,6 @@ class Map
 
   def images
     @@images ||= Gosu::TexturePacker.load_json(
-      Utils.media_path("tiles_packed.json"))
+      Utils.media_path("tiles_packed.json"), :precise)
   end
 end

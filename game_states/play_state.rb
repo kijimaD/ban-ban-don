@@ -47,7 +47,7 @@ class PlayState < GameState
     $window.translate(off_x, off_y) do
       zoom = @camera.zoom
       $window.scale(zoom, zoom, cam_x, cam_y) do
-        @map.draw(viewport)
+        @map.draw(viewport, @character)
         @object_pool.query_range(box).map do |o|
           o.draw(viewport)
         end

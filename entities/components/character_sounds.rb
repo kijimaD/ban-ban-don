@@ -45,7 +45,7 @@ class CharacterSounds < Component
   end
 
   def hit_bullet_sound
-    @@hit_bullet_sound ||= StereoSample.new(Utils.media_path_sound('bullet_hit.mp3'))
+    @@hit_bullet_sound ||= StereoSample.new(Utils.media_path_sound('bullet-hit.wav'))
   end
 
   def reload_sound
