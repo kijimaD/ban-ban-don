@@ -279,9 +279,9 @@ class MapMap1,0
   def generate_fix_map(select_map)generate_fix_map197,4746
   def choose_tile(val)choose_tile238,5737
   def load_tilesload_tiles249,5875
-  def load_wallsload_walls257,6095
-  def mapsmaps262,6301
-  def imagesimages266,6374
+  def load_wallsload_walls256,6058
+  def mapsmaps261,6264
+  def imagesimages265,6337
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0

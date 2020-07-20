@@ -250,7 +250,6 @@ class Map
     @sand = images.frame("dirt.png")
     @concrete = images.frame("concrete.png")
     @water = images.frame("gray.png")
-    @wall = images.frame("gray.png")
     @black = images.frame("black.png")
   end
 
