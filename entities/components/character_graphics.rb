@@ -15,7 +15,6 @@ class CharacterGraphics < Component
     @run_frame = 0
     @image_array = gen_image_array
     @body = body_direction
-    @map = object_pool.map
   end
 
   def update
@@ -32,14 +31,9 @@ class CharacterGraphics < Component
       @weapon = damage_flashing
       @damage_frame -= 1
     end
-    @body.draw(x - PADDING, y - PADDING, 1 * depth_value)
+    @body.draw(x - PADDING, y - PADDING, depth)
     draw_bounding_box if $debug
     draw_weapon
-  end
-
-  def depth_value
-    t_x, t_y = @map.tile_coords(x, y)
-    depth_value = t_x + t_y
   end
 
   def draw_bounding_box

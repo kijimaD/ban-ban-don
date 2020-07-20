@@ -30,4 +30,9 @@ class Component
     @object.y
   end
 
+  def depth
+    t_x, t_y = Utils.tile_coords(x, y)
+    return t_x + t_y
+  end
+
 end
