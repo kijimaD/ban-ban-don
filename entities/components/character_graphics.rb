@@ -9,12 +9,13 @@ class CharacterGraphics < Component
     Gosu::Color::WHITE
   ]
 
-  def initialize(game_object)
+  def initialize(game_object, object_pool)
     super(game_object)
     @damage_frame = 0
     @run_frame = 0
     @image_array = gen_image_array
     @body = body_direction
+    @map = object_pool.map
   end
 
   def update
@@ -31,9 +32,14 @@ class CharacterGraphics < Component
       @weapon = damage_flashing
       @damage_frame -= 1
     end
-    @body.draw(x - PADDING, y - PADDING, 1)
+    @body.draw(x - PADDING, y - PADDING, 1 * depth_value)
     draw_bounding_box if $debug
     draw_weapon
+  end
+
+  def depth_value
+    t_x, t_y = @map.tile_coords(x, y)
+    depth_value = t_x + t_y
   end
 
   def draw_bounding_box

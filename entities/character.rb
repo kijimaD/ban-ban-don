@@ -19,7 +19,7 @@ class Character < GameObject
     @physics = CharacterPhysics.new(self, object_pool)
     @sounds = CharacterSounds.new(self, object_pool)
     @health = CharacterHealth.new(self, object_pool)
-    @graphics = CharacterGraphics.new(self)
+    @graphics = CharacterGraphics.new(self, object_pool)
     @shoot_delay = weapon['shoot_delay'].to_i
     @number_magazine = 10 * (1 - @object.difficulty * 0.1)
     @number_ammo = weapon['number_shots'].to_i

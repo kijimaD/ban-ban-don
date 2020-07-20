@@ -259,29 +259,30 @@ class Explosion < GameObjectExplosion1,0
   def mark_for_removalmark_for_removal23,461
   def inflict_damageinflict_damage29,512
 
-entities/map.rb,956
+entities/map.rb,1000
 class MapMap1,0
   def self.bounding_boxbounding_box8,125
   def initialize(object_pool)initialize16,391
   def draw(viewport, character)draw27,620
-  def spawn_points(max)spawn_points75,2010
-  def spawn_pointspawn_point82,2138
-  def can_move_to?(x, y)can_move_to?86,2232
-  def can_through_bullet?(x, y)can_through_bullet?91,2316
-  def movement_penalty(x, y)movement_penalty96,2407
-  def generate_treesgenerate_trees106,2533
-  def generate_boxesgenerate_boxes124,3040
-  def generate_powerupsgenerate_powerups137,3354
-  def random_poweruprandom_powerup150,3724
-  def find_spawn_pointfind_spawn_point162,3894
-  def tile_at(x, y)tile_at172,4155
-  def generate_random_mapgenerate_random_map181,4394
-  def generate_fix_map(select_map)generate_fix_map197,4746
-  def choose_tile(val)choose_tile238,5737
-  def load_tilesload_tiles249,5875
-  def load_wallsload_walls256,6058
-  def mapsmaps261,6264
-  def imagesimages265,6337
+  def spawn_points(max)spawn_points66,1846
+  def spawn_pointspawn_point73,1974
+  def can_move_to?(x, y)can_move_to?77,2068
+  def can_through_bullet?(x, y)can_through_bullet?82,2152
+  def movement_penalty(x, y)movement_penalty87,2243
+  def generate_treesgenerate_trees97,2369
+  def generate_boxesgenerate_boxes115,2876
+  def generate_powerupsgenerate_powerups128,3190
+  def random_poweruprandom_powerup141,3560
+  def tile_coords(x, y)tile_coords151,3719
+  def find_spawn_pointfind_spawn_point161,3932
+  def tile_at(x, y)tile_at171,4193
+  def generate_random_mapgenerate_random_map177,4309
+  def generate_fix_map(select_map)generate_fix_map193,4661
+  def choose_tile(val)choose_tile234,5652
+  def load_tilesload_tiles245,5790
+  def load_wallsload_walls252,5973
+  def mapsmaps257,6179
+  def imagesimages261,6252
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -594,35 +595,36 @@ class PlayerInput < ComponentPlayerInput1,0
   def any_button_down?(*buttons)any_button_down?72,1632
   def change_angle(previous_angle, up, down, right, left)change_angle79,1757
 
-entities/components/character_graphics.rb,636
+entities/components/character_graphics.rb,687
 class CharacterGraphics < ComponentCharacterGraphics1,0
-  def initialize(game_object)initialize12,206
-  def updateupdate20,369
-  def draw(viewport)draw28,555
-  def draw_bounding_boxdraw_bounding_box39,795
-  def widthwidth52,1064
-  def heightheight56,1099
-  def body_directionbody_direction60,1136
-  def state_image(directional_graphics)state_image65,1261
-  def draw_weapondraw_weapon83,1699
-  def damage_flashingdamage_flashing96,2086
-  def damagedamage102,2274
-  def charascharas106,2328
-  def weaponsweapons111,2482
-  def different?(runs)different?118,2619
-  def gen_image_arraygen_image_array124,2700
+  def initialize(game_object, object_pool)initialize12,206
+  def updateupdate21,409
+  def draw(viewport)draw29,595
+  def depth_valuedepth_value40,849
+  def draw_bounding_boxdraw_bounding_box46,973
+  def widthwidth59,1242
+  def heightheight63,1277
+  def body_directionbody_direction67,1314
+  def state_image(directional_graphics)state_image72,1439
+  def draw_weapondraw_weapon90,1877
+  def damage_flashingdamage_flashing103,2264
+  def damagedamage109,2452
+  def charascharas113,2506
+  def weaponsweapons118,2660
+  def different?(runs)different?125,2797
+  def gen_image_arraygen_image_array131,2878
 
 entities/character.rb,427
 class Character < GameObjectCharacter1,0
   def initialize(object, object_pool, input, character_parameter)initialize10,349
-  def boxbox29,1042
-  def shoot(target_x, target_y)shoot33,1076
-  def can_shoot?can_shoot?46,1383
-  def recently_shoot?recently_shoot?50,1488
-  def reloadreload54,1586
-  def on_collision(object)on_collision69,1946
-  def reset_modifiersreset_modifiers81,2209
-  def weaponweapon86,2290
+  def boxbox29,1055
+  def shoot(target_x, target_y)shoot33,1089
+  def can_shoot?can_shoot?46,1396
+  def recently_shoot?recently_shoot?50,1501
+  def reloadreload54,1599
+  def on_collision(object)on_collision69,1959
+  def reset_modifiersreset_modifiers81,2222
+  def weaponweapon86,2303
 
 entities/bullet.rb,220
 class Bullet < GameObjectBullet1,0
