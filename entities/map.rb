@@ -24,13 +24,12 @@ class Map
     # generate_powerups
   end
 
-  def draw(viewport)
-    t_viewport = []
-    t_viewport[0] = viewport[0] / TILE_WIDTH
-    t_viewport[1] = viewport[1] / TILE_WIDTH
-    t_viewport[2] = viewport[2] / TILE_HEIGHT
-    t_viewport[3] = viewport[3] / TILE_HEIGHT
-    x0, x1, y0, y1 = t_viewport.map(&:to_i)
+  def draw(viewport, character)
+    viewport[0] = viewport[0] / TILE_WIDTH
+    viewport[1] = viewport[1] / TILE_WIDTH
+    viewport[2] = viewport[2] / TILE_HEIGHT
+    viewport[3] = viewport[3] / TILE_HEIGHT
+    x0, x1, y0, y1 = viewport.map(&:to_i)
     (x0-20..x1+20).each do |x|
       (y0-20..y1+20).each do |y|
         map_x = (y - x) * TILE_HEIGHT + OFFSET_X
@@ -44,10 +43,10 @@ class Map
         if @map[:wall_ns][x]
           ns_wall = @map[:wall_ns][x][y]
           if ns_wall
-            if (viewport[2]+viewport[3]) / 2 + 10 > map_y
+            if character.y > map_y
               z = 0
             else
-              z = 100
+              z = 10
             end
             ns_wall.draw(map_x + TILE_WIDTH / 2, (map_y + TILE_HEIGHT / 2) - ns_wall.height, z)
           end
@@ -55,10 +54,10 @@ class Map
         if @map[:wall_we][x]
           we_wall = @map[:wall_we][x][y]
           if we_wall
-            if (viewport[2]+viewport[3]) / 2 + 10 > map_y
+            if character.y > map_y
               z = 0
             else
-              z = 100
+              z = 10
             end
             we_wall.draw(map_x, (map_y + TILE_HEIGHT / 2) - we_wall.height, z)
           end
