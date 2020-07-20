@@ -18,19 +18,19 @@ class GameStateGameState1,0
   def needs_redraw?needs_redraw?21,220
   def button_down(id)button_down25,256
 
-game_states/play_state.rb,520
+game_states/play_state.rb,521
 class PlayState < GameStatePlayState1,0
   def initialize(settings = [0, "sirase"])initialize5,128
-  def enterenter19,591
-  def leaveleave23,633
-  def updateupdate28,702
-  def drawdraw37,850
-  def button_down(id)button_down61,1510
-  def update_captionupdate_caption95,2302
-  def create_characters(amount)create_characters105,2600
-  def character_parameterscharacter_parameters118,3057
-  def player_selected_characterplayer_selected_character122,3167
-  def random_characterrandom_character126,3264
+  def enterenter24,691
+  def leaveleave28,733
+  def updateupdate33,802
+  def drawdraw42,950
+  def button_down(id)button_down66,1610
+  def update_captionupdate_caption100,2402
+  def create_characters(amount)create_characters110,2700
+  def character_parameterscharacter_parameters123,3157
+  def player_selected_characterplayer_selected_character127,3267
+  def random_characterrandom_character131,3364
 
 game_states/menu_state.rb,306
 class MenuState < GameStateMenuState2,16
@@ -658,9 +658,9 @@ class ScoreDisplayScoreDisplay1,0
   def updateupdate16,333
   def drawdraw19,353
   def draw_bgdraw_bg28,529
-  def score_imagescore_image35,689
-  def damage_imagedamage_image39,846
-  def coordscoords43,1007
+  def score_imagescore_image35,691
+  def damage_imagedamage_image39,848
+  def coordscoords43,1009
 
 entities/tree.rb,159
 class Tree < GameObjectTree1,0
