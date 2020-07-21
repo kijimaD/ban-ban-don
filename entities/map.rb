@@ -21,10 +21,10 @@ class Map
     @map = generate_fix_map(:parking)
     # generate_trees
     # generate_boxes
-    # generate_powerups
+    generate_powerups
   end
 
-  def draw(viewport, character)
+  def draw(viewport)
     viewport[0] = viewport[0] / TILE_WIDTH
     viewport[1] = viewport[1] / TILE_WIDTH
     viewport[2] = viewport[2] / TILE_HEIGHT
@@ -127,7 +127,7 @@ class Map
 
   def generate_powerups
     pups = 0
-    target_pups = rand(20..30)
+    target_pups = rand(10..20)
     while pups < target_pups do
       x = rand(0..MAP_WIDTH * TILE_WIDTH + OFFSET_X)
       y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
