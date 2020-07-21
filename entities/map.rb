@@ -34,29 +34,29 @@ class Map
       (y0-20..y1+20).each do |y|
         map_x = (y - x) * TILE_HEIGHT + OFFSET_X
         map_y = (y + x) * (TILE_HEIGHT / 2)
-        wall_depth = (x + y)
+        depth = (x + y)
         if @map[:floor][x]
           tile = @map[:floor][x][y]
           if tile
-            tile.draw(map_x, map_y, 0)
+            tile.draw(map_x, map_y, depth)
           end
         end
         if @map[:wall_ns][x]
           ns_wall = @map[:wall_ns][x][y]
           if ns_wall
-            ns_wall.draw(map_x + TILE_WIDTH / 2, (map_y + TILE_HEIGHT / 2) - ns_wall.height, wall_depth)
+            ns_wall.draw(map_x + TILE_WIDTH / 2, (map_y + TILE_HEIGHT / 2) - ns_wall.height, depth)
           end
         end
         if @map[:wall_we][x]
           we_wall = @map[:wall_we][x][y]
           if we_wall
-            we_wall.draw(map_x, (map_y + TILE_HEIGHT / 2) - we_wall.height, wall_depth)
+            we_wall.draw(map_x, (map_y + TILE_HEIGHT / 2) - we_wall.height, depth)
           end
         end
         if @map[:ceiling][x]
           ceiling = @map[:ceiling][x][y]
           if ceiling
-            ceiling.draw(map_x, (map_y + TILE_HEIGHT / 2) - 256, 100 + wall_depth)
+            ceiling.draw(map_x, (map_y + TILE_HEIGHT / 2) - 256, 100 + depth)
           end
         end
       end

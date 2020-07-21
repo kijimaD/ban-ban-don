@@ -11,7 +11,7 @@ class ExplosionGraphics < Component
     image.draw(
       x - image.width * 3 / 2 + 3 * 3,
       y - image.height * 3 / 2 - 35 * 3,
-      1 + depth, 3, 3)
+      depth, 3, 3)
   end
 
   def update

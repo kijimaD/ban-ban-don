@@ -107,11 +107,11 @@ class CharacterPhysics < Component
 
   def box
     w = object.graphics.width / 2
-    h = object.graphics.height / 2
+    h = object.graphics.height
     [x - w, y - h,
      x + w, y - h,
-     x + w, y + h,
-     x - w, y + h,
+     x + w, y,
+     x - w, y,
     ]
   end
 
