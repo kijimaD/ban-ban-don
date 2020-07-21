@@ -1,6 +1,5 @@
 class Radar
   UPDATE_FREQUENCY = 1000
-  Z = 200
   WIDTH = 150
   HEIGHT = 100
   PADDING = 50
@@ -47,7 +46,7 @@ class Radar
 
     center_x, center_y = center_coords
     goal_x, goal_y = Utils.point_at_distance(center_x, center_y, angle, $window.height / 2)
-    image.draw_rot(goal_x, goal_y, Z, angle)
+    image.draw_rot(goal_x, goal_y, HUD::Z, angle)
   end
 
   def center_coords

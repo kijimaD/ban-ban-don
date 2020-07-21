@@ -56,7 +56,7 @@ class Map
         if @map[:ceiling][x]
           ceiling = @map[:ceiling][x][y]
           if ceiling
-            ceiling.draw(map_x, (map_y + TILE_HEIGHT / 2) - 256, 100 + depth)
+            ceiling.draw(map_x, (map_y + TILE_HEIGHT / 2) - 256, 10 + depth)
           end
         end
       end
