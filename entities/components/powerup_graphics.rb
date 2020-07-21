@@ -12,7 +12,7 @@ class PowerupGraphics < Component
 
   def draw(viewport)
     y_offset = animation(@y)
-    image.draw(x - 12, center_y + Math.cos(y_offset) * AMPLITUDE, 1)
+    image.draw(x - image.width / 2, y - image.height + Math.cos(y_offset) * AMPLITUDE - 8, depth + 1)
     Utils.mark_corners(object.box) if $debug
   end
 
@@ -28,6 +28,15 @@ class PowerupGraphics < Component
     @y = y
   end
 
+  def box
+    w = image.width / 2
+    h = image.height
+    [x - w, y - h,
+     x + w, y - h,
+     x + w, y,
+     x - w, y]
+  end
+
   private
 
   def image
@@ -36,14 +45,6 @@ class PowerupGraphics < Component
 
   def images
     @@images ||= Gosu::TexturePacker.load_json(Utils.media_path('pickups_packed.json'))
-  end
-
-  def center_x
-    @center_x ||= x - image.width / 2
-  end
-
-  def center_y
-    @center_y ||= y - image.height / 2
   end
 
 end

@@ -193,11 +193,11 @@ class HealthPowerup < PowerupHealthPowerup1,0
 entities/powerups/powerup.rb,261
 class Powerup < GameObjectPowerup1,0
   def initialize(object_pool, x, y)initialize3,28
-  def boxbox8,121
-  def on_collision(object)on_collision15,214
-  def pickup(object)pickup22,344
-  def removeremove25,372
-  def respawn_delayrespawn_delay32,505
+  def boxbox8,133
+  def on_collision(object)on_collision12,168
+  def pickup(object)pickup19,298
+  def removeremove22,326
+  def respawn_delayrespawn_delay29,459
 
 entities/powerups/repair_powerup.rb,112
 class RepairPowerup < PowerupRepairPowerup1,0
@@ -410,15 +410,14 @@ class CharacterPhysics < ComponentCharacterPhysics1,0
   def turboturbo143,3026
   def resetreset147,3062
 
-entities/components/powerup_graphics.rb,284
+entities/components/powerup_graphics.rb,243
 class PowerupGraphics < ComponentPowerupGraphics1,0
   def initialize(object, type)initialize6,77
   def draw(viewport)draw13,198
-  def animation(y)animation19,369
-  def imageimage33,568
-  def imagesimages37,631
-  def center_xcenter_x41,739
-  def center_ycenter_y45,799
+  def animation(y)animation19,399
+  def boxbox31,587
+  def imageimage42,728
+  def imagesimages46,791
 
 entities/components/explosion_sounds.rb,108
 class ExplosionSoundsExplosionSounds1,0
@@ -617,14 +616,14 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
 entities/character.rb,427
 class Character < GameObjectCharacter1,0
   def initialize(object, object_pool, input, character_parameter)initialize10,349
-  def boxbox29,1055
-  def shoot(target_x, target_y)shoot33,1089
-  def can_shoot?can_shoot?46,1396
-  def recently_shoot?recently_shoot?50,1501
-  def reloadreload54,1599
-  def on_collision(object)on_collision69,1959
-  def reset_modifiersreset_modifiers81,2222
-  def weaponweapon86,2303
+  def boxbox29,1042
+  def shoot(target_x, target_y)shoot33,1076
+  def can_shoot?can_shoot?46,1383
+  def recently_shoot?recently_shoot?50,1488
+  def reloadreload54,1586
+  def on_collision(object)on_collision69,1946
+  def reset_modifiersreset_modifiers81,2209
+  def weaponweapon86,2290
 
 entities/bullet.rb,221
 class Bullet < GameObjectBullet1,0

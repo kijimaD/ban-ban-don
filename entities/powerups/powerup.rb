@@ -2,14 +2,11 @@ class Powerup < GameObject
 
   def initialize(object_pool, x, y)
     super
-    PowerupGraphics.new(self, graphics)
+    @graphics = PowerupGraphics.new(self, graphics)
   end
 
   def box
-    [x - 8, y - 8,
-     x + 8, y - 8,
-     x + 8, y + 8,
-     x - 8, y + 8]
+    @graphics.box
   end
 
   def on_collision(object)

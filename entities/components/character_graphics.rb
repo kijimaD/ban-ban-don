@@ -31,7 +31,7 @@ class CharacterGraphics < Component
       @weapon = damage_flashing
       @damage_frame -= 1
     end
-    @body.draw(x - @body.width / 2, y - @body.height, depth)
+    @body.draw(x - @body.width / 2, y - @body.height, depth + 1)
     draw_bounding_box if $debug
     if object.recently_shoot?
       draw_weapon
