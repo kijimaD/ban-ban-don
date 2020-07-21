@@ -18,7 +18,7 @@ class ScoreDisplay
 
   def draw
     x1, y1 = coords
-    score_image.draw(x1, y1, 100, 1.0, 1.0, FONT_COLOR)
+    score_image.draw(x1, y1, HUD::Z, 1.0, 1.0, FONT_COLOR)
     draw_bg
     if $debug
       # damage_image.draw(x1, y1 + HEIGHT, 100)
@@ -27,7 +27,7 @@ class ScoreDisplay
 
   def draw_bg
     x1, y1 = coords
-    $window.draw_rect(0, 0, 2 * x1 + @score_image.width, 2 * y1 + @score_image.height, BACKGROUND_COLOR, 5)
+    $window.draw_rect(0, 0, 2 * x1 + @score_image.width, 2 * y1 + @score_image.height, BACKGROUND_COLOR, HUD::Z - 1)
   end
 
   private

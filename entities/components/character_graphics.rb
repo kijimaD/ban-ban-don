@@ -31,9 +31,11 @@ class CharacterGraphics < Component
       @weapon = damage_flashing
       @damage_frame -= 1
     end
-    @body.draw(x - PADDING, y - PADDING, 1)
+    @body.draw(x - @body.width / 2, y - @body.height, depth + 1)
     draw_bounding_box if $debug
-    draw_weapon
+    if object.recently_shoot?
+      draw_weapon
+    end
   end
 
   def draw_bounding_box
@@ -84,12 +86,10 @@ class CharacterGraphics < Component
     i = (object.direction / 45) % 8
     if 0 <= i && i < 1
     elsif i < 4
-      weapon_z = 2
-      @weapon.draw_rot(x + PADDING / 2, y + PADDING / 2, weapon_z, object.direction - 90, 0.5, 0.5, 1)
+      @weapon.draw_rot(x + @weapon.width / 2, y - @weapon.height, 1 + depth, object.direction - 90, 0.5, 0.5, 1)
     elsif 7 < i && i < 8
     else
-      weapon_z = 0
-      @weapon.draw_rot(x - PADDING / 2, y + PADDING / 2, weapon_z, object.direction + 90, 0.5, 0.5, -1)
+      @weapon.draw_rot(x - @weapon.width / 2, y - @weapon.height, depth, object.direction + 90, 0.5, 0.5, -1)
     end
   end
 
@@ -130,4 +130,5 @@ class CharacterGraphics < Component
     end
     goal
   end
+
 end

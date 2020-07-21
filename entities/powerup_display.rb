@@ -16,10 +16,10 @@ class PowerupDisplay
   def draw
     x1, x2, y1, y2 = coords
     if fire_rate_image
-      fire_rate_image.draw(50, 50, 200)
+      fire_rate_image.draw(50, 50, HUD::Z)
     end
     if speed_image
-      speed_image.draw(50, 60, 200)
+      speed_image.draw(50, 60, HUD::Z)
     end
   end
 

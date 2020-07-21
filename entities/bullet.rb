@@ -3,7 +3,7 @@ class Bullet < GameObject
   PQ = 10
   attr_accessor :target_x, :target_y, :speed, :fired_at, :source,
                 :weapon, :gun_angle, :sounds,
-                :graphics
+                :graphics, :prev_x, :prev_y
 
   def initialize(object_pool, object, source_x, source_y, target_x, target_y)
     super(object_pool, source_x, source_y)
@@ -27,7 +27,7 @@ class Bullet < GameObject
     if @weapon['explodable'].to_i == 1
       Thread.new do
         sleep 0.1
-        Explosion.new(object_pool, @x, @y, @source)
+        Explosion.new(object_pool, @prev_x, @prev_y, @source) # prev_x, y are by depth reason. By getting previous tile_x, y set correct depth value.
       end
     end
     mark_for_removal

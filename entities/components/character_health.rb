@@ -25,6 +25,7 @@ class CharacterHealth < Health
         x2, y1, BACKGROUND,
         x2, y2, BACKGROUND,
         x1, y2, BACKGROUND,
+        HUD::Z
       )
     if object.health.health > 0
       gauge_len = WIDTH * (object.health.health.to_f / object.health.initial_health.to_f)
@@ -34,6 +35,7 @@ class CharacterHealth < Health
         x2, y1, COLOR,
         x2, y2, COLOR,
         x1, y2, COLOR,
+        HUD::Z
       )
     end
     end

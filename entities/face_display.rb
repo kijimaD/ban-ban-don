@@ -1,5 +1,4 @@
 class FaceDisplay < Component
-  Z = 300
   WIDTH = 200
   HEIGHT = 60
   PADDING = 10
@@ -25,7 +24,7 @@ class FaceDisplay < Component
 
   def draw_face
     x1, x2, y1, y2 = face_coords
-    face_image.draw(x1, y1, Z)
+    face_image.draw(x1, y1, HUD::Z)
   end
 
   def draw_face_bg
@@ -35,12 +34,12 @@ class FaceDisplay < Component
       x2, y1, BACKGROUND,
       x2, y2, BACKGROUND,
       x1, y2, BACKGROUND,
-      Z)
+      HUD::Z)
   end
 
   def draw_hp
     x1, x2, y1, y2 = hp_coords
-    hp_image.draw(x1, y1, Z)
+    hp_image.draw(x1, y1, HUD::Z)
   end
 
   def draw_hp_filter
@@ -54,18 +53,18 @@ class FaceDisplay < Component
       x2, y1 + 1, FILTER,
       x2, y2 - 1, FILTER,
       x1, y2 - 1, FILTER,
-      Z)
+      HUD::Z)
   end
 
   def draw_magazine
     x1, x2, y1, y2 = magazine_coords
-    magazine_image.draw(x1, y1, Z)
+    magazine_image.draw(x1, y1, HUD::Z)
   end
 
   def draw_magazine_msg
     x1, x2, y1, y2 = magazine_coords
     magazine_msg.draw(
-      x2, y1 + PADDING, Z, 1.0, 1.0, FONT_COLOR
+      x2, y1 + PADDING, HUD::Z, 1.0, 1.0, FONT_COLOR
     )
   end
 

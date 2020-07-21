@@ -7,7 +7,7 @@ class BulletGraphics < Component
   end
 
   def draw(viewport)
-    bullet.draw_rot(x - 4, y - 4, 2, @object.gun_angle)
+    bullet.draw_rot(x - 4, y - 4, depth, @object.gun_angle)
     Utils.mark_corners(object.box) if $debug
   end
 

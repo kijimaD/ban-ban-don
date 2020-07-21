@@ -71,12 +71,14 @@ class BulletPhysics < Component
     unless @object_pool.map.can_through_bullet?(x, y)
       return do_hit
     end
+    object.prev_x = x
+    object.prev_y = y
   end
 
   def do_hit(obj = nil)
     @game_object.sounds.hit(@game_object, @object_pool.camera)
     if obj
-    obj.health.inflict_damage(20, object.source)
+      obj.health.inflict_damage(20, object.source)
     end
     object.explode
     object.target_x = x

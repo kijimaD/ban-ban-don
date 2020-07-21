@@ -209,4 +209,12 @@ module Utils
     false
   end
 
+  def self.tile_coords(x, y)
+    col = (Map::OFFSET_X + y * 2 - x) / 2
+    row = ((x + col) - Map::TILE_HEIGHT) - Map::OFFSET_X
+    t_x = (col / Map::TILE_HEIGHT).round
+    t_y = (row / Map::TILE_HEIGHT).round
+    [t_x, t_y]
+  end
+
 end

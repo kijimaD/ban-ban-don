@@ -23,7 +23,7 @@ class AmmoDisplay < Component
   def draw_ammo
     x1, x2, y1, y2 = coords
     @character.number_ammo.times do |i|
-      image.draw(x1 + PADDING * i, y1, 300)
+      image.draw(x1 + PADDING * i, y1, HUD::Z)
     end
   end
 
@@ -34,7 +34,7 @@ class AmmoDisplay < Component
       x2, y1, BACKGROUND,
       x2, y2, BACKGROUND,
       x1, y2, BACKGROUND,
-      200)
+      HUD::Z - 1)
   end
 
   private

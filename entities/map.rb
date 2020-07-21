@@ -21,10 +21,10 @@ class Map
     @map = generate_fix_map(:parking)
     # generate_trees
     # generate_boxes
-    # generate_powerups
+    generate_powerups
   end
 
-  def draw(viewport, character)
+  def draw(viewport)
     viewport[0] = viewport[0] / TILE_WIDTH
     viewport[1] = viewport[1] / TILE_WIDTH
     viewport[2] = viewport[2] / TILE_HEIGHT
@@ -34,38 +34,29 @@ class Map
       (y0-20..y1+20).each do |y|
         map_x = (y - x) * TILE_HEIGHT + OFFSET_X
         map_y = (y + x) * (TILE_HEIGHT / 2)
+        depth = (x + y)
         if @map[:floor][x]
           tile = @map[:floor][x][y]
           if tile
-            tile.draw(map_x, map_y, 0)
+            tile.draw(map_x, map_y, depth)
           end
         end
         if @map[:wall_ns][x]
           ns_wall = @map[:wall_ns][x][y]
           if ns_wall
-            if character.y > map_y
-              z = 0
-            else
-              z = 10
-            end
-            ns_wall.draw(map_x + TILE_WIDTH / 2, (map_y + TILE_HEIGHT / 2) - ns_wall.height, z)
+            ns_wall.draw(map_x + TILE_WIDTH / 2, (map_y + TILE_HEIGHT / 2) - ns_wall.height, depth)
           end
         end
         if @map[:wall_we][x]
           we_wall = @map[:wall_we][x][y]
           if we_wall
-            if character.y > map_y
-              z = 0
-            else
-              z = 10
-            end
-            we_wall.draw(map_x, (map_y + TILE_HEIGHT / 2) - we_wall.height, z)
+            we_wall.draw(map_x, (map_y + TILE_HEIGHT / 2) - we_wall.height, depth)
           end
         end
         if @map[:ceiling][x]
           ceiling = @map[:ceiling][x][y]
           if ceiling
-            ceiling.draw(map_x, (map_y + TILE_HEIGHT / 2) - 256, 100)
+            ceiling.draw(map_x, (map_y + TILE_HEIGHT / 2) - 256, 10 + depth)
           end
         end
       end
@@ -136,7 +127,7 @@ class Map
 
   def generate_powerups
     pups = 0
-    target_pups = rand(20..30)
+    target_pups = rand(10..20)
     while pups < target_pups do
       x = rand(0..MAP_WIDTH * TILE_WIDTH + OFFSET_X)
       y = rand(0..MAP_HEIGHT * TILE_HEIGHT)
@@ -170,10 +161,7 @@ class Map
   end
 
   def tile_at(x, y)
-    col = (OFFSET_X + y * 2 - x) / 2
-    row = ((x + col) - TILE_HEIGHT) - OFFSET_X
-    t_x = (col / TILE_HEIGHT).round
-    t_y = (row / TILE_HEIGHT).round
+    t_x, t_y = Utils.tile_coords(x, y)
     row = @map[:floor][t_x]
     row ? row[t_y] : @water
   end

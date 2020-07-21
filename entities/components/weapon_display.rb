@@ -22,7 +22,7 @@ class WeaponDisplay < Component
 
   def draw_weapon_type
     x1, x2, y1, y2 = weapon_coords
-    weapon_msg.draw(x1, y1, 300, 1.0, 1.0, FONT_COLOR)
+    weapon_msg.draw(x1, y1, HUD::Z, 1.0, 1.0, FONT_COLOR)
   end
 
   def draw_weapon_bg
@@ -32,7 +32,7 @@ class WeaponDisplay < Component
       x2 + PADDING, y1, BACKGROUND,
       x2 + PADDING, y2, BACKGROUND,
       x1 - PADDING, y2, BACKGROUND,
-      200)
+      HUD::Z - 1)
   end
 
   private

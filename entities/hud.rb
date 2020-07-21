@@ -1,4 +1,5 @@
 class HUD
+  Z = 500
   attr_accessor :active
 
   def initialize(object_pool, character)
