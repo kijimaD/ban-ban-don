@@ -3,6 +3,7 @@ class Map
   MAP_HEIGHT = 10
   TILE_WIDTH = 256
   TILE_HEIGHT = 128
+  WALL_HEIGHT = 200
   OFFSET_X = MAP_WIDTH * TILE_WIDTH / 2
 
   def self.bounding_box
@@ -56,7 +57,7 @@ class Map
         if @map[:ceiling][x]
           ceiling = @map[:ceiling][x][y]
           if ceiling
-            ceiling.draw(map_x, (map_y + TILE_HEIGHT / 2) - 256, 10 + depth)
+            ceiling.draw(map_x, (map_y + TILE_HEIGHT / 2) - WALL_HEIGHT, 10 + depth)
           end
         end
       end

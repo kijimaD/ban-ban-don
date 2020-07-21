@@ -262,27 +262,27 @@ class Explosion < GameObjectExplosion1,0
 
 entities/map.rb,944
 class MapMap1,0
-  def self.bounding_boxbounding_box8,125
-  def initialize(object_pool)initialize16,391
-  def draw(viewport)draw27,618
-  def spawn_points(max)spawn_points66,1822
-  def spawn_pointspawn_point73,1950
-  def can_move_to?(x, y)can_move_to?77,2044
-  def can_through_bullet?(x, y)can_through_bullet?82,2128
-  def movement_penalty(x, y)movement_penalty87,2219
-  def generate_treesgenerate_trees97,2345
-  def generate_boxesgenerate_boxes115,2852
-  def generate_powerupsgenerate_powerups128,3166
-  def random_poweruprandom_powerup141,3536
-  def find_spawn_pointfind_spawn_point153,3706
-  def tile_at(x, y)tile_at163,3967
-  def generate_random_mapgenerate_random_map169,4089
-  def generate_fix_map(select_map)generate_fix_map185,4441
-  def choose_tile(val)choose_tile226,5432
-  def load_tilesload_tiles237,5570
-  def load_wallsload_walls244,5753
-  def mapsmaps249,5959
-  def imagesimages253,6032
+  def self.bounding_boxbounding_box9,145
+  def initialize(object_pool)initialize17,411
+  def draw(viewport)draw28,638
+  def spawn_points(max)spawn_points67,1842
+  def spawn_pointspawn_point74,1970
+  def can_move_to?(x, y)can_move_to?78,2064
+  def can_through_bullet?(x, y)can_through_bullet?83,2148
+  def movement_penalty(x, y)movement_penalty88,2239
+  def generate_treesgenerate_trees98,2365
+  def generate_boxesgenerate_boxes116,2872
+  def generate_powerupsgenerate_powerups129,3186
+  def random_poweruprandom_powerup142,3556
+  def find_spawn_pointfind_spawn_point154,3726
+  def tile_at(x, y)tile_at164,3987
+  def generate_random_mapgenerate_random_map170,4109
+  def generate_fix_map(select_map)generate_fix_map186,4461
+  def choose_tile(val)choose_tile227,5452
+  def load_tilesload_tiles238,5590
+  def load_wallsload_walls245,5773
+  def mapsmaps250,5979
+  def imagesimages254,6052
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -391,7 +391,7 @@ class CharacterHealth < HealthCharacterHealth1,0
   def initialize(object, object_pool)initialize9,173
   def updateupdate17,414
   def draw(viewport)draw20,434
-  def coordscoords43,972
+  def coordscoords44,987
 
 entities/components/character_physics.rb,636
 class CharacterPhysics < ComponentCharacterPhysics1,0
