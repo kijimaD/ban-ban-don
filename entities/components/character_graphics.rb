@@ -86,7 +86,7 @@ class CharacterGraphics < Component
     i = (object.direction / 45) % 8
     if 0 <= i && i < 1
     elsif i < 4
-      @weapon.draw_rot(x + @weapon.width / 2, y - @weapon.height, 1 + depth, object.direction - 90, 0.5, 0.5, 1)
+      @weapon.draw_rot(x + @weapon.width / 2, y - @weapon.height, depth + 1, object.direction - 90, 0.5, 0.5, 1)
     elsif 7 < i && i < 8
     else
       @weapon.draw_rot(x - @weapon.width / 2, y - @weapon.height, depth, object.direction + 90, 0.5, 0.5, -1)
