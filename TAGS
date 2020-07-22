@@ -32,32 +32,34 @@ class PlayState < GameStatePlayState1,0
   def player_selected_characterplayer_selected_character127,3255
   def random_characterrandom_character131,3352
 
-game_states/menu_state.rb,306
+game_states/menu_state.rb,405
 class MenuState < GameStateMenuState2,16
-  def initializeinitialize9,211
-  def enterenter14,362
-  def leaveleave20,441
-  def musicmusic25,496
-  def updateupdate29,588
-  def drawdraw34,825
-  def button_down(id)button_down46,1089
-  def bgbg69,1739
-  def choice_branchchoice_branch73,1813
+  def initializeinitialize10,220
+  def enterenter15,371
+  def leaveleave21,450
+  def musicmusic26,505
+  def updateupdate30,597
+  def drawdraw35,834
+  def button_down(id)button_down47,1096
+  def bgbg71,1775
+  def choice_branchchoice_branch75,1849
+  def difficulty_imagesdifficulty_images89,2290
+  def character_imagescharacter_images93,2383
 
 game_states/choice_state.rb,498
 class ChoiceState < GameStateChoiceState1,0
-  def initialize(messages, images)initialize8,165
-  def enterenter14,271
-  def leaveleave17,290
-  def drawdraw20,309
-  def updateupdate27,403
-  def draw_messagedraw_message30,423
-  def button_down(id)button_down39,695
-  def draw_cursordraw_cursor53,1055
-  def draw_cursor_coverdraw_cursor_cover64,1213
-  def cursor_coordscursor_coords75,1442
-  def can_move_right?can_move_right?81,1534
-  def can_move_left?can_move_left?85,1600
+  def initialize(messages, images)initialize9,174
+  def enterenter15,280
+  def leaveleave18,299
+  def drawdraw21,318
+  def updateupdate28,412
+  def draw_messagedraw_message31,432
+  def button_down(id)button_down40,790
+  def draw_cursordraw_cursor54,1150
+  def draw_cursor_coverdraw_cursor_cover65,1340
+  def cursor_coordscursor_coords76,1575
+  def can_move_right?can_move_right?82,1735
+  def can_move_left?can_move_left?86,1801
 
 game_states/demo_state.rb,320
 class DemoState < PlayStateDemoState1,0
@@ -256,9 +258,9 @@ class RadarRadar1,0
 entities/explosion.rb,222
 class Explosion < GameObjectExplosion1,0
   def initialize(object_pool, x, y, source)initialize3,30
-  def effect?effect?19,431
-  def mark_for_removalmark_for_removal23,461
-  def inflict_damageinflict_damage29,512
+  def effect?effect?19,429
+  def mark_for_removalmark_for_removal23,459
+  def inflict_damageinflict_damage29,510
 
 entities/map.rb,944
 class MapMap1,0
@@ -288,7 +290,7 @@ entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
   def initialize(object_pool)initialize2,33
   def draw(viewport)draw9,169
-  def imagesimages17,273
+  def imagesimages17,277
 
 entities/components/ai_input.rb,264
 class AiInput < ComponentAiInput1,0
@@ -355,10 +357,10 @@ entities/components/explosion_graphics.rb,262
 class ExplosionGraphics < ComponentExplosionGraphics1,0
   def initialize(game_object)initialize4,59
   def draw(viewport)draw9,129
-  def updateupdate17,298
-  def current_framecurrent_frame29,543
-  def done?done?33,617
-  def animationanimation37,683
+  def updateupdate17,302
+  def current_framecurrent_frame29,547
+  def done?done?33,621
+  def animationanimation37,687
 
 entities/components/damage_popup_graphics.rb,177
 class DamagePopupGraphics < ComponentDamagePopupGraphics1,0

@@ -3,7 +3,8 @@ class ChoiceState < GameState
   PADDING = 10
   IN_PADDING = 1
   COLOR = Gosu::Color::WHITE
-  BACKGROUND = Gosu::Color::BLACK
+  BACKGROUND = Gosu::Color::WHITE
+  Z = 20
 
   def initialize(messages, images)
     @messages = messages
@@ -29,10 +30,9 @@ class ChoiceState < GameState
 
   def draw_message
     @messages.each_with_index do |message, i|
-      @image = Gosu::Image.from_text(message[0], 20, options = {font: Utils.title_font})
-      @image.draw(PADDING + i * 100,
-                  PADDING,
-                  10, 1.0, 1.0, COLOR)
+      @images.draw($window.width / 2 - 2 * @images.width + i * (@images.width + IN_PADDING),
+                   $window.height / 2 - @images.height,
+                  Z, 1.0, 1.0, COLOR)
     end
   end
 
@@ -53,12 +53,12 @@ class ChoiceState < GameState
   def draw_cursor
     x1, y1 = cursor_coords
     $window.draw_rect(
-      x1,
-      y1,
-      @image.width,
-      @image.height,
+      x1 - IN_PADDING,
+      y1 - IN_PADDING,
+      @images.width + IN_PADDING * 2,
+      @images.height + IN_PADDING * 2,
       COLOR,
-      1)
+      Z - 1)
   end
 
   def draw_cursor_cover
@@ -66,15 +66,15 @@ class ChoiceState < GameState
     $window.draw_rect(
       x1 + IN_PADDING,
       y1 + IN_PADDING,
-      @image.width - IN_PADDING * 2,
-      @image.height - IN_PADDING * 2,
+      @images.width - IN_PADDING * 2,
+      @images.height - IN_PADDING * 2,
       BACKGROUND,
-      5)
+      Z - 1)
   end
 
   def cursor_coords
-    x1 = PADDING + @cursor_x * 100
-    y1 = PADDING
+    x1 = $window.width / 2 - 2 * @images.width + @cursor_x * (@images.width + IN_PADDING)
+    y1 = $window.height / 2 - @images.height
     [x1, y1]
   end
 
