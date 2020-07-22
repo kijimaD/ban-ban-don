@@ -8,7 +8,7 @@ class DamageGraphics < Component
 
   def draw(viewport)
     if @image
-      @image.draw_rot(x, y, 0, @angle)
+      @image.draw_rot(x, y, depth + 1, @angle)
     end
   end
 

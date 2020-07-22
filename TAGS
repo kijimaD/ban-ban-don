@@ -288,7 +288,7 @@ entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
   def initialize(object_pool)initialize2,33
   def draw(viewport)draw9,169
-  def imagesimages17,269
+  def imagesimages17,273
 
 entities/components/ai_input.rb,264
 class AiInput < ComponentAiInput1,0
@@ -349,7 +349,7 @@ class AnnounceGraphicsAnnounceGraphics1,0
   def updateupdate19,263
   def win_or_lose(wl)win_or_lose22,283
   def image(x, y, word)image32,434
-  def coordscoords36,578
+  def coordscoords36,581
 
 entities/components/explosion_graphics.rb,262
 class ExplosionGraphics < ComponentExplosionGraphics1,0
@@ -364,7 +364,7 @@ entities/components/damage_popup_graphics.rb,177
 class DamagePopupGraphics < ComponentDamagePopupGraphics1,0
   def initialize(object, amount)initialize3,39
   def draw(viewport)draw10,149
-  def popup_msgpopup_msg24,373
+  def popup_msgpopup_msg24,378
 
 entities/components/announce_sounds.rb,156
 class AnnounceSoundsAnnounceSounds1,0
@@ -377,14 +377,14 @@ entities/components/tree_graphics.rb,411
 class TreeGraphics < ComponentTreeGraphics1,0
   def initialize(object, seed)initialize6,131
   def draw(viewport)draw11,209
-  def shake(direction)shake26,615
-  def adjust_shake(x, y, shaking_for)adjust_shake35,842
-  def heightheight42,1106
-  def widthwidth46,1143
-  def load_sprite(seed)load_sprite52,1189
-  def center_xcenter_x58,1340
-  def center_ycenter_y62,1400
-  def treestrees66,1461
+  def shake(direction)shake26,631
+  def adjust_shake(x, y, shaking_for)adjust_shake35,858
+  def heightheight42,1122
+  def widthwidth46,1159
+  def load_sprite(seed)load_sprite52,1205
+  def center_xcenter_x58,1356
+  def center_ycenter_y62,1416
+  def treestrees66,1477
 
 entities/components/character_health.rb,193
 class CharacterHealth < HealthCharacterHealth1,0
@@ -570,21 +570,21 @@ class Health < ComponentHealth1,0
   def updateupdate21,383
   def inflict_damage(amount, cause)inflict_damage25,420
   def draw(viewport)draw43,973
-  def increase(amount)increase51,1145
-  def draw?draw?59,1267
-  def update_imageupdate_image63,1297
-  def after_death(cause)after_death73,1509
+  def increase(amount)increase51,1148
+  def draw?draw?59,1270
+  def update_imageupdate_image63,1300
+  def after_death(cause)after_death73,1512
 
 entities/components/box_graphics.rb,294
 class BoxGraphics < ComponentBoxGraphics1,0
   def initialize(object)initialize3,31
   def draw(viewport)draw8,97
-  def heightheight13,211
-  def widthwidth17,247
-  def load_spriteload_sprite23,292
-  def center_xcenter_x28,383
-  def center_ycenter_y32,437
-  def boxesboxes36,492
+  def heightheight13,219
+  def widthwidth17,255
+  def load_spriteload_sprite23,300
+  def center_xcenter_x28,391
+  def center_ycenter_y32,445
+  def boxesboxes36,500
 
 entities/components/player_input.rb,355
 class PlayerInput < ComponentPlayerInput1,0

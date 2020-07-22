@@ -6,7 +6,7 @@ class BoxGraphics < Component
   end
 
   def draw(viewport)
-    @box.draw_rot(x, y, 0, object.angle)
+    @box.draw_rot(x, y, depth + 1, object.angle)
     Utils.mark_corners(object.box) if $debug
   end
 
