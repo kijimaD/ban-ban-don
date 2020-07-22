@@ -262,33 +262,33 @@ class Explosion < GameObjectExplosion1,0
 
 entities/map.rb,944
 class MapMap1,0
-  def self.bounding_boxbounding_box8,125
-  def initialize(object_pool)initialize16,391
-  def draw(viewport)draw27,618
-  def spawn_points(max)spawn_points66,1822
-  def spawn_pointspawn_point73,1950
-  def can_move_to?(x, y)can_move_to?77,2044
-  def can_through_bullet?(x, y)can_through_bullet?82,2128
-  def movement_penalty(x, y)movement_penalty87,2219
-  def generate_treesgenerate_trees97,2345
-  def generate_boxesgenerate_boxes115,2852
-  def generate_powerupsgenerate_powerups128,3166
-  def random_poweruprandom_powerup141,3536
-  def find_spawn_pointfind_spawn_point153,3706
-  def tile_at(x, y)tile_at163,3967
-  def generate_random_mapgenerate_random_map169,4089
-  def generate_fix_map(select_map)generate_fix_map185,4441
-  def choose_tile(val)choose_tile226,5432
-  def load_tilesload_tiles237,5570
-  def load_wallsload_walls244,5753
-  def mapsmaps249,5959
-  def imagesimages253,6032
+  def self.bounding_boxbounding_box9,145
+  def initialize(object_pool)initialize17,411
+  def draw(viewport)draw28,638
+  def spawn_points(max)spawn_points67,1850
+  def spawn_pointspawn_point74,1978
+  def can_move_to?(x, y)can_move_to?78,2072
+  def can_through_bullet?(x, y)can_through_bullet?83,2156
+  def movement_penalty(x, y)movement_penalty88,2247
+  def generate_treesgenerate_trees98,2373
+  def generate_boxesgenerate_boxes116,2880
+  def generate_powerupsgenerate_powerups129,3194
+  def random_poweruprandom_powerup142,3564
+  def find_spawn_pointfind_spawn_point154,3734
+  def tile_at(x, y)tile_at164,3995
+  def generate_random_mapgenerate_random_map170,4117
+  def generate_fix_map(select_map)generate_fix_map186,4469
+  def choose_tile(val)choose_tile227,5460
+  def load_tilesload_tiles238,5598
+  def load_wallsload_walls245,5781
+  def mapsmaps250,5987
+  def imagesimages254,6060
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
   def initialize(object_pool)initialize2,33
   def draw(viewport)draw9,169
-  def imagesimages17,269
+  def imagesimages17,273
 
 entities/components/ai_input.rb,264
 class AiInput < ComponentAiInput1,0
@@ -349,7 +349,7 @@ class AnnounceGraphicsAnnounceGraphics1,0
   def updateupdate19,263
   def win_or_lose(wl)win_or_lose22,283
   def image(x, y, word)image32,434
-  def coordscoords36,578
+  def coordscoords36,581
 
 entities/components/explosion_graphics.rb,262
 class ExplosionGraphics < ComponentExplosionGraphics1,0
@@ -364,7 +364,7 @@ entities/components/damage_popup_graphics.rb,177
 class DamagePopupGraphics < ComponentDamagePopupGraphics1,0
   def initialize(object, amount)initialize3,39
   def draw(viewport)draw10,149
-  def popup_msgpopup_msg24,373
+  def popup_msgpopup_msg24,378
 
 entities/components/announce_sounds.rb,156
 class AnnounceSoundsAnnounceSounds1,0
@@ -377,21 +377,21 @@ entities/components/tree_graphics.rb,411
 class TreeGraphics < ComponentTreeGraphics1,0
   def initialize(object, seed)initialize6,131
   def draw(viewport)draw11,209
-  def shake(direction)shake26,615
-  def adjust_shake(x, y, shaking_for)adjust_shake35,842
-  def heightheight42,1106
-  def widthwidth46,1143
-  def load_sprite(seed)load_sprite52,1189
-  def center_xcenter_x58,1340
-  def center_ycenter_y62,1400
-  def treestrees66,1461
+  def shake(direction)shake26,631
+  def adjust_shake(x, y, shaking_for)adjust_shake35,858
+  def heightheight42,1122
+  def widthwidth46,1159
+  def load_sprite(seed)load_sprite52,1205
+  def center_xcenter_x58,1356
+  def center_ycenter_y62,1416
+  def treestrees66,1477
 
 entities/components/character_health.rb,193
 class CharacterHealth < HealthCharacterHealth1,0
   def initialize(object, object_pool)initialize9,173
   def updateupdate17,414
   def draw(viewport)draw20,434
-  def coordscoords43,972
+  def coordscoords44,987
 
 entities/components/character_physics.rb,636
 class CharacterPhysics < ComponentCharacterPhysics1,0
@@ -570,21 +570,21 @@ class Health < ComponentHealth1,0
   def updateupdate21,383
   def inflict_damage(amount, cause)inflict_damage25,420
   def draw(viewport)draw43,973
-  def increase(amount)increase51,1145
-  def draw?draw?59,1267
-  def update_imageupdate_image63,1297
-  def after_death(cause)after_death73,1509
+  def increase(amount)increase51,1148
+  def draw?draw?59,1270
+  def update_imageupdate_image63,1300
+  def after_death(cause)after_death73,1512
 
 entities/components/box_graphics.rb,294
 class BoxGraphics < ComponentBoxGraphics1,0
   def initialize(object)initialize3,31
   def draw(viewport)draw8,97
-  def heightheight13,211
-  def widthwidth17,247
-  def load_spriteload_sprite23,292
-  def center_xcenter_x28,383
-  def center_ycenter_y32,437
-  def boxesboxes36,492
+  def heightheight13,219
+  def widthwidth17,255
+  def load_spriteload_sprite23,300
+  def center_xcenter_x28,391
+  def center_ycenter_y32,445
+  def boxesboxes36,500
 
 entities/components/player_input.rb,355
 class PlayerInput < ComponentPlayerInput1,0

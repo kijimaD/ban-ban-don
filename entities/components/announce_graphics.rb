@@ -30,7 +30,7 @@ class AnnounceGraphics
   end
 
   def image(x, y, word)
-    Gosu::Image.from_text(word, 120, options = {font: Utils.title_font}).draw(x, y, 300, 1, 1, Gosu::Color::RED)
+    Gosu::Image.from_text(word, 120, options = {font: Utils.title_font}).draw(x, y, HUD::Z, 1, 1, Gosu::Color::RED)
   end
 
   def coords

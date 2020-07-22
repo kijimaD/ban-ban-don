@@ -9,7 +9,7 @@ class Explosion < GameObject
     inflict_damage
     if @object_pool.map.can_move_to?(x, y)
       Thread.new do
-        sleep rand(0.2..0.4)
+        sleep rand(1..1.2)
         Damage.new(@object_pool, x, y)
         sleep 0.5
       end

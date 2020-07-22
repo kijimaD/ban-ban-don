@@ -12,7 +12,7 @@ class DamagePopupGraphics < Component
       if @frame % 5 == 0
         @offset += 1
       end
-      popup_msg.draw(x, y - @offset * 10, 1)
+      popup_msg.draw(x, y - @offset * 10, HUD::Z)
       @frame += 1
     else
       object.mark_for_removal

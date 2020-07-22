@@ -45,7 +45,7 @@ class Health < Component
     @image && @image.draw(
       x - @image.width / 2,
       y - object.graphics.height / 2 -
-      @image.height, 100)
+      @image.height, HUD::Z)
   end
 
   def increase(amount)

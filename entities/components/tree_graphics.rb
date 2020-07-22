@@ -13,12 +13,12 @@ class TreeGraphics < Component
       shaking_for = Gosu.milliseconds - @shake_start
       shaking_x, shaking_y = adjust_shake(
                    center_x, center_y, shaking_for)
-      @tree.draw(shaking_x, shaking_y, 5)
+      @tree.draw(shaking_x, shaking_y, depth + 1)
       if shaking_for >= SHAKE_TIME
         @shaking = false
       end
     else
-      @tree.draw(center_x, center_y, 5)
+      @tree.draw(center_x, center_y, depth + 1)
     end
     Utils.mark_corners(object.box) if $debug
   end
