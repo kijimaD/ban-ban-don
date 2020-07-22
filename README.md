@@ -4,6 +4,11 @@ Ban Ban Don is a shooting mini-game. Include in Pawapoke-8, baseball video game(
 
 For learning, I try to making its clone.
 
+## Screenshot
+
+![image0](/media/screen_shots/ss0.png?raw=true)
+![image0](/media/screen_shots/ss1.png?raw=true)
+
 ## Require Package
 
 - gosu_texture_packer
