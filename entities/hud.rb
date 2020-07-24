@@ -5,20 +5,25 @@ class HUD
   def initialize(object_pool, character)
     @object_pool = object_pool
     @character = character
-    @ammo_display = AmmoDisplay.new(self, @object_pool, @character)
-    @weapon_display = WeaponDisplay.new(self, @object_pool, @character)
-    @face_display = FaceDisplay.new(self, @object_pool, @character)
-    @score_display = ScoreDisplay.new(self, @object_pool, @character)
-    @speed_meter = SpeedMeter.new(self, @object_pool, @character)
-    @radar = Radar.new(self, @object_pool, @character)
-    @powerup = PowerupDisplay.new(self, @object_pool, @character)
+    @args = {hud:self, object_pool:object_pool, character:character}
+    @ammo_display = AmmoDisplay.new(@args)
+    @weapon_display = WeaponDisplay.new(@args)
+    @face_display = FaceDisplay.new(@args)
+    @score_display = ScoreDisplay.new(@args)
+    @speed_meter = SpeedMeter.new(@args)
+    @radar = Radar.new(@args)
+    @powerup = PowerupDisplay.new(@args)
   end
 
   def player=(character)
     @character = character
-    @radar.object = character
     @ammo_display.character = character
+    @weapon_display.character = character
     @face_display.character = character
+    @score_display.character = character
+    @speed_meter.character = character
+    @powerup.character = character
+    @radar.object = character
   end
 
   def update

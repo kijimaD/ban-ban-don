@@ -7,10 +7,10 @@ class Radar
   MAX_DISTANCE = 2000
   attr_accessor :object
 
-  def initialize(hud, object_pool, character)
-    @hud = hud
-    @object_pool = object_pool
-    @character = character
+  def initialize(args)
+    @hud = args[:hud]
+    @object_pool = args[:object_pool]
+    @character = args[:character]
     @last_update = 0
   end
 

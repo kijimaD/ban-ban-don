@@ -6,10 +6,10 @@ class ScoreDisplay
   FONT_COLOR = Gosu::Color::BLACK
   BACKGROUND_COLOR = Gosu::Color.new(255 * 0.66, 255, 255, 255)
 
-  def initialize(object, object_pool, character)
-    @object = object
-    @object_pool = object_pool
-    @character = character
+  def initialize(args)
+    @hud = args[:hud]
+    @object_pool = args[:object_pool]
+    @character = args[:character]
     @last_update = 0
   end
 
