@@ -5,6 +5,7 @@ class ScoreDisplay
   FONT_SIZE = 20
   FONT_COLOR = Gosu::Color::BLACK
   BACKGROUND_COLOR = Gosu::Color.new(255 * 0.66, 255, 255, 255)
+  attr_accessor :character
 
   def initialize(args)
     @hud = args[:hud]

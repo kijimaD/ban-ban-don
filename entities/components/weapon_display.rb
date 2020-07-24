@@ -4,6 +4,7 @@ class WeaponDisplay < Component
   PADDING = 10
   FONT_COLOR = Gosu::Color::WHITE
   BACKGROUND = Gosu::Color.new(255 * 0.66, 0, 0, 0)
+  attr_accessor :character
 
   def initialize(args)
     @hud = args[:hud]

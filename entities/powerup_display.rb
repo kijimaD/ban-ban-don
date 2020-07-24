@@ -2,6 +2,7 @@ class PowerupDisplay
   WIDTH = 30
   HEIGHT = 80
   PADDING = 10
+  attr_accessor :character
 
   def initialize(args)
     @hud = args[:hud]

@@ -4,6 +4,7 @@ class SpeedMeter
   PADDING = 10
   BACKGROUND = Gosu::Color.new(255 * 0.33, 0, 0, 0)
   FONT_COLOR = Gosu::Color::WHITE
+  attr_accessor :character
 
   def initialize(args)
     @hud = args[:hud]
