@@ -14,11 +14,11 @@ class PlayState < GameState
     if $debug
       number_of_people = 0
     else
-      number_of_people = 1
+      number_of_people = 2
     end
     create_characters(number_of_people)
     @announce = Announce.new(@character, @ai)
-    Damage.new(@object_pool, 0, 0).mark_for_removal # initialize damage
+    Damage.new(@object_pool, 0, 0).mark_for_removal # initialize damage graphics
   end
 
   def enter

@@ -11,15 +11,6 @@
 		"concrete",
 		"concrete",
 		"concrete",
-		"concrete"
-	    ],
-	    [
-		"concrete",
-		"concrete",
-		"concrete",
-		"concrete",
-		"concrete",
-		"concrete",
 		"concrete",
 		"concrete",
 		"concrete",
@@ -28,28 +19,7 @@
 	    [
 		"concrete",
 		"concrete",
-		"wall",
-		"wall",
 		"concrete",
-		"concrete",
-		"wall",
-		"wall",
-		"concrete",
-		"concrete"
-	    ],
-	    [
-		"concrete",
-		"concrete",
-		"wall",
-		"wall",
-		"concrete",
-		"concrete",
-		"wall",
-		"wall",
-		"concrete",
-		"concrete"
-	    ],
-	    [
 		"concrete",
 		"concrete",
 		"concrete",
@@ -71,29 +41,23 @@
 		"concrete",
 		"concrete",
 		"concrete",
-		"concrete"
-	    ],
-	    [
 		"concrete",
 		"concrete",
-		"wall",
-		"wall",
-		"concrete",
-		"concrete",
-		"wall",
-		"wall",
 		"concrete",
 		"concrete"
 	    ],
 	    [
 		"concrete",
 		"concrete",
-		"wall",
+		"concrete",
 		"wall",
 		"concrete",
 		"concrete",
+		"concrete",
 		"wall",
-		"wall",
+		"concrete",
+		"concrete",
+		"concrete",
 		"concrete",
 		"concrete"
 	    ],
@@ -107,9 +71,105 @@
 		"concrete",
 		"concrete",
 		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
 		"concrete"
 	    ],
 	    [
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete"
+	    ],
+	    [
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete"
+	    ],
+	    [
+		"concrete",
+		"concrete",
+		"concrete",
+		"wall",
+		"concrete",
+		"concrete",
+		"concrete",
+		"wall",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete"
+	    ],
+	    [
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete"
+	    ],
+	    [
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete"
+	    ],
+	    [
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete",
+		"concrete"
+	    ],
+	    [
+		"concrete",
+		"concrete",
+		"concrete",
 		"concrete",
 		"concrete",
 		"concrete",
@@ -133,18 +193,8 @@
 		"wall_ns",
 		"wall_ns",
 		"wall_ns",
-		"wall_ns"
-	    ],
-	    [],
-	    [],
-	    [],
-	    [
-		false,
-		false,
 		"wall_ns",
 		"wall_ns",
-		false,
-		false,
 		"wall_ns",
 		"wall_ns"
 	    ],
@@ -154,11 +204,24 @@
 	    [
 		false,
 		false,
-		"wall_ns",
+		false,
 		"wall_ns",
 		false,
 		false,
+		false,
+		"wall_ns"
+	    ],
+	    [],
+	    [],
+	    [],
+	    [
+		false,
+		false,
+		false,
 		"wall_ns",
+		false,
+		false,
+		false,
 		"wall_ns"
 	    ]
 	],
@@ -170,14 +233,6 @@
 		"wall_we"
 	    ],
 	    [
-		"wall_we",
-		false,
-		false,
-		false,
-		"wall_we",
-		false,
-		false,
-		false,
 		"wall_we"
 	    ],
 	    [
@@ -198,14 +253,6 @@
 		"wall_we"
 	    ],
 	    [
-		"wall_we",
-		false,
-		false,
-		false,
-		"wall_we",
-		false,
-		false,
-		false,
 		"wall_we"
 	    ],
 	    [
@@ -217,6 +264,12 @@
 		false,
 		false,
 		false,
+		"wall_we"
+	    ],
+	    [
+		"wall_we"
+	    ],
+	    [
 		"wall_we"
 	    ],
 	    [
@@ -229,53 +282,33 @@
 	"ceiling":[
 	    [],
 	    [],
+	    [],
 	    [
 		false,
 		false,
-		"black",
+		false,
 		"black",
 		false,
 		false,
-		"black",
-		"black",
-		false,
-		false
-	    ],
-	    [
-		false,
 		false,
 		"black",
-		"black",
 		false,
-		false,
-		"black",
-		"black",
 		false,
 		false
 	    ],
 	    [],
 	    [],
+	    [],
 	    [
 		false,
 		false,
-		"black",
+		false,
 		"black",
 		false,
 		false,
-		"black",
-		"black",
-		false,
-		false
-	    ],
-	    [
-		false,
 		false,
 		"black",
-		"black",
 		false,
-		false,
-		"black",
-		"black",
 		false,
 		false
 	    ]

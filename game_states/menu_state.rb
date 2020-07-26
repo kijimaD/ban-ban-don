@@ -5,6 +5,7 @@ class MenuState < GameState
   TITLE_FONT_COLOR = Gosu::Color.new(174, 0, 0)
   BODY_FONT_COLOR = Gosu::Color::WHITE
   PADDING = 10
+  Z = 10
 
   def initialize
     @message = Gosu::Image.from_text("ばんばんどーん!", 80, options = {font: Utils.title_font})
@@ -32,15 +33,15 @@ class MenuState < GameState
   end
 
   def draw
-    bg.draw(0, 0, 1)
+    bg.draw(0, 0, 0)
     @message.draw(
       PADDING,
       PADDING + @message.height,
-      10, 1.0, 1.0, TITLE_FONT_COLOR)
+      Z, 1.0, 1.0, TITLE_FONT_COLOR)
     @info.draw(
       PADDING,
       PADDING + @message.height + @info.height * 2,
-      10, 1.0, 1.0, BODY_FONT_COLOR)
+      Z, 1.0, 1.0, BODY_FONT_COLOR)
   end
 
   def button_down(id)
@@ -49,9 +50,10 @@ class MenuState < GameState
       GameState.switch(@play_state)
     end
     if id == Gosu::KbN
+      choice_branch
       if @choice_return.length == 0
         messages = [["かんたん", 0.8], ["ふつう", 1], ["難しい", 1.2], ["パワフル", 1.5]]
-        choice = ChoiceState.new(messages, "images")
+        choice = ChoiceState.new(messages, difficulty_images)
         choice.menu_state = self
         GameState.switch(choice)
       end
@@ -73,7 +75,7 @@ class MenuState < GameState
   def choice_branch
     if @choice_return.length == 1
       messages = [["パワポケ", "pawapoke"], ["白瀬", "sirase"], ["石中", "ishinaka"], ["灰原", "haibara"]]
-      choice = ChoiceState.new(messages, "images")
+      choice = ChoiceState.new(messages, character_images)
       choice.menu_state = self
       GameState.switch(choice)
     elsif @choice_return.length == 2
@@ -81,4 +83,15 @@ class MenuState < GameState
       GameState.switch(@play_state)
     end
   end
+
+  private
+
+  def difficulty_images
+    @images ||= Gosu::Image.new(Utils.media_path('easy.png'))
+  end
+
+  def character_images
+    @c_images ||= Gosu::Image.new(Utils.media_path('select_character.png'))
+  end
+
 end

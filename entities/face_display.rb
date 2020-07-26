@@ -7,10 +7,10 @@ class FaceDisplay < Component
   FONT_COLOR = Gosu::Color::RED
   attr_accessor :character
 
-  def initialize(object, object_pool, character)
-    @object = object
-    @object_pool = object_pool
-    @character = character
+  def initialize(args)
+    @hud = args[:hud]
+    @object_pool = args[:object_pool]
+    @character = args[:character]
   end
 
   def draw
@@ -99,11 +99,11 @@ class FaceDisplay < Component
   end
 
   def hp_image
-    @@hp_image ||= object.images.frame('hp.png')
+    @@hp_image ||= @hud.images.frame('hp.png')
   end
 
   def magazine_image
-    @@magazine_image ||= object.images.frame('magazine.png')
+    @@magazine_image ||= @hud.images.frame('magazine.png')
   end
 
   def magazine_msg

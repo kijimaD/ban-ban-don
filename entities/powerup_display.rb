@@ -2,11 +2,12 @@ class PowerupDisplay
   WIDTH = 30
   HEIGHT = 80
   PADDING = 10
+  attr_accessor :character
 
-  def initialize(object, object_pool, character)
-    @object = object
-    @object_pool = object_pool
-    @character = character
+  def initialize(args)
+    @hud = args[:hud]
+    @object_pool = args[:object_pool]
+    @character = args[:character]
     @last_update = 0
   end
 
