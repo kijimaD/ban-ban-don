@@ -10,6 +10,7 @@ class ChoiceState < GameState
     @messages = messages
     @images = images
     @cursor_x = 0
+    image_sample
   end
 
   def enter
@@ -30,8 +31,9 @@ class ChoiceState < GameState
 
   def draw_message
     @messages.each_with_index do |message, i|
-      @images.draw($window.width / 2 - 2 * @images.width + i * (@images.width + IN_PADDING),
-                   $window.height / 2 - @images.height,
+      image = @images.frame(message[0].to_s + ".png")
+      image.draw($window.width / 2 - 2 * image.width + i * (image.width + IN_PADDING),
+                   $window.height / 2 - image.height,
                   Z, 1.0, 1.0, COLOR)
     end
   end
@@ -55,8 +57,8 @@ class ChoiceState < GameState
     $window.draw_rect(
       x1 - IN_PADDING,
       y1 - IN_PADDING,
-      @images.width + IN_PADDING * 2,
-      @images.height + IN_PADDING * 2,
+      @image_sample.width + IN_PADDING * 2,
+      @image_sample.height + IN_PADDING * 2,
       COLOR,
       Z - 1)
   end
@@ -66,15 +68,15 @@ class ChoiceState < GameState
     $window.draw_rect(
       x1 + IN_PADDING,
       y1 + IN_PADDING,
-      @images.width - IN_PADDING * 2,
-      @images.height - IN_PADDING * 2,
+      @image_sample.width - IN_PADDING * 2,
+      @image_sample.height - IN_PADDING * 2,
       BACKGROUND,
       Z - 1)
   end
 
   def cursor_coords
-    x1 = $window.width / 2 - 2 * @images.width + @cursor_x * (@images.width + IN_PADDING)
-    y1 = $window.height / 2 - @images.height
+    x1 = $window.width / 2 - 2 * @image_sample.width + @cursor_x * (@image_sample.width + IN_PADDING)
+    y1 = $window.height / 2 - @image_sample.height
     [x1, y1]
   end
 
@@ -84,6 +86,10 @@ class ChoiceState < GameState
 
   def can_move_left?
     @cursor_x > 0
+  end
+
+  def image_sample
+    @image_sample = @images.frame(@messages[0][0] + ".png")
   end
 
 end

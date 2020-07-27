@@ -52,8 +52,8 @@ class MenuState < GameState
     if id == Gosu::KbN
       choice_branch
       if @choice_return.length == 0
-        messages = [["かんたん", 0.8], ["ふつう", 1], ["難しい", 1.2], ["パワフル", 1.5]]
-        choice = ChoiceState.new(messages, difficulty_images)
+        messages = [["easy", 0.8], ["normal", 1], ["hard", 1.2], ["powerful", 1.5]]
+        choice = ChoiceState.new(messages, images)
         choice.menu_state = self
         GameState.switch(choice)
       end
@@ -74,8 +74,8 @@ class MenuState < GameState
 
   def choice_branch
     if @choice_return.length == 1
-      messages = [["パワポケ", "pawapoke"], ["白瀬", "sirase"], ["石中", "ishinaka"], ["灰原", "haibara"]]
-      choice = ChoiceState.new(messages, character_images)
+      messages = [["pawapoke", "pawapoke"], ["sirase", "sirase"], ["ishinaka", "ishinaka"], ["haibara", "haibara"]]
+      choice = ChoiceState.new(messages, images)
       choice.menu_state = self
       GameState.switch(choice)
     elsif @choice_return.length == 2
@@ -86,12 +86,9 @@ class MenuState < GameState
 
   private
 
-  def difficulty_images
-    @images ||= Gosu::Image.new(Utils.media_path('easy.png'))
-  end
-
-  def character_images
-    @c_images ||= Gosu::Image.new(Utils.media_path('select_character.png'))
+  def images
+    @images ||= Gosu::TexturePacker.load_json(
+      Utils.media_path("menus_packed.json"))
   end
 
 end
