@@ -1,6 +1,6 @@
 {
 	"frames": {
-		"easy.png": {
+		"base.png": {
 			"frame": {
 				"x": 1,
 				"y": 1,
@@ -20,9 +20,29 @@
 				"h": 100
 			}
 		},
-		"haibara.png": {
+		"easy.png": {
 			"frame": {
 				"x": 103,
+				"y": 1,
+				"w": 100,
+				"h": 100
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 100,
+				"h": 100
+			},
+			"sourceSize": {
+				"w": 100,
+				"h": 100
+			}
+		},
+		"haibara.png": {
+			"frame": {
+				"x": 205,
 				"y": 1,
 				"w": 100,
 				"h": 100
@@ -83,26 +103,6 @@
 		"normal.png": {
 			"frame": {
 				"x": 205,
-				"y": 1,
-				"w": 100,
-				"h": 100
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 100,
-				"h": 100
-			},
-			"sourceSize": {
-				"w": 100,
-				"h": 100
-			}
-		},
-		"pawapoke.png": {
-			"frame": {
-				"x": 205,
 				"y": 103,
 				"w": 100,
 				"h": 100
@@ -120,7 +120,7 @@
 				"h": 100
 			}
 		},
-		"powerful.png": {
+		"pawapoke.png": {
 			"frame": {
 				"x": 1,
 				"y": 205,
@@ -140,9 +140,29 @@
 				"h": 100
 			}
 		},
-		"sirase.png": {
+		"powerful.png": {
 			"frame": {
 				"x": 103,
+				"y": 205,
+				"w": 100,
+				"h": 100
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 100,
+				"h": 100
+			},
+			"sourceSize": {
+				"w": 100,
+				"h": 100
+			}
+		},
+		"sirase.png": {
+			"frame": {
+				"x": 205,
 				"y": 205,
 				"w": 100,
 				"h": 100
