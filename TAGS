@@ -32,7 +32,7 @@ class PlayState < GameStatePlayState1,0
   def player_selected_characterplayer_selected_character127,3316
   def random_characterrandom_character131,3413
 
-game_states/menu_state.rb,427
+game_states/menu_state.rb,429
 class MenuState < GameStateMenuState2,16
   def initializeinitialize10,220
   def enterenter17,310
@@ -40,13 +40,13 @@ class MenuState < GameStateMenuState2,16
   def musicmusic29,459
   def updateupdate33,551
   def drawdraw38,788
-  def button_down(id)button_down53,1229
-  def bgbg72,1663
-  def choice_branchchoice_branch76,1737
-  def scoresscores95,2555
-  def highscoreshighscores99,2622
-  def titletitle117,2962
-  def imagesimages121,3082
+  def button_down(id)button_down58,1379
+  def bgbg77,1813
+  def choice_branchchoice_branch81,1887
+  def scoresscores100,2705
+  def highscoreshighscores104,2772
+  def titletitle123,3171
+  def imagesimages127,3291
 
 game_states/choice_state.rb,615
 class ChoiceState < GameStateChoiceState1,0
@@ -117,22 +117,22 @@ module UtilsUtils1,0
   def self.load_allload_all30,597
   def self.title_fonttitle_font47,1022
   def self.main_font()main_font51,1096
-  def self.track_update_intervaltrack_update_interval55,1161
-  def self.update_intervalupdate_interval61,1309
-  def self.adjust_speed(speed)adjust_speed65,1392
-  def self.button_down?(button)button_down69,1466
-  def self.button_up?(button)button_up86,1805
-  def self.rotate(angle, around_x, around_y, *points)rotate103,2143
-  def self.point_in_poly(testx, testy, *poly)point_in_poly118,2627
-  def self.distance_between(x1, y1, x2, y2)distance_between139,3137
-  def self.angle_between(x, y, target_x, target_y)angle_between145,3255
-  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance151,3417
-  def self.mark_corners(box)mark_corners158,3635
-  def self.volume(object, camera)volume171,3902
-  def self.pan(object, camera)pan180,4174
-  def self.volume_and_pan(object, camera)volume_and_pan192,4427
-  def self.collides_with_poly?(poly, *box)collides_with_poly196,4526
-  def self.tile_coords(x, y)tile_coords212,4911
+  def self.track_update_intervaltrack_update_interval55,1169
+  def self.update_intervalupdate_interval61,1317
+  def self.adjust_speed(speed)adjust_speed65,1400
+  def self.button_down?(button)button_down69,1474
+  def self.button_up?(button)button_up86,1813
+  def self.rotate(angle, around_x, around_y, *points)rotate103,2151
+  def self.point_in_poly(testx, testy, *poly)point_in_poly118,2635
+  def self.distance_between(x1, y1, x2, y2)distance_between139,3145
+  def self.angle_between(x, y, target_x, target_y)angle_between145,3263
+  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance151,3425
+  def self.mark_corners(box)mark_corners158,3643
+  def self.volume(object, camera)volume171,3910
+  def self.pan(object, camera)pan180,4182
+  def self.volume_and_pan(object, camera)volume_and_pan192,4435
+  def self.collides_with_poly?(poly, *box)collides_with_poly196,4534
+  def self.tile_coords(x, y)tile_coords212,4919
 
 misc/axis_aligned_bounding_box.rb,221
 class AxisAlignedBoundingBoxAxisAlignedBoundingBox1,0

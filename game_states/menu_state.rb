@@ -46,7 +46,12 @@ class MenuState < GameState
       PADDING + @title.height + @info.height * 2,
       Z, 1.0, 1.0, BODY_FONT_COLOR)
     @highscores.each_with_index do |high, i|
-      Gosu::Image.from_text("#{high[0]}, #{high[1]}, #{high[2]}", 26, options = {font: Utils.title_font}).draw(500, 0 + i * 100, Z)
+      text0 = "#{high[0]}:".ljust(10)
+      text1 = "#{high[1]}".ljust(8)
+      text2 = "#{high[2]}".ljust(8)
+      text = text0 + text1 + text2
+      msg = Gosu::Image.from_text(text, 26, options = {font: Utils.main_font})
+      msg.draw($window.width - msg.width - PADDING, $window.height - 4 * msg.height + i * msg.height, Z)
     end
   end
 

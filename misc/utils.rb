@@ -49,7 +49,7 @@ module Utils
   end
 
   def self.main_font()
-    media_path('MPLUS1p-Bold.ttf')
+    media_path('RictyDiminished-Bold.ttf')
   end
 
   def self.track_update_interval
