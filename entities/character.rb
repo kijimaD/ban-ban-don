@@ -21,7 +21,9 @@ class Character < GameObject
     @health = CharacterHealth.new(self, object_pool)
     @graphics = CharacterGraphics.new(self)
     @shoot_delay = weapon['shoot_delay'].to_i
-    @number_magazine = 10 * (1 - @object.difficulty * 0.1)
+    difficulty_factors = { 'easy' => 0.3, 'normal' => 0.5, 'hard' => 0.7, 'powerful' => 1.0 }
+    @difficulty_factor = difficulty_factors[@object.difficulty]
+    @number_magazine = 10 * (1 - @difficulty_factor)
     @number_ammo = weapon['number_shots'].to_i
     reset_modifiers
   end

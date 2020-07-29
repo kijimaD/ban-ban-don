@@ -3,6 +3,7 @@ require 'rmagick'
 require 'perlin_noise'
 require 'gosu_texture_packer'
 require 'singleton'
+require 'csv'
 
 # TODO: I have no idea why can't load Powerup first.(If not this part, ocuur error: uninitialized constant Powerup(NameError))
 require './entities/game_object'

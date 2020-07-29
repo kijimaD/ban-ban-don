@@ -8,8 +8,9 @@ class MenuState < GameState
   Z = 10
 
   def initialize
-    @message = Gosu::Image.from_text("ばんばんどーん!", 80, options = {font: Utils.title_font})
-    @choice_return = []
+    title
+    scores
+    @choice_return = {}
   end
 
   def enter
@@ -50,13 +51,8 @@ class MenuState < GameState
       GameState.switch(@play_state)
     end
     if id == Gosu::KbN
+      @choice_return["on"] = "t"
       choice_branch
-      if @choice_return.length == 0
-        messages = [["かんたん", 0.8], ["ふつう", 1], ["難しい", 1.2], ["パワフル", 1.5]]
-        choice = ChoiceState.new(messages, difficulty_images)
-        choice.menu_state = self
-        GameState.switch(choice)
-      end
     end
     if id == Gosu::KbD
       @play_state = DemoState.new
@@ -73,25 +69,39 @@ class MenuState < GameState
   end
 
   def choice_branch
-    if @choice_return.length == 1
-      messages = [["パワポケ", "pawapoke"], ["白瀬", "sirase"], ["石中", "ishinaka"], ["灰原", "haibara"]]
-      choice = ChoiceState.new(messages, character_images)
+    if @choice_return.has_key?("on") == false
+      return
+    elsif @choice_return.has_key?("difficulty") == false
+      messages = [["easy", "easy"], ["normal", "normal"], ["hard", "hard"], ["powerful", "powerful"]]
+      choice = ChoiceState.new(messages, images, "difficulty")
       choice.menu_state = self
       GameState.switch(choice)
-    elsif @choice_return.length == 2
+    elsif @choice_return.has_key?("chara") == false
+      messages = [["pawapoke", "pawapoke"], ["sirase", "sirase"], ["ishinaka", "ishinaka"], ["haibara", "haibara"]]
+      choice = ChoiceState.new(messages, images, "chara")
+      choice.menu_state = self
+      GameState.switch(choice)
+    elsif @choice_return["difficulty"] && @choice_return["chara"]
       @play_state = PlayState.new(@choice_return)
       GameState.switch(@play_state)
     end
   end
 
-  private
-
-  def difficulty_images
-    @images ||= Gosu::Image.new(Utils.media_path('easy.png'))
+  def scores
+    @scores = CSV.foreach(Utils.media_path("score.csv")) do |row|
+      p row
+    end
   end
 
-  def character_images
-    @c_images ||= Gosu::Image.new(Utils.media_path('select_character.png'))
+  private
+
+  def title
+    @message = Gosu::Image.from_text("ばんばんどーん!", 80, options = {font: Utils.title_font})
+  end
+
+  def images
+    @images ||= Gosu::TexturePacker.load_json(
+      Utils.media_path("menus_packed.json"))
   end
 
 end
