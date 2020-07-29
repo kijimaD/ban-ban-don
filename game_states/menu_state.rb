@@ -8,7 +8,8 @@ class MenuState < GameState
   Z = 10
 
   def initialize
-    @message = Gosu::Image.from_text("ばんばんどーん!", 80, options = {font: Utils.title_font})
+    title
+    scores
     @choice_return = {}
   end
 
@@ -71,7 +72,7 @@ class MenuState < GameState
     if @choice_return.has_key?("on") == false
       return
     elsif @choice_return.has_key?("difficulty") == false
-      messages = [["easy", 0.8], ["normal", 1], ["hard", 1.2], ["powerful", 1.5]]
+      messages = [["easy", "easy"], ["normal", "normal"], ["hard", "hard"], ["powerful", "powerful"]]
       choice = ChoiceState.new(messages, images, "difficulty")
       choice.menu_state = self
       GameState.switch(choice)
@@ -86,7 +87,17 @@ class MenuState < GameState
     end
   end
 
+  def scores
+    @scores = CSV.foreach(Utils.media_path("score.csv")) do |row|
+      p row
+    end
+  end
+
   private
+
+  def title
+    @message = Gosu::Image.from_text("ばんばんどーん!", 80, options = {font: Utils.title_font})
+  end
 
   def images
     @images ||= Gosu::TexturePacker.load_json(

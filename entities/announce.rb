@@ -16,7 +16,8 @@ class Announce
     end
     if @done && Utils.button_down?(Gosu::KbReturn)
       MenuState.instance.play_state = nil
-      MenuState.instance.choice_return = []
+      MenuState.instance.choice_return = {}
+      MenuState.instance.scores
       GameState.switch(MenuState.instance)
     end
   end
