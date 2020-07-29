@@ -11,11 +11,13 @@ class MenuState < GameState
     title
     scores
     @choice_return = {}
+    @highscores = []
   end
 
   def enter
     music.play(true)
     music.volume = 1
+    highscores
     choice_branch
   end
 
@@ -35,14 +37,17 @@ class MenuState < GameState
 
   def draw
     bg.draw(0, 0, 0)
-    @message.draw(
+    @title.draw(
       PADDING,
-      PADDING + @message.height,
+      PADDING + @title.height,
       Z, 1.0, 1.0, TITLE_FONT_COLOR)
     @info.draw(
       PADDING,
-      PADDING + @message.height + @info.height * 2,
+      PADDING + @title.height + @info.height * 2,
       Z, 1.0, 1.0, BODY_FONT_COLOR)
+    @highscores.each_with_index do |high, i|
+      Gosu::Image.from_text("#{high[0]}, #{high[1]}, #{high[2]}", 26, options = {font: Utils.title_font}).draw(500, 0 + i * 100, Z)
+    end
   end
 
   def button_down(id)
@@ -88,15 +93,30 @@ class MenuState < GameState
   end
 
   def scores
-    @scores = CSV.foreach(Utils.media_path("score.csv")) do |row|
-      p row
+    CSV.foreach(Utils.media_path("score.csv"))
+  end
+
+  def highscores
+    @highscores = []
+    difficulties = ["easy", "normal", "hard", "powerful"]
+    difficulties.each do |difficulty|
+      i = []
+      CSV.foreach(Utils.media_path("score.csv")) do |f|
+        if f.include?(difficulty)
+          i << f
+        end
+      end
+      sorted = i.sort{|a,b|
+        b[1].to_i<=>a[1].to_i
+      }
+      @highscores << sorted[0]
     end
   end
 
   private
 
   def title
-    @message = Gosu::Image.from_text("ばんばんどーん!", 80, options = {font: Utils.title_font})
+    @title = Gosu::Image.from_text("ばんばんどーん!", 80, options = {font: Utils.title_font})
   end
 
   def images

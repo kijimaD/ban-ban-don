@@ -1,4 +1,11 @@
+difficulty,score,chara
 easy,40,pawapoke
-powerful,0,pawapoke
-easy,160,pawapoke
-easy,500,haibara
+normal,50,powapoke
+hard,50,powapoke
+powerful,50,powapoke
+easy,212,ishinaka
+normal,505,ishinaka
+hard,400,pawapoke
+easy,560,ishinaka
+powerful,410,ishinaka
+normal,482,ishinaka

@@ -15,9 +15,9 @@ class Announce
       once
     end
     if @done && Utils.button_down?(Gosu::KbReturn)
+      @record.record
       MenuState.instance.play_state = nil
       MenuState.instance.choice_return = {}
-      MenuState.instance.scores
       GameState.switch(MenuState.instance)
     end
   end
@@ -46,7 +46,7 @@ class Announce
     if (@win || @lose) && @done.nil?
       @done = true
       Thread.new do
-        sleep 2
+        sleep 1
         @start = true
         sound
       end
@@ -56,7 +56,6 @@ class Announce
   def sound
     if @win
       AnnounceSounds.win
-      @record.record
     end
     if @lose
       AnnounceSounds.lose

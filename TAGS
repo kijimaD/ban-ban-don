@@ -32,20 +32,21 @@ class PlayState < GameStatePlayState1,0
   def player_selected_characterplayer_selected_character127,3316
   def random_characterrandom_character131,3413
 
-game_states/menu_state.rb,390
+game_states/menu_state.rb,427
 class MenuState < GameStateMenuState2,16
   def initializeinitialize10,220
-  def enterenter16,289
-  def leaveleave22,368
-  def musicmusic27,423
-  def updateupdate31,515
-  def drawdraw36,752
-  def button_down(id)button_down48,1014
-  def bgbg67,1448
-  def choice_branchchoice_branch71,1522
-  def scoresscores90,2340
-  def titletitle98,2457
-  def imagesimages102,2579
+  def enterenter17,310
+  def leaveleave24,404
+  def musicmusic29,459
+  def updateupdate33,551
+  def drawdraw38,788
+  def button_down(id)button_down53,1229
+  def bgbg72,1663
+  def choice_branchchoice_branch76,1737
+  def scoresscores95,2555
+  def highscoreshighscores99,2622
+  def titletitle117,2962
+  def imagesimages121,3082
 
 game_states/choice_state.rb,615
 class ChoiceState < GameStateChoiceState1,0
@@ -242,12 +243,12 @@ entities/announce.rb,257
 class AnnounceAnnounce1,0
   def initialize(character, ai, settings)initialize4,49
   def updateupdate11,233
-  def drawdraw25,596
-  def startstart31,657
-  def win?win?35,690
-  def lose?lose?41,766
-  def onceonce45,821
-  def soundsound56,985
+  def drawdraw25,585
+  def startstart31,646
+  def win?win?35,679
+  def lose?lose?41,755
+  def onceonce45,810
+  def soundsound56,974
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -627,14 +628,14 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
 entities/character.rb,427
 class Character < GameObjectCharacter1,0
   def initialize(object, object_pool, input, character_parameter)initialize10,349
-  def boxbox31,1199
-  def shoot(target_x, target_y)shoot35,1233
-  def can_shoot?can_shoot?48,1585
-  def recently_shoot?recently_shoot?52,1690
-  def reloadreload56,1788
-  def on_collision(object)on_collision71,2148
-  def reset_modifiersreset_modifiers83,2411
-  def weaponweapon88,2492
+  def boxbox31,1194
+  def shoot(target_x, target_y)shoot35,1228
+  def can_shoot?can_shoot?48,1580
+  def recently_shoot?recently_shoot?52,1685
+  def reloadreload56,1783
+  def on_collision(object)on_collision71,2143
+  def reset_modifiersreset_modifiers83,2406
+  def weaponweapon88,2487
 
 entities/bullet.rb,221
 class Bullet < GameObjectBullet1,0
