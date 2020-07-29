@@ -43,13 +43,16 @@ class ChoiceState < GameState
     $window.close if id == Gosu::KbQ
     if id == Gosu::KbReturn && @menu_state
       @menu_state.choice_return[@target] = @messages[@cursor_x][1]
+      ok_sound.play
       GameState.switch(@menu_state)
     end
     if id == Gosu::KbRight && can_move_right?
       @cursor_x += 1
+      move_sound.play
     end
     if id == Gosu::KbLeft && can_move_left?
       @cursor_x -= 1
+      move_sound.play
     end
   end
 
@@ -91,6 +94,14 @@ class ChoiceState < GameState
 
   def image_sample
     @image_sample = @images.frame(@messages[0][0] + ".png")
+  end
+
+  def move_sound
+    @@move_sound ||= Gosu::Sample.new(Utils.media_path_sound('cursor_move.wav'))
+  end
+
+  def ok_sound
+    @@ok_sound ||= Gosu::Sample.new(Utils.media_path_sound('cursor_ok.wav'))
   end
 
 end

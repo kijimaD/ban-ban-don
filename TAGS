@@ -43,9 +43,9 @@ class MenuState < GameStateMenuState2,16
   def button_down(id)button_down47,1096
   def bgbg66,1530
   def choice_branchchoice_branch70,1604
-  def imagesimages92,2439
+  def imagesimages91,2413
 
-game_states/choice_state.rb,546
+game_states/choice_state.rb,582
 class ChoiceState < GameStateChoiceState1,0
   def initialize(messages, images, target)initialize9,174
   def enterenter17,326
@@ -60,6 +60,7 @@ class ChoiceState < GameStateChoiceState1,0
   def can_move_right?can_move_right?84,1835
   def can_move_left?can_move_left?88,1901
   def image_sampleimage_sample92,1947
+  def move_soundmove_sound96,2033
 
 game_states/demo_state.rb,320
 class DemoState < PlayStateDemoState1,0
