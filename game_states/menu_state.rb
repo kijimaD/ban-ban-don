@@ -9,7 +9,7 @@ class MenuState < GameState
 
   def initialize
     @message = Gosu::Image.from_text("ばんばんどーん!", 80, options = {font: Utils.title_font})
-    @choice_return = []
+    @choice_return = {}
   end
 
   def enter
@@ -50,13 +50,8 @@ class MenuState < GameState
       GameState.switch(@play_state)
     end
     if id == Gosu::KbN
+      @choice_return["on"] = "t"
       choice_branch
-      if @choice_return.length == 0
-        messages = [["easy", 0.8], ["normal", 1], ["hard", 1.2], ["powerful", 1.5]]
-        choice = ChoiceState.new(messages, images)
-        choice.menu_state = self
-        GameState.switch(choice)
-      end
     end
     if id == Gosu::KbD
       @play_state = DemoState.new
@@ -73,12 +68,19 @@ class MenuState < GameState
   end
 
   def choice_branch
-    if @choice_return.length == 1
-      messages = [["pawapoke", "pawapoke"], ["sirase", "sirase"], ["ishinaka", "ishinaka"], ["haibara", "haibara"]]
-      choice = ChoiceState.new(messages, images)
+    if @choice_return.has_key?("on") == false
+      return
+    elsif @choice_return.has_key?("difficulty") == false
+      messages = [["easy", 0.8], ["normal", 1], ["hard", 1.2], ["powerful", 1.5]]
+      choice = ChoiceState.new(messages, images, "difficulty")
       choice.menu_state = self
       GameState.switch(choice)
-    elsif @choice_return.length == 2
+    elsif @choice_return.has_key?("chara") == false
+      messages = [["pawapoke", "pawapoke"], ["sirase", "sirase"], ["ishinaka", "ishinaka"], ["haibara", "haibara"]]
+      choice = ChoiceState.new(messages, images, "chara")
+      choice.menu_state = self
+      GameState.switch(choice)
+    elsif @choice_return["difficulty"] && @choice_return["chara"]
       @play_state = PlayState.new(@choice_return)
       GameState.switch(@play_state)
     end

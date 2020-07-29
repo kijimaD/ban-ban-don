@@ -6,9 +6,10 @@ class ChoiceState < GameState
   BACKGROUND = Gosu::Color::WHITE
   Z = 20
 
-  def initialize(messages, images)
+  def initialize(messages, images, target)
     @messages = messages
     @images = images
+    @target = target
     @cursor_x = 0
     image_sample
   end
@@ -41,7 +42,7 @@ class ChoiceState < GameState
   def button_down(id)
     $window.close if id == Gosu::KbQ
     if id == Gosu::KbReturn && @menu_state
-      @menu_state.choice_return << @messages[@cursor_x][1]
+      @menu_state.choice_return[@target] = @messages[@cursor_x][1]
       GameState.switch(@menu_state)
     end
     if id == Gosu::KbRight && can_move_right?

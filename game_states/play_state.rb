@@ -2,14 +2,14 @@ class PlayState < GameState
   attr_accessor :update_interval, :object_pool, :character, :announce,
                 :difficulty
 
-  def initialize(settings = [0, "sirase"])
+  def initialize(settings = {"difficulty"=> 0, "chara"=> "sirase"})
     @object_pool = ObjectPool.new(Map.bounding_box)
     @map = Map.new(@object_pool)
     @map.spawn_points(10)
     @camera = Camera.new
     @object_pool.camera = @camera
-    @difficulty = settings[0]
-    @player_selected_character = settings[1]
+    @difficulty = settings["difficulty"]
+    @player_selected_character = settings["chara"]
     character_parameters
     if $debug
       number_of_people = 0
