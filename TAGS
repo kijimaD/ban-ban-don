@@ -21,16 +21,16 @@ class GameStateGameState1,0
 game_states/play_state.rb,521
 class PlayState < GameStatePlayState1,0
   def initialize(settings = [0, "sirase"])initialize5,128
-  def enterenter24,700
-  def leaveleave28,742
-  def updateupdate33,811
-  def drawdraw42,959
-  def button_down(id)button_down66,1607
-  def update_captionupdate_caption100,2399
-  def create_characters(amount)create_characters110,2697
-  def character_parameterscharacter_parameters123,3154
-  def player_selected_characterplayer_selected_character127,3264
-  def random_characterrandom_character131,3361
+  def enterenter24,710
+  def leaveleave28,752
+  def updateupdate33,821
+  def drawdraw42,969
+  def button_down(id)button_down66,1617
+  def update_captionupdate_caption100,2409
+  def create_characters(amount)create_characters110,2707
+  def character_parameterscharacter_parameters123,3164
+  def player_selected_characterplayer_selected_character127,3274
+  def random_characterrandom_character131,3371
 
 game_states/menu_state.rb,335
 class MenuState < GameStateMenuState2,16
@@ -168,6 +168,11 @@ class PowerupDisplayPowerupDisplay1,0
   def speed_imagespeed_image40,795
   def coordscoords53,1104
 
+entities/score_record.rb,103
+class ScoreRecordScoreRecord1,0
+  def initialize(character)initialize3,19
+  def recordrecord7,81
+
 entities/hud.rb,193
 class HUDHUD1,0
   def initialize(object_pool, character)initialize5,45
@@ -233,12 +238,12 @@ entities/announce.rb,247
 class AnnounceAnnounce1,0
   def initialize(character, ai)initialize4,49
   def updateupdate10,171
-  def drawdraw23,522
-  def startstart29,583
-  def win?win?33,616
-  def lose?lose?39,692
-  def onceonce43,747
-  def soundsound54,911
+  def drawdraw23,502
+  def startstart29,563
+  def win?win?33,596
+  def lose?lose?39,672
+  def onceonce43,727
+  def soundsound54,891
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
