@@ -51,7 +51,7 @@ class MenuState < GameState
       text2 = "#{high[2]}".ljust(8)
       text = text0 + text1 + text2
       msg = Gosu::Image.from_text(text, 26, options = {font: Utils.main_font})
-      msg.draw($window.width - msg.width - PADDING, $window.height - 4 * msg.height + i * msg.height, Z)
+      msg.draw($window.width - msg.width - PADDING, $window.height - 4 * msg.height + i * msg.height - PADDING, Z)
     end
   end
 

@@ -1,5 +1,5 @@
 class DamagePopupGraphics < Component
-
+FRAME = 30
   def initialize(object, amount)
     super(object)
     @amount = amount
@@ -8,11 +8,12 @@ class DamagePopupGraphics < Component
   end
 
   def draw(viewport)
-    if @frame < 20
-      if @frame % 5 == 0
-        @offset += 1
+    font_color = Gosu::Color.new(255 / FRAME * (FRAME - @frame) + 30, 255, 255, 255)
+    if @frame < FRAME
+      if @frame % 2 == 0
+        @offset += 0.4
       end
-      popup_msg.draw(x, y - @offset * 10, HUD::Z)
+      popup_msg.draw(x, y - @offset * 10, HUD::Z, 1.0, 1.0, font_color)
       @frame += 1
     else
       object.mark_for_removal

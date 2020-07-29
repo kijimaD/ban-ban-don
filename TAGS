@@ -40,13 +40,13 @@ class MenuState < GameStateMenuState2,16
   def musicmusic29,459
   def updateupdate33,551
   def drawdraw38,788
-  def button_down(id)button_down58,1426
-  def bgbg77,1860
-  def choice_branchchoice_branch81,1934
-  def scoresscores100,2752
-  def highscoreshighscores104,2819
-  def titletitle123,3218
-  def imagesimages127,3338
+  def button_down(id)button_down58,1436
+  def bgbg77,1870
+  def choice_branchchoice_branch81,1944
+  def scoresscores100,2762
+  def highscoreshighscores104,2829
+  def titletitle123,3228
+  def imagesimages127,3348
 
 game_states/choice_state.rb,615
 class ChoiceState < GameStateChoiceState1,0
@@ -57,14 +57,14 @@ class ChoiceState < GameStateChoiceState1,0
   def updateupdate30,458
   def draw_messagedraw_message33,478
   def button_down(id)button_down42,791
-  def draw_cursordraw_cursor59,1204
-  def draw_cursor_coverdraw_cursor_cover70,1440
-  def cursor_coordscursor_coords81,1687
-  def can_move_right?can_move_right?87,1880
-  def can_move_left?can_move_left?91,1946
-  def image_sampleimage_sample95,1992
-  def move_soundmove_sound99,2078
-  def ok_soundok_sound103,2183
+  def draw_cursordraw_cursor59,1223
+  def draw_cursor_coverdraw_cursor_cover70,1459
+  def cursor_coordscursor_coords81,1706
+  def can_move_right?can_move_right?87,1899
+  def can_move_left?can_move_left?91,1965
+  def image_sampleimage_sample95,2011
+  def move_soundmove_sound99,2097
+  def ok_soundok_sound103,2202
 
 game_states/demo_state.rb,320
 class DemoState < PlayStateDemoState1,0
@@ -374,9 +374,9 @@ class ExplosionGraphics < ComponentExplosionGraphics1,0
 
 entities/components/damage_popup_graphics.rb,177
 class DamagePopupGraphics < ComponentDamagePopupGraphics1,0
-  def initialize(object, amount)initialize3,39
-  def draw(viewport)draw10,149
-  def popup_msgpopup_msg24,378
+  def initialize(object, amount)initialize3,49
+  def draw(viewport)draw10,159
+  def popup_msgpopup_msg25,495
 
 entities/components/announce_sounds.rb,156
 class AnnounceSoundsAnnounceSounds1,0
@@ -628,14 +628,14 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
 entities/character.rb,427
 class Character < GameObjectCharacter1,0
   def initialize(object, object_pool, input, character_parameter)initialize10,349
-  def boxbox31,1194
-  def shoot(target_x, target_y)shoot35,1228
-  def can_shoot?can_shoot?48,1580
-  def recently_shoot?recently_shoot?52,1685
-  def reloadreload56,1783
-  def on_collision(object)on_collision71,2143
-  def reset_modifiersreset_modifiers83,2406
-  def weaponweapon88,2487
+  def boxbox31,1199
+  def shoot(target_x, target_y)shoot35,1233
+  def can_shoot?can_shoot?48,1585
+  def recently_shoot?recently_shoot?52,1690
+  def reloadreload56,1788
+  def on_collision(object)on_collision71,2148
+  def reset_modifiersreset_modifiers83,2411
+  def weaponweapon88,2492
 
 entities/bullet.rb,221
 class Bullet < GameObjectBullet1,0
