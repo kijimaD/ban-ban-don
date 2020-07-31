@@ -1,11 +1,12 @@
 class Announce
-  attr_reader :done, :win, :lose
+  attr_reader :done, :win, :lose, :started
 
   def initialize(character, ai, settings)
     @character = character
     @ai = ai
     @graphics = AnnounceGraphics.new(self)
     @record = ScoreRecord.new(@character, settings)
+    start
   end
 
   def update
@@ -23,13 +24,17 @@ class Announce
   end
 
   def draw
-    if @start
       @graphics.draw
-    end
   end
 
   def start
-    # start!!
+      Thread.new do
+        sleep 1
+        @started = true
+        sleep 2
+        AnnounceSounds.start
+        @started = nil
+      end
   end
 
   def win?
@@ -47,13 +52,12 @@ class Announce
       @done = true
       Thread.new do
         sleep 1
-        @start = true
-        sound
+        fin_sound
       end
     end
   end
 
-  def sound
+  def fin_sound
     if @win
       AnnounceSounds.win
     end

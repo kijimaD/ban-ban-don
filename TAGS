@@ -144,10 +144,10 @@ class AxisAlignedBoundingBoxAxisAlignedBoundingBox1,0
 misc/game_window.rb,211
 class GameWindow < Gosu::WindowGameWindow1,0
   def initializeinitialize5,57
-  def updateupdate9,108
-  def drawdraw13,146
-  def needs_redraw?needs_redraw?17,180
-  def button_down(id)button_down21,232
+  def updateupdate9,109
+  def drawdraw13,147
+  def needs_redraw?needs_redraw?17,181
+  def button_down(id)button_down21,233
 
 misc/stereo_sample.rb,586
 class StereoSampleStereoSample1,0
@@ -239,16 +239,16 @@ class CameraCamera1,0
   def desired_spotdesired_spot85,1791
   def crosshaircrosshair97,2005
 
-entities/announce.rb,257
+entities/announce.rb,266
 class AnnounceAnnounce1,0
-  def initialize(character, ai, settings)initialize4,49
-  def updateupdate11,233
-  def drawdraw25,585
-  def startstart31,646
-  def win?win?35,679
-  def lose?lose?41,755
-  def onceonce45,810
-  def soundsound56,974
+  def initialize(character, ai, settings)initialize4,59
+  def updateupdate13,273
+  def drawdraw27,625
+  def startstart31,664
+  def win?win?39,781
+  def lose?lose?45,857
+  def onceonce49,912
+  def fin_soundfin_sound59,1058
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -354,14 +354,15 @@ class BulletSoundsBulletSounds1,0
   def sound(fire_sound)sound15,328
   def sound_hitsound_hit19,427
 
-entities/components/announce_graphics.rb,240
+entities/components/announce_graphics.rb,283
 class AnnounceGraphicsAnnounceGraphics1,0
   def initialize(object)initialize4,46
   def drawdraw10,133
-  def updateupdate19,263
-  def win_or_lose(wl)win_or_lose22,283
-  def image(x, y, word)image32,434
-  def coordscoords36,581
+  def updateupdate22,310
+  def win_or_lose(wl)win_or_lose25,330
+  def wl_image(x, y, word)wl_image35,487
+  def start_imagestart_image39,637
+  def coordscoords43,787
 
 entities/components/explosion_graphics.rb,262
 class ExplosionGraphics < ComponentExplosionGraphics1,0
@@ -376,14 +377,16 @@ entities/components/damage_popup_graphics.rb,177
 class DamagePopupGraphics < ComponentDamagePopupGraphics1,0
   def initialize(object, amount)initialize3,49
   def draw(viewport)draw10,159
-  def popup_msgpopup_msg25,495
+  def popup_msgpopup_msg25,500
 
-entities/components/announce_sounds.rb,156
+entities/components/announce_sounds.rb,222
 class AnnounceSoundsAnnounceSounds1,0
     def winwin4,38
     def loselose8,80
-    def win_soundwin_sound12,124
-    def lose_soundlose_sound17,234
+    def startstart12,124
+    def win_soundwin_sound16,170
+    def lose_soundlose_sound21,280
+    def start_soundstart_sound26,393
 
 entities/components/tree_graphics.rb,411
 class TreeGraphics < ComponentTreeGraphics1,0

@@ -12,7 +12,10 @@ class AnnounceGraphics
       win_or_lose("win!!")
     end
     if @object.lose
-        win_or_lose("lose!!")
+      win_or_lose("lose!!")
+    end
+    if @object.started
+      start_image
     end
   end
 
@@ -22,15 +25,19 @@ class AnnounceGraphics
   def win_or_lose(wl)
     x, y = coords
     if @y < y
-      image(x, @y, wl)
+      wl_image(x, @y, wl)
       @y += ANIMATION_SPEED
     else
-      image(x, y, wl)
+      wl_image(x, y, wl)
     end
   end
 
-  def image(x, y, word)
+  def wl_image(x, y, word)
     Gosu::Image.from_text(word, 120, options = {font: Utils.title_font}).draw(x, y, HUD::Z, 1, 1, Gosu::Color::RED)
+  end
+
+  def start_image
+    Gosu::Image.from_text("START!!", 120, options = {font: Utils.title_font}).draw(100, 100, HUD::Z, 1, 1, Gosu::Color::RED)
   end
 
   def coords
