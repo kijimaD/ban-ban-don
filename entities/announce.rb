@@ -29,9 +29,8 @@ class Announce
 
   def start
       Thread.new do
-        sleep 1
         @started = true
-        sleep 2
+        sleep 1
         AnnounceSounds.start
         @started = nil
       end

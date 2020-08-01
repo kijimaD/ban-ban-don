@@ -26,11 +26,11 @@ class PlayState < GameStatePlayState1,0
   def updateupdate33,863
   def drawdraw42,1011
   def button_down(id)button_down66,1659
-  def update_captionupdate_caption100,2451
-  def create_characters(amount)create_characters110,2749
-  def character_parameterscharacter_parameters123,3206
-  def player_selected_characterplayer_selected_character127,3316
-  def random_characterrandom_character131,3413
+  def update_captionupdate_caption100,2457
+  def create_characters(amount)create_characters110,2755
+  def character_parameterscharacter_parameters124,3260
+  def player_selected_characterplayer_selected_character128,3370
+  def random_characterrandom_character132,3467
 
 game_states/menu_state.rb,429
 class MenuState < GameStateMenuState2,16
@@ -242,13 +242,13 @@ class CameraCamera1,0
 entities/announce.rb,266
 class AnnounceAnnounce1,0
   def initialize(character, ai, settings)initialize4,59
-  def updateupdate13,273
-  def drawdraw27,625
-  def startstart31,664
-  def win?win?39,781
-  def lose?lose?45,857
-  def onceonce49,912
-  def fin_soundfin_sound59,1058
+  def updateupdate12,253
+  def drawdraw26,605
+  def startstart30,644
+  def win?win?40,801
+  def lose?lose?46,877
+  def onceonce50,932
+  def fin_soundfin_sound60,1078
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -302,14 +302,14 @@ class DamageGraphics < ComponentDamageGraphics1,0
   def draw(viewport)draw9,169
   def imagesimages17,273
 
-entities/components/ai_input.rb,264
+entities/components/ai_input.rb,277
 class AiInput < ComponentAiInput1,0
-  def initialize(object_pool)initialize5,68
-  def control(obj)control12,211
-  def on_collision(with)on_collision21,471
-  def on_damage(amount)on_damage26,568
-  def updateupdate30,629
-  def draw(viewport)draw41,857
+  def initialize(play_state, object_pool)initialize5,68
+  def control(obj)control13,252
+  def on_collision(with)on_collision22,512
+  def on_damage(amount)on_damage27,609
+  def updateupdate31,670
+  def draw(viewport)draw47,1018
 
 entities/components/weapon_display.rb,306
 class WeaponDisplay < ComponentWeaponDisplay1,0
@@ -607,8 +607,8 @@ class PlayerInput < ComponentPlayerInput1,0
   def control(obj)control12,228
   def on_collision(with)on_collision16,276
   def updateupdate19,308
-  def any_button_down?(*buttons)any_button_down?72,1632
-  def change_angle(previous_angle, up, down, right, left)change_angle79,1757
+  def any_button_down?(*buttons)any_button_down?72,1635
+  def change_angle(previous_angle, up, down, right, left)change_angle79,1760
 
 entities/components/character_graphics.rb,636
 class CharacterGraphics < ComponentCharacterGraphics1,0

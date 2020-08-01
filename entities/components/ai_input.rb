@@ -2,8 +2,9 @@ class AiInput < Component
   attr_reader :stats
   UPDATE_RATE = 200
 
-  def initialize(object_pool)
+  def initialize(play_state, object_pool)
     super(nil)
+    @play_state = play_state
     @object_pool = object_pool
     @last_update = Gosu.milliseconds
     @stats = Stats.new
@@ -29,6 +30,11 @@ class AiInput < Component
 
   def update
     return if object.health.dead?
+    if @play_state.announce.done || @play_state.announce.started
+      object.throttle_down = false
+      object.physics.speed = 0
+      return
+    end
     @gun.adjust_angle
     now = Gosu.milliseconds
     return if now - @last_update < UPDATE_RATE
