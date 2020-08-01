@@ -1,10 +1,10 @@
 class AnnounceGraphics
-  ANIMATION_SPEED = 4
+  DONE_ANIMATION_SPEED = 8
+  START_ANIMATION_SPEED = 30
 
   def initialize(object)
     @object = object
     @current_frame = 0
-    @y = 0
   end
 
   def draw
@@ -15,7 +15,7 @@ class AnnounceGraphics
       win_or_lose("lose!!")
     end
     if @object.started
-      start_image
+      start
     end
   end
 
@@ -24,11 +24,22 @@ class AnnounceGraphics
 
   def win_or_lose(wl)
     x, y = coords
-    if @y < y
+    if (@y || @y = 0) < y
       wl_image(x, @y, wl)
-      @y += ANIMATION_SPEED
+      @y += DONE_ANIMATION_SPEED
     else
       wl_image(x, y, wl)
+    end
+  end
+
+  def start
+    x, y = coords
+    if (@start_y || @start_y = 0) < y
+      start_image(x, @start_y)
+      @start_y += START_ANIMATION_SPEED
+    else
+      AnnounceSounds.start # Multiple play
+      start_image(x, y)
     end
   end
 
@@ -36,8 +47,8 @@ class AnnounceGraphics
     Gosu::Image.from_text(word, 120, options = {font: Utils.title_font}).draw(x, y, HUD::Z, 1, 1, Gosu::Color::RED)
   end
 
-  def start_image
-    Gosu::Image.from_text("START!!", 120, options = {font: Utils.title_font}).draw(100, 100, HUD::Z, 1, 1, Gosu::Color::RED)
+  def start_image(x, y)
+    Gosu::Image.from_text("START!!", 120, options = {font: Utils.title_font}).draw(x, y, HUD::Z, 1, 1, Gosu::Color::RED)
   end
 
   def coords

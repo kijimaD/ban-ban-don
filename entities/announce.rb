@@ -30,8 +30,7 @@ class Announce
   def start
       Thread.new do
         @started = true
-        sleep 1
-        AnnounceSounds.start
+        sleep 1.4
         @started = nil
       end
   end
@@ -50,7 +49,7 @@ class Announce
     if (@win || @lose) && @done.nil?
       @done = true
       Thread.new do
-        sleep 1
+        sleep 0.4
         fin_sound
       end
     end

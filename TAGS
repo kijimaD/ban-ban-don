@@ -245,10 +245,10 @@ class AnnounceAnnounce1,0
   def updateupdate12,253
   def drawdraw26,605
   def startstart30,644
-  def win?win?40,801
-  def lose?lose?46,877
-  def onceonce50,932
-  def fin_soundfin_sound60,1078
+  def win?win?38,756
+  def lose?lose?44,832
+  def onceonce48,887
+  def fin_soundfin_sound58,1033
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -309,7 +309,7 @@ class AiInput < ComponentAiInput1,0
   def on_collision(with)on_collision22,512
   def on_damage(amount)on_damage27,609
   def updateupdate31,670
-  def draw(viewport)draw47,1018
+  def draw(viewport)draw47,1050
 
 entities/components/weapon_display.rb,306
 class WeaponDisplay < ComponentWeaponDisplay1,0
@@ -354,15 +354,16 @@ class BulletSoundsBulletSounds1,0
   def sound(fire_sound)sound15,328
   def sound_hitsound_hit19,427
 
-entities/components/announce_graphics.rb,283
+entities/components/announce_graphics.rb,315
 class AnnounceGraphicsAnnounceGraphics1,0
-  def initialize(object)initialize4,46
-  def drawdraw10,133
-  def updateupdate22,310
-  def win_or_lose(wl)win_or_lose25,330
-  def wl_image(x, y, word)wl_image35,487
-  def start_imagestart_image39,637
-  def coordscoords43,787
+  def initialize(object)initialize5,75
+  def drawdraw10,151
+  def updateupdate22,322
+  def win_or_lose(wl)win_or_lose25,342
+  def startstart35,511
+  def wl_image(x, y, word)wl_image46,741
+  def start_image(x, y)start_image50,891
+  def coordscoords54,1043
 
 entities/components/explosion_graphics.rb,262
 class ExplosionGraphics < ComponentExplosionGraphics1,0
@@ -607,8 +608,8 @@ class PlayerInput < ComponentPlayerInput1,0
   def control(obj)control12,228
   def on_collision(with)on_collision16,276
   def updateupdate19,308
-  def any_button_down?(*buttons)any_button_down?72,1635
-  def change_angle(previous_angle, up, down, right, left)change_angle79,1760
+  def any_button_down?(*buttons)any_button_down?72,1664
+  def change_angle(previous_angle, up, down, right, left)change_angle79,1789
 
 entities/components/character_graphics.rb,636
 class CharacterGraphics < ComponentCharacterGraphics1,0
