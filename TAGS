@@ -48,7 +48,7 @@ class MenuState < GameStateMenuState2,16
   def titletitle123,3228
   def imagesimages127,3348
 
-game_states/choice_state.rb,615
+game_states/choice_state.rb,616
 class ChoiceState < GameStateChoiceState1,0
   def initialize(messages, images, target)initialize9,174
   def enterenter17,326
@@ -57,14 +57,14 @@ class ChoiceState < GameStateChoiceState1,0
   def updateupdate30,458
   def draw_messagedraw_message33,478
   def button_down(id)button_down42,791
-  def draw_cursordraw_cursor59,1223
-  def draw_cursor_coverdraw_cursor_cover70,1459
-  def cursor_coordscursor_coords81,1706
-  def can_move_right?can_move_right?87,1899
-  def can_move_left?can_move_left?91,1965
-  def image_sampleimage_sample95,2011
-  def move_soundmove_sound99,2097
-  def ok_soundok_sound103,2202
+  def draw_cursordraw_cursor62,1260
+  def draw_cursor_coverdraw_cursor_cover73,1496
+  def cursor_coordscursor_coords84,1743
+  def can_move_right?can_move_right?90,1936
+  def can_move_left?can_move_left?94,2002
+  def image_sampleimage_sample98,2048
+  def move_soundmove_sound102,2134
+  def ok_soundok_sound106,2239
 
 game_states/demo_state.rb,320
 class DemoState < PlayStateDemoState1,0
@@ -245,10 +245,10 @@ class AnnounceAnnounce1,0
   def updateupdate12,253
   def drawdraw26,605
   def startstart30,644
-  def win?win?38,756
-  def lose?lose?44,832
-  def onceonce48,887
-  def fin_soundfin_sound58,1033
+  def win?win?38,758
+  def lose?lose?44,834
+  def onceonce48,889
+  def fin_soundfin_sound58,1037
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -356,14 +356,14 @@ class BulletSoundsBulletSounds1,0
 
 entities/components/announce_graphics.rb,315
 class AnnounceGraphicsAnnounceGraphics1,0
-  def initialize(object)initialize5,75
-  def drawdraw10,151
-  def updateupdate22,322
-  def win_or_lose(wl)win_or_lose25,342
-  def startstart35,511
-  def wl_image(x, y, word)wl_image46,741
-  def start_image(x, y)start_image50,891
-  def coordscoords54,1043
+  def initialize(object)initialize5,80
+  def drawdraw10,156
+  def updateupdate22,327
+  def win_or_lose(wl)win_or_lose25,347
+  def startstart35,521
+  def wl_image(x, y, word)wl_image46,751
+  def start_image(x, y)start_image50,901
+  def coordscoords54,1053
 
 entities/components/explosion_graphics.rb,262
 class ExplosionGraphics < ComponentExplosionGraphics1,0

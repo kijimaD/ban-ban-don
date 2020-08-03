@@ -68,7 +68,7 @@ class MenuState < GameState
       @play_state = DemoState.new
       GameState.switch(@play_state)
     end
-    if id == Gosu::KbI
+    if id == Gosu::KbI && $debug
       @play_state = PlayState.new
       GameState.switch(@play_state)
     end
