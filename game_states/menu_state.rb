@@ -1,4 +1,3 @@
-# coding: utf-8
 class MenuState < GameState
   include Singleton
   attr_accessor :play_state, :choice_return
@@ -8,14 +7,16 @@ class MenuState < GameState
   Z = 10
 
   def initialize
-    title
     scores
     @choice_return = {}
+    @highscores = []
+    @cursor_y = 0
   end
 
   def enter
     music.play(true)
     music.volume = 1
+    highscores
     choice_branch
   end
 
@@ -29,38 +30,61 @@ class MenuState < GameState
   end
 
   def update
-    continue_text = @play_state ? "[C]= Continue, " : ""
-    @info = Gosu::Image.from_text("[Q]= Quit, #{continue_text}[N]= New Game, [D]= Demo\n[WASD]= Move, [LClick]= Attack", 26, options = {font: Utils.main_font})
   end
 
   def draw
     bg.draw(0, 0, 0)
-    @message.draw(
+    title.draw(
       PADDING,
-      PADDING + @message.height,
+      PADDING + title.height,
       Z, 1.0, 1.0, TITLE_FONT_COLOR)
-    @info.draw(
-      PADDING,
-      PADDING + @message.height + @info.height * 2,
-      Z, 1.0, 1.0, BODY_FONT_COLOR)
+    title_menus.each_with_index do |msg, i|
+      if i == @cursor_y
+        cursor.draw(
+        PADDING,
+        PADDING + title.height * 2 + cursor.height * i - cursor.height / 4,
+        Z)
+      end
+      info(msg).draw(
+        PADDING + cursor.width,
+        PADDING + title.height * 2 + cursor.height * i,
+        Z, 1.0, 1.0, BODY_FONT_COLOR)
+    end
+    @highscores.each_with_index do |high, i|
+      text0 = "#{high[0]}:".ljust(10)
+      text1 = "#{high[1]}".ljust(8)
+      text2 = "#{high[2]}".ljust(8)
+      text = text0 + text1 + text2
+      msg = Gosu::Image.from_text(text, 26, options = {font: Utils.main_font})
+      msg.draw($window.width - msg.width - PADDING, $window.height - 4 * msg.height + i * msg.height - PADDING, Z)
+    end
   end
 
   def button_down(id)
     $window.close if id == Gosu::KbQ
-    if id == Gosu::KbC && @play_state
-      GameState.switch(@play_state)
-    end
-    if id == Gosu::KbN
-      @choice_return["on"] = "t"
-      choice_branch
-    end
-    if id == Gosu::KbD
-      @play_state = DemoState.new
-      GameState.switch(@play_state)
-    end
-    if id == Gosu::KbI
+    if id == Gosu::KbI && $debug
       @play_state = PlayState.new
       GameState.switch(@play_state)
+    end
+    if id == Gosu::KbReturn
+      ok_sound.play
+      if @cursor_y == 0
+        @choice_return["on"] = "t"
+        choice_branch
+      elsif @cursor_y == 1
+        @play_state = DemoState.new
+        GameState.switch(@play_state)
+      elsif @cursor_y == 2
+        $window.close
+      end
+    end
+    if id == Gosu::KbDown && can_move_down?
+      @cursor_y += 1
+      move_sound.play
+    end
+    if id == Gosu::KbUp && can_move_up?
+      @cursor_y -= 1
+      move_sound.play
     end
   end
 
@@ -88,20 +112,66 @@ class MenuState < GameState
   end
 
   def scores
-    @scores = CSV.foreach(Utils.media_path("score.csv")) do |row|
-      p row
+    CSV.foreach(Utils.media_path("score.csv"))
+  end
+
+  def highscores
+    @highscores = []
+    difficulties = ["easy", "normal", "hard", "powerful"]
+    difficulties.each do |difficulty|
+      i = []
+      CSV.foreach(Utils.media_path("score.csv")) do |f|
+        if f.include?(difficulty)
+          i << f
+        end
+      end
+      sorted = i.sort{|a,b|
+        b[1].to_i<=>a[1].to_i
+      }
+      @highscores << sorted[0]
     end
   end
 
   private
 
-  def title
-    @message = Gosu::Image.from_text("ばんばんどーん!", 80, options = {font: Utils.title_font})
+  # TODO: Duplicates from choice_state.----
+  def can_move_down?
+    @cursor_y < title_menus.length - 1
   end
 
+  def can_move_up?
+    @cursor_y > 0
+  end
+
+  def move_sound
+    @@move_sound ||= Gosu::Sample.new(Utils.media_path_sound('cursor_move.wav'))
+  end
+
+  def ok_sound
+    @@ok_sound ||= Gosu::Sample.new(Utils.media_path_sound('cursor_ok.wav'))
+  end
+  # ------------------------
+
+  def title
+    @title ||= Gosu::Image.from_text("BBD", 80, options = {font: Utils.title_font})
+  end
+
+  def info(msg)
+    @info = Gosu::Image.from_text(msg, 26, options = {font: Utils.main_font})
+  end
+
+  def title_menus
+    ["New Game", "Demo Mode", "Quit"]
+  end
+
+  # TODO: move
   def images
     @images ||= Gosu::TexturePacker.load_json(
       Utils.media_path("menus_packed.json"))
+  end
+
+  def cursor
+    @cursor ||= Gosu::Image.new(Utils.media_path('arrow.png'))
   end
 
 end

@@ -34,6 +34,11 @@ class CharacterSounds < Component
     reload_sound.play(self.object_id, pan, vol)
   end
 
+  def out_of_ammo
+    vol, pan = Utils.volume_and_pan(object, @object_pool.camera)
+    out_of_ammo_sound.play(self.object_id, pan, vol)
+  end
+
   private
 
   def driving_sound
@@ -50,6 +55,10 @@ class CharacterSounds < Component
 
   def reload_sound
     @@reload_sound ||= StereoSample.new(Utils.media_path_sound('reload.mp3'))
+  end
+
+  def out_of_ammo_sound
+    @@out_of_ammo_sound ||= StereoSample.new(Utils.media_path_sound('trigger.wav'))
   end
 
 end

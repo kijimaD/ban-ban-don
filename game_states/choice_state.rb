@@ -41,6 +41,10 @@ class ChoiceState < GameState
 
   def button_down(id)
     $window.close if id == Gosu::KbQ
+    if id == Gosu::KbEscape
+      @menu_state.choice_return = {}
+      GameState.switch(@menu_state)
+    end
     if id == Gosu::KbReturn && @menu_state
       @menu_state.choice_return[@target] = @messages[@cursor_x][1]
       ok_sound.play

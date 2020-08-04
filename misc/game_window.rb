@@ -3,7 +3,7 @@ class GameWindow < Gosu::Window
   attr_accessor :state
 
   def initialize
-    super(800, 600, false)
+    super(1200, 800, false)
   end
 
   def update

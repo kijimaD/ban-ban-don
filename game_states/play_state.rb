@@ -14,7 +14,7 @@ class PlayState < GameState
     if $debug
       number_of_people = 0
     else
-      number_of_people = 2
+      number_of_people = 1
     end
     create_characters(number_of_people)
     @announce = Announce.new(@character, @ai, settings)
@@ -78,7 +78,7 @@ class PlayState < GameState
     end
     if id == Gosu::KbT && $debug
       t = Character.new(self, @object_pool,
-                   AiInput.new(@object_pool), random_character)
+                   AiInput.new(self, @object_pool), random_character)
       x, y = @camera.mouse_coords
       t.move(x, y)
     end
@@ -109,11 +109,12 @@ class PlayState < GameState
 
   def create_characters(amount)
     @map.spawn_points(amount * 3)
-    @character = Character.new(self, @object_pool, PlayerInput.new(self, @camera, @object_pool), player_selected_character)
+    @character = Character.new(self, @object_pool, PlayerInput.new(
+                                 self, @camera, @object_pool), player_selected_character)
     @ai = []
     amount.times do |i|
       @ai << (Character.new(self, @object_pool, AiInput.new(
-                      @object_pool), random_character))
+                              self, @object_pool), random_character))
     end
     @camera.target = @character
     @hud = HUD.new(@object_pool, @character)

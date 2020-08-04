@@ -1,11 +1,12 @@
 class Announce
-  attr_reader :done, :win, :lose
+  attr_reader :done, :win, :lose, :started
 
   def initialize(character, ai, settings)
     @character = character
     @ai = ai
     @graphics = AnnounceGraphics.new(self)
     @record = ScoreRecord.new(@character, settings)
+    start
   end
 
   def update
@@ -15,21 +16,23 @@ class Announce
       once
     end
     if @done && Utils.button_down?(Gosu::KbReturn)
+      @record.record
       MenuState.instance.play_state = nil
       MenuState.instance.choice_return = {}
-      MenuState.instance.scores
       GameState.switch(MenuState.instance)
     end
   end
 
   def draw
-    if @start
       @graphics.draw
-    end
   end
 
   def start
-    # start!!
+      Thread.new do
+        @started = true
+        sleep 1.4
+        @started = nil
+      end
   end
 
   def win?
@@ -46,17 +49,15 @@ class Announce
     if (@win || @lose) && @done.nil?
       @done = true
       Thread.new do
-        sleep 2
-        @start = true
-        sound
+        sleep 0.4
+        fin_sound
       end
     end
   end
 
-  def sound
+  def fin_sound
     if @win
       AnnounceSounds.win
-      @record.record
     end
     if @lose
       AnnounceSounds.lose

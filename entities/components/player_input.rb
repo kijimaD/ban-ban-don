@@ -18,7 +18,7 @@ class PlayerInput < Component
 
   def update
     return if object.health.dead?
-    if @play_state.announce.done
+    if @play_state.announce.done || @play_state.announce.started
       object.throttle_down = false
       object.physics.speed = 0
       return
