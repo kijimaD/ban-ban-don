@@ -37,7 +37,7 @@ class CharacterGraphics < Component
       @body.draw(x - @body.width / 2, y - @body.height, depth + 1)
     elsif object.character_parameter['graphics_mode'] == "topdown"
       @shadow.draw(x - @body.width / 2, y - @shadow.height, depth + 1)
-      @body.draw_rot(x, y - @body.height / 2, depth + 1, object.direction) # draw_rot and draw's argument(x, y) are different.
+      @body.draw_rot(x, y - @body.height / 2, depth + 1, object.gun_angle) # draw_rot and draw's argument(x, y) are different.
     end
 
     draw_bounding_box if $debug

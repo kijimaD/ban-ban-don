@@ -28,9 +28,9 @@ class PlayState < GameStatePlayState1,0
   def button_down(id)button_down66,1659
   def update_captionupdate_caption100,2480
   def create_characters(amount)create_characters110,2778
-  def character_parameterscharacter_parameters124,3283
-  def player_selected_characterplayer_selected_character128,3393
-  def random_characterrandom_character132,3490
+  def character_parameterscharacter_parameters124,3301
+  def player_selected_characterplayer_selected_character128,3411
+  def random_characterrandom_character132,3508
 
 game_states/menu_state.rb,681
 class MenuState < GameStateMenuState1,0
@@ -50,10 +50,10 @@ class MenuState < GameStateMenuState1,0
   def move_soundmove_sound146,3624
   def ok_soundok_sound150,3729
   def titletitle155,3857
-  def info(msg)info159,3960
-  def title_menustitle_menus163,4061
-  def imagesimages168,4139
-  def cursorcursor173,4251
+  def info(msg)info159,3963
+  def title_menustitle_menus163,4064
+  def imagesimages168,4142
+  def cursorcursor173,4254
 
 game_states/choice_state.rb,616
 class ChoiceState < GameStateChoiceState1,0
@@ -416,22 +416,24 @@ class CharacterHealth < HealthCharacterHealth1,0
   def draw(viewport)draw20,434
   def coordscoords44,987
 
-entities/components/character_physics.rb,636
+entities/components/character_physics.rb,735
 class CharacterPhysics < ComponentCharacterPhysics1,0
-  def initialize(game_object, object_pool)initialize4,90
-  def can_move_to?(x, y)can_move_to?11,246
-  def moving?moving?41,1086
-  def updateupdate45,1122
-  def box_widthbox_width100,2229
-  def box_heightbox_height104,2293
-  def boxbox108,2360
-  def change_direction(new_direction)change_direction118,2516
-  def collides_with_point?(x, y)collides_with_point?126,2717
-  def apply_movement_penalty(speed)apply_movement_penalty130,2792
-  def accelerateaccelerate134,2882
-  def deceleratedecelerate138,2939
-  def turboturbo143,3026
-  def resetreset147,3062
+  def initialize(object, object_pool)initialize5,119
+  def can_move_to?(x, y)can_move_to?13,286
+  def do_hit(obj = nil)do_hit44,1148
+  def moving?moving?53,1375
+  def recently_collide_damage?recently_collide_damage?57,1411
+  def updateupdate61,1512
+  def box_widthbox_width116,2619
+  def box_heightbox_height120,2683
+  def boxbox124,2750
+  def change_direction(new_direction)change_direction134,2906
+  def collides_with_point?(x, y)collides_with_point?142,3107
+  def apply_movement_penalty(speed)apply_movement_penalty146,3182
+  def accelerateaccelerate150,3272
+  def deceleratedecelerate154,3329
+  def turboturbo159,3416
+  def resetreset163,3452
 
 entities/components/powerup_graphics.rb,243
 class PowerupGraphics < ComponentPowerupGraphics1,0
@@ -625,18 +627,18 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize12,206
   def updateupdate20,369
   def draw(viewport)draw30,602
-  def draw_bounding_boxdraw_bounding_box49,1260
-  def widthwidth62,1529
-  def heightheight66,1564
-  def body_directionbody_direction70,1601
-  def state_image(directional_graphics)state_image80,2001
-  def draw_weapondraw_weapon97,2459
-  def damage_flashingdamage_flashing108,2824
-  def damagedamage114,3012
-  def charascharas118,3066
-  def weaponsweapons123,3220
-  def different?(runs)different?130,3357
-  def gen_image_arraygen_image_array136,3438
+  def draw_bounding_boxdraw_bounding_box49,1285
+  def widthwidth62,1554
+  def heightheight66,1589
+  def body_directionbody_direction70,1626
+  def state_image(directional_graphics)state_image80,2026
+  def draw_weapondraw_weapon97,2484
+  def damage_flashingdamage_flashing108,2849
+  def damagedamage114,3037
+  def charascharas118,3091
+  def weaponsweapons123,3245
+  def different?(runs)different?130,3382
+  def gen_image_arraygen_image_array136,3463
 
 entities/character.rb,427
 class Character < GameObjectCharacter1,0

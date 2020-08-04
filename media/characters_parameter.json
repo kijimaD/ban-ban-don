@@ -33,6 +33,7 @@
     },
     "black_ball":{
 	"name": "black_ball",
+	"collide_damage": "",
 	"weapon": "none",
 	"health": "100",
 	"ai": "black_ball",

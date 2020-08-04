@@ -114,7 +114,7 @@ class PlayState < GameState
     @ai = []
     amount.times do |i|
       @ai << (Character.new(self, @object_pool, AiInput.new(
-                              self, @object_pool), random_character))
+                              self, @object_pool), character_parameters["black_ball"]))
     end
     @camera.target = @character
     @hud = HUD.new(@object_pool, @character)

@@ -1,8 +1,10 @@
 class CharacterPhysics < Component
   attr_accessor :speed, :in_collision, :collides_with
+  COLLIDE_DAMAGE_TIME = 1000
 
-  def initialize(game_object, object_pool)
-    super(game_object)
+  def initialize(object, object_pool)
+    super(object)
+    @object = object
     @object_pool = object_pool
     @map = object_pool.map
     @speed, @shift = 0.0
@@ -23,6 +25,7 @@ class CharacterPhysics < Component
           obj.on_collision(object)
         else
           @collides_with = obj
+          do_hit(obj)
           old_distance = Utils.distance_between(
             obj.x, obj.y, old_x, old_y)
           new_distance = Utils.distance_between(
@@ -38,8 +41,21 @@ class CharacterPhysics < Component
     object.move(old_x, old_y)
   end
 
+  def do_hit(obj = nil)
+    if @object.character_parameter['collide_damage']
+      if obj && recently_collide_damage?
+        obj.health.inflict_damage(20, object)
+        @last_hit = Gosu.milliseconds
+      end
+    end
+  end
+
   def moving?
     @speed > 0
+  end
+
+  def recently_collide_damage?
+    Gosu.milliseconds - (@last_hit || 0) > COLLIDE_DAMAGE_TIME
   end
 
   def update
