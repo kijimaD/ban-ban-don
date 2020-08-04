@@ -32,21 +32,28 @@ class PlayState < GameStatePlayState1,0
   def player_selected_characterplayer_selected_character128,3370
   def random_characterrandom_character132,3467
 
-game_states/menu_state.rb,429
+game_states/menu_state.rb,683
 class MenuState < GameStateMenuState2,16
   def initializeinitialize10,220
-  def enterenter17,310
-  def leaveleave24,404
-  def musicmusic29,459
-  def updateupdate33,551
-  def drawdraw38,788
-  def button_down(id)button_down58,1436
-  def bgbg77,1870
-  def choice_branchchoice_branch81,1944
-  def scoresscores100,2762
-  def highscoreshighscores104,2829
-  def titletitle123,3228
-  def imagesimages127,3348
+  def enterenter17,318
+  def leaveleave24,412
+  def musicmusic29,467
+  def updateupdate33,559
+  def drawdraw36,579
+  def button_down(id)button_down64,1467
+  def bgbg90,2083
+  def choice_branchchoice_branch94,2157
+  def scoresscores113,2975
+  def highscoreshighscores117,3042
+  def can_move_down?can_move_down?137,3485
+  def can_move_up?can_move_up?141,3552
+  def move_soundmove_sound145,3596
+  def ok_soundok_sound149,3701
+  def titletitle154,3829
+  def info(msg)info158,3951
+  def title_menustitle_menus162,4052
+  def imagesimages167,4130
+  def cursorcursor172,4242
 
 game_states/choice_state.rb,616
 class ChoiceState < GameStateChoiceState1,0
@@ -57,14 +64,14 @@ class ChoiceState < GameStateChoiceState1,0
   def updateupdate30,458
   def draw_messagedraw_message33,478
   def button_down(id)button_down42,791
-  def draw_cursordraw_cursor62,1260
-  def draw_cursor_coverdraw_cursor_cover73,1496
-  def cursor_coordscursor_coords84,1743
-  def can_move_right?can_move_right?90,1936
-  def can_move_left?can_move_left?94,2002
-  def image_sampleimage_sample98,2048
-  def move_soundmove_sound102,2134
-  def ok_soundok_sound106,2239
+  def draw_cursordraw_cursor63,1332
+  def draw_cursor_coverdraw_cursor_cover74,1568
+  def cursor_coordscursor_coords85,1815
+  def can_move_right?can_move_right?91,2008
+  def can_move_left?can_move_left?95,2074
+  def image_sampleimage_sample99,2120
+  def move_soundmove_sound103,2206
+  def ok_soundok_sound107,2311
 
 game_states/demo_state.rb,320
 class DemoState < PlayStateDemoState1,0
