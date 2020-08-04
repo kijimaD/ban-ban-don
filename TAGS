@@ -595,10 +595,10 @@ class Health < ComponentHealth1,0
   def updateupdate21,383
   def inflict_damage(amount, cause)inflict_damage25,420
   def draw(viewport)draw43,973
-  def increase(amount)increase51,1144
-  def draw?draw?59,1266
-  def update_imageupdate_image63,1296
-  def after_death(cause)after_death73,1508
+  def increase(amount)increase51,1148
+  def draw?draw?59,1270
+  def update_imageupdate_image63,1300
+  def after_death(cause)after_death73,1512
 
 entities/components/box_graphics.rb,294
 class BoxGraphics < ComponentBoxGraphics1,0
@@ -625,18 +625,18 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize12,206
   def updateupdate20,369
   def draw(viewport)draw30,602
-  def draw_bounding_boxdraw_bounding_box49,1235
-  def widthwidth62,1504
-  def heightheight66,1539
-  def body_directionbody_direction70,1576
-  def state_image(directional_graphics)state_image80,1976
-  def draw_weapondraw_weapon97,2434
-  def damage_flashingdamage_flashing108,2799
-  def damagedamage114,2987
-  def charascharas118,3041
-  def weaponsweapons123,3195
-  def different?(runs)different?130,3332
-  def gen_image_arraygen_image_array136,3413
+  def draw_bounding_boxdraw_bounding_box49,1260
+  def widthwidth62,1529
+  def heightheight66,1564
+  def body_directionbody_direction70,1601
+  def state_image(directional_graphics)state_image80,2001
+  def draw_weapondraw_weapon97,2459
+  def damage_flashingdamage_flashing108,2824
+  def damagedamage114,3012
+  def charascharas118,3066
+  def weaponsweapons123,3220
+  def different?(runs)different?130,3357
+  def gen_image_arraygen_image_array136,3438
 
 entities/character.rb,427
 class Character < GameObjectCharacter1,0

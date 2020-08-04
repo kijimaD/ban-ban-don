@@ -44,8 +44,8 @@ class CharacterHealth < Health
   def coords
     x1 = x - PADDING
     x2 = x - PADDING + WIDTH
-    y1 = y - HEIGHT - PADDING * 2
-    y2 = y + HEIGHT - PADDING * 2
+    y1 = y - HEIGHT - object.graphics.height
+    y2 = y + HEIGHT - object.graphics.height
     [x1, x2, y1, y2]
   end
 
