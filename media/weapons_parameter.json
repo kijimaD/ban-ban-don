@@ -1,6 +1,7 @@
 {
     "handgun":{
 	"name": "Handgun",
+	"distance": "long",
 	"weapon_image": "handgun.png",
 	"fire_sound": "9mm.mp3",
 	"bullet_image": "bullet_handgun.png",
@@ -15,6 +16,7 @@
     },
     "launcher":{
 	"name": "Launcher",
+	"distance": "long",
 	"weapon_image": "launcher.png",
 	"fire_sound": "launcher.wav",
 	"bullet_image": "bullet_launcher.png",
@@ -29,6 +31,7 @@
     },
     "katana":{
 	"name": "Katana",
+	"distance": "long",
 	"weapon_image": "katana.png",
 	"fire_sound": "katana-gesture1.mp3",
 	"bullet_image": "bullet_katana.png",
@@ -40,5 +43,10 @@
 	"explodable": "0",
 	"number_shots": "10",
 	"reload_time": "0.8"
+    },
+    "none":{
+	"name": "None",
+	"shoot_delay": "1000",
+	"number_shots": "100"
     }
 }

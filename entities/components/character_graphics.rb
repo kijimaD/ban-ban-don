@@ -22,7 +22,9 @@ class CharacterGraphics < Component
       object.direction = object.gun_angle
     end
     @body = body_direction
-    @weapon = weapons.frame(object.weapon['weapon_image'])
+    if object.weapon['weapon_image']
+      @weapon = weapons.frame(object.weapon['weapon_image'])
+    end
   end
 
   def draw(viewport)
@@ -31,9 +33,15 @@ class CharacterGraphics < Component
       @weapon = damage_flashing
       @damage_frame -= 1
     end
-    @body.draw(x - @body.width / 2, y - @body.height, depth + 1)
+    if object.character_parameter['graphics_mode'] == "isometric"
+      @body.draw(x - @body.width / 2, y - @body.height, depth + 1)
+    elsif object.character_parameter['graphics_mode'] == "topdown"
+      @shadow.draw(x - @body.width / 2, y - @body.height / 2, depth + 1)
+      @body.draw_rot(x, y - @body.height, depth + 1, object.direction)
+    end
+
     draw_bounding_box if $debug
-    if object.recently_shoot?
+    if object.recently_shoot? && object.character_parameter['weapon']
       draw_weapon
     end
   end
@@ -60,14 +68,18 @@ class CharacterGraphics < Component
   end
 
   def body_direction
-    i = (object.direction / 45) % 8
-    charas.frame(state_image(@image_array[i]).to_s + ".png")
+    if object.character_parameter['graphics_mode'] == "isometric"
+      i = (object.direction / 45) % 8
+      charas.frame(state_image(@image_array[i]).to_s + ".png")
+    elsif object.character_parameter['graphics_mode'] == "topdown"
+      @shadow = charas.frame("black_ball_shadow" + ".png")
+      charas.frame(object.character_parameter['graphs'].to_s + ".png")
+    end
   end
 
   def state_image(directional_graphics)
-    dgs = directional_graphics
-    stand_image = dgs[0]
-    runs = [dgs[1], dgs[2]]
+    stand_image = directional_graphics[0]
+    runs = [directional_graphics[1], directional_graphics[2]]
 
     if object.throttle_down
       if Gosu.milliseconds - (@last_flip || 0 ) > WALK_FRAME || different?(runs)

@@ -34,6 +34,9 @@ class Character < GameObject
 
   def shoot(target_x, target_y)
     if can_shoot?
+      if weapon['name'] == "None"
+        return
+      end
       if @number_ammo > 0
         @last_shot = Gosu.milliseconds
         Bullet.new(object_pool, self, @x + @graphics.width / 2, @y - @graphics.height / 2, target_x, target_y).fire(self, 1000)

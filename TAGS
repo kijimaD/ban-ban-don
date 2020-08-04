@@ -26,11 +26,11 @@ class PlayState < GameStatePlayState1,0
   def updateupdate33,863
   def drawdraw42,1011
   def button_down(id)button_down66,1659
-  def update_captionupdate_caption100,2457
-  def create_characters(amount)create_characters110,2755
-  def character_parameterscharacter_parameters124,3260
-  def player_selected_characterplayer_selected_character128,3370
-  def random_characterrandom_character132,3467
+  def update_captionupdate_caption100,2480
+  def create_characters(amount)create_characters110,2778
+  def character_parameterscharacter_parameters124,3283
+  def player_selected_characterplayer_selected_character128,3393
+  def random_characterrandom_character132,3490
 
 game_states/menu_state.rb,681
 class MenuState < GameStateMenuState1,0
@@ -123,23 +123,23 @@ module UtilsUtils1,0
   def self.parse_json(file)parse_json24,463
   def self.load_allload_all30,597
   def self.title_fonttitle_font47,1022
-  def self.main_font()main_font51,1086
-  def self.track_update_intervaltrack_update_interval55,1159
-  def self.update_intervalupdate_interval61,1307
-  def self.adjust_speed(speed)adjust_speed65,1390
-  def self.button_down?(button)button_down69,1464
-  def self.button_up?(button)button_up86,1803
-  def self.rotate(angle, around_x, around_y, *points)rotate103,2141
-  def self.point_in_poly(testx, testy, *poly)point_in_poly118,2625
-  def self.distance_between(x1, y1, x2, y2)distance_between139,3135
-  def self.angle_between(x, y, target_x, target_y)angle_between145,3253
-  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance151,3415
-  def self.mark_corners(box)mark_corners158,3633
-  def self.volume(object, camera)volume171,3900
-  def self.pan(object, camera)pan180,4172
-  def self.volume_and_pan(object, camera)volume_and_pan192,4425
-  def self.collides_with_poly?(poly, *box)collides_with_poly196,4524
-  def self.tile_coords(x, y)tile_coords212,4909
+  def self.main_font()main_font51,1096
+  def self.track_update_intervaltrack_update_interval55,1169
+  def self.update_intervalupdate_interval61,1317
+  def self.adjust_speed(speed)adjust_speed65,1400
+  def self.button_down?(button)button_down69,1474
+  def self.button_up?(button)button_up86,1813
+  def self.rotate(angle, around_x, around_y, *points)rotate103,2151
+  def self.point_in_poly(testx, testy, *poly)point_in_poly118,2635
+  def self.distance_between(x1, y1, x2, y2)distance_between139,3145
+  def self.angle_between(x, y, target_x, target_y)angle_between145,3263
+  def self.point_at_distance(source_x, source_y, angle, distance)point_at_distance151,3425
+  def self.mark_corners(box)mark_corners158,3643
+  def self.volume(object, camera)volume171,3910
+  def self.pan(object, camera)pan180,4182
+  def self.volume_and_pan(object, camera)volume_and_pan192,4435
+  def self.collides_with_poly?(poly, *box)collides_with_poly196,4534
+  def self.tile_coords(x, y)tile_coords212,4919
 
 misc/axis_aligned_bounding_box.rb,221
 class AxisAlignedBoundingBoxAxisAlignedBoundingBox1,0
@@ -595,10 +595,10 @@ class Health < ComponentHealth1,0
   def updateupdate21,383
   def inflict_damage(amount, cause)inflict_damage25,420
   def draw(viewport)draw43,973
-  def increase(amount)increase51,1148
-  def draw?draw?59,1270
-  def update_imageupdate_image63,1300
-  def after_death(cause)after_death73,1512
+  def increase(amount)increase51,1144
+  def draw?draw?59,1266
+  def update_imageupdate_image63,1296
+  def after_death(cause)after_death73,1508
 
 entities/components/box_graphics.rb,294
 class BoxGraphics < ComponentBoxGraphics1,0
@@ -620,35 +620,35 @@ class PlayerInput < ComponentPlayerInput1,0
   def any_button_down?(*buttons)any_button_down?72,1664
   def change_angle(previous_angle, up, down, right, left)change_angle79,1789
 
-entities/components/character_graphics.rb,636
+entities/components/character_graphics.rb,638
 class CharacterGraphics < ComponentCharacterGraphics1,0
   def initialize(game_object)initialize12,206
   def updateupdate20,369
-  def draw(viewport)draw28,555
-  def draw_bounding_boxdraw_bounding_box41,856
-  def widthwidth54,1125
-  def heightheight58,1160
-  def body_directionbody_direction62,1197
-  def state_image(directional_graphics)state_image67,1322
-  def draw_weapondraw_weapon85,1760
-  def damage_flashingdamage_flashing96,2125
-  def damagedamage102,2313
-  def charascharas106,2367
-  def weaponsweapons111,2521
-  def different?(runs)different?118,2658
-  def gen_image_arraygen_image_array124,2739
+  def draw(viewport)draw30,602
+  def draw_bounding_boxdraw_bounding_box49,1235
+  def widthwidth62,1504
+  def heightheight66,1539
+  def body_directionbody_direction70,1576
+  def state_image(directional_graphics)state_image80,1976
+  def draw_weapondraw_weapon97,2434
+  def damage_flashingdamage_flashing108,2799
+  def damagedamage114,2987
+  def charascharas118,3041
+  def weaponsweapons123,3195
+  def different?(runs)different?130,3332
+  def gen_image_arraygen_image_array136,3413
 
 entities/character.rb,427
 class Character < GameObjectCharacter1,0
   def initialize(object, object_pool, input, character_parameter)initialize10,349
   def boxbox31,1199
   def shoot(target_x, target_y)shoot35,1233
-  def can_shoot?can_shoot?51,1682
-  def recently_shoot?recently_shoot?55,1787
-  def reloadreload59,1885
-  def on_collision(object)on_collision74,2245
-  def reset_modifiersreset_modifiers86,2508
-  def weaponweapon91,2589
+  def can_shoot?can_shoot?54,1741
+  def recently_shoot?recently_shoot?58,1846
+  def reloadreload62,1944
+  def on_collision(object)on_collision77,2304
+  def reset_modifiersreset_modifiers89,2567
+  def weaponweapon94,2648
 
 entities/bullet.rb,221
 class Bullet < GameObjectBullet1,0

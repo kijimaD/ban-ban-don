@@ -78,7 +78,7 @@ class PlayState < GameState
     end
     if id == Gosu::KbT && $debug
       t = Character.new(self, @object_pool,
-                   AiInput.new(self, @object_pool), random_character)
+                        AiInput.new(self, @object_pool), character_parameters["black_ball"])
       x, y = @camera.mouse_coords
       t.move(x, y)
     end
