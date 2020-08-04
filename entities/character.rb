@@ -41,6 +41,9 @@ class Character < GameObject
         if $debug
           @number_ammo += 1
         end
+      elsif @number_ammo == 0
+        @last_shot = Gosu.milliseconds
+        @sounds.out_of_ammo
       end
     end
   end

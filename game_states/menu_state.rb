@@ -1,4 +1,3 @@
-# coding: utf-8
 class MenuState < GameState
   include Singleton
   attr_accessor :play_state, :choice_return
@@ -154,7 +153,7 @@ class MenuState < GameState
   # ------------------------
 
   def title
-    @title ||= Gosu::Image.from_text("ばんばんどーん!", 80, options = {font: Utils.title_font})
+    @title ||= Gosu::Image.from_text("BBD", 80, options = {font: Utils.title_font})
   end
 
   def info(msg)
