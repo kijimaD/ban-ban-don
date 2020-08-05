@@ -416,24 +416,24 @@ class CharacterHealth < HealthCharacterHealth1,0
   def draw(viewport)draw20,434
   def coordscoords44,987
 
-entities/components/character_physics.rb,735
+entities/components/character_physics.rb,737
 class CharacterPhysics < ComponentCharacterPhysics1,0
   def initialize(object, object_pool)initialize5,119
   def can_move_to?(x, y)can_move_to?13,286
-  def do_hit(obj = nil)do_hit44,1148
-  def moving?moving?53,1375
-  def recently_collide_damage?recently_collide_damage?57,1411
-  def updateupdate61,1512
-  def box_widthbox_width116,2619
-  def box_heightbox_height120,2683
-  def boxbox124,2750
-  def change_direction(new_direction)change_direction134,2906
-  def collides_with_point?(x, y)collides_with_point?142,3107
-  def apply_movement_penalty(speed)apply_movement_penalty146,3182
-  def accelerateaccelerate150,3272
-  def deceleratedecelerate154,3329
-  def turboturbo159,3416
-  def resetreset163,3452
+  def do_hit(obj)do_hit46,1203
+  def moving?moving?55,1428
+  def not_recently_collide_damage?not_recently_collide_damage?59,1464
+  def updateupdate63,1569
+  def box_widthbox_width118,2676
+  def box_heightbox_height122,2740
+  def boxbox126,2807
+  def change_direction(new_direction)change_direction136,2991
+  def collides_with_point?(x, y)collides_with_point?144,3192
+  def apply_movement_penalty(speed)apply_movement_penalty148,3267
+  def accelerateaccelerate152,3357
+  def deceleratedecelerate156,3414
+  def turboturbo161,3501
+  def resetreset165,3537
 
 entities/components/powerup_graphics.rb,243
 class PowerupGraphics < ComponentPowerupGraphics1,0
@@ -587,7 +587,7 @@ class BulletPhysics < ComponentBulletPhysics1,0
   def boxbox42,1125
   def arrived?arrived?55,1415
   def check_hitcheck_hit59,1486
-  def do_hit(obj = nil)do_hit78,2100
+  def do_hit(obj = nil)do_hit78,2101
 
 entities/components/health.rb,431
 class Health < ComponentHealth1,0

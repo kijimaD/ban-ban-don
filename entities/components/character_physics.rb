@@ -23,15 +23,17 @@ class CharacterPhysics < Component
       if Utils.collides_with_poly?(obj.box, *object.box)
         if obj.is_a? Powerup
           obj.on_collision(object)
+        elsif obj.is_a? Character
+          do_hit(obj)
+          @collides_with = obj
         else
           @collides_with = obj
-          do_hit(obj)
-          old_distance = Utils.distance_between(
-            obj.x, obj.y, old_x, old_y)
-          new_distance = Utils.distance_between(
-            obj.x, obj.y, x, y)
-          return false if new_distance < old_distance
         end
+        old_distance = Utils.distance_between(
+          obj.x, obj.y, old_x, old_y)
+        new_distance = Utils.distance_between(
+          obj.x, obj.y, x, y)
+        return false if new_distance < old_distance
       else
         @collides_with = nil
       end
@@ -41,9 +43,9 @@ class CharacterPhysics < Component
     object.move(old_x, old_y)
   end
 
-  def do_hit(obj = nil)
+  def do_hit(obj)
     if @object.character_parameter['collide_damage']
-      if obj && recently_collide_damage?
+      if obj && not_recently_collide_damage?
         obj.health.inflict_damage(20, object)
         @last_hit = Gosu.milliseconds
       end
@@ -54,7 +56,7 @@ class CharacterPhysics < Component
     @speed > 0
   end
 
-  def recently_collide_damage?
+  def not_recently_collide_damage?
     Gosu.milliseconds - (@last_hit || 0) > COLLIDE_DAMAGE_TIME
   end
 
@@ -123,11 +125,11 @@ class CharacterPhysics < Component
 
   def box
     w = object.graphics.width / 2
-    h = object.graphics.height
-    [x - w, y - h,
-     x + w, y - h,
-     x + w, y,
-     x - w, y,
+    h = object.graphics.height / 2
+    [x - w, y - h - h,
+     x + w, y - h - h,
+     x + w, y + h - h,
+     x - w, y + h - h,
     ]
   end
 

@@ -57,7 +57,7 @@ class BulletPhysics < Component
   end
 
   def check_hit
-    @object_pool.nearby(object, 50).each do |obj|
+    @object_pool.nearby(object, 100).each do |obj|
       next if obj == object.source # Don't hit source object
       if obj.class == Tree
         if Utils.distance_between(x, y, obj.x, obj.y) < @game_object.graphics.width.to_i
