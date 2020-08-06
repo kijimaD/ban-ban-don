@@ -37,6 +37,8 @@ class Character < GameObject
   def shoot(target_x, target_y)
     if can_shoot?
       if weapon['name'] == "None"
+        @direction = (Utils.angle_between(x, y, target_x, target_y) / 45).floor * 45
+        dash
         return
       end
       if @number_ammo > 0

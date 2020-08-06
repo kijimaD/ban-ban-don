@@ -424,14 +424,14 @@ class CharacterPhysics < ComponentCharacterPhysics1,0
   def moving?moving?56,1446
   def not_recently_collide_damage?not_recently_collide_damage?60,1482
   def updateupdate64,1587
-  def box_widthbox_width124,2856
-  def box_heightbox_height128,2920
-  def boxbox132,2987
-  def change_direction(new_direction)change_direction142,3171
-  def collides_with_point?(x, y)collides_with_point?150,3372
-  def apply_movement_penalty(speed)apply_movement_penalty154,3447
-  def accelerateaccelerate158,3537
-  def deceleratedecelerate162,3594
+  def box_widthbox_width120,2803
+  def box_heightbox_height124,2867
+  def boxbox128,2934
+  def change_direction(new_direction)change_direction138,3118
+  def collides_with_point?(x, y)collides_with_point?146,3319
+  def apply_movement_penalty(speed)apply_movement_penalty150,3394
+  def accelerateaccelerate154,3484
+  def deceleratedecelerate158,3541
 
 entities/components/powerup_graphics.rb,243
 class PowerupGraphics < ComponentPowerupGraphics1,0
@@ -640,17 +640,17 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
 
 entities/character.rb,487
 class Character < GameObjectCharacter1,0
-  def initialize(object, object_pool, input, character_parameter)initialize11,379
-  def boxbox32,1229
-  def shoot(target_x, target_y)shoot36,1263
-  def dashdash55,1773
-  def can_dash?can_dash?62,1875
-  def can_shoot?can_shoot?66,1947
-  def recently_shoot?recently_shoot?70,2053
-  def reloadreload74,2152
-  def on_collision(object)on_collision89,2512
-  def reset_modifiersreset_modifiers101,2775
-  def weaponweapon106,2856
+  def initialize(object, object_pool, input, character_parameter)initialize12,407
+  def boxbox33,1257
+  def shoot(target_x, target_y)shoot37,1291
+  def dashdash59,1918
+  def can_dash?can_dash?66,2020
+  def can_shoot?can_shoot?70,2106
+  def recently_shoot?recently_shoot?74,2212
+  def reloadreload78,2311
+  def on_collision(object)on_collision93,2671
+  def reset_modifiersreset_modifiers105,2934
+  def weaponweapon110,3015
 
 entities/bullet.rb,221
 class Bullet < GameObjectBullet1,0
