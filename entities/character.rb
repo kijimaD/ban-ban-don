@@ -1,11 +1,13 @@
 class Character < GameObject
-  attr_accessor :throttle_down, :turbo, :reset,
+  attr_accessor :throttle_down, :reset,
                 :direction, :gun_angle, :input,
                 :sounds, :physics, :graphics,
                 :number_ammo, :number_magazine, :health,
                 :fire_rate_modifier, :speed_modifier,
-                :character_parameter
+                :character_parameter,
+                :last_dash, :dashing
   RECENTLY_SHOOT_TIME = 2000
+  DASH_COOLDOWN_TIME = 1000
 
   def initialize(object, object_pool, input, character_parameter)
     x, y = object_pool.map.spawn_point
@@ -38,25 +40,36 @@ class Character < GameObject
         return
       end
       if @number_ammo > 0
-        @last_shot = Gosu.milliseconds
+        @last_shoot = Gosu.milliseconds
         Bullet.new(object_pool, self, @x + @graphics.width / 2, @y - @graphics.height / 2, target_x, target_y).fire(self, 1000)
         @number_ammo -= 1
         if $debug
           @number_ammo += 1
         end
       elsif @number_ammo == 0
-        @last_shot = Gosu.milliseconds
+        @last_shoot = Gosu.milliseconds
         @sounds.out_of_ammo
       end
     end
   end
 
+  def dash
+    if can_dash?
+      @last_dash = Gosu.milliseconds
+      @dashing = true
+    end
+  end
+
+  def can_dash?
+    Gosu.milliseconds - (@last_dash || 0) > DASH_COOLDOWN_TIME
+  end
+
   def can_shoot?
-    Gosu.milliseconds - (@last_shot || 0) > (@shoot_delay / @fire_rate_modifier)
+    Gosu.milliseconds - (@last_shoot || 0) > (@shoot_delay / @fire_rate_modifier)
   end
 
   def recently_shoot?
-    Gosu.milliseconds - (@last_shot || -10000) < RECENTLY_SHOOT_TIME
+    Gosu.milliseconds - (@last_shoot || -10000) < RECENTLY_SHOOT_TIME
   end
 
   def reload

@@ -1,6 +1,7 @@
 class CharacterPhysics < Component
   attr_accessor :speed, :in_collision, :collides_with
   COLLIDE_DAMAGE_TIME = 1000
+  DASH_TIME = 150
 
   def initialize(object, object_pool)
     super(object)
@@ -71,11 +72,12 @@ class CharacterPhysics < Component
       decelerate
     end
 
-    if object.turbo
-      turbo
+    if Gosu.milliseconds - (@object.last_dash || 0) > DASH_TIME && @object.dashing
+      @object.dashing = false
+      @speed = 10
     end
-    if object.reset
-      reset
+    if @object.dashing
+      @speed = 100
     end
 
     if @speed > 0
@@ -156,14 +158,6 @@ class CharacterPhysics < Component
   def decelerate
     @speed -= 5.0 if @speed > 0
     @speed = 0.0 if @speed < 0
-  end
-
-  def turbo
-    @speed = 100
-  end
-
-  def reset
-    @speed = 1
   end
 
 end
