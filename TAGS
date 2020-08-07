@@ -246,16 +246,15 @@ class CameraCamera1,0
   def desired_spotdesired_spot85,1791
   def crosshaircrosshair97,2005
 
-entities/announce.rb,266
+entities/announce.rb,242
 class AnnounceAnnounce1,0
-  def initialize(character, ai, settings)initialize4,59
-  def updateupdate12,253
-  def drawdraw26,605
-  def startstart30,644
-  def win?win?38,758
-  def lose?lose?44,834
-  def onceonce48,889
-  def fin_soundfin_sound58,1037
+  def initialize(character, ai, settings)initialize4,53
+  def updateupdate12,247
+  def drawdraw25,587
+  def startstart29,626
+  def lose?lose?37,740
+  def onceonce41,795
+  def fin_soundfin_sound52,943
 
 entities/box.rb,151
 class Box < GameObjectBox1,0
@@ -361,16 +360,16 @@ class BulletSoundsBulletSounds1,0
   def sound(fire_sound)sound15,328
   def sound_hitsound_hit19,427
 
-entities/components/announce_graphics.rb,315
+entities/components/announce_graphics.rb,314
 class AnnounceGraphicsAnnounceGraphics1,0
   def initialize(object)initialize5,80
   def drawdraw10,156
-  def updateupdate22,327
-  def win_or_lose(wl)win_or_lose25,347
-  def startstart35,521
-  def wl_image(x, y, word)wl_image46,751
-  def start_image(x, y)start_image50,901
-  def coordscoords54,1053
+  def updateupdate19,273
+  def win_or_lose(wl)win_or_lose22,293
+  def startstart32,467
+  def wl_image(x, y, word)wl_image43,697
+  def start_image(x, y)start_image47,847
+  def coordscoords51,999
 
 entities/components/explosion_graphics.rb,262
 class ExplosionGraphics < ComponentExplosionGraphics1,0
@@ -643,14 +642,14 @@ class Character < GameObjectCharacter1,0
   def initialize(object, object_pool, input, character_parameter)initialize12,407
   def boxbox33,1257
   def shoot(target_x, target_y)shoot37,1291
-  def dashdash59,1918
-  def can_dash?can_dash?66,2020
-  def can_shoot?can_shoot?70,2106
-  def recently_shoot?recently_shoot?74,2212
-  def reloadreload78,2311
-  def on_collision(object)on_collision93,2671
-  def reset_modifiersreset_modifiers105,2934
-  def weaponweapon110,3015
+  def dashdash58,1899
+  def can_dash?can_dash?65,2001
+  def can_shoot?can_shoot?69,2087
+  def recently_shoot?recently_shoot?73,2193
+  def reloadreload77,2292
+  def on_collision(object)on_collision92,2652
+  def reset_modifiersreset_modifiers104,2915
+  def weaponweapon109,2996
 
 entities/bullet.rb,221
 class Bullet < GameObjectBullet1,0
