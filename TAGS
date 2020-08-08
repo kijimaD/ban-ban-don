@@ -41,20 +41,20 @@ class MenuState < GameStateMenuState1,0
   def musicmusic28,451
   def updateupdate32,543
   def drawdraw35,563
-  def button_down(id)button_down63,1451
-  def bgbg91,2111
-  def choice_branchchoice_branch95,2185
-  def scoresscores114,3003
-  def highscoreshighscores118,3070
-  def can_move_down?can_move_down?138,3513
-  def can_move_up?can_move_up?142,3580
-  def move_soundmove_sound146,3624
-  def ok_soundok_sound150,3729
-  def titletitle155,3857
-  def info(msg)info159,3963
-  def title_menustitle_menus163,4064
-  def imagesimages168,4142
-  def cursorcursor173,4254
+  def button_down(id)button_down66,1486
+  def bgbg94,2146
+  def choice_branchchoice_branch98,2220
+  def scoresscores117,3038
+  def highscoreshighscores121,3105
+  def can_move_down?can_move_down?141,3548
+  def can_move_up?can_move_up?145,3615
+  def move_soundmove_sound149,3659
+  def ok_soundok_sound153,3764
+  def titletitle158,3892
+  def info(msg)info162,3998
+  def title_menustitle_menus166,4099
+  def imagesimages171,4177
+  def cursorcursor176,4289
 
 game_states/choice_state.rb,616
 class ChoiceState < GameStateChoiceState1,0
@@ -430,14 +430,14 @@ class CharacterPhysics < ComponentCharacterPhysics1,0
   def moving?moving?56,1456
   def not_recently_collide_damage?not_recently_collide_damage?60,1492
   def updateupdate64,1597
-  def box_widthbox_width121,2846
-  def box_heightbox_height125,2910
-  def boxbox129,2977
-  def change_direction(new_direction)change_direction139,3161
-  def collides_with_point?(x, y)collides_with_point?147,3362
-  def apply_movement_penalty(speed)apply_movement_penalty151,3437
-  def accelerateaccelerate155,3527
-  def deceleratedecelerate159,3584
+  def box_widthbox_width121,2845
+  def box_heightbox_height125,2909
+  def boxbox129,2976
+  def change_direction(new_direction)change_direction139,3160
+  def collides_with_point?(x, y)collides_with_point?147,3361
+  def apply_movement_penalty(speed)apply_movement_penalty151,3436
+  def accelerateaccelerate155,3526
+  def deceleratedecelerate159,3583
 
 entities/components/powerup_graphics.rb,243
 class PowerupGraphics < ComponentPowerupGraphics1,0
@@ -579,8 +579,8 @@ class AiVisionAiVision1,0
   def can_go_forward?can_go_forward?36,859
   def closest_free_path(away_from = nil)closest_free_path44,1130
   def find_closest_characterfind_closest_character75,1898
-  def find_closest_powerup(*suitable)find_closest_powerup86,2195
-  def farthest_from(paths, away_from)farthest_from106,2673
+  def find_closest_powerup(*suitable)find_closest_powerup86,2227
+  def farthest_from(paths, away_from)farthest_from106,2705
 
 entities/components/bullet_physics.rb,371
 class BulletPhysics < ComponentBulletPhysics1,0

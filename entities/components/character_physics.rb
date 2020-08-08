@@ -78,7 +78,7 @@ class CharacterPhysics < Component
       @speed = 10
     end
     if @object.dashing
-      @speed = 100
+      @speed = 50
     end
 
     if @speed > 0

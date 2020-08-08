@@ -74,7 +74,7 @@ class AiVision
 
   def find_closest_character
     @in_sight.select do |o|
-      o.class == Character && !o.health.dead?
+      o.class == Character && !o.health.dead? && o.input.class == PlayerInput
     end.sort do |a, b|
       x, y = @viewer.x, @viewer.y
       d1 = Utils.distance_between(x, y, a.x, a.y)
