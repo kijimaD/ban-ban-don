@@ -2,7 +2,7 @@
     "pawapoke":{
 	"name": "pawapoke",
 	"weapon": "handgun",
-	"health": "200",
+	"health": "150",
 	"ai": "pawapoke",
 	"graphs": "pawapoke",
 	"graphics_mode": "isometric"
@@ -10,7 +10,7 @@
     "ishinaka":{
 	"name": "ishinaka",
 	"weapon": "launcher",
-	"health": "300",
+	"health": "200",
 	"ai": "ishinaka",
 	"graphs": "ishinaka",
 	"graphics_mode": "isometric"
@@ -18,7 +18,7 @@
     "sirase":{
 	"name": "sirase",
 	"weapon": "handgun",
-	"health": "200",
+	"health": "150",
 	"ai": "sirase",
 	"graphs": "sirase",
 	"graphics_mode": "isometric"
@@ -26,25 +26,25 @@
     "haibara":{
 	"name": "haibara",
 	"weapon": "katana",
-	"health": "200",
+	"health": "150",
 	"ai": "haibara",
 	"graphs": "haibara",
 	"graphics_mode": "isometric"
     },
     "black_ball":{
 	"name": "black_ball",
-	"collide_damage": "",
+	"collide_damage": "30",
 	"weapon": "none",
-	"health": "100",
+	"health": "140",
 	"ai": "black_ball",
 	"graphs": "black_ball",
 	"graphics_mode": "topdown"
     },
     "red_ball":{
 	"name": "red_ball",
-	"collide_damage": "",
+	"collide_damage": "20",
 	"weapon": "none",
-	"health": "120",
+	"health": "130",
 	"ai": "red_ball",
 	"graphs": "red_ball",
 	"graphics_mode": "topdown"

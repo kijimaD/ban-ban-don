@@ -46,15 +46,15 @@ class MenuState < GameStateMenuState1,0
   def choice_branchchoice_branch95,2185
   def scoresscores114,3003
   def highscoreshighscores118,3070
-  def can_move_down?can_move_down?141,3587
-  def can_move_up?can_move_up?145,3654
-  def move_soundmove_sound149,3698
-  def ok_soundok_sound153,3803
-  def titletitle158,3931
-  def info(msg)info162,4037
-  def title_menustitle_menus166,4138
-  def imagesimages171,4216
-  def cursorcursor176,4328
+  def can_move_down?can_move_down?141,3588
+  def can_move_up?can_move_up?145,3655
+  def move_soundmove_sound149,3699
+  def ok_soundok_sound153,3804
+  def titletitle158,3932
+  def info(msg)info162,4038
+  def title_menustitle_menus166,4139
+  def imagesimages171,4217
+  def cursorcursor176,4329
 
 game_states/choice_state.rb,616
 class ChoiceState < GameStateChoiceState1,0
@@ -427,17 +427,17 @@ class CharacterPhysics < ComponentCharacterPhysics1,0
   def initialize(object, object_pool)initialize6,137
   def can_move_to?(x, y)can_move_to?14,304
   def do_hit(obj)do_hit47,1221
-  def moving?moving?56,1456
-  def not_recently_collide_damage?not_recently_collide_damage?60,1492
-  def updateupdate64,1597
-  def box_widthbox_width121,2845
-  def box_heightbox_height125,2909
-  def boxbox129,2976
-  def change_direction(new_direction)change_direction139,3160
-  def collides_with_point?(x, y)collides_with_point?147,3361
-  def apply_movement_penalty(speed)apply_movement_penalty151,3436
-  def accelerateaccelerate155,3526
-  def deceleratedecelerate159,3583
+  def moving?moving?56,1489
+  def not_recently_collide_damage?not_recently_collide_damage?60,1525
+  def updateupdate64,1630
+  def box_widthbox_width121,2878
+  def box_heightbox_height125,2942
+  def boxbox129,3009
+  def change_direction(new_direction)change_direction139,3193
+  def collides_with_point?(x, y)collides_with_point?147,3394
+  def apply_movement_penalty(speed)apply_movement_penalty151,3469
+  def accelerateaccelerate155,3559
+  def deceleratedecelerate159,3616
 
 entities/components/powerup_graphics.rb,243
 class PowerupGraphics < ComponentPowerupGraphics1,0

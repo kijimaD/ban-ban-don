@@ -46,8 +46,9 @@ class CharacterPhysics < Component
 
   def do_hit(obj)
     if @object.character_parameter['collide_damage']
+      collide_damage = @object.character_parameter['collide_damage'].to_i + rand(-10..10)
       if obj && not_recently_collide_damage?
-        obj.health.inflict_damage(rand(20..40), object)
+        obj.health.inflict_damage(collide_damage, object)
         @last_hit = Gosu.milliseconds
       end
     end
