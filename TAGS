@@ -41,20 +41,20 @@ class MenuState < GameStateMenuState1,0
   def musicmusic28,451
   def updateupdate32,543
   def drawdraw35,563
-  def button_down(id)button_down66,1486
-  def bgbg94,2146
-  def choice_branchchoice_branch98,2220
-  def scoresscores117,3038
-  def highscoreshighscores121,3105
-  def can_move_down?can_move_down?141,3548
-  def can_move_up?can_move_up?145,3615
-  def move_soundmove_sound149,3659
-  def ok_soundok_sound153,3764
-  def titletitle158,3892
-  def info(msg)info162,3998
-  def title_menustitle_menus166,4099
-  def imagesimages171,4177
-  def cursorcursor176,4289
+  def button_down(id)button_down63,1451
+  def bgbg91,2111
+  def choice_branchchoice_branch95,2185
+  def scoresscores114,3003
+  def highscoreshighscores118,3070
+  def can_move_down?can_move_down?141,3587
+  def can_move_up?can_move_up?145,3654
+  def move_soundmove_sound149,3698
+  def ok_soundok_sound153,3803
+  def titletitle158,3931
+  def info(msg)info162,4037
+  def title_menustitle_menus166,4138
+  def imagesimages171,4216
+  def cursorcursor176,4328
 
 game_states/choice_state.rb,616
 class ChoiceState < GameStateChoiceState1,0

@@ -128,6 +128,9 @@ class MenuState < GameState
       sorted = i.sort{|a,b|
         b[1].to_i<=>a[1].to_i
       }
+      until sorted[0]
+        sorted[0] = [difficulty, "-", "-"]
+      end
       @highscores << sorted[0]
     end
   end
