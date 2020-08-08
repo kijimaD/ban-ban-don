@@ -2,7 +2,7 @@
     "pawapoke":{
 	"name": "pawapoke",
 	"weapon": "handgun",
-	"health": "300",
+	"health": "200",
 	"ai": "pawapoke",
 	"graphs": "pawapoke",
 	"graphics_mode": "isometric"
@@ -10,7 +10,7 @@
     "ishinaka":{
 	"name": "ishinaka",
 	"weapon": "launcher",
-	"health": "500",
+	"health": "300",
 	"ai": "ishinaka",
 	"graphs": "ishinaka",
 	"graphics_mode": "isometric"
@@ -26,7 +26,7 @@
     "haibara":{
 	"name": "haibara",
 	"weapon": "katana",
-	"health": "300",
+	"health": "200",
 	"ai": "haibara",
 	"graphs": "haibara",
 	"graphics_mode": "isometric"

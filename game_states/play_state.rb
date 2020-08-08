@@ -99,6 +99,10 @@ class PlayState < GameState
     end
   end
 
+  def random_character
+    load_character_parameters["#{load_character_parameters.keys.sample}"]
+  end
+
   private
 
   def update_caption
@@ -140,10 +144,6 @@ class PlayState < GameState
 
   def player_selected_character
     load_character_parameters["#{@player_selected_character}"]
-  end
-
-  def random_character
-    load_character_parameters["#{load_character_parameters.keys.sample}"]
   end
 
 end

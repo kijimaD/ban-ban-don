@@ -78,7 +78,8 @@ class BulletPhysics < Component
   def do_hit(obj = nil)
     @game_object.sounds.hit(@game_object, @object_pool.camera)
     if obj
-      obj.health.inflict_damage(20, object.source)
+      damage = @game_object.weapon['damage'].to_i
+      obj.health.inflict_damage(rand(damage - 10 .. damage + 10), object.source)
     end
     object.explode
     object.target_x = x

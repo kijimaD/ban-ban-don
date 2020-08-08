@@ -21,7 +21,7 @@ class CharacterRespawnQueue
       next if k > now
       type, x, y = @respawn_queue.delete(k)
       t = type.new(@play_state, object_pool,
-                   AiInput.new(@play_state, object_pool), @play_state.character_parameters['black_ball'])
+                   AiInput.new(@play_state, object_pool), @play_state.random_character)
       t.move(x, y)
     end
     @last_respawn = now
