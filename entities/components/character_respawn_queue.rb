@@ -1,6 +1,6 @@
 # TODO: Unity powerup_respawn_queue.
 class CharacterRespawnQueue
-  RESPAWN_DELAY = 2
+  RESPAWN_DELAY = 10
   attr_reader :respawn_queue
 
   def initialize

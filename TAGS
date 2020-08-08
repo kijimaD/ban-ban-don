@@ -18,20 +18,20 @@ class GameStateGameState1,0
   def needs_redraw?needs_redraw?21,220
   def button_down(id)button_down25,256
 
-game_states/play_state.rb,596
+game_states/play_state.rb,598
 class PlayState < GameStatePlayState1,0
-  def initialize(settings = {"difficulty"=> 0, "chara"=> "sirase"})initialize6,172
-  def enterenter25,801
-  def leaveleave29,843
-  def updateupdate34,912
-  def drawdraw44,1076
-  def button_down(id)button_down68,1724
-  def update_captionupdate_caption102,2550
-  def create_characters(amount)create_characters112,2848
-  def spawn_enemyspawn_enemy126,3376
-  def load_character_parametersload_character_parameters136,3654
-  def player_selected_characterplayer_selected_character140,3768
-  def random_characterrandom_character144,3870
+  def initialize(settings = {"difficulty"=> 0, "chara"=> "sirase"})initialize6,192
+  def enterenter27,977
+  def leaveleave31,1019
+  def updateupdate36,1088
+  def drawdraw46,1252
+  def button_down(id)button_down70,1900
+  def update_captionupdate_caption104,2726
+  def create_characters(amount)create_characters114,3024
+  def spawn_enemyspawn_enemy128,3552
+  def load_character_parametersload_character_parameters137,3809
+  def player_selected_characterplayer_selected_character141,3923
+  def random_characterrandom_character145,4025
 
 game_states/menu_state.rb,681
 class MenuState < GameStateMenuState1,0
@@ -305,9 +305,9 @@ class MapMap1,0
 
 entities/components/character_respawn_queue.rb,199
 class CharacterRespawnQueueCharacterRespawnQueue2,37
-  def initializeinitialize6,115
-  def enqueue(delay_seconds, type, x, y, play_state)enqueue11,201
-  def respawn(object_pool)respawn17,399
+  def initializeinitialize6,116
+  def enqueue(delay_seconds, type, x, y, play_state)enqueue11,202
+  def respawn(object_pool)respawn17,400
 
 entities/components/damage_graphics.rb,157
 class DamageGraphics < ComponentDamageGraphics1,0
@@ -647,16 +647,16 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
 entities/character.rb,487
 class Character < GameObjectCharacter1,0
   def initialize(object, object_pool, input, character_parameter)initialize12,407
-  def boxbox33,1257
-  def shoot(target_x, target_y)shoot37,1291
-  def dashdash58,1899
-  def can_dash?can_dash?65,2001
-  def can_shoot?can_shoot?69,2087
-  def recently_shoot?recently_shoot?73,2193
-  def reloadreload77,2292
-  def on_collision(object)on_collision92,2652
-  def reset_modifiersreset_modifiers104,2915
-  def weaponweapon109,2996
+  def boxbox31,1101
+  def shoot(target_x, target_y)shoot35,1135
+  def dashdash56,1743
+  def can_dash?can_dash?63,1845
+  def can_shoot?can_shoot?67,1931
+  def recently_shoot?recently_shoot?71,2037
+  def reloadreload75,2136
+  def on_collision(object)on_collision90,2496
+  def reset_modifiersreset_modifiers102,2759
+  def weaponweapon107,2840
 
 entities/bullet.rb,221
 class Bullet < GameObjectBullet1,0

@@ -1,7 +1,7 @@
 class PlayState < GameState
   RESPAWN_DELAY = 20
   attr_accessor :update_interval, :object_pool, :character, :announce,
-                :difficulty, :character_parameters
+                :difficulty, :difficulty_factor, :character_parameters
 
   def initialize(settings = {"difficulty"=> 0, "chara"=> "sirase"})
     @object_pool = ObjectPool.new(Map.bounding_box)
@@ -10,6 +10,8 @@ class PlayState < GameState
     @camera = Camera.new
     @object_pool.camera = @camera
     @difficulty = settings["difficulty"]
+    difficulty_factors = { 'easy' => 0.3, 'normal' => 0.5, 'hard' => 0.7, 'powerful' => 1.0 }
+    @difficulty_factor = difficulty_factors[@difficulty].to_i
     @player_selected_character = settings["chara"]
     load_character_parameters
     if $debug
@@ -124,7 +126,7 @@ class PlayState < GameState
   end
 
   def spawn_enemy
-    if object_pool.character_respawn_queue.respawn_queue.length < @difficulty.to_i + 1
+    if object_pool.character_respawn_queue.respawn_queue.length < @difficulty_factor + 1
       x, y = @map.spawn_point
       object_pool.character_respawn_queue.enqueue(
         RESPAWN_DELAY,
