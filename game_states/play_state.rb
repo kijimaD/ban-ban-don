@@ -1,6 +1,7 @@
 class PlayState < GameState
+  RESPAWN_DELAY = 20
   attr_accessor :update_interval, :object_pool, :character, :announce,
-                :difficulty
+                :difficulty, :difficulty_factor, :character_parameters
 
   def initialize(settings = {"difficulty"=> 0, "chara"=> "sirase"})
     @object_pool = ObjectPool.new(Map.bounding_box)
@@ -9,8 +10,10 @@ class PlayState < GameState
     @camera = Camera.new
     @object_pool.camera = @camera
     @difficulty = settings["difficulty"]
+    difficulty_factors = { 'easy' => 0.3, 'normal' => 0.5, 'hard' => 0.7, 'powerful' => 1.0 }
+    @difficulty_factor = difficulty_factors[@difficulty].to_i
     @player_selected_character = settings["chara"]
-    character_parameters
+    load_character_parameters
     if $debug
       number_of_people = 0
     else
@@ -37,6 +40,7 @@ class PlayState < GameState
     @hud.update
     @announce.update
     update_caption
+    spawn_enemy
   end
 
   def draw
@@ -78,7 +82,7 @@ class PlayState < GameState
     end
     if id == Gosu::KbT && $debug
       t = Character.new(self, @object_pool,
-                   AiInput.new(self, @object_pool), random_character)
+                        AiInput.new(self, @object_pool), load_character_parameters['black_ball'])
       x, y = @camera.mouse_coords
       t.move(x, y)
     end
@@ -93,6 +97,10 @@ class PlayState < GameState
       @play_state = PlayState.new
       GameState.switch(@play_state)
     end
+  end
+
+  def random_character
+    load_character_parameters["#{load_character_parameters.keys.sample}"]
   end
 
   private
@@ -114,23 +122,28 @@ class PlayState < GameState
     @ai = []
     amount.times do |i|
       @ai << (Character.new(self, @object_pool, AiInput.new(
-                              self, @object_pool), random_character))
+                              self, @object_pool), load_character_parameters["black_ball"]))
     end
     @camera.target = @character
     @hud = HUD.new(@object_pool, @character)
     random_character
   end
 
-  def character_parameters
-    @@character_parameters ||= Utils.load_json("characters_parameter.json")
+  def spawn_enemy
+    if object_pool.character_respawn_queue.respawn_queue.length < @difficulty_factor + 1
+      x, y = @map.spawn_point
+      object_pool.character_respawn_queue.enqueue(
+        RESPAWN_DELAY,
+        Character, x, y, self)
+    end
+  end
+
+  def load_character_parameters
+    @character_parameters ||= Utils.load_json("characters_parameter.json")
   end
 
   def player_selected_character
-    character_parameters["#{@player_selected_character}"]
-  end
-
-  def random_character
-    character_parameters["#{character_parameters.keys.sample}"]
+    load_character_parameters["#{@player_selected_character}"]
   end
 
 end

@@ -38,9 +38,7 @@ class PlayerInput < Component
     end
 
     if Utils.button_down?(Gosu::KbLeftShift) || Utils.button_down?(Gosu::KbRightShift)
-      object.turbo = true
-    else
-      object.turbo = false
+      object.dash
     end
 
     if Utils.button_up?(Gosu::KbLeftShift)

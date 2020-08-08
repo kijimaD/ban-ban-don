@@ -8,9 +8,6 @@ class AnnounceGraphics
   end
 
   def draw
-    if @object.win
-      win_or_lose("win!!")
-    end
     if @object.lose
       win_or_lose("lose!!")
     end

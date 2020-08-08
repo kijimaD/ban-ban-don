@@ -1,8 +1,11 @@
 class CharacterPhysics < Component
   attr_accessor :speed, :in_collision, :collides_with
+  COLLIDE_DAMAGE_TIME = 1000
+  DASH_TIME = 150
 
-  def initialize(game_object, object_pool)
-    super(game_object)
+  def initialize(object, object_pool)
+    super(object)
+    @object = object
     @object_pool = object_pool
     @map = object_pool.map
     @speed, @shift = 0.0
@@ -21,14 +24,17 @@ class CharacterPhysics < Component
       if Utils.collides_with_poly?(obj.box, *object.box)
         if obj.is_a? Powerup
           obj.on_collision(object)
+        elsif obj.is_a? Character
+          do_hit(obj)
+          @collides_with = obj
         else
           @collides_with = obj
-          old_distance = Utils.distance_between(
-            obj.x, obj.y, old_x, old_y)
-          new_distance = Utils.distance_between(
-            obj.x, obj.y, x, y)
-          return false if new_distance < old_distance
         end
+        old_distance = Utils.distance_between(
+          obj.x, obj.y, old_x, old_y)
+        new_distance = Utils.distance_between(
+          obj.x, obj.y, x, y)
+        return false if new_distance < old_distance
       else
         @collides_with = nil
       end
@@ -38,12 +44,26 @@ class CharacterPhysics < Component
     object.move(old_x, old_y)
   end
 
+  def do_hit(obj)
+    if @object.character_parameter['collide_damage']
+      if obj && not_recently_collide_damage?
+        obj.health.inflict_damage(rand(20..40), object)
+        @last_hit = Gosu.milliseconds
+      end
+    end
+  end
+
   def moving?
     @speed > 0
   end
 
+  def not_recently_collide_damage?
+    Gosu.milliseconds - (@last_hit || 0) > COLLIDE_DAMAGE_TIME
+  end
+
   def update
-    if object.number_ammo == 0 && object.number_magazine > 0
+    # if object.number_ammo == 0 && object.number_magazine > 0
+    if object.number_ammo == 0
       object.reload
     end
 
@@ -53,11 +73,12 @@ class CharacterPhysics < Component
       decelerate
     end
 
-    if object.turbo
-      turbo
+    if Gosu.milliseconds - (@object.last_dash || 0) > DASH_TIME && @object.dashing
+      @object.dashing = false
+      @speed = 10
     end
-    if object.reset
-      reset
+    if @object.dashing
+      @speed = 100
     end
 
     if @speed > 0
@@ -107,11 +128,11 @@ class CharacterPhysics < Component
 
   def box
     w = object.graphics.width / 2
-    h = object.graphics.height
-    [x - w, y - h,
-     x + w, y - h,
-     x + w, y,
-     x - w, y,
+    h = object.graphics.height / 2
+    [x - w, y - h - h,
+     x + w, y - h - h,
+     x + w, y + h - h,
+     x - w, y + h - h,
     ]
   end
 
@@ -138,14 +159,6 @@ class CharacterPhysics < Component
   def decelerate
     @speed -= 5.0 if @speed > 0
     @speed = 0.0 if @speed < 0
-  end
-
-  def turbo
-    @speed = 100
-  end
-
-  def reset
-    @speed = 1
   end
 
 end

@@ -153,7 +153,7 @@ class MenuState < GameState
   # ------------------------
 
   def title
-    @title ||= Gosu::Image.from_text("BBD", 80, options = {font: Utils.title_font})
+    @title ||= Gosu::Image.from_text("B.B.D.", 80, options = {font: Utils.title_font})
   end
 
   def info(msg)

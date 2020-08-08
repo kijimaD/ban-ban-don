@@ -1,10 +1,11 @@
 class ObjectPool
   attr_accessor :objects, :map, :camera,
-                :powerup_respawn_queue
+                :powerup_respawn_queue, :character_respawn_queue
 
   def initialize(box)
     @tree = QuadTree.new(box)
     @powerup_respawn_queue = PowerupRespawnQueue.new
+    @character_respawn_queue = CharacterRespawnQueue.new
     @objects = []
   end
 
@@ -34,6 +35,7 @@ class ObjectPool
       end
     end
     @powerup_respawn_queue.respawn(self)
+    @character_respawn_queue.respawn(self)
   end
 
   def nearby_point(cx, cy, max_distance, min_distance = 0, object = nil)
