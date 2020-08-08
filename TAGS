@@ -635,14 +635,14 @@ class CharacterGraphics < ComponentCharacterGraphics1,0
   def widthwidth62,1554
   def heightheight66,1589
   def body_directionbody_direction70,1626
-  def state_image(directional_graphics)state_image80,2026
-  def draw_weapondraw_weapon97,2484
-  def damage_flashingdamage_flashing108,2849
-  def damagedamage114,3037
-  def charascharas118,3091
-  def weaponsweapons123,3245
-  def different?(runs)different?130,3382
-  def gen_image_arraygen_image_array136,3463
+  def state_image(directional_graphics)state_image80,2020
+  def draw_weapondraw_weapon97,2478
+  def damage_flashingdamage_flashing108,2843
+  def damagedamage114,3031
+  def charascharas118,3085
+  def weaponsweapons123,3239
+  def different?(runs)different?130,3376
+  def gen_image_arraygen_image_array136,3457
 
 entities/character.rb,487
 class Character < GameObjectCharacter1,0

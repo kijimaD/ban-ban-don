@@ -72,7 +72,7 @@ class CharacterGraphics < Component
       i = (object.direction / 45) % 8
       charas.frame(state_image(@image_array[i]).to_s + ".png")
     elsif object.character_parameter['graphics_mode'] == "topdown"
-      @shadow = charas.frame("black_ball_shadow" + ".png")
+      @shadow = charas.frame("ball_shadow" + ".png")
       charas.frame(object.character_parameter['graphs'].to_s + ".png")
     end
   end

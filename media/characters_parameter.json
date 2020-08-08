@@ -39,5 +39,14 @@
 	"ai": "black_ball",
 	"graphs": "black_ball",
 	"graphics_mode": "topdown"
+    },
+    "red_ball":{
+	"name": "red_ball",
+	"collide_damage": "",
+	"weapon": "none",
+	"health": "120",
+	"ai": "red_ball",
+	"graphs": "red_ball",
+	"graphics_mode": "topdown"
     }
 }
